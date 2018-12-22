@@ -40,7 +40,6 @@ sku = "testItem1"
 
 api_response = ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
 
-print("aaa")
 code = api_response.status_code
 print("code")
 print(code)

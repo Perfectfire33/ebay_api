@@ -1,5 +1,9 @@
 import ebay_api
 
+
+
+
+
 def inventory_createOrReplaceInventoryItem(body, token, sku):
 
     """Create the Test Case"""
@@ -23,6 +27,8 @@ def inventory_createOrReplaceInventoryItem(body, token, sku):
 
 
     """Store the addTestCase response"""
+
+    """Create the Test Case"""
 
     # Use the .json function() to get the data in json format and then we store it in api_response variable
     # api_response = api_response.json()

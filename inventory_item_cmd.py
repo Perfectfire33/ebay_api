@@ -2,7 +2,11 @@
 """
 This script will pull inventory data from Google Sheets API and send it to eBay API.
 Takes inventory items from the Google Spreadsheet and Adds or Replaces them to eBay's database.
-""
+"""
+
+
+
+
 # Import all necessary modules.
 # import xlrd
 
@@ -18,7 +22,14 @@ import sys
 
 import ebay_api_connector
 
+
 # ~~~~~~~~~~~~~~~~~~~~ Start Script ~~~~~~~~~~~~~~~~~~~~~ #
+
+
+
+
+
+
 
 print("\n")
 

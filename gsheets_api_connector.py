@@ -1,9 +1,11 @@
-import ebay_api
-
 from __future__ import print_function
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
+import ebay_api
+
+
+
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
@@ -12,6 +14,11 @@ SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 SAMPLE_SPREADSHEET_ID = '1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo'
 SHEET_GID = '1040224557'
 SAMPLE_RANGE_NAME = 'Class Data!A2:E'
+
+
+
+
+
 
 
 def getSheet():

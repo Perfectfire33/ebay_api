@@ -2,6 +2,9 @@ import requests
 import simplejson as json
 
 
+
+
+
 def getInventoryItem(url, headers):
     # Send the request with parameters and store it in response
     response = requests.get(url, headers=headers)

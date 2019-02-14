@@ -2,7 +2,7 @@
 """
 This script will pull inventory data from Google Sheets API and send it to eBay API.
 Takes inventory items from the Google Spreadsheet and Adds or Replaces them to eBay's database.
-"""
+""
 # Import all necessary modules.
 # import xlrd
 
@@ -29,8 +29,8 @@ print("-------------- Create or Replace Inventory Item  ------------------------
 
 print("\n")
 
-filepath_token = r'\Users\dick\PycharmProjects\ebay_api\token.txt'
-filepath_body = r'C:\Users\dick\PycharmProjects\ebay_api\request_payload.json'
+filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
+filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 
 token = open(filepath_token).read()
 tokenPrepared = "Bearer " + token

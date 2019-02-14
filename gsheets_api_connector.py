@@ -4,6 +4,12 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 import ebay_api
 
+"""
+This file:
+>retrieves Google Sheets credentials in format of credentials.json
+>authenticates with Google Sheets API
+>contains functions for specific sheet operations
+"""
 
 
 

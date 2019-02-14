@@ -2,44 +2,24 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 
-
-
-
 print("\n")
 print("---------------------------- Start Script ---------------------------------")
 print("-------------- Get Sheet Info  --------------------------")
 print("\n")
 
-
-
-
-
-
 # If modifying these scopes, delete the file token.json.
 # SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
 
-
-
-
 # The ID and range of a sample spreadsheet.
 SPREADSHEET_ID = '1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo'
 SHEET_RANGE = 'incoming_data!A1:D5'
-
-
-
 
 #filepath_body = r'C:\Users\dick\PycharmProjects\ebay_api\gSheet_update_body.json'
 #PAYLOAD = open(filepath_body).read()
 
 #print("PAYLOAD")
 #print(PAYLOAD)
-
-
-
-
-
-
 
 
 #
@@ -91,8 +71,6 @@ print(result2)
 values2 = result2.get('updatedRange')
 print("values2")
 print(values2)
-
-
 
 
 #filepath_token = r'\Users\dick\PycharmProjects\ebay_api\token.json'

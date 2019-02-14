@@ -5,13 +5,16 @@ from oauth2client import file, client, tools
 import ebay_api
 
 """
+GSHEETS_API_CONNECTOR.PY ~ CONNECT GOOGLE SHEETS API 
+TO OUR APP
+"""
+
+"""
 This file:
 >retrieves Google Sheets credentials in format of credentials.json
 >authenticates with Google Sheets API
 >contains functions for specific sheet operations
 """
-
-
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
@@ -20,12 +23,6 @@ SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 SAMPLE_SPREADSHEET_ID = '1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo'
 SHEET_GID = '1040224557'
 SAMPLE_RANGE_NAME = 'Class Data!A2:E'
-
-
-
-
-
-
 
 def getSheet():
     # The file token.json stores the user's access and refresh tokens, and is

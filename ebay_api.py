@@ -1,10 +1,11 @@
 import requests
 import simplejson as json
 
-
-""" This file makes HTTP calls to the eBay API"""
-""" The API response is returned"""
-
+"""
+EBAY_API.PY ~ CALL EBAY API 
+WITH REQUESTS LIBRARY 
+AND RETRIEVE RESPONSE
+"""
 
 def getInventoryItem(url, headers):
     # Send the request with parameters and store it in response

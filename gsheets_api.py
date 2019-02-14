@@ -1,8 +1,11 @@
 import requests
 import simplejson as json
 
-""" This file makes HTTP calls to the Google Sheets API"""
-""" The API response is returned"""
+"""
+GSHEETS_API.PY ~ CALL GOOGLE SHEETS API 
+WITH REQUESTS LIBRARY
+AND RETRIEVE RESPONSE
+"""
 
 # Add functions to interface with Google Sheets API
 

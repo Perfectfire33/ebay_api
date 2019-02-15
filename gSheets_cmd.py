@@ -2,6 +2,21 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 
+
+"""
+GSHEETS_CMD.PY ~ EXECUTABLE COMMAND FILE
+READ/WRITE TO/FROM
+GOOGLE SHEET API <-> EBAY API
+"""
+
+"""
+This script will:
+>authenticate with Google Sheets API
+>pull inventory data from this app's database or memory and send to Google Sheets API
+>pull inventory data from Google Sheet documents using Google Sheets API and insert into this app's database or memory
+"""
+
+
 print("\n")
 print("---------------------------- Start Script ---------------------------------")
 print("-------------- Get Sheet Info  --------------------------")

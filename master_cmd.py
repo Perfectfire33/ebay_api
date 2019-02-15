@@ -62,9 +62,29 @@ sheet = gsheets_api.getSheet(scopes, tokenPath)
 coordList = []
 #   For each XY coordinate set in the (currently only) acceptable field profile (Profile1)
 #   Save to an array (format is e.g. coordList = ["A1,B12","E1,G12","I1,K12"] )
-for item in acceptableFieldsList[0]['sheet_cell_xy_sets']:
-    coordinates = acceptableFieldsList[0]['sheet_cell_xy_sets'][item]
-    coordList.append(coordinates)
+listCount = acceptableFieldsList[0]['sheet_cell_xy_sets'].__len__()
+
+print("begin.listCount")
+print(listCount)
+print("end.listCount")
+
+counter = 0
+counter2 = 1
+while counter < listCount:
+    coordList.append(acceptableFieldsList[0]["sheet_cell_xy_sets"][counter2 - 1])
+    counter = counter + 1
+    counter2 = counter2 + 1
+
+print("begin.coordList")
+print(coordList)
+print("end.coordList")
+
+#for listCount in acceptableFieldsList[0]['sheet_cell_xy_sets']:
+    #print("begin.listCount")
+    #print(listCount)
+    #print("end.listCount")
+    #coordinates = acceptableFieldsList[0]['sheet_cell_xy_sets'][listCount]
+    #coordList.append(coordinates)
 
 # A sheet's cell's selection
 #   e.g. [start, end]
@@ -76,7 +96,10 @@ currentCoordSet = []
 currentCoordSetList = []
 # Go through coordinates list and make into acceptable format for Google Sheets API
 for item in coordList:
-    currentCoord = coordList[item]
+    #print("begin.item")
+    #print(coordList.index(item))
+    #print("end.item")
+    currentCoord = coordList[coordList.index(item)]
     currentCoordSet = currentCoord.split(",")
     currentCoordSetList.append(currentCoordSet)
 
@@ -92,8 +115,8 @@ dataSet = []
 # Cycle Through each accessible area of Google Sheets and add into dataSet array
 for area in currentCoordSetList:
     sheet_range = acceptableFieldsList[0]['sheet_name'] \
-                  + "!" + currentCoordSetList[area][0] \
-                  + ":" + currentCoordSetList[area][1]
+                  + "!" + currentCoordSetList[currentCoordSetList.index(area)][0] \
+                  + ":" + currentCoordSetList[currentCoordSetList.index(area)][1]
     dataSet.append(gsheets_api.getSheetValues(acceptableFieldsList[0]['spreadsheet_id'], sheet_range))
 
 

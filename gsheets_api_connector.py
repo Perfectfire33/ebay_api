@@ -53,7 +53,6 @@ def getAcceptableFields():
     sheet_cell_xy_sets.append("A8,B16")
     sheet_cell_xy_sets.append("D8,G16")
     sheet_cell_xy_sets.append("I8,P16")
-    sheet_cell_xy_sets.append("I8,P16")
 
     # Read in local file, hard-code, or accept user input within executable script
 

@@ -11,17 +11,70 @@ TO OUR APP
 
 """
 This file:
->
->
->
+>Calls Google Sheet APIs using Google Client Library in gsheets_api.py
+>Contains functions that are used when executing gSheets_cmd.py
+
+Variables Google Sheet APIs need:
+    For getSheet():
+        These variables must be set in a function that calls getSheet():
+        If modifying these scopes, delete the file token.json.
+        >   scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
+        >   tokenPath = 'token.json'
+
+    For getSheetValues():
+        These variables must be set in a function that calls getSheetValues()
+        The ID and range of a sample spreadsheet.
+        >   spreadsheet_id = '1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo'
+        >   sheet_range = 'Class Data!A2:E'
+        
+    For updateSheetValues():
+        These variables must be set in a function that calls updateSheetValues():
+        >   spreadsheet_id = '1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo'
+        >   sheet_range = 'mySheet!A2:E'
+        >   valInputOpt = "USER_ENTERED"
+        >   bodyData = []
+
 """
+
+# This function allows for loading a 'profile' of what Google Sheet(s)
+#   and cells within those sheets are accessible
+# Collect info about what fields need to be accessed based on a defined structure
+def getAcceptableFields():
+
+    acceptableFields_profileName = "Profile1"
+    spreadsheet_name = "eBay_API_Dashboard"
+    spreadsheet_id = "1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo"
+    sheet_name = "stage3"
+    sheet_cell_xy_sets = []
+    # Create list of xy sets (e.g. read in from file list of coordinates to select):
+    sheet_cell_xy_sets.append("A8,B16")
+    sheet_cell_xy_sets.append("D8,G16")
+    sheet_cell_xy_sets.append("I8,P16")
+
+    # Read in local file, hard-code, or accept user input within executable script
+    acceptableFields = {}
+    acceptableFields.append(acceptableFields_profileName)
+    acceptableFields.append(spreadsheet_name)
+    acceptableFields.append(spreadsheet_id)
+    acceptableFields.append(sheet_name)
+    acceptableFields.append(sheet_cell_xy_sets)
+
+    return acceptableFields
+
+
+# Pulls inventory data from Google Sheets
+# Requires a range of fields
+def gSheets_inventory_retrieveInventoryData():
+
+
+
 
 # To be referenced in:
 #   gSheets_cmd.py
 def gSheets_inventory_createOrReplaceInventoryItem(body, token, sku):
 
     # Get values given coordinates
-    values = getSheetValues(SAMPLE_SPREADSHEET_ID, SAMPLE_RANGE_NAME)
+    values = getSheetValues(spreadsheet_id, sheet_range)
     # Scroll through the array
     for row in values:
         # Print columns A and E, which correspond to indices 0 and 4.

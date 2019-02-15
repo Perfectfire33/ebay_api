@@ -2,7 +2,7 @@ from __future__ import print_function
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
-import ebay_api
+import gsheets_api
 
 """
 GSHEETS_API_CONNECTOR.PY ~ CONNECT GOOGLE SHEETS API 
@@ -13,6 +13,7 @@ TO OUR APP
 This file:
 >Calls Google Sheet APIs using Google Client Library in gsheets_api.py
 >Contains functions that are used when executing gSheets_cmd.py
+>To be referenced in gSheets_cmd.py and master_cmd.py
 
 Variables Google Sheet APIs need:
     For getSheet():
@@ -50,31 +51,47 @@ def getAcceptableFields():
     sheet_cell_xy_sets.append("A8,B16")
     sheet_cell_xy_sets.append("D8,G16")
     sheet_cell_xy_sets.append("I8,P16")
+    sheet_cell_xy_sets.append("I8,P16")
 
     # Read in local file, hard-code, or accept user input within executable script
-    acceptableFields = {}
-    acceptableFields.append(acceptableFields_profileName)
-    acceptableFields.append(spreadsheet_name)
-    acceptableFields.append(spreadsheet_id)
-    acceptableFields.append(sheet_name)
-    acceptableFields.append(sheet_cell_xy_sets)
 
-    return acceptableFields
+    # Must create for loop to add multiple 'acceptableFields' to the list of acceptable fields
+    # For now, only one is necessary
+    acceptableFields = {}
+    acceptableFields['acceptableFields_profileName'] = acceptableFields_profileName
+    acceptableFields['spreadsheet_name'] = spreadsheet_name
+    acceptableFields['spreadsheet_id'] = spreadsheet_id
+    acceptableFields['sheet_name'] = sheet_name
+    acceptableFields['sheet_cell_xy_sets'] = sheet_cell_xy_sets
+    # acceptableFields.append(acceptableFields_profileName)
+    # acceptableFields.append(spreadsheet_name)
+    # acceptableFields.append(spreadsheet_id)
+    # acceptableFields.append(sheet_name)
+    # acceptableFields.append(sheet_cell_xy_sets)
+
+    listOfAcceptableFields = []
+    listOfAcceptableFields.append(acceptableFields)
+
+    # This is accessed as e.g. listOfAcceptableFields[0].sheet_cell_xy_sets[0]
+    return listOfAcceptableFields
 
 
 # Pulls inventory data from Google Sheets
 # Requires a range of fields
 def gSheets_inventory_retrieveInventoryData():
+    # test
+    abc = "abc"
+    return abc
 
 
 
 
-# To be referenced in:
-#   gSheets_cmd.py
+# To be :
+#
 def gSheets_inventory_createOrReplaceInventoryItem(body, token, sku):
 
     # Get values given coordinates
-    values = getSheetValues(spreadsheet_id, sheet_range)
+    values = gsheets_api.getSheetValues(spreadsheet_id, sheet_range)
     # Scroll through the array
     for row in values:
         # Print columns A and E, which correspond to indices 0 and 4.
@@ -107,56 +124,3 @@ def gSheets_inventory_createOrReplaceInventoryItem(body, token, sku):
 
 
 
-def Xinventory_createOrReplaceInventoryItem(body, token, sku):
-
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    store = file.Storage('token.json')
-    creds = store.get()
-    if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
-        creds = tools.run_flow(flow, store)
-    service = build('sheets', 'v4', http=creds.authorize(Http()))
-
-    # Call the Sheets API
-    sheet = service.spreadsheets()
-
-    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range=SAMPLE_RANGE_NAME).execute()
-    values = result.get('values', [])
-
-    aa = sheet.values().get()
-
-    if not values:
-        print('No data found.')
-    else:
-        print('Name, Major:')
-        for row in values:
-            # Print columns A and E, which correspond to indices 0 and 4.
-            print('%s, %s' % (row[0], row[4]))
-
-
-    # This is the ebay URL used to add or update an inventory item                      *****IMPORTANT*****
-    api_url = 'https://api.sandbox.ebay.com/sell/inventory/v1/inventory_item/' + str(sku) + '/' # <--- Use this test env url first then Prod
-                                                            # Prod env url: https://api.ebay.com
-
-
-    # Method body
-    api_payload = body
-
-    # Method Headers
-    api_headers = {'Authorization': '%s' % token,
-                            'content-type': 'application/json',
-                            'Accept': 'application/json',
-                            'content-language': 'en-US'}
-
-    # Specify request body json data and headers
-    api_response = ebay_api.createOrReplaceInventoryItem(api_url, api_payload, api_headers)
-
-
-    """Store the addTestCase response"""
-
-    # Use the .json function() to get the data in json format and then we store it in api_response variable
-    # api_response = api_response.json()
-    return api_response

@@ -15,6 +15,7 @@ This file:
         >calls function in ebay_api.py (e.g. myData = ebay_api.myFunction(param1, param2) )
         >ebay_api.py returns JSON body from the eBay API
         >returns the api response (should contain http code, body converted to json, or any error message)
+>To be referenced in inventory_item_cmd.py and master_cmd.py
 """
 
 def inventory_createOrReplaceInventoryItem(body, token, sku):

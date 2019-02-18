@@ -1,0 +1,25 @@
+
+eBay Sell APIs
+    There are six eBay Sell APIs, all REST based.
+        Account API: Manage business policies, such as seller's payment, shipping, and return policies. Also set tax tables and check your seller privileges
+        Analytics API: Provides data on a seller's business performance
+        Fulfillment API: Manage and/or facilitate fulfilling an order including payment and shipping
+        Inventory API: Create and manage product offers
+        Marketing API: Manage the life cycle of item promotions and promoted listings and generate reports
+        Metadata API: Retrieve sales tax jurisdictions
+
+    See URL for Details:
+        https://developer.ebay.com/api-docs/sell/static/sell-landing.html
+
+
+eBay_MVP_Features
+    https://docs.google.com/drawings/d/1fz1bX5Z5pVA_NARmCia4DWOagLXOvfPjxfneT5GPJ7g/edit
+
+eBay_GSheets_API_Workflow
+    https://docs.google.com/drawings/d/1sqGooxnXVAAl2D-lybXBv206XBdmqS_MY301e8U_xpI/edit
+
+
+eBay Inventory API createOrReplaceInventoryItem
+    https://developer.ebay.com/api-docs/sell/inventory/resources/location/methods/createOrReplaceInventoryItem
+
+

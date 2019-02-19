@@ -38,11 +38,77 @@ Variables Google Sheet APIs need:
         >   bodyData = []
 
 """
+def readConfigFile():
+    configArray = []
+    xyCoordArray = []
+    configFileName = "master_cmd.setdata"
+    lines = tuple(open(configFileName, 'r'))
+    for line in lines:
+        lineA = line.split('\n')
+        if lines.index(line) >= 9:
+            configArray.append(lineA)
+
+        if lines.index(line) >= 15:
+            xyCoordArray.append(lineA)
+
+    # print("###### BEGIN read master_cmd.setdata ##############")
+    # print("---- settings lines in file ----")
+    # print("scopes =" + configArray[0][0])
+    # print("tokenPath =" + configArray[1][0])
+    # print("acceptableFields_profileName =" + configArray[2][0])
+    # print("spreadsheet_name =" + configArray[3][0])
+    # print("spreadsheet_id =" + configArray[4][0])
+    # print("sheet_name =" + configArray[5][0])
+    # print("---- settings lines in file ----")
+    # print("---- xy coord lines in file ----")
+    # print("xyCoordArray = {")
+    # for coordX in xyCoordArray:
+    #     print(xyCoordArray[xyCoordArray.index(coordX)][0])
+    # print("}")
+    # print("---- xy coord lines in file ----")
+    # print("###### END read master_cmd.setdata ##############")
+
+    scopes = configArray[0][0]
+    tokenPath = configArray[1][0]
+    acceptableFields_profileName = configArray[2][0]
+    spreadsheet_name = configArray[3][0]
+    spreadsheet_id = configArray[4][0]
+    sheet_name = configArray[5][0]
+    sheet_cell_xy_sets = []
+    # Create list of xy sets (e.g. read in from file list of coordinates to select):
+    for itemX in xyCoordArray:
+        sheet_cell_xy_sets.append(xyCoordArray[xyCoordArray.index(itemX)][0])
+
+    # configDataSet = []
+
+    # for profile in configProfileCount:
+    configData = []
+    configData.append(scopes)
+    configData.append(tokenPath)
+    configData.append(acceptableFields_profileName)
+    configData.append(spreadsheet_name)
+    configData.append(spreadsheet_id)
+    configData.append(sheet_name)
+    configData.append(sheet_cell_xy_sets)
+    # configDataSet.append(configData)
+
+    # print(configData)
+    """
+    configData[0] = scopes
+    configData[1] = tokenPath
+    configData[2] = acceptableFields_profileName
+    configData[3] = spreadsheet_name
+    configData[4] = spreadsheet_id
+    configData[5] = sheet_name
+    configData[6] = sheet_cell_xy_sets
+    """
+    return configData
+
 
 # This function allows for loading a 'profile' of what Google Sheet(s)
 #   and cells within those sheets are accessible
 # Collect info about what fields need to be accessed based on a defined structure
-def getAcceptableFields(p1,p2,p3,p4,p5):
+def getAcceptableFields(p1, p2, p3, p4, p5):
 
     acceptableFields_profileName = p1
     spreadsheet_name = p2

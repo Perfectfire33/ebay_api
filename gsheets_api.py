@@ -50,21 +50,16 @@ def getSheet(scopes, tokenPath):
         flow = client.flow_from_clientsecrets('credentials.json', scopes)
         creds = tools.run_flow(flow, store)
     service = build('sheets', 'v4', http=creds.authorize(Http()))
-
     # Call the Sheets API
     sheet = service.spreadsheets()
-
     return sheet
 
 
-# getSheetValues
+# getSheetValues()
 #   This function requires a spreadsheet id and a sheet range
 #   The sheet range is made up of a named sheet and cell coordinates (e.g. <sheet_name>!<column><row>:<column><row>)
 def getSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range):
-    #scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
-    #tokenPath = 'token.json'
     sheet = getSheet(scopes, tokenPath)
-
     result = sheet.values().get(spreadsheetId=spreadsheet_id,
                                 range=sheet_range).execute()
     values = result.get('values', [])
@@ -74,14 +69,12 @@ def getSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range):
         return values
 
 
+# updateSheetValues()
 # These variables must be set in a function that calls updateSheetValues():
 #   valInputOpt = "USER_ENTERED"
 #   bodyData = []
-def updateSheetValues(spreadsheet_id, sheet_range, valInputOpt, bodyData):
-    scopes = 'https://www.googleapis.com/auth/spreadsheets'
-    tokenPath = 'token.json'
+def updateSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range, valInputOpt, bodyData):
     sheet = getSheet(scopes, tokenPath)
-
     result = sheet.values().update(spreadsheetId=spreadsheet_id,
                                    range=sheet_range,
                                    valueInputOption=valInputOpt,

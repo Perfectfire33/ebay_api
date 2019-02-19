@@ -45,69 +45,25 @@ print("\n")
 """
 /////////////////////////// Environment Set Up /////////////////////////////////
 """
-configArray = []
-xyCoordArray = []
-configFileName = "master_cmd.setdata"
-lines = tuple(open(configFileName, 'r'))
-for line in lines:
-    lineA = line.split('\n')
-    if lines.index(line) >= 9:
-        configArray.append(lineA)
+# Get Config Data
+configData = gsheets_api_connector.readConfigFile()
+# print(configData)
 
-    if lines.index(line) >= 15:
-        xyCoordArray.append(lineA)
-
-# print("###### BEGIN read master_cmd.setdata ##############")
-# print("---- settings lines in file ----")
-# print("scopes =" + configArray[0][0])
-# print("tokenPath =" + configArray[1][0])
-# print("acceptableFields_profileName =" + configArray[2][0])
-# print("spreadsheet_name =" + configArray[3][0])
-# print("spreadsheet_id =" + configArray[4][0])
-# print("sheet_name =" + configArray[5][0])
-# print("---- settings lines in file ----")
-# print("---- xy coord lines in file ----")
-# print("xyCoordArray = {")
-# for coordX in xyCoordArray:
-#     print(xyCoordArray[xyCoordArray.index(coordX)][0])
-# print("}")
-# print("---- xy coord lines in file ----")
-# print("###### END read master_cmd.setdata ##############")
-
-scopes = configArray[0][0]
-tokenPath = configArray[1][0]
-acceptableFields_profileName = configArray[2][0]
-spreadsheet_name = configArray[3][0]
-spreadsheet_id = configArray[4][0]
-sheet_name = configArray[5][0]
-sheet_cell_xy_sets = []
-# Create list of xy sets (e.g. read in from file list of coordinates to select):
-for itemX in xyCoordArray:
-    sheet_cell_xy_sets.append(xyCoordArray[itemX][0])
-
-
-# Set current Acceptable Fields
-p1=acceptableFields_profileName
-p2=spreadsheet_name
-p3=spreadsheet_id
-p4=sheet_name
-p5=sheet_cell_xy_sets
+# Set current Config Data Params
+p1=configData[0]
+p2=configData[1]
+p3=configData[2]
+p4=configData[3]
+p5=configData[4]
+p6=configData[5]
+p7=configData[6]
 
 # Acquire List of Acceptable Fields (Areas in Google Sheets to grab data from)
-# listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p1,p2,p3,p4,p5)
+listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p3, p4, p5, p6, p7)
 
-
-# dataSet = gsheets_api_connector.getDataSet(scopes, tokenPath, listOfAcceptableFields)
-
+# Acquire Set of Google Sheet Data
+dataSet = gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
 # print(dataSet)
-
-
-
-
-
-
-
-
 
 """
 //////////// Process data from selected areas accordingly /////////////

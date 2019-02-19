@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30123449-fa91-497f-bb08-9f4db3717f89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api_calls/createOrReplaceInventoryItem.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_calls/examples/createInventoryLocation.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_calls/examples/createOrReplaceInventoryItem.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/createInventoryLocation.json" beforeDir="false" afterPath="$PROJECT_DIR$/api_calls/createInventoryLocation.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api_calls/createInventoryLocation.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+            <state relative-caret-position="289">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -481,8 +479,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api_calls/createInventoryLocation.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        <state relative-caret-position="289">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
         </state>
       </provider>
     </entry>

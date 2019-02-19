@@ -75,16 +75,13 @@ def getAcceptableFields(p1,p2,p3,p4,p5):
 
 # getDataSet retrieves the data from the selected Google Sheet area(s)
 def getDataSet(scopes, tokenPath, listOfAcceptableFields):
-    # Get accessible Google Sheet Areas
-    acceptableFieldsList = listOfAcceptableFields
-
     # These variables must be set in a function that calls getSheet()
     # If modifying these scopes, delete the file token.json.
     # scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
     # tokenPath = 'token.json'
 
     # Get Sheet
-    sheet = gsheets_api.getSheet(scopes, tokenPath)
+    # sheet = gsheets_api.getSheet(scopes, tokenPath)
 
     """
     //////////// Collect Acceptable Field Areas and put into usable array /////////////
@@ -92,7 +89,7 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
     coordList = []
     #   For each XY coordinate set in the (currently only) acceptable field profile (Profile1)
     #   Save to an array (format is e.g. coordList = ["A1,B12","E1,G12","I1,K12"] )
-    listCount = acceptableFieldsList[0]['sheet_cell_xy_sets'].__len__()
+    listCount = listOfAcceptableFields[0]['sheet_cell_xy_sets'].__len__()
 
     # print("begin.listCount")
     # print(listCount)
@@ -101,7 +98,7 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
     counter = 0
     counter2 = 1
     while counter < listCount:
-        coordList.append(acceptableFieldsList[0]["sheet_cell_xy_sets"][counter2 - 1])
+        coordList.append(listOfAcceptableFields[0]["sheet_cell_xy_sets"][counter2 - 1])
         counter = counter + 1
         counter2 = counter2 + 1
 
@@ -109,11 +106,11 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
     # print(coordList)
     # print("end.coordList")
 
-    # for listCount in acceptableFieldsList[0]['sheet_cell_xy_sets']:
+    # for listCount in listOfAcceptableFields[0]['sheet_cell_xy_sets']:
     # print("begin.listCount")
     # print(listCount)
     # print("end.listCount")
-    # coordinates = acceptableFieldsList[0]['sheet_cell_xy_sets'][listCount]
+    # coordinates = listOfAcceptableFields[0]['sheet_cell_xy_sets'][listCount]
     # coordList.append(coordinates)
 
     # A sheet's cell's selection
@@ -143,10 +140,10 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
 
     # Cycle Through each accessible area of Google Sheets and add into dataSet array
     for area in currentCoordSetList:
-        sheet_range = acceptableFieldsList[0]['sheet_name'] \
+        sheet_range = listOfAcceptableFields[0]['sheet_name'] \
                       + "!" + currentCoordSetList[currentCoordSetList.index(area)][0] \
                       + ":" + currentCoordSetList[currentCoordSetList.index(area)][1]
-        dataSet.append(gsheets_api.getSheetValues(acceptableFieldsList[0]['spreadsheet_id'], sheet_range))
+        dataSet.append(gsheets_api.getSheetValues(scopes, tokenPath, listOfAcceptableFields[0]['spreadsheet_id'], sheet_range))
 
     # Format of dataSet:
     """
@@ -165,52 +162,4 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
     print(dataSet)
     """
     return dataSet
-
-
-# Pulls inventory data from Google Sheets
-# Requires a range of fields
-def gSheets_inventory_retrieveInventoryData():
-    # test
-    abc = "abc"
-    return abc
-
-
-
-# To be :
-#
-def gSheets_inventory_createOrReplaceInventoryItem(body, token, sku):
-
-    # Get values given coordinates
-    values = gsheets_api.getSheetValues(spreadsheet_id, sheet_range)
-    # Scroll through the array
-    for row in values:
-        # Print columns A and E, which correspond to indices 0 and 4.
-        print('%s, %s' % (row[0], row[4]))
-
-
-    # This is the ebay URL used to add or update an inventory item                      *****IMPORTANT*****
-    api_url = 'https://api.sandbox.ebay.com/sell/inventory/v1/inventory_item/' + str(sku) + '/' # <--- Use this test env url first then Prod
-                                                            # Prod env url: https://api.ebay.com
-
-
-    # Method body
-    api_payload = body
-
-    # Method Headers
-    api_headers = {'Authorization': '%s' % token,
-                            'content-type': 'application/json',
-                            'Accept': 'application/json',
-                            'content-language': 'en-US'}
-
-    # Specify request body json data and headers
-    api_response = ebay_api.createOrReplaceInventoryItem(api_url, api_payload, api_headers)
-
-
-    """Store the addTestCase response"""
-
-    # Use the .json function() to get the data in json format and then we store it in api_response variable
-    # api_response = api_response.json()
-    return api_response
-
-
 

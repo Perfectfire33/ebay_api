@@ -60,9 +60,9 @@ def getSheet(scopes, tokenPath):
 # getSheetValues
 #   This function requires a spreadsheet id and a sheet range
 #   The sheet range is made up of a named sheet and cell coordinates (e.g. <sheet_name>!<column><row>:<column><row>)
-def getSheetValues(spreadsheet_id, sheet_range):
-    scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
-    tokenPath = 'token.json'
+def getSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range):
+    #scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
+    #tokenPath = 'token.json'
     sheet = getSheet(scopes, tokenPath)
 
     result = sheet.values().get(spreadsheetId=spreadsheet_id,

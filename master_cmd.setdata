@@ -1,0 +1,18 @@
+1 #######################################################################
+2 master_cmd.setdata ~ use this to set multiple profiles
+3 (e.g. profile1 is for sending inventory data to eBay and profile2 is for retrieving objects from eBay
+4 ############ File read begins on line 10 ##############################
+5 variable_name = "variable_value"
+6 VariableList = rows 1 through 4 are fixed, rows 5 through end of file are coordinate sets
+7   scopes, tokenPath, acceptableFields_profileName, spreadsheet_name, spreadsheet_id, sheet_name (all strings)
+8   sheet_cell_xy_sets[0], sheet_cell_xy_sets[1], sheet_cell_xy_sets[2], etc...
+-------------------------------------
+https://www.googleapis.com/auth/spreadsheets.readonly
+token.json
+Profile1
+eBay_API_Dashboard
+1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo
+stage3
+A8,B16
+D8,G16
+I8,P16

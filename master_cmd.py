@@ -6,6 +6,9 @@ import ebay_api_connector
 import gsheets_api
 import os
 import sys
+# import master_cmd.setdata
+# Reading a File Line By Line (see for removing \n, removing whitespaces):
+# https://stackoverflow.com/questions/3277503/how-to-read-a-file-line-by-line-into-a-list
 
 """
 This file:
@@ -42,20 +45,46 @@ print("\n")
 """
 /////////////////////////// Environment Set Up /////////////////////////////////
 """
+configArray = []
+xyCoordArray = []
+configFileName = "master_cmd.setdata"
+lines = tuple(open(configFileName, 'r'))
+for line in lines:
+    lineA = line.split('\n')
+    if lines.index(line) >= 9:
+        configArray.append(lineA)
 
+    if lines.index(line) >= 15:
+        xyCoordArray.append(lineA)
 
-scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
-tokenPath = 'token.json'
+# print("###### BEGIN read master_cmd.setdata ##############")
+# print("---- settings lines in file ----")
+# print("scopes =" + configArray[0][0])
+# print("tokenPath =" + configArray[1][0])
+# print("acceptableFields_profileName =" + configArray[2][0])
+# print("spreadsheet_name =" + configArray[3][0])
+# print("spreadsheet_id =" + configArray[4][0])
+# print("sheet_name =" + configArray[5][0])
+# print("---- settings lines in file ----")
+# print("---- xy coord lines in file ----")
+# print("xyCoordArray = {")
+# for coordX in xyCoordArray:
+#     print(xyCoordArray[xyCoordArray.index(coordX)][0])
+# print("}")
+# print("---- xy coord lines in file ----")
+# print("###### END read master_cmd.setdata ##############")
 
-acceptableFields_profileName = "Profile1"
-spreadsheet_name = "eBay_API_Dashboard"
-spreadsheet_id = "1Xqm9Mhe9-ADbDqo6l4oEPM1pygGof0YcUrHcpZM01vo"
-sheet_name = "stage3"
+scopes = configArray[0][0]
+tokenPath = configArray[1][0]
+acceptableFields_profileName = configArray[2][0]
+spreadsheet_name = configArray[3][0]
+spreadsheet_id = configArray[4][0]
+sheet_name = configArray[5][0]
 sheet_cell_xy_sets = []
 # Create list of xy sets (e.g. read in from file list of coordinates to select):
-sheet_cell_xy_sets.append("A8,B16")
-sheet_cell_xy_sets.append("D8,G16")
-sheet_cell_xy_sets.append("I8,P16")
+for itemX in xyCoordArray:
+    sheet_cell_xy_sets.append(xyCoordArray[itemX][0])
+
 
 # Set current Acceptable Fields
 p1=acceptableFields_profileName
@@ -65,12 +94,12 @@ p4=sheet_name
 p5=sheet_cell_xy_sets
 
 # Acquire List of Acceptable Fields (Areas in Google Sheets to grab data from)
-listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p1,p2,p3,p4,p5)
+# listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p1,p2,p3,p4,p5)
 
 
-dataSet = gsheets_api_connector.getDataSet(scopes, tokenPath, listOfAcceptableFields)
+# dataSet = gsheets_api_connector.getDataSet(scopes, tokenPath, listOfAcceptableFields)
 
-print(dataSet)
+# print(dataSet)
 
 
 

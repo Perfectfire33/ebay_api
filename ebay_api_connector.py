@@ -51,20 +51,44 @@ def load_api_calls(api_calls_dir, api_call_filename_list):
 #   call_data_array is the data of the file
 #   api_call_filename_list is the file name (1:1 ratio with call_data_array)
 #   call_identifier is the api call identifier (should be almost same as file name)
-def apiCallSelector(call_data_array, api_call_filename_list, call_identifier):
+def apiCallSelector(api_call_filename_list, call_identifier):
     currentCallData = {}
     for api_call_filename in api_call_filename_list:
-        # print("api_call_filename")
-        # print(api_call_filename)
-        # print("call_identifier")
-        # print(call_identifier)
         if call_identifier == api_call_filename:
-            # print("bbb")
-            currentCallData['api_call_filename'] = api_call_filename
-            currentCallData['api_call_data'] = call_data_array
+            currentCallData['filename'] = api_call_filename
+            currentCallData['index'] = api_call_filename_list.index(api_call_filename)
 
     return currentCallData
 
+
+# callSequence reads in a sequence file and returns an array of call names and call data
+def callSequence(callSequenceFile, api_call_filename_list, api_calls_dir):
+    call_sequence = tuple(open(callSequenceFile, 'r'))
+    call_sequence_set_filename = []
+
+    # get all call data at once
+    call_data_array = load_api_calls(api_calls_dir, api_call_filename_list)
+    # create array for data of files in sequence set
+    call_sequence_set_filedata = []
+    # create array of filepaths and filedata
+    call_sequence_set = []
+    # loop for each api call in the api call sequence
+    for call_identifier in call_sequence:
+        # select what call from pool of calls that match the current call in the sequence
+        currentCallData = apiCallSelector(api_call_filename_list, call_identifier)
+        # add the filename and index of current selected call to filename array
+        call_sequence_set_filename.append(currentCallData)
+        # select the index from the file name array and match it to the index of the data array
+        call_sequence_set_filedata.append(call_data_array[call_data_array.index(currentCallData['index'][0])])
+
+    call_sequence_set.append(call_sequence_set_filename)
+    call_sequence_set.append(call_sequence_set_filedata)
+
+    call_sequence_with_dir = {}
+    call_sequence_with_dir['call_sequence_set'] = call_sequence_set
+    call_sequence_with_dir['api_calls_dir'] = api_calls_dir
+
+    return call_sequence_with_dir
 
 
 

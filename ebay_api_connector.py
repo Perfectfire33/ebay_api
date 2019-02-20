@@ -1,4 +1,6 @@
 import ebay_api
+from os import listdir
+from os.path import isfile, join
 
 """
 EBAY_API_CONNECTOR.PY ~ CONNECT EBAY API 
@@ -17,6 +19,34 @@ This file:
         >returns the api response (should contain http code, body converted to json, or any error message)
 >To be referenced in inventory_item_cmd.py and master_cmd.py
 """
+
+
+# load_api_calls ~ reads in folder of request body .json files and returns array of filenames and filecontent
+# filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
+# filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
+# api_calls_dir = r'C:\Users\Joseph\PycharmProjects\ebay_api\'
+def get_api_call_filename_list(api_calls_dir):
+
+    api_call_filename_list = [f for f in listdir(api_calls_dir) if isfile(join(api_calls_dir, f))]
+
+    # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+    #
+
+    return api_call_filename_list
+
+def load_api_calls(api_calls_dir, api_call_filename_list):
+    call_data_array = []
+    for api_call_file in api_call_filename_list:
+        currentPath = api_calls_dir + "\\" + api_call_file
+        # print(currentPath)
+        call_data_array.append(open(currentPath).read())
+
+    return call_data_array
+
+
+
+
+
 
 def inventory_createOrReplaceInventoryItem(body, token, sku):
 

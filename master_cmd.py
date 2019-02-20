@@ -59,10 +59,10 @@ p6=configData[5]
 p7=configData[6]
 
 # Acquire List of Acceptable Fields (Areas in Google Sheets to grab data from)
-listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p3, p4, p5, p6, p7)
+# listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p3, p4, p5, p6, p7)
 
 # Acquire Set of Google Sheet Data
-dataSet = gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
+# dataSet = gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
 # print(dataSet)
 
 """
@@ -85,13 +85,20 @@ policy - return
 
 
 """
+# api_calls_dir is the file path of the api_calls folder
+#   This should eventually be set in config file
+#   JOSEPH-PC: api_calls_dir = r'C:\Users\Joseph\PycharmProjects\ebay_api\api_calls'
+#   DICK-PC: api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
+api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
+# api_call_filename_list is a list of JSON file names of the api calls in the api_calls folder
+api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls_dir)
 
-
-
-
-
-
-
+# print("api_call_filename_list")
+# print(api_call_filename_list)
+# call_data_array is an array of all the JSON request payload bodies (or data of the files in the api_calls folder)
+call_data_array = ebay_api_connector.load_api_calls(api_calls_dir, api_call_filename_list)
+# print("call_data_array.0")
+# print(call_data_array[0])
 
 
 

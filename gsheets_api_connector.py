@@ -134,6 +134,7 @@ def getAcceptableFields(p1, p2, p3, p4, p5):
 
     listOfAcceptableFields = []
     listOfAcceptableFields.append(acceptableFields)
+    # print(listOfAcceptableFields)
 
     # This is accessed as e.g. listOfAcceptableFields[0].sheet_cell_xy_sets[0]
     return listOfAcceptableFields

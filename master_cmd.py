@@ -95,6 +95,7 @@ api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls
 
 # print("api_call_filename_list")
 # print(api_call_filename_list)
+
 # call_data_array is an array of all the JSON request payload bodies (or data of the files in the api_calls folder)
 call_data_array = ebay_api_connector.load_api_calls(api_calls_dir, api_call_filename_list)
 # print("call_data_array.0")
@@ -103,6 +104,25 @@ call_data_array = ebay_api_connector.load_api_calls(api_calls_dir, api_call_file
 
 
 
+
+#Identifies what api call to make
+call_identifier = "createOrReplaceInventoryItem.json"
+
+# currentCallData = ebay_api_connector.apiCallSelector(call_data_array, api_call_filename_list, call_identifier)
+
+
+# print(currentCallData['api_call_filename'])
+# print(currentCallData['api_call_data'])
+
+callSequenceFile = r'C:\Users\dick\Documents\GitHub\ebay_api\callSequenceFile.csf'
+
+# callSequence reads in a sequence file and returns an array of call names and call data
+def callSequence(callSequenceFile, api_call_filename_list, call_data_array):
+    call_sequence = tuple(open(callSequenceFile, 'r'))
+
+    call_sequence_set = []
+    for call_identifier in call_sequence:
+        currentCallData = ebay_api_connector.apiCallSelector(call_data_array, api_call_filename_list, call_identifier)
 
 
 

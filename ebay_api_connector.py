@@ -45,6 +45,26 @@ def load_api_calls(api_calls_dir, api_call_filename_list):
 
 
 
+# apiCallSelector selects an api call to prepare based on caller function
+#   returns a filename and data of file from bigger array based on matching call_identifier
+# Variables:
+#   call_data_array is the data of the file
+#   api_call_filename_list is the file name (1:1 ratio with call_data_array)
+#   call_identifier is the api call identifier (should be almost same as file name)
+def apiCallSelector(call_data_array, api_call_filename_list, call_identifier):
+    currentCallData = {}
+    for api_call_filename in api_call_filename_list:
+        # print("api_call_filename")
+        # print(api_call_filename)
+        # print("call_identifier")
+        # print(call_identifier)
+        if call_identifier == api_call_filename:
+            # print("bbb")
+            currentCallData['api_call_filename'] = api_call_filename
+            currentCallData['api_call_data'] = call_data_array
+
+    return currentCallData
+
 
 
 

@@ -167,17 +167,24 @@ def parseExecutedCallSequence(executed_call_sequence):
 # Variables requires:
 #   uri_env ~ sandbox or production environment
 # Call Example:
-#   my_base_uri = ebay_api_connector.getBaseUri(uri_env="sandbox")
-def getBaseUri(uri_env, dir_array):
+#   base_uri = ebay_api_connector.getBaseUri(uri_env="sandbox")
+# Used in:
+#   ebay_object_defs.build_api_call()
+def getBaseUri(uri_env):
     if uri_env == 'sandbox':
         base_uri = 'https://api.sandbox.ebay.com'
 
     if uri_env == 'production':
         base_uri = 'https://api.ebay.com'
 
+    # selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
+    # selected_api_contract_json = json.loads(selected_api_contract_data)
+    # selected_api_contract_json = json.loads(selected_api_contract_data)
+    # print("selected_api_contract_data.info")
+    # print(selected_api_contract_json['info']['title'])
 
-    print('base_uri')
-    print(base_uri)
+    # print('base_uri')
+    # print(base_uri)
     return base_uri
 
 

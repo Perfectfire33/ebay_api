@@ -119,27 +119,26 @@ contract_data_array = ebay_api_connector.load_api_contracts(api_contract_dir, ap
 contract_identifier = 'sell_inventory_v1_oas3.json'
 selected_contract_fileinfo = ebay_api_connector.apiContractSelector(api_contract_filename_list, contract_identifier)
 
-print("selected_contract_fileinfo")
-print(selected_contract_fileinfo)
-print("selected_contract_fileinfo")
+# print("selected_contract_fileinfo")
+# print(selected_contract_fileinfo)
+# print("selected_contract_fileinfo")
 
 selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
 
-#print("selected_api_contract_data")
-#print(selected_api_contract_data)
-#print("selected_api_contract_data")
+# print("selected_api_contract_data")
+# print(selected_api_contract_data)
+# print("selected_api_contract_data")
 
 
-# selected_api_contract_json = json.loads(selected_api_contract_data)
+selected_api_contract_json = json.loads(selected_api_contract_data)
 # print("selected_api_contract_data.info")
 # print(selected_api_contract_json['info']['title'])
-# print("selected_api_contract_data.info")
 
 
 
 #Identifies what api call to make
-# call_identifier = "createOrReplaceInventoryItem.json"
-# selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
+call_identifier = "createOrReplaceInventoryItem.json"
+selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
 
 
 
@@ -158,6 +157,8 @@ filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 
 # print(result)
 
+uri_env="sandbox"
+base_uri = ebay_api_connector.getBaseUri(uri_env)
 
-
-
+print('base_uri')
+print(base_uri)

@@ -1,0 +1,59 @@
+{  
+   "availableQuantity":"integer",
+   "categoryId":"string",
+   "listingDescription":"string",
+   "listingPolicies":{  
+      "paymentPolicyId":"string",
+      "returnPolicyId":"string",
+      "shippingCostOverrides":[  
+         {  
+            "surcharge":{  
+               "value":"string",
+               "currency":"string"
+            },
+            "additionalShippingCost":{  
+               "value":"string",
+               "currency":"string"
+            },
+            "priority":"integer",
+            "shippingCost":{  
+               "value":"string",
+               "currency":"string"
+            },
+            "shippingServiceType":"ShippingServiceTypeEnum : [DOMESTIC,INTERNATIONAL]"
+         }
+      ],
+      "fulfillmentPolicyId":"string",
+      "ebayPlusIfEligible":"boolean"
+   },
+   "merchantLocationKey":"string",
+   "pricingSummary":{  
+      "minimumAdvertisedPrice":{  
+         "value":"string",
+         "currency":"string"
+      },
+      "pricingVisibility":"MinimumAdvertisedPriceHandlingEnum : [NONE,PRE_CHECKOUT,DURING_CHECKOUT]",
+      "originallySoldForRetailPriceOn":"SoldOnEnum : [ON_EBAY,OFF_EBAY,ON_AND_OFF_EBAY]",
+      "originalRetailPrice":{  
+         "value":"string",
+         "currency":"string"
+      },
+      "price":{  
+         "value":"string",
+         "currency":"string"
+      }
+   },
+   "quantityLimitPerBuyer":"integer",
+   "tax":{  
+      "applyTax":"boolean",
+      "thirdPartyTaxCategory":"string",
+      "vatPercentage":"number"
+   },
+   "storeCategoryNames":[  
+      "string"
+   ],
+   "lotSize":"integer",
+   "sku":"string",
+   "marketplaceId":"MarketplaceEnum : [EBAY_US,EBAY_MOTORS,EBAY_CA...]",
+   "format":"FormatTypeEnum : [FIXED_PRICE]"
+}

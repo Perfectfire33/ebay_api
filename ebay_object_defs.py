@@ -8,9 +8,19 @@ ebay object list
     inventory_item_group
 
 
+
+
+    filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
+
+    For request_payload file:
+        Create a folder of files with each file being a specific request payload (set values to placeholders, and replace placeholders with variables)
+        filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 """
 
-def createInventoryObject():
+
+
+
+def createInventoryObject(filepath_token, filepath_body):
     filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
     filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 

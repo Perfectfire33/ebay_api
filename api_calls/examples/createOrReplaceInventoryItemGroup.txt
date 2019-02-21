@@ -1,0 +1,29 @@
+{ /* InventoryItemGroup */
+"aspects" : [
+"string"
+],
+"description" : "string",
+"inventoryItemGroupKey" : "string",
+"imageUrls" : [
+"string"
+],
+"subtitle" : "string",
+"title" : "string",
+"variantSKUs" : [
+"string"
+],
+"variesBy" :
+{ /* VariesBy */
+"aspectsImageVariesBy" : [
+"string"
+],
+"specifications" : [
+{ /* Specification */
+"name" : "string",
+"values" : [
+"string"
+]
+}
+]
+}
+}

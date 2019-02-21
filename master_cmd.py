@@ -3,6 +3,7 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 import gsheets_api_connector
 import ebay_api_connector
+import simplejson as json
 import ebay_object_defs
 import gsheets_api
 import os
@@ -108,14 +109,31 @@ api_contract_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_contracts'
 # Get list of api contract filenames within directory
 api_contract_filename_list = ebay_api_connector.get_api_contract_filename_list(api_contract_dir)
 
-
 # print("api_contract_filename_list")
 # print(api_contract_filename_list)
 
 # contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
-# contract_data_array = ebay_api_connector.load_api_contracts(api_contract_dir, api_contract_filename_list)
+contract_data_array = ebay_api_connector.load_api_contracts(api_contract_dir, api_contract_filename_list)
 # print("contract_data_array.0")
 # print(contract_data_array[0])
+contract_identifier = 'sell_inventory_v1_oas3.json'
+selected_contract_fileinfo = ebay_api_connector.apiContractSelector(api_contract_filename_list, contract_identifier)
+
+print("selected_contract_fileinfo")
+print(selected_contract_fileinfo)
+print("selected_contract_fileinfo")
+
+selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
+
+#print("selected_api_contract_data")
+#print(selected_api_contract_data)
+#print("selected_api_contract_data")
+
+
+# selected_api_contract_json = json.loads(selected_api_contract_data)
+# print("selected_api_contract_data.info")
+# print(selected_api_contract_json['info']['title'])
+# print("selected_api_contract_data.info")
 
 
 
@@ -136,9 +154,9 @@ filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 
 
 
-result = ebay_object_defs.createInventoryObject(filepath_token, filepath_body)
+# result = ebay_object_defs.createInventoryObject(filepath_token, filepath_body)
 
-print(result)
+# print(result)
 
 
 

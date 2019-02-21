@@ -2,6 +2,7 @@ import ebay_api
 from os import listdir
 from os.path import isfile, join
 import ebay_api_connector
+import simplejson as json
 """
 EBAY_API_CONNECTOR.PY ~ CONNECT EBAY API 
 TO OUR APP
@@ -25,6 +26,7 @@ def get_api_contract_filename_list(api_contract_dir):
     return api_contract_filename_list
 
 # load_api_contracts retrieves the data content of the contracts specified in api_contract_filename_list
+#   example: contract_data_array = load_api_contracts(api_contract_dir, api_contract_filename_list)
 def load_api_contracts(api_contract_dir, api_contract_filename_list):
     contract_data_array = []
     for api_contract_file in api_contract_filename_list:
@@ -42,6 +44,7 @@ def load_api_contracts(api_contract_dir, api_contract_filename_list):
 #   contract_data_array is the data of the file
 #   api_contract_filename_list is the file name (1:1 ratio with call_data_array)
 #   contract_identifier is the api contract identifier (should be almost same as file name)
+#   example: selected_contract_fileinfo = apiContractSelector(api_contract_filename_list, contract_identifier)
 def apiContractSelector(api_contract_filename_list, contract_identifier):
     selected_contract_fileinfo = {}
     for api_contract_filename in api_contract_filename_list:
@@ -50,6 +53,19 @@ def apiContractSelector(api_contract_filename_list, contract_identifier):
             selected_contract_fileinfo['index'] = api_contract_filename_list.index(api_contract_filename)
 
     return selected_contract_fileinfo
+
+# apiContractAccessor retrieves critical data from the selected contract and returns it in a prepared format
+# example: selected_api_contract_data = apiContractAccessor(selected_contract_fileinfo, contract_data_array)
+def apiContractAccessor(selected_contract_fileinfo, contract_data_array):
+    # get data from the api contract file
+    selected_api_contract_data = contract_data_array[selected_contract_fileinfo['index']]
+
+    return selected_api_contract_data
+
+
+
+
+
 
 
 
@@ -158,8 +174,6 @@ def getBaseUri(uri_env, dir_array):
 
     if uri_env == 'production':
         base_uri = 'https://api.ebay.com'
-
-
 
 
     print('base_uri')

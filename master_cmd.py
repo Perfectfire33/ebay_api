@@ -121,5 +121,5 @@ callSequenceFile = r'C:\Users\dick\Documents\GitHub\ebay_api\callSequenceFile.cs
 
 call_sequence_with_dir = ebay_api_connector.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
 
-#print(call_sequence_with_dir)
+print(call_sequence_with_dir)
 

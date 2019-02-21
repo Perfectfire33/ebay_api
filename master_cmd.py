@@ -3,6 +3,7 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 import gsheets_api_connector
 import ebay_api_connector
+import ebay_object_defs
 import gsheets_api
 import os
 import sys
@@ -106,17 +107,45 @@ api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls
 
 
 #Identifies what api call to make
-call_identifier = "createOrReplaceInventoryItem.json"
+# call_identifier = "createOrReplaceInventoryItem.json"
+# selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
 
-selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
+
 
 callSequenceFile = r'C:\Users\dick\Documents\GitHub\ebay_api\callSequenceFile.csf'
 
-
-
-
 call_sequence_with_dir = ebay_api_connector.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
 
-print(call_sequence_with_dir)
+# print(call_sequence_with_dir)
+
+filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
+filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
+
+
+
+result = ebay_object_defs.createInventoryObject(filepath_token, filepath_body)
+
+print(result)
+
+# executeCallSequenceFile takes the prepared call_sequence_with_dir and executes each call against the API and
+#   returns an array of api responses
+def executeCallSequenceFile(call_sequence_with_dir):
+    print('test')
+    # For each call in call sequence,
+    # identify appropriate function based on call name,
+    #   (potentially need to build a table that maps the file call name to API call name if they are to differ)
+    # execute the function to get that api's response,
+    # and add the whole response to an array of responses
+    #   (will need to then parse the response in another function and use that data based on call success or error)
+    print('test')
+
+
+
+# parseExecutedCallSequence takes the executed_call_sequence and takes action based on each call's response
+def parseExecutedCallSequence(executed_call_sequence):
+    print('test')
+    # AA
+    # AA
+    print('test')
 
 

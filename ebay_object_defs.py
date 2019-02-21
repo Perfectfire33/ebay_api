@@ -1,4 +1,4 @@
-
+import ebay_api_connector
 
 """
 ebay object list
@@ -16,14 +16,8 @@ ebay object list
         Create a folder of files with each file being a specific request payload (set values to placeholders, and replace placeholders with variables)
         filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 """
-
-
-
-
+# createInventoryObject
 def createInventoryObject(filepath_token, filepath_body):
-    filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
-    filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
-
     # Get token from local file
     # (could write script to generate token and put in gsheet api,
     # then pull it from gsheet api to use it here)
@@ -39,7 +33,7 @@ def createInventoryObject(filepath_token, filepath_body):
     sku = "testItem1"
 
     # Call inventory_createOrReplaceInventoryItem function in ebay_api_connector.py with parameters
-    api_response = inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
+    api_response = ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
 
     code = api_response.status_code
     print("code")
@@ -47,3 +41,5 @@ def createInventoryObject(filepath_token, filepath_body):
 
     print("api_response")
     print(api_response)
+
+    return api_response

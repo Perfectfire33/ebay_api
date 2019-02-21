@@ -130,9 +130,24 @@ selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_con
 # print("selected_api_contract_data")
 
 
-selected_api_contract_json = json.loads(selected_api_contract_data)
+# selected_api_contract_json = json.loads(selected_api_contract_data)
 # print("selected_api_contract_data.info")
 # print(selected_api_contract_json['info']['title'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -160,5 +175,8 @@ filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 uri_env="sandbox"
 base_uri = ebay_api_connector.getBaseUri(uri_env)
 
-print('base_uri')
-print(base_uri)
+# print('base_uri')
+# print(base_uri)
+
+
+# built_call = ebay_object_defs.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)

@@ -106,13 +106,9 @@ api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls
 
 
 #Identifies what api call to make
-#call_identifier = "createOrReplaceInventoryItem.json"
+call_identifier = "createOrReplaceInventoryItem.json"
 
-#selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
-
-
-#print(selected_call_fileinfo['filename'])
-#print(selected_call_fileinfo['index'])
+selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
 
 callSequenceFile = r'C:\Users\dick\Documents\GitHub\ebay_api\callSequenceFile.csf'
 
@@ -122,4 +118,5 @@ callSequenceFile = r'C:\Users\dick\Documents\GitHub\ebay_api\callSequenceFile.cs
 call_sequence_with_dir = ebay_api_connector.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
 
 print(call_sequence_with_dir)
+
 

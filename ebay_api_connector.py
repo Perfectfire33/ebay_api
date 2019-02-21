@@ -19,6 +19,38 @@ This file:
         >returns the api response (should contain http code, body converted to json, or any error message)
 >To be referenced in inventory_item_cmd.py and master_cmd.py
 """
+# get_api_contract_filename_list retrieves filename list of api contracts
+def get_api_contract_filename_list(api_contract_dir):
+    api_contract_filename_list = [f for f in listdir(api_contract_dir) if isfile(join(api_contract_dir, f))]
+    return api_contract_filename_list
+
+# load_api_contracts retrieves the data content of the contracts specified in api_contract_filename_list
+def load_api_contracts(api_contract_dir, api_contract_filename_list):
+    contract_data_array = []
+    for api_contract_file in api_contract_filename_list:
+        currentPath = api_contract_dir + "\\" + api_contract_file
+        # print(currentPath)
+        contract_data_array.append(open(currentPath).read())
+
+    return contract_data_array
+
+
+
+# apiContractSelector selects an api contract to employ based on caller function
+#   returns a filename and data of file from bigger array based on matching contract_identifier
+# Variables:
+#   contract_data_array is the data of the file
+#   api_contract_filename_list is the file name (1:1 ratio with call_data_array)
+#   contract_identifier is the api contract identifier (should be almost same as file name)
+def apiContractSelector(api_contract_filename_list, contract_identifier):
+    selected_contract_fileinfo = {}
+    for api_contract_filename in api_contract_filename_list:
+        if contract_identifier == api_contract_filename:
+            selected_contract_fileinfo['filename'] = api_contract_filename
+            selected_contract_fileinfo['index'] = api_contract_filename_list.index(api_contract_filename)
+
+    return selected_contract_fileinfo
+
 
 
 # load_api_calls ~ reads in folder of request body .json files and returns array of filenames and filecontent
@@ -32,7 +64,7 @@ def get_api_call_filename_list(api_calls_dir):
     return api_call_filename_list
 
 
-
+# load_api_calls retrieves the data content of the api calls specified in api_call_filename_list
 def load_api_calls(api_calls_dir, api_call_filename_list):
     call_data_array = []
     for api_call_file in api_call_filename_list:
@@ -92,6 +124,47 @@ def callSequence(callSequenceFile, api_call_filename_list, api_calls_dir):
     call_sequence_with_dir['api_calls_dir'] = api_calls_dir
 
     return call_sequence_with_dir
+
+
+# executeCallSequenceFile takes the prepared call_sequence_with_dir and executes each call against the API and
+#   returns an array of api responses
+def executeCallSequenceFile(call_sequence_with_dir):
+    print('test')
+    # For each call in call sequence,
+    # identify appropriate function based on call name,
+    #   (potentially need to build a table that maps the file call name to API call name if they are to differ)
+    # execute the function to get that api's response,
+    # and add the whole response to an array of responses
+    #   (will need to then parse the response in another function and use that data based on call success or error)
+    print('test')
+
+
+
+# parseExecutedCallSequence takes the executed_call_sequence and takes action based on each call's response
+def parseExecutedCallSequence(executed_call_sequence):
+    print('test')
+    # AA
+    # AA
+    print('test')
+
+# getBaseUri retrieves and prepares the generic uri that is necessary in the http call
+# Variables requires:
+#   uri_env ~ sandbox or production environment
+# Call Example:
+#   my_base_uri = ebay_api_connector.getBaseUri(uri_env="sandbox")
+def getBaseUri(uri_env, dir_array):
+    if uri_env == 'sandbox':
+        base_uri = 'https://api.sandbox.ebay.com'
+
+    if uri_env == 'production':
+        base_uri = 'https://api.ebay.com'
+
+
+
+
+    print('base_uri')
+    print(base_uri)
+    return base_uri
 
 
 def inventory_createOrReplaceInventoryItem(body, token, sku):

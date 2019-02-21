@@ -103,6 +103,19 @@ api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls
 # print(call_data_array[0])
 
 
+# Set api contract file directory
+api_contract_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_contracts'
+# Get list of api contract filenames within directory
+api_contract_filename_list = ebay_api_connector.get_api_contract_filename_list(api_contract_dir)
+
+
+# print("api_contract_filename_list")
+# print(api_contract_filename_list)
+
+# contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
+# contract_data_array = ebay_api_connector.load_api_contracts(api_contract_dir, api_contract_filename_list)
+# print("contract_data_array.0")
+# print(contract_data_array[0])
 
 
 
@@ -127,25 +140,6 @@ result = ebay_object_defs.createInventoryObject(filepath_token, filepath_body)
 
 print(result)
 
-# executeCallSequenceFile takes the prepared call_sequence_with_dir and executes each call against the API and
-#   returns an array of api responses
-def executeCallSequenceFile(call_sequence_with_dir):
-    print('test')
-    # For each call in call sequence,
-    # identify appropriate function based on call name,
-    #   (potentially need to build a table that maps the file call name to API call name if they are to differ)
-    # execute the function to get that api's response,
-    # and add the whole response to an array of responses
-    #   (will need to then parse the response in another function and use that data based on call success or error)
-    print('test')
 
-
-
-# parseExecutedCallSequence takes the executed_call_sequence and takes action based on each call's response
-def parseExecutedCallSequence(executed_call_sequence):
-    print('test')
-    # AA
-    # AA
-    print('test')
 
 

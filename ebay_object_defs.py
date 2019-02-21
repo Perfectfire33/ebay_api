@@ -6,17 +6,22 @@ ebay object list
     location
     offer
     inventory_item_group
-
-
-
-
-    filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
-
+    
     For request_payload file:
         Create a folder of files with each file being a specific request payload (set values to placeholders, and replace placeholders with variables)
-        filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
 """
-# createInventoryObject
+# build_api_call populates a given templated api call with
+#   specific call information (e.g. any uri parameters, request payload)
+#   and data from Google Sheets (the getDataSet() function)
+# Variables:
+#
+def build_api_call(current_api_call, request_payload, uri_parameters):
+    print("test")
+    # test
+
+
+
+
 def createInventoryObject(filepath_token, filepath_body):
     # Get token from local file
     # (could write script to generate token and put in gsheet api,

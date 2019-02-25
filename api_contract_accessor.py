@@ -31,6 +31,23 @@ def load_selected_api_contract_data(selected_api_contract_data):
     selected_api_contract_json = json.loads(selected_api_contract_data)
     return selected_api_contract_json
 
+
+def get_contract_intel(selected_api_contract_json):
+    contract_intel = {}
+    contract_intel['api_name'] = selected_api_contract_json['info']['title']
+    server_list = []
+    server_data = {}
+    for server in selected_api_contract_json['servers']:
+        server_data['api_server_url'] = selected_api_contract_json['servers'][selected_api_contract_json['servers'].index(server)]['url']
+        server_data['api_server_base_path'] = selected_api_contract_json['servers'][selected_api_contract_json['servers'].index(server)]['variables']['basePath']['default']
+        server_list.append(server_data)
+
+    contract_intel['server_list'] = server_list
+
+    return contract_intel
+
+
+
 # retrieve list of currently selected API contract paths from loaded JSON format
 # returns an array of path names
 def get_contract_path_list(selected_api_contract_json):
@@ -39,11 +56,13 @@ def get_contract_path_list(selected_api_contract_json):
         path_list.append(path)
     return path_list
 
+
 def get_path_http_operation_list(selected_path, selected_api_contract_json):
     path_http_operation_list = []
     for http_operation in selected_api_contract_json['paths'][selected_path]:
         path_http_operation_list.append(http_operation)
     return path_http_operation_list
+
 
 def get_endpoint_tag_list(selected_path, selected_http_operation, selected_api_contract_json):
     endpoint_tag_list = []
@@ -51,17 +70,21 @@ def get_endpoint_tag_list(selected_path, selected_http_operation, selected_api_c
         endpoint_tag_list.append(tag)
     return endpoint_tag_list
 
+
 def get_endpoint_description(selected_path, selected_http_operation, selected_api_contract_json):
     endpoint_description = selected_api_contract_json['paths'][selected_path][selected_http_operation]['description']
     return endpoint_description
+
 
 def get_endpoint_operationId(selected_path, selected_http_operation, selected_api_contract_json):
     endpoint_operationId = selected_api_contract_json['paths'][selected_path][selected_http_operation]['operationId']
     return endpoint_operationId
 
+
 def get_endpoint_parameter_list(selected_path, selected_http_operation, selected_api_contract_json):
     endpoint_parameter_list = selected_api_contract_json['paths'][selected_path][selected_http_operation]['parameters']
     return endpoint_parameter_list
+
 
 def get_endpoint_response_list(selected_path, selected_http_operation, selected_api_contract_json):
     endpoint_responses_list = []
@@ -73,6 +96,42 @@ def get_endpoint_response_list(selected_path, selected_http_operation, selected_
 def get_endpoint_response_description(selected_path, selected_http_operation, selected_response_code, selected_api_contract_json):
     endpoint_response_description = selected_api_contract_json['paths'][selected_path][selected_http_operation]['responses'][selected_response_code]['description']
     return endpoint_response_description
+
+def get_endpoint_response_content(selected_path, selected_http_operation, selected_response_code, selected_api_contract_json):
+    endpoint_response_content = selected_api_contract_json['paths'][selected_path][selected_http_operation]['responses'][selected_response_code]['description']
+    return endpoint_response_content
+
+
+def get_endpoint_request_body(selected_path, selected_http_operation, selected_api_contract_json):
+    if 'requestBody' in selected_api_contract_json['paths'][selected_path][selected_http_operation]:
+        endpoint_request_body = selected_api_contract_json['paths'][selected_path][selected_http_operation]['requestBody']
+    else:
+        endpoint_request_body = "no request body present"
+    return endpoint_request_body
+
+
+def get_schema_list(selected_api_contract_json):
+    schema_list = []
+    for schema in selected_api_contract_json['components']['schemas']:
+        schema_list.append(schema)
+    return schema_list
+
+
+def get_security_scheme(selected_api_contract_json):
+    security_scheme = {}
+    security_scheme['authUrl'] = selected_api_contract_json['components']['securitySchemes']['api_auth']['flows']['authorizationCode']['authorizationUrl']
+    security_scheme['tokenUrl'] = selected_api_contract_json['components']['securitySchemes']['api_auth']['flows']['authorizationCode']['tokenUrl']
+    scope_list = []
+    for scope in selected_api_contract_json['components']['securitySchemes']['api_auth']['flows']['authorizationCode']['scopes']:
+        scope_list.append(scope)
+
+    security_scheme['scopeList'] = scope_list
+
+    return security_scheme
+
+
+
+
 
 
 

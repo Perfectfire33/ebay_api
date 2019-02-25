@@ -14,13 +14,15 @@ Structure of Inventory API OpenAPI JSON Contract:
             parameters:[ name:"", in:"", description:"", required:"", schema:{ type:"" } ], 
             responses:{ response_code:{ description:"", content:{ content_type:{ schema:{ $ref:"" } } } } } 
         }, 
-        components:{}
+        components:{ schemas:{ schema_name:{ }, securitySchemas: { api_auth: { type:"", description:"", flows:{ authorizationCode:{ authorizationUrl:"", tokenUrl:"", scopes:{ scope_list:"" } } } } } }
     }
     where
         path_name is <create function to return list of paths>
         http_type is "get", "put", "post", "delete"
         response_code is "200", "400", "404", "500"
         content_type is "application/json"
+        schema_name is <create function to return list of schemas>
+        scope_name is <create function to return list of scopes>
         
 """
 
@@ -56,29 +58,65 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
             b| BODY - template of request payload
             c| HEADERS - header keys
     """
-    selected_api_contract_json = json.loads(selected_api_contract_data)
+    # loads selected_api_contract_data into JSON-accessible format
+    selected_api_contract_json = load_selected_api_contract_data(selected_api_contract_data)
+
     api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
     http_operation = "get"
     operation_id = "getInventoryLocation"
     print("selected_api_contract_json['paths']")
     # print number of objects in json object
     # print(len(selected_api_contract_json['paths']))
-    current_path = "/location/"
-    print(len(selected_api_contract_json['paths'][current_path]))
+    current_path = "/location/{merchantLocationKey}"
+    # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
 
-    #for path in selected_api_contract_json['paths']:
-    #    if path[0]['get']['operationId'] == operation_id:
-    #        api_contract_path = selected_api_contract_json['paths'][path]
-    #        api_ = selected_api_contract_json['paths'][path]
+    # retrieve list of currently selected API contract paths
+    path_list = getContractPaths(selected_api_contract_json)
 
 
-
-
+    for path in selected_api_contract_json['paths']:
+        # print("path")
+        # print(path)
+        if path[current_path]['get']['operationId'] == operation_id:
+            #        api_contract_path = selected_api_contract_json['paths'][path]
+            #        api_ = selected_api_contract_json['paths'][path]
+            print("aa")
     api_pieces1 = "111"
     api_pieces2 = "222"
     built_api_call = api_pieces1 + api_pieces2
-
     return built_api_call
+
+# retrieve list of currently selected API contract paths from loaded JSON format
+# returns an array of path names
+def getContractPaths(selected_api_contract_json):
+    path_list = []
+    for path in selected_api_contract_json['paths']:
+        print("path")
+        print(path)
+        path_list.append(path)
+    return path_list
+
+
+# loads selected_api_contract_data into JSON-accessible format
+def load_selected_api_contract_data(selected_api_contract_data):
+    selected_api_contract_json = json.loads(selected_api_contract_data)
+    return selected_api_contract_json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

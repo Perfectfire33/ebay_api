@@ -3,11 +3,12 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 import gsheets_api_connector
 import ebay_api_connector
-import simplejson as json
 import ebay_object_defs
-import gsheets_api
+import api_local_file_accessor
+import api_sequencer
 import os
 import sys
+import simplejson as json
 # import master_cmd.setdata
 # Reading a File Line By Line (see for removing \n, removing whitespaces):
 # https://stackoverflow.com/questions/3277503/how-to-read-a-file-line-by-line-into-a-list
@@ -100,7 +101,7 @@ repo_path = r'C:\Users\Joseph\Documents\GitHub'
 # api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
 api_calls_dir = repo_path + r'\ebay_api\api_calls'
 # api_call_filename_list is a list of JSON file names of the api calls in the api_calls folder
-api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls_dir)
+api_call_filename_list = api_local_file_accessor.get_api_call_filename_list(api_calls_dir)
 
 # print("api_call_filename_list")
 # print(api_call_filename_list)
@@ -114,23 +115,23 @@ api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls
 # Set api contract file directory
 api_contract_dir = repo_path + r'\ebay_api\api_contracts'
 # Get list of api contract filenames within directory
-api_contract_filename_list = ebay_api_connector.get_api_contract_filename_list(api_contract_dir)
+api_contract_filename_list = api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
 
 # print("api_contract_filename_list")
 # print(api_contract_filename_list)
 
 # contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
-contract_data_array = ebay_api_connector.load_api_contracts(api_contract_dir, api_contract_filename_list)
+contract_data_array = api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
 # print("contract_data_array.0")
 # print(contract_data_array[0])
 contract_identifier = 'sell_inventory_v1_oas3.json'
-selected_contract_fileinfo = ebay_api_connector.apiContractSelector(api_contract_filename_list, contract_identifier)
+selected_contract_fileinfo = api_local_file_accessor.apiContractSelector(api_contract_filename_list, contract_identifier)
 
 # print("selected_contract_fileinfo")
 # print(selected_contract_fileinfo)
 # print("selected_contract_fileinfo")
 
-selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
+selected_api_contract_data = api_local_file_accessor.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
 
 # print("selected_api_contract_data")
 # print(selected_api_contract_data)
@@ -155,7 +156,7 @@ selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_con
 # Identifies what api call to make
 call_identifier = "createOrReplaceInventoryItem.json"
 # currently selected call fileinfo (filename and index in its array)
-selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
+selected_call_fileinfo = api_local_file_accessor.apiCallSelector(api_call_filename_list, call_identifier)
 # File that contains filenames of api calls to cycle through, one per line
 callSequenceFile = repo_path + r'\ebay_api\callSequenceFile.csf'
 
@@ -179,7 +180,7 @@ callSequenceFile = repo_path + r'\ebay_api\callSequenceFile.csf'
 #       index of filename,
 #       and data of file
 # )
-call_sequence_with_dir = ebay_api_connector.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
+call_sequence_with_dir = api_sequencer.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
 # print(call_sequence_with_dir)
 
 # Set filepath token for ebay api access
@@ -205,3 +206,38 @@ current_api_call_built = ebay_object_defs.build_api_call(base_uri, selected_api_
 
 print("current_api_call_built")
 print(current_api_call_built)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 import ebay_api_connector
 import simplejson as json
-
+import api_contract_accessor
 """
 Structure of Inventory API OpenAPI JSON Contract:
     { 
@@ -25,6 +25,7 @@ Structure of Inventory API OpenAPI JSON Contract:
         scope_name is <create function to return list of scopes>
         
 """
+
 
 """
 ebay object list
@@ -59,7 +60,7 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
             c| HEADERS - header keys
     """
     # loads selected_api_contract_data into JSON-accessible format
-    selected_api_contract_json = load_selected_api_contract_data(selected_api_contract_data)
+    selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
 
     api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
     http_operation = "get"
@@ -71,7 +72,7 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
 
     # retrieve list of currently selected API contract paths
-    path_list = getContractPaths(selected_api_contract_json)
+    path_list = api_contract_accessor.getContractPaths(selected_api_contract_json)
 
 
     for path in selected_api_contract_json['paths']:
@@ -86,21 +87,7 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     built_api_call = api_pieces1 + api_pieces2
     return built_api_call
 
-# retrieve list of currently selected API contract paths from loaded JSON format
-# returns an array of path names
-def getContractPaths(selected_api_contract_json):
-    path_list = []
-    for path in selected_api_contract_json['paths']:
-        print("path")
-        print(path)
-        path_list.append(path)
-    return path_list
 
-
-# loads selected_api_contract_data into JSON-accessible format
-def load_selected_api_contract_data(selected_api_contract_data):
-    selected_api_contract_json = json.loads(selected_api_contract_data)
-    return selected_api_contract_json
 
 
 

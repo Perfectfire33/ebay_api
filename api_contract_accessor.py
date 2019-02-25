@@ -98,7 +98,11 @@ def get_endpoint_response_description(selected_path, selected_http_operation, se
     return endpoint_response_description
 
 def get_endpoint_response_content(selected_path, selected_http_operation, selected_response_code, selected_api_contract_json):
-    endpoint_response_content = selected_api_contract_json['paths'][selected_path][selected_http_operation]['responses'][selected_response_code]['description']
+    if 'content' in selected_api_contract_json['paths'][selected_path][selected_http_operation]['responses'][selected_response_code]:
+        endpoint_response_content = selected_api_contract_json['paths'][selected_path][selected_http_operation]['responses'][selected_response_code]['content']
+    else:
+        endpoint_response_content = "no response content present"
+
     return endpoint_response_content
 
 
@@ -110,11 +114,17 @@ def get_endpoint_request_body(selected_path, selected_http_operation, selected_a
     return endpoint_request_body
 
 
-def get_schema_list(selected_api_contract_json):
-    schema_list = []
+def get_component_schema_list(selected_api_contract_json):
+    component_schema_list = []
     for schema in selected_api_contract_json['components']['schemas']:
-        schema_list.append(schema)
-    return schema_list
+        component_schema_list.append(schema)
+    return component_schema_list
+
+
+def get_component_schema_data(selected_schema, selected_api_contract_json):
+    component_schema_data = selected_api_contract_json['components']['schemas'][selected_schema]
+    return component_schema_data
+
 
 
 def get_security_scheme(selected_api_contract_json):

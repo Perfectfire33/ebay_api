@@ -105,20 +105,31 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     print("endpoint_responses_list")
     print(endpoint_responses_list)
 
-    selected_response_code = endpoint_responses_list[0]
+    selected_response_code = endpoint_responses_list[1]
 
     endpoint_response_description = api_contract_accessor.get_endpoint_response_description(selected_path, selected_http_operation, selected_response_code, selected_api_contract_json)
     print("endpoint_response_description")
     print(endpoint_response_description)
+
+
+    endpoint_response_content = api_contract_accessor.get_endpoint_response_content(selected_path, selected_http_operation, selected_response_code, selected_api_contract_json)
+    print("endpoint_response_content")
+    print(endpoint_response_content)
+
 
     endpoint_request_body = api_contract_accessor.get_endpoint_request_body(selected_path, selected_http_operation, selected_api_contract_json)
     print("endpoint_request_body")
     print(endpoint_request_body)
 
 
-    schema_list = api_contract_accessor.get_schema_list(selected_api_contract_json)
-    print("schema_list")
-    print(schema_list)
+    component_schema_list = api_contract_accessor.get_component_schema_list(selected_api_contract_json)
+    print("component_schema_list")
+    print(component_schema_list)
+
+    selected_schema = component_schema_list[2]
+    component_schema_data = api_contract_accessor.get_component_schema_data(selected_schema, selected_api_contract_json)
+    print("component_schema_data")
+    print(component_schema_data)
 
     security_scheme = api_contract_accessor.get_security_scheme(selected_api_contract_json)
     print("security_scheme")
@@ -127,6 +138,8 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     contract_intel = api_contract_accessor.get_contract_intel(selected_api_contract_json)
     print("contract_intel")
     print(contract_intel)
+
+
 
 
 

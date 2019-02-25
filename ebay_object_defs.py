@@ -1,33 +1,7 @@
 import ebay_api_connector
 import simplejson as json
 import api_contract_accessor
-"""
-Structure of Inventory API OpenAPI JSON Contract:
-    { 
-        openapi:"openapi version",
-        info:{ title, description, contact:{ name:"" }, license, version},
-        servers:[ url, description, variables:{ basePath:{ default:"" } } ],
-        paths:{ "path_name":{ "http_type":{ 
-            tags:[], 
-            description:"", 
-            operationId:"", 
-            parameters:[ name:"", in:"", description:"", required:"", schema:{ type:"" } ], 
-            requestBody:{ description:"", content:{ content_type: { schema:{ description:"", $ref:"" } } } },
-            responses:{ response_code:{ description:"", content:{ content_type:{ schema:{ $ref:"" } } } } } 
-        }, 
-        components:{ schemas:{ schema_name:{ }, securitySchemas: { api_auth: { type:"", description:"", flows:{ authorizationCode:{ authorizationUrl:"", tokenUrl:"", scopes:{ scope_list:"" } } } } } }
-    }
-    where
-        path_name is <create function to return list of paths>
-        http_type is "get", "put", "post", "delete"
-        response_code is "200", "400", "404", "500"
-        content_type is "application/json"
-        schema_name is <create function to return list of schemas>
-        scope_name is <create function to return list of scopes>
-    and
-        paths.requestBody is only present for calls that have a request body
 
-"""
 """
 ebay object list
     inventory_item

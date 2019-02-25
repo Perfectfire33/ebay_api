@@ -23,10 +23,8 @@ Structure of Inventory API OpenAPI JSON Contract:
         content_type is "application/json"
         schema_name is <create function to return list of schemas>
         scope_name is <create function to return list of scopes>
-        
+
 """
-
-
 """
 ebay object list
     inventory_item
@@ -73,15 +71,22 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
 
     # retrieve list of currently selected API contract paths
     path_list = api_contract_accessor.getContractPaths(selected_api_contract_json)
+    print("path_list")
+    print(path_list)
 
 
-    for path in selected_api_contract_json['paths']:
+
+    #for path in selected_api_contract_json['paths']:
         # print("path")
         # print(path)
-        if path[current_path]['get']['operationId'] == operation_id:
+        #if path[current_path]['get']['operationId'] == operation_id:
             #        api_contract_path = selected_api_contract_json['paths'][path]
             #        api_ = selected_api_contract_json['paths'][path]
-            print("aa")
+            #print("aa")
+
+
+
+
     api_pieces1 = "111"
     api_pieces2 = "222"
     built_api_call = api_pieces1 + api_pieces2

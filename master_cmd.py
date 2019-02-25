@@ -87,11 +87,18 @@ policy - return
 
 
 """
-# api_calls_dir is the file path of the api_calls folder
 #   This should eventually be set in config file
-#   JOSEPH-PC: api_calls_dir = r'C:\Users\Joseph\PycharmProjects\ebay_api\api_calls'
-#   DICK-PC: api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
-api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
+#   JOSEPH-PC:          api_calls_dir = r'C:\Users\Joseph\PycharmProjects\ebay_api\api_calls'
+#   DICK-PC:            api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
+#   WIN-UJAOO6FHEGF:    api_calls_dir = r'C:\Users\Joseph\Documents\GitHub\ebay_api\api_calls'
+repo_path = r'C:\Users\Joseph\Documents\GitHub'
+# repo_path = r'C:\Users\dick\Documents\GitHub'
+
+
+# api_calls_dir is the file path of the api_calls folder
+
+# api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
+api_calls_dir = repo_path + r'\ebay_api\api_calls'
 # api_call_filename_list is a list of JSON file names of the api calls in the api_calls folder
 api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls_dir)
 
@@ -105,7 +112,7 @@ api_call_filename_list = ebay_api_connector.get_api_call_filename_list(api_calls
 
 
 # Set api contract file directory
-api_contract_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_contracts'
+api_contract_dir = repo_path + r'\ebay_api\api_contracts'
 # Get list of api contract filenames within directory
 api_contract_filename_list = ebay_api_connector.get_api_contract_filename_list(api_contract_dir)
 
@@ -145,38 +152,56 @@ selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_con
 
 
 
-
-
-
-
-
-
-#Identifies what api call to make
+# Identifies what api call to make
 call_identifier = "createOrReplaceInventoryItem.json"
+# currently selected call fileinfo (filename and index in its array)
 selected_call_fileinfo = ebay_api_connector.apiCallSelector(api_call_filename_list, call_identifier)
+# File that contains filenames of api calls to cycle through, one per line
+callSequenceFile = repo_path + r'\ebay_api\callSequenceFile.csf'
 
-
-
-callSequenceFile = r'C:\Users\dick\Documents\GitHub\ebay_api\callSequenceFile.csf'
-
+""" Data of call_sequence_with_dir:
+#   # create array of filepaths and filedata
+#   call_sequence_set = []
+#   call_sequence_set.append(call_sequence_set_fileinfo)
+#   call_sequence_set.append(call_sequence_set_filedata)
+#   call_sequence_with_dir = {}
+#
+#   # add set of call sequence to list
+#   call_sequence_with_dir['call_sequence_set'] = call_sequence_set
+#   # add the api_calls_dir to the list as well
+#   call_sequence_with_dir['api_calls_dir'] = api_calls_dir
+"""
+# Get the data of the call sequence
+# (object includes:
+#   current api_calls directory and
+#   array of api calls that includes:
+#       filename,
+#       index of filename,
+#       and data of file
+# )
 call_sequence_with_dir = ebay_api_connector.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
-
 # print(call_sequence_with_dir)
 
-filepath_token = r'\Users\Joseph\PycharmProjects\ebay_api\token.txt'
-filepath_body = r'C:\Users\Joseph\PycharmProjects\ebay_api\request_payload.json'
+# Set filepath token for ebay api access
+filepath_token = repo_path + r'\ebay_api\token.txt'
+# This is the file that includes the api call data
+filepath_body = repo_path + r'\ebay_api\request_payload.json'
 
-
-
-# result = ebay_object_defs.createInventoryObject(filepath_token, filepath_body)
-
-# print(result)
 
 uri_env="sandbox"
 base_uri = ebay_api_connector.getBaseUri(uri_env)
-
 # print('base_uri')
 # print(base_uri)
 
+# For now, set index to one.
+current_call_index = 0
+# Set data of generic call
+request_payload = call_sequence_with_dir['call_sequence_set'][0][current_call_index]
+# Set name of generic call
+current_api_call = call_sequence_with_dir['call_sequence_set'][1][current_call_index]
+# Set uri_parameters of generic call
+uri_parameters = ""
+current_api_call_built = ebay_object_defs.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)
 
-# built_call = ebay_object_defs.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)
+print("current_api_call_built")
+print(current_api_call_built)

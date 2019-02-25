@@ -7,7 +7,7 @@
 7   scopes, tokenPath, acceptableFields_profileName, spreadsheet_name, spreadsheet_id, sheet_name (all strings)
 8   sheet_cell_xy_sets[0], sheet_cell_xy_sets[1], sheet_cell_xy_sets[2], etc...
 -------------------------------------
-https://www.googleapis.com/auth/spreadsheets.readonly
+https://www.googleapis.com/auth/spreadsheets
 token.json
 Profile1
 eBay_API_Dashboard

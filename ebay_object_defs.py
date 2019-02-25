@@ -1,6 +1,28 @@
 import ebay_api_connector
 import simplejson as json
 
+"""
+Structure of Inventory API OpenAPI JSON Contract:
+    { 
+        openapi:"openapi version",
+        info:{ title, description, contact:{ name:"" }, license, version},
+        servers:[ url, description, variables:{ basePath:{ default:"" } } ],
+        paths:{ "path_name":{ "http_type":{ 
+            tags:[], 
+            description:"", 
+            operationId:"", 
+            parameters:[ name:"", in:"", description:"", required:"", schema:{ type:"" } ], 
+            responses:{ response_code:{ description:"", content:{ content_type:{ schema:{ $ref:"" } } } } } 
+        }, 
+        components:{}
+    }
+    where
+        path_name is <create function to return list of paths>
+        http_type is "get", "put", "post", "delete"
+        response_code is "200", "400", "404", "500"
+        content_type is "application/json"
+        
+"""
 
 """
 ebay object list
@@ -28,27 +50,36 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
         2|api contract, from contractSelector
         3|uri parameters, from <new function here>? <-- not sure how to handle uri params yet
         *may need to parse current_api_call based on delimiter*
-        
-    
-        
-        
     Result of this function:
         1| put together components of api call:
             a| URI - base_uri + api-specific uri parts + call-specific uri parts + uri params
             b| BODY - template of request payload
             c| HEADERS - header keys
     """
-
     selected_api_contract_json = json.loads(selected_api_contract_data)
-
     api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
     http_operation = "get"
     operation_id = "getInventoryLocation"
+    print("selected_api_contract_json['paths']")
+    # print number of objects in json object
+    # print(len(selected_api_contract_json['paths']))
+    current_path = "/location/"
+    print(len(selected_api_contract_json['paths'][current_path]))
 
-    for path in selected_api_contract_json['paths']:
-        if path[http_operation]['operationId'] == operation_id:
-            api_contract_path = selected_api_contract_json['paths'][path]
-            # api_ = selected_api_contract_json['paths'][path]
+    #for path in selected_api_contract_json['paths']:
+    #    if path[0]['get']['operationId'] == operation_id:
+    #        api_contract_path = selected_api_contract_json['paths'][path]
+    #        api_ = selected_api_contract_json['paths'][path]
+
+
+
+
+    api_pieces1 = "111"
+    api_pieces2 = "222"
+    built_api_call = api_pieces1 + api_pieces2
+
+    return built_api_call
+
 
 
 

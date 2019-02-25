@@ -12,6 +12,7 @@ Structure of Inventory API OpenAPI JSON Contract:
             description:"", 
             operationId:"", 
             parameters:[ name:"", in:"", description:"", required:"", schema:{ type:"" } ], 
+            requestBody:{ description:"", content:{ content_type: { schema:{ description:"", $ref:"" } } } },
             responses:{ response_code:{ description:"", content:{ content_type:{ schema:{ $ref:"" } } } } } 
         }, 
         components:{ schemas:{ schema_name:{ }, securitySchemas: { api_auth: { type:"", description:"", flows:{ authorizationCode:{ authorizationUrl:"", tokenUrl:"", scopes:{ scope_list:"" } } } } } }
@@ -23,6 +24,8 @@ Structure of Inventory API OpenAPI JSON Contract:
         content_type is "application/json"
         schema_name is <create function to return list of schemas>
         scope_name is <create function to return list of scopes>
+    and
+        paths.requestBody is only present for calls that have a request body
 
 """
 """
@@ -70,9 +73,46 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
 
     # retrieve list of currently selected API contract paths
-    path_list = api_contract_accessor.getContractPaths(selected_api_contract_json)
+    path_list = api_contract_accessor.get_contract_path_list(selected_api_contract_json)
     print("path_list")
     print(path_list)
+
+    selected_path = path_list[0]
+
+    http_operation_list = api_contract_accessor.get_path_http_operation_list(selected_path, selected_api_contract_json)
+    print("http_operation_list")
+    print(http_operation_list)
+
+    selected_http_operation = http_operation_list[0]
+
+    endpoint_tag_list = api_contract_accessor.get_endpoint_tag_list(selected_path, selected_http_operation, selected_api_contract_json)
+    print("endpoint_tag_list")
+    print(endpoint_tag_list)
+
+    endpoint_description = api_contract_accessor.get_endpoint_description(selected_path, selected_http_operation, selected_api_contract_json)
+    print("endpoint_description")
+    print(endpoint_description)
+
+    endpoint_operationId = api_contract_accessor.get_endpoint_operationId(selected_path, selected_http_operation, selected_api_contract_json)
+    print("endpoint_operationId")
+    print(endpoint_operationId)
+
+    endpoint_parameter_list = api_contract_accessor.get_endpoint_parameter_list(selected_path, selected_http_operation, selected_api_contract_json)
+    print("endpoint_parameter_list")
+    print(endpoint_parameter_list)
+
+    endpoint_responses_list = api_contract_accessor.get_endpoint_response_list(selected_path, selected_http_operation, selected_api_contract_json)
+    print("endpoint_responses_list")
+    print(endpoint_responses_list)
+
+    selected_response_code = endpoint_responses_list[0]
+
+    endpoint_response_description = api_contract_accessor.get_endpoint_response_description(selected_path, selected_http_operation, selected_response_code, selected_api_contract_json)
+    print("endpoint_response_description")
+    print(endpoint_response_description)
+
+
+
 
 
 

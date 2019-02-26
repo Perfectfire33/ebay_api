@@ -212,6 +212,24 @@ print(current_api_call_built)
 
 
 
+"""
+1| use master_cmd.py as executable script (need to maybe add menu options?)
+2| gsheets_api_connector.py calls read/write to spreadsheet functions in gsheets_api.py
+2| gsheets_api_connector.py reads in a config file to know what areas of what sheets to interface with
+2| gsheets_api_connector.py can output a big data array of areas specified in the config profile
+3| need a new file for taking data from the big data array and making various app-specific objects
+4| this file initially is ebay-specific. Duplicate-style files can be made if interfacing with other APIs
+5| this file will prepare data from the spreadsheet and apply it to an app-specific (e.g. ebay inventory) schema
+6| a second new file will take objects with populated data and combine them as necessary
+        e.g. an API needs data from profile1 (spreadsheet1,sheet1,YX-YX) AND profile2 (spreadsheet2,sheet1,YX-YX)
+        e.g. an API need a new object11 from object1,object2,object7 in profile1 (spreadsheet1,sheet1,YX-YX)
+        idea: create a deriveObjectsFromProfile(schema) where 'schema' is the set of column headers to identify data
+7| then, the data is prepared so <insert function here> can use it to hit an API and return a result
+8| <insert function here> returns a result and <insert other function here> processes it (based on an input schema?)
+9| the data is then pushed to a database (e.g. Google Sheets using gsheets_api_connector.py)
+10| should retrieve a result saying that data has been successfully written (or when any operation completes)
+
+"""
 
 
 

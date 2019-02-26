@@ -1,6 +1,6 @@
 import ebay_api
 import simplejson as json
-
+import api_contract_accessor
 
 """
 EBAY_API_CONNECTOR.PY ~ CONNECT EBAY API 
@@ -48,6 +48,50 @@ def getBaseUri(uri_env):
 
 
 
+
+
+# build_api_call populates a given templated api call with
+#   specific call information (e.g. any uri parameters, request payload)
+#   and data from Google Sheets (the getDataSet() function)
+# Variables:
+#   base_uri - string - https:\\api.ebay.com or https:\\api.sandbox.ebay.com
+#   contract_identifier - string - name of api contract file used
+#   current_api_call - string - name of api call
+#   request_payload - json - request body template to be populated
+#   uri_parameters - array - this contains the required values of the uri parameters
+def build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters):
+    """
+    Need to select correct(based on call name):
+        1|request payload, from callSelector
+        2|api contract, from contractSelector
+        3|uri parameters, from <new function here>? <-- not sure how to handle uri params yet
+        *may need to parse current_api_call based on delimiter*
+    Result of this function:
+        1| put together components of api call:
+            a| URI - base_uri + api-specific uri parts + call-specific uri parts + uri params
+            b| BODY - template of request payload
+            c| HEADERS - header keys
+    """
+    # loads selected_api_contract_data into JSON-accessible format
+    selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
+
+    api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
+
+    http_operation = "get"
+    operation_id = "getInventoryLocation"
+    print("selected_api_contract_json['paths']")
+    # print number of objects in json object
+    # print(len(selected_api_contract_json['paths']))
+    current_path = "/location/{merchantLocationKey}"
+    # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
+
+
+
+
+    api_pieces1 = "111"
+    api_pieces2 = "222"
+    built_api_call = api_pieces1 + api_pieces2
+    return built_api_call
 
 
 

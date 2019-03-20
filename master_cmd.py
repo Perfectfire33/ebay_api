@@ -92,8 +92,8 @@ policy - return
 #   JOSEPH-PC:          api_calls_dir = r'C:\Users\Joseph\PycharmProjects\ebay_api\api_calls'
 #   DICK-PC:            api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
 #   WIN-UJAOO6FHEGF:    api_calls_dir = r'C:\Users\Joseph\Documents\GitHub\ebay_api\api_calls'
-repo_path = r'C:\Users\Joseph\Documents\GitHub'
-# repo_path = r'C:\Users\dick\Documents\GitHub'
+# repo_path = r'C:\Users\Joseph\Documents\GitHub'
+repo_path = r'C:\Users\dick\Documents\GitHub'
 
 
 # api_calls_dir is the file path of the api_calls folder
@@ -202,7 +202,7 @@ request_payload = call_sequence_with_dir['call_sequence_set'][0][current_call_in
 current_api_call = call_sequence_with_dir['call_sequence_set'][1][current_call_index]
 # Set uri_parameters of generic call
 uri_parameters = ""
-current_api_call_built = ebay_object_defs.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)
+current_api_call_built = ebay_api_connector.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)
 
 print("current_api_call_built")
 print(current_api_call_built)

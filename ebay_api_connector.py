@@ -1,7 +1,7 @@
 import ebay_api
 import simplejson as json
 import api_contract_accessor
-
+import api_contract_access_tests
 """
 EBAY_API_CONNECTOR.PY ~ CONNECT EBAY API 
 TO OUR APP
@@ -45,11 +45,6 @@ def getBaseUri(uri_env):
     return base_uri
 
 
-
-
-
-
-
 # build_api_call populates a given templated api call with
 #   specific call information (e.g. any uri parameters, request payload)
 #   and data from Google Sheets (the getDataSet() function)
@@ -85,19 +80,30 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     current_path = "/location/{merchantLocationKey}"
     # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
 
+    built_api_call = api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)
 
 
 
-    api_pieces1 = "111"
-    api_pieces2 = "222"
-    built_api_call = api_pieces1 + api_pieces2
+
+    # api_pieces1 = "111"
+    # api_pieces2 = "222"
+    # built_api_call = api_pieces1 + api_pieces2
     return built_api_call
 
 
 
 
+# once call is determined, find call among contracts,
+# then build call template from selected contract:
+#   request payload template
+#   uri template
+#   uri parameters template
 
-
+# once call template from selected contract is built,
+# then populate template with call data from:
+#   request payload data comes from google sheets data object based on call
+#   uri template
+#   uri parameters template
 
 
 

@@ -144,5 +144,3 @@ def get_security_scheme(selected_api_contract_json):
 
 
 
-
-

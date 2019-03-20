@@ -98,21 +98,82 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
 #   request payload template
 #   uri template
 #   uri parameters template
+#       notes:
+#           build function to 'find' an api in a contract... example unique api name:
+#               'ebay_api.commerce_api.assignCategoryToOffer'
+#
+#           could also use this in other way to pass parameters with an api call:
+#               'ebay_api.commerce_api.assignCategoryToOffer(category, offer)'
+#               this string would be manually parsed by scripts to know what to do
+#
+#           this string would then be a line in a template_sequence file
+#           the api_templator (not api_sequencer) would create four files in
+#           four directory folders: call, uri, params, headers
+#           with proper template for the supplied api call
+
+
 
 # once call template from selected contract is built,
-# then populate template with call data from:
-#   request payload data comes from google sheets data object based on call
-#   uri template
-#   uri parameters template
+# then populate template with call data from google sheets data object:
+#   request payload data
+#   uri data
+#   uri parameter data
+#
+# data may also be taken from other sources, as necessary, to make a complete api call
+# (e.g. uri params for searching may be in a txt file)
+
+# once call is built with data, send to proper API
+
+
+
+"""
+legend:
+    api_finder      ....    function that locates an api call within a contract or set of contracts
+    api_templator   ....    function that builds template files from a located api
+    api_populator   ....    function that grabs data from google sheets object and inserts it into api template files
+
+overview of process:
+    1|  command script sends what api call is necessary to api_finder 
+    2|  api_finder locates the call and sends location data to api_templator
+    3|  api_templator creates files for one api call at a time from contract data
+    4|  api_populator takes data from identified google sheet object and 
+            fills in the template, building a complete api call
+    4|  api_sequencer then takes in the populated files (needs to be improved to handle uris, params, and headers)
+            and creates data structure for app to access
+
+
+
+gsheets_data_identifier ....    function that takes data from google sheets object based on api_populator info
+                                and returns the data in a usable object (object schema determined by api_populator)
+                                to api_populator
+                                
+                                
+function workflow:
+    a. api_finder
+    b. api_templator
+    c. api_populator
+        i. gsheets_data_identifier
+    d. api_sequencer
+
+"""
+
+"""
+big overview (all workflow) summary:
+    
+    A. 
+    B. 
+    C. 
+    D. 
+    E. 
+    F. 
+    G. 
+    H. 
+    I. 
 
 
 
 
-
-
-
-
-
+"""
 
 
 

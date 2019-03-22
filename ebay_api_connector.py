@@ -106,7 +106,7 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
 #               'ebay_api.commerce_api.assignCategoryToOffer(category, offer)'
 #               this string would be manually parsed by scripts to know what to do
 #
-#           this string would then be a line in a template_sequence file
+#           this string would then be a line in a sequence file
 #           the api_templator (not api_sequencer) would create four files in
 #           four directory folders: call, uri, params, headers
 #           with proper template for the supplied api call
@@ -125,6 +125,16 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
 # once call is built with data, send to proper API
 
 
+
+# api_finder locates an api call within a contract or set of contracts
+def api_finder(operationId):
+
+    abc = ""
+
+
+
+
+    return abc
 
 """
 legend:
@@ -147,6 +157,8 @@ gsheets_data_identifier ....    function that takes data from google sheets obje
                                 and returns the data in a usable object (object schema determined by api_populator)
                                 to api_populator
                                 
+object_schema_selector  ....    selects the object schema 
+                                
                                 
 function workflow:
     a. api_finder
@@ -161,7 +173,11 @@ function workflow:
 big overview (all workflow) summary:
     
     A. 
-    B. 
+    B. api_sequencer
+        a. api_finder
+        b. api_templator
+        c. api_populator
+            i. gsheets_data_identifier
     C. 
     D. 
     E. 

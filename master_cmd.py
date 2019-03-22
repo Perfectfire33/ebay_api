@@ -108,47 +108,18 @@ api_call_filename_list = api_local_file_accessor.get_api_call_filename_list(api_
 
 # call_data_array is an array of all the JSON request payload bodies (or data of the files in the api_calls folder)
 # call_data_array = ebay_api_connector.load_api_calls(api_calls_dir, api_call_filename_list)
-# print("call_data_array.0")
-# print(call_data_array[0])
+
 
 
 # Set api contract file directory
 api_contract_dir = repo_path + r'\ebay_api\api_contracts'
 # Get list of api contract filenames within directory
 api_contract_filename_list = api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
-
-# print("api_contract_filename_list")
-# print(api_contract_filename_list)
-
 # contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
 contract_data_array = api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
-# print("contract_data_array.0")
-# print(contract_data_array[0])
 contract_identifier = 'sell_inventory_v1_oas3.json'
 selected_contract_fileinfo = api_local_file_accessor.apiContractSelector(api_contract_filename_list, contract_identifier)
-
-# print("selected_contract_fileinfo")
-# print(selected_contract_fileinfo)
-# print("selected_contract_fileinfo")
-
 selected_api_contract_data = api_local_file_accessor.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
-
-# print("selected_api_contract_data")
-# print(selected_api_contract_data)
-# print("selected_api_contract_data")
-
-
-# selected_api_contract_json = json.loads(selected_api_contract_data)
-# print("selected_api_contract_data.info")
-# print(selected_api_contract_json['info']['title'])
-
-
-
-
-
-
-
-
 
 
 

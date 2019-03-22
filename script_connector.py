@@ -58,6 +58,7 @@ research
     winter wilderness survival
 flee_prep
     safehouse stockpile (acquiring and storing goods)
+        box up everything: identical boxes, label: red=lvl1 emergency(base prep only), blue=lvl2>extra supplies
     item inventory (determining what to get)
     logistics (where to go)
     meet ups

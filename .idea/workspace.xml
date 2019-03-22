@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30123449-fa91-497f-bb08-9f4db3717f89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/script_connector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ebay_object_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/ebay_object_receiver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/script_connector.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script_connector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            <state relative-caret-position="336">
+              <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -545,8 +544,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script_connector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        <state relative-caret-position="336">
+          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
         </state>
       </provider>
     </entry>

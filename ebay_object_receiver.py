@@ -37,9 +37,47 @@ headers.append('packed_item_depth')
 # ebay incoming object row
 inventory_row = {}
 
-# inventory_row['item_id'] = dataSet[0][]
+# need to define column groups
+
+
+# set to first group of columns
+column_group = 0
+
+# get number of rows to get this header
+rows = len(dataSet[column_group])
+
+# select first column
+column = 0
+
+# get number of columns in this group of columns
+# columns = len(dataSet[column_group])
+
+for row in rows:
+        for header in headers:
+            inventory_row[header] = dataSet[column_group][row][column]
+
+
+"""
+{
+ column_group1 : {
+    
+ 
+ }
+}
+
+"""
 
 print(dataSet)
 
 print("dataSet Details:")
 print(dataSet[1][0][0])
+
+"""
+
+set header row in config file and read in headers
+maybe convert to lower case and add _ in place of spaces
+for generic google sheet scripts:
+    make header a yes/no optional
+    allow for multiple header rows (or areas within same row)
+
+"""

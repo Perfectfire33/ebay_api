@@ -58,7 +58,7 @@ research
     winter wilderness survival
 flee_prep
     safehouse stockpile (acquiring and storing goods)
-        box up everything: identical boxes, label: 
+        box up everything: identical boxes, label, waterproof-bag items inside: 
             red=lvl1emergency>(base prep only) [car-flee]
             blue=lvl2emergency>extra supplies [boat-flee]
             green=lvl3emergency>bonus supplies [multi-truck flee]

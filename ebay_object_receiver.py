@@ -34,11 +34,10 @@ headers.append('packed_item_height')
 headers.append('packed_item_length')
 headers.append('packed_item_depth')
 
-#group of headers
-header_group = []
+# group of headers
 header_group_ct = []
-header_group_data = []
-
+# groups of group of headers
+all_header_groups = []
 # switch var -- only run once for each group
 append_new_group = 0
 
@@ -46,17 +45,14 @@ append_new_group = 0
 for selected_columns in dataSet:
     print("selected_columns")
     print(selected_columns)
-
     # only run once for each group -- turn on
     append_new_group = 1
-    # header_group_data.append()
 
     for column in selected_columns:
-        print("column")
-        print(column)
-        header_group_data.append(column)
-        print("len(column)")
-        print(len(column))
+        # print("column")
+        # print(column)
+        # print("len(column)")
+        # print(len(column))
         if append_new_group == 1:
             header_group_ct.append(len(column))
 
@@ -64,45 +60,33 @@ for selected_columns in dataSet:
         append_new_group = 0
 
 
-print("header_group_ct")
-print(header_group_ct)
+# print("header_group_ct")
+# print(header_group_ct)
 
-for area_group in header_group_ct:
-    # reset_i_a
+i_v = 0
+for set_of_headers in header_group_ct:
+    # reset i_a counter
     i_a = 1
-    header_group.append(area_group)
-    while i_a <= area_group:
-        print("i_a: " + str(i_a) + "   " + "area_group: " + str(area_group))
-        header_group[area_group].append(headers[i_a])
+    # reset temp header holder
+    header_group = []
+    while i_a <= set_of_headers:
+        # print("i_a: " + str(i_a) + "   " + "set_of_headers: " + str(set_of_headers))
+        header_group.append(headers[i_v])
+        i_v = i_v + 1
         i_a = i_a + 1
     # reset i_a
     i_a = 1
+    all_header_groups.append(header_group)
 
 
 
 
-print("header_group")
-print(header_group)
-print("header_group[area_group]")
-print(header_group[1])
 
 
-
-header_group_data = dataSet[0][0]
-print("header_group_data")
-print(header_group_data)
+print("all_header_groups")
+print(all_header_groups)
 
 
-
-# get header groups
-for count in len(dataSet):
-    header_group_ct = len(dataSet[0][0])
-
-
-
-# need to define header groups
-for header_object in headers:
-    header_group.append(header_object)
 
 
 

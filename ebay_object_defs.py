@@ -43,5 +43,14 @@ def createInventoryObject(filepath_token, filepath_body):
 
     return api_response
 
+# determine what inventory type this object will be
+# object_type - one of the items in the object list:
+    #     inventory_item
+    #     location
+    #     offer
+    #     inventory_item_group
+def determineInventoryObject(object_type):
+    print("determineInventoryObject")
+    print("determine what inventory type this object will be")
+    
 
-def

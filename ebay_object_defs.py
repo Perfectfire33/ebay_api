@@ -42,3 +42,6 @@ def createInventoryObject(filepath_token, filepath_body):
     print(api_response)
 
     return api_response
+
+
+def

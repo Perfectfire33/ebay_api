@@ -13,7 +13,6 @@ ebay object list
         Create a folder of files with each file being a specific request payload (set values to placeholders, and replace placeholders with variables)
 """
 
-
 def createInventoryObject(filepath_token, filepath_body):
     # Get token from local file
     # (could write script to generate token and put in gsheet api,
@@ -25,6 +24,9 @@ def createInventoryObject(filepath_token, filepath_body):
 
     # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
     body = open(filepath_body).read()
+    # ^^ could make this a file with list of ebay API objects to create ,
+    # then get data from ebay_object_reciever.py
+    #
 
     # Get SKU from Google Sheet eBay Inventory File?
     sku = "testItem1"

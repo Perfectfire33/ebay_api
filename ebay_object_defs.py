@@ -55,12 +55,25 @@ def determineInventoryObject(object_type):
 
     if object_type == "inventory_item":
         print("object_type == inventory_item")
+        # retrieve 'add inventory_item' API call from contract
 
-    if object_type == "inventory_item":
-        print("object_type == inventory_item")
+        # return selected api call data
 
-    if object_type == "inventory_item":
-        print("object_type == inventory_item")
+    if object_type == "location":
+        print("object_type == location")
+        # retrieve 'add location' API call from contract
 
+        # return selected api call data
 
+    if object_type == "offer":
+        print("object_type == offer")
+        # retrieve 'add offer' API call from contract
+
+        # return selected api call data
+
+    if object_type == "inventory_item_group":
+        print("object_type == inventory_item_group")
+        # retrieve 'add inventory_item_group' API call from contract
+
+        # return selected api call data
 

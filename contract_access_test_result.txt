@@ -1,0 +1,65 @@
+C:\Users\dick\PycharmProjects\ebay_api\venv\Scripts\python.exe C:/Users/dick/Documents/GitHub/ebay_api/api_contract_access_test_exec.py
+path_list
+['/location/{merchantLocationKey}', '/location/{merchantLocationKey}/disable', '/location/{merchantLocationKey}/enable', '/location/', '/location/{merchantLocationKey}/update_location_details', 
+'/inventory_item/{sku}', '/inventory_item', '/bulk_update_price_quantity', '/bulk_create_or_replace_inventory_item', '/bulk_get_inventory_item', '/inventory_item/{sku}/product_compatibility', 
+'/offer', '/offer/{offerId}', '/offer/{offerId}/publish/', '/offer/publish_by_inventory_item_group/', '/offer/withdraw_by_inventory_item_group', '/offer/get_listing_fees', '/bulk_create_offer', 
+'/bulk_publish_offer', '/offer/{offerId}/withdraw', 
+'/inventory_item_group/{inventoryItemGroupKey}', 
+'/bulk_migrate_listing']
+
+http_operation_list
+['get', 'post', 'delete']
+
+endpoint_tag_list
+['location']
+
+endpoint_description
+<p>Use this call to create a new inventory location. In order to create and publish an offer (and create an eBay listing),
+ a seller must have at least one inventory location, as every offer must be associated with a location.</p><p>
+ Upon first creating an inventory location, only a seller-defined location identifier and a physical location is required, and once set,
+ these values can not be changed. The unique identifier value (<i>merchantLocationKey</i>) is passed in at the end of the call URI. 
+ This <i>merchantLocationKey</i> value will be used in other Inventory Location calls to identify the inventory location to perform an action against.</p>
+ <p>At this time, location types are either warehouse or store. Warehouse locations are used for traditional shipping, and store locations are generally
+ used by US merchants selling products through the In-Store Pickup program, or used by UK, Australian, and German merchants selling products through the 
+ Click and Collect program. A full address is required for store inventory locations. However, for warehouse inventory locations, a full street address is not needed, 
+ but the city, state/province, and country of the location must be provided. </p><p>Note that all inventory locations are "enabled" by default when they are created, 
+ and you must specifically disable them (by passing in a value of <code>DISABLED</code> in the <strong>merchantLocationStatus</strong> field) if you want them to be 
+ set to the disabled state. The seller's inventory cannot be loaded to inventory locations in the disabled state.</p> <p>In addition to the <code>authorization</code> header, 
+ which is required for all eBay REST API calls, the following table includes another request header that is mandatory for the <strong>createInventoryLocation</strong> call, 
+ and two other request headers that are optional:</p><br> <table> <tr> <th>Header</th> <th>Description</th> <th>Required?</th> 
+ <th>Applicable Values</th> </tr> <tr> <td><code>Accept</code></td> <td>Describes the response encoding, as required by the caller. 
+ Currently, the interfaces require payloads formatted in JSON, and JSON is the default.</td> <td>No</td> <td><code>application/json</code></td> </tr> <tr> 
+ <td><code>Content-Language</code></td> <td>Use this header to control the language that is used for any returned errors or warnings in the call response.</td> 
+ <td>No</td> <td><code>en-US</code></td> </tr> <tr> <td><code>Content-Type</code></td> <td>The MIME type of the body of the request. Must be JSON.</td> <td>Yes</td>
+ <td><code>application/json</code></td> </tr> </table></p><br/><p>Unless one or more errors and/or warnings occur with the call, 
+ there is no response payload for this call. A successful call will return an HTTP status value of <i>204 No Content</i>.</p>
+
+endpoint_operationId
+createInventoryLocation
+
+endpoint_parameter_list
+
+[{'name': 'merchantLocationKey', 'in': 'path', 'description': 'A unique, merchant-defined key (ID) for an inventory location. This unique identifier, or key, is used in other Inventory API calls to identify an inventory location. <br><br><b>Max length</b>: 36', 'required': True, 'schema': {'type': 'string'}}]
+endpoint_responses_list
+['204', '400', '409', '500']
+
+endpoint_response_description
+Bad Request
+
+endpoint_response_content
+{'application/json': {'schema': {'type': 'object', 'properties': {'errors': {'type': 'array', 'items': {'$ref': '#/components/schemas/Error'}}}}}}
+
+endpoint_request_body
+{'description': 'Inventory Location details', 'content': {'application/json': {'schema': {'description': 'Inventory Location details', '$ref': '#/components/schemas/InventoryLocationFull'}}}, 'required': True}
+
+component_schema_list
+['Address', 'Interval', 'InventoryLocation', 'InventoryLocationFull', 'InventoryLocationResponse', 'Location', 'LocationDetails', 'LocationResponse', 'OperatingHours', 'SpecialHours', 'GeoCoordinates', 'PricingSummary', 'Product', 'BulkGetInventoryItem', 'Weight', 'InventoryItemResponse', 'BulkInventoryItem', 'Dimension', 'OfferKeyWithId', 'Availability', 'InventoryItem', 'Compatibility', 'InventoryItems', 'Amount', 'BulkEbayOfferDetailsWithKeys', 'OfferPriceQuantity', 'Offers', 'BulkPublishResponse', 'Tax', 'FeeSummary', 'Specification', 'InventoryItemGroup', 'TimeDuration', 'GetInventoryItemResponse', 'GetInventoryItem', 'FeesSummaryResponse', 'PublishResponse', 'PackageWeightAndSize', 'OfferResponseWithListingId', 'EbayOfferDetailsWithAll', 'EbayOfferDetailsWithKeys', 'EbayOfferDetailsWithId', 'Fee', 'ProductIdentifier', 'InventoryItemWithSkuLocale', 'BaseResponse', 'ProductFamilyProperties', 'BulkOffer', 'BulkGetInventoryItemResponse', 'PriceQuantity', 'BulkPriceQuantity', 'ListingDetails', 'OfferKeysWithId', 'BulkInventoryItemResponse', 'PickupAtLocationAvailability', 'ShipToLocationAvailability', 'Version', 'ListingPolicies', 'CompatibleProduct', 'BulkOfferResponse', 'OfferSkuResponse', 'InventoryItemListing', 'InventoryItemWithSkuLocaleGroupid', 'PriceQuantityResponse', 'WithdrawResponse', 'BulkPriceQuantityResponse', 'VariesBy', 'InventoryItemWithSkuLocaleGroupKeys', 'ShippingCostOverride', 'Error', 'PublishByInventoryItemGroupRequest', 'ErrorParameter', 'OfferResponse', 'BulkMigrateListingResponse', 'WithdrawByInventoryItemGroupRequest', 'MigrateListing', 'MigrateListingResponse', 'BulkMigrateListing']
+
+component_schema_data
+{'type': 'object', 'properties': {'locationAdditionalInformation': {'type': 'string', 'description': 'This text field is used by the merchant to provide/update additional information about an inventory location. Whatever text is passed in this field will replace the current text string defined for this field. If the text will not change, the same text should be passed in once again. <br><br><b>Max length</b>: 256'}, 'locationInstructions': {'type': 'string', 'description': "This text field is generally used by the merchant to provide/update special pickup instructions for a store inventory location. Although this field is optional, it is recommended that merchants provide this field to create a pleasant and easy pickup experience for In-Store Pickup and Click and Collect orders. If this field is not included in the call request payload, eBay will use the default pickup instructions contained in the merchant's profile (if available). Whatever text is passed in this field will replace the current text string defined for this field. If the text will not change, the same text should be passed in once again. <br><br><b>Max length</b>: 1000"}, 'locationWebUrl': {'type': 'string', 'description': 'This text field is used by the merchant to provide/update the Website address (URL) associated with the inventory location. The URL that is passed in this field will replace any other URL that may be defined for this field. <br><br><b>Max length</b>: 512'}, 'name': {'type': 'string', 'description': 'This text field is used by the merchant to update the name of the inventory location. This name should be a human-friendly name as it will be in In-Store Pickup and Click and Collect listings. A name is not required for warehouse inventory locations. For store inventory locations, this field is not immediately required, but will be required before an offer enabled with the In-Store Pickup or Click and Collect capability can be published. So, if the seller omitted this field in the <strong>createInventoryLocation</strong> call, it is required for an <strong>updateInventoryLocation</strong> call. The name that is passed in this field will replace any other name that may be defined for this field.'}, 'operatingHours': {'type': 'array', 'description': 'This container is used to provide/update the regular operating hours for a store location during the days of the week. A <strong>dayOfWeekEnum</strong> field and an <strong>intervals</strong> container will be needed for each day of the week that the store location is open. Note that if operating hours are already set for an inventory location for a specific day of the week, whatever is set through an <strong>updateInventoryLocation</strong> call will override those existing hours.', 'items': {'$ref': '#/components/schemas/OperatingHours'}}, 'phone': {'type': 'string', 'description': 'This text field is used by the merchant to provide/update the phone number for the inventory location. The phone number that is passed in this field will replace any other phone number that may be defined for this field. <br><br><b>Max length</b>: 36'}, 'specialHours': {'type': 'array', 'description': 'This container is used to provide/update the special operating hours for a store location on a specific date, such as a holiday. The special hours specified for the specific date will override the normal operating hours for that particular day of the week. If special hours have already been set up for an inventory location, specifying special hours through an <strong>updateInventoryLocation</strong> call will only add to the list, unless the date(s) used are the same special date(s) already set up, in which case, the special hours set up through the <strong>updateInventoryLocation</strong> call will override the existing special hours.', 'items': {'$ref': '#/components/schemas/SpecialHours'}}}, 'description': 'This type is used by the <strong>updateInventoryLocation</strong> call to update operating hours, special hours, phone number, and other minor details of an inventory location.'}
+
+security_scheme
+{'authUrl': 'https://auth.ebay.com/oauth2/authorize', 'tokenUrl': 'https://api.ebay.com/identity/v1/oauth2/token', 'scopeList': ['https://api.ebay.com/oauth/api_scope/sell.inventory', 'https://api.ebay.com/oauth/api_scope/sell.inventory.readonly']}
+
+contract_intel
+{'api_name': 'Inventory API', 'server_list': [{'api_server_url': 'https://api.ebay.com{basePath}', 'api_server_base_path': '/sell/inventory/v1'}]}

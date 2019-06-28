@@ -52,5 +52,15 @@ def createInventoryObject(filepath_token, filepath_body):
 def determineInventoryObject(object_type):
     print("determineInventoryObject")
     print("determine what inventory type this object will be")
-    
+
+    if object_type == "inventory_item":
+        print("object_type == inventory_item")
+
+    if object_type == "inventory_item":
+        print("object_type == inventory_item")
+
+    if object_type == "inventory_item":
+        print("object_type == inventory_item")
+
+
 

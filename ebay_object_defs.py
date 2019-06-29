@@ -164,3 +164,5 @@ def createNewInventoryObject(filepath_token, filepath_body):
     print("createNewInventoryObject")
     # call determineInventoryObject
     newInventoryObject = determineInventoryObject()
+
+

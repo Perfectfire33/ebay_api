@@ -44,23 +44,29 @@ def createInventoryObject(filepath_token, filepath_body):
     return api_response
 
 
+
+
+def setContractIdentifer():
+    contract_identifier = 'sell_inventory_v1_oas3.json'
+    return contract_identifier
+
+def setRepoPath():
+    repo_path = r'C:\Users\dick\Documents\GitHub'
+    return repo_path
+
 def getSelectedApiContractData():
 
-    repo_path = r'C:\Users\dick\Documents\GitHub'
+    repo_path = setRepoPath()
+    contract_identifier = setContractIdentifer()
 
     # Set api contract file directory
     api_contract_dir = repo_path + r'\ebay_api\api_contracts'
     # Get list of api contract filenames within directory
     api_contract_filename_list = api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
 
-    # print("api_contract_filename_list")
-    # print(api_contract_filename_list)
-
     # contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
     contract_data_array = api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
-    # print("contract_data_array.0")
-    # print(contract_data_array[0])
-    contract_identifier = 'sell_inventory_v1_oas3.json'
+
     selected_contract_fileinfo = api_local_file_accessor.apiContractSelector(api_contract_filename_list,
                                                                              contract_identifier)
 
@@ -89,15 +95,19 @@ def determineInventoryObject(object_type):
     # initialize api_data_array to store selected components of the api call
     api_data_array = []
 
+    # retrieve selected api contract data
     selected_api_contract_data = getSelectedApiContractData()
+
+    # retrieve 'add inventory_item' API call from contract
+    selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
+    api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
+
 
     # if object type is an inventory_item
     if object_type == "inventory_item":
 
         print("object_type == inventory_item")
-        # retrieve 'add inventory_item' API call from contract
-        selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
-        api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
+
 
         # retrieve list of currently selected API contract paths
         path_list = api_contract_accessor.get_contract_path_list(selected_api_contract_json)

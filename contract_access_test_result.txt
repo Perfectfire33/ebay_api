@@ -1,11 +1,37 @@
 C:\Users\dick\PycharmProjects\ebay_api\venv\Scripts\python.exe C:/Users/dick/Documents/GitHub/ebay_api/api_contract_access_test_exec.py
 path_list
-['/location/{merchantLocationKey}', '/location/{merchantLocationKey}/disable', '/location/{merchantLocationKey}/enable', '/location/', '/location/{merchantLocationKey}/update_location_details', 
-'/inventory_item/{sku}', '/inventory_item', '/bulk_update_price_quantity', '/bulk_create_or_replace_inventory_item', '/bulk_get_inventory_item', '/inventory_item/{sku}/product_compatibility', 
-'/offer', '/offer/{offerId}', '/offer/{offerId}/publish/', '/offer/publish_by_inventory_item_group/', '/offer/withdraw_by_inventory_item_group', '/offer/get_listing_fees', '/bulk_create_offer', 
-'/bulk_publish_offer', '/offer/{offerId}/withdraw', 
-'/inventory_item_group/{inventoryItemGroupKey}', 
-'/bulk_migrate_listing']
+[
+'/location/{merchantLocationKey}', 
+'/location/{merchantLocationKey}/disable', 
+'/location/{merchantLocationKey}/enable', 
+'/location/', 
+'/location/{merchantLocationKey}/update_location_details',
+ 
+'/inventory_item/{sku}', 
+'/inventory_item', 
+
+'/bulk_update_price_quantity', 
+'/bulk_create_or_replace_inventory_item', 
+'/bulk_get_inventory_item', 
+
+'/inventory_item/{sku}/product_compatibility', 
+
+'/offer', 
+'/offer/{offerId}', 
+'/offer/{offerId}/publish/', 
+'/offer/publish_by_inventory_item_group/', 
+'/offer/withdraw_by_inventory_item_group', 
+'/offer/get_listing_fees', 
+
+'/bulk_create_offer', 
+'/bulk_publish_offer', 
+'/offer/{offerId}/withdraw', 
+
+'/inventory_item_group/{inventoryItemGroupKey}',
+ 
+'/bulk_migrate_listing'
+]
+
 
 http_operation_list
 ['get', 'post', 'delete']

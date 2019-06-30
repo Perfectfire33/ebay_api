@@ -1,7 +1,7 @@
-import gsheets_api_connector
+import bll.gsheets_api_connector
 
 # Get Config Data
-configData = gsheets_api_connector.readConfigFile()
+configData = bll.gsheets_api_connector.readConfigFile()
 # print(configData)
 
 # Set current Config Data Params
@@ -14,10 +14,10 @@ p6=configData[5]
 p7=configData[6]
 
 # Acquire List of Acceptable Fields (Areas in Google Sheets to grab data from)
-listOfAcceptableFields = gsheets_api_connector.getAcceptableFields(p3, p4, p5, p6, p7)
+listOfAcceptableFields = bll.gsheets_api_connector.getAcceptableFields(p3, p4, p5, p6, p7)
 
 # Acquire Set of Google Sheet Data
-dataSet = gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
+dataSet = bll.gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
 
 # need to define headers
 headers = []

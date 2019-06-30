@@ -1,7 +1,7 @@
-import ebay_api_connector
+import bll.dal.ebay_api_connector
 import simplejson as json
-import api_contract_accessor
-import api_local_file_accessor
+import bll.dal.api_contract_accessor
+import bll.dal.api_local_file_accessor
 
 """
 ebay object list
@@ -32,7 +32,7 @@ def createInventoryObject(filepath_token, filepath_body):
     sku = "testItem1"
 
     # Call inventory_createOrReplaceInventoryItem function in ebay_api_connector.py with parameters
-    api_response = ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
+    api_response = bll.dal.ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
 
     code = api_response.status_code
     print("code")
@@ -62,19 +62,19 @@ def getSelectedApiContractData():
     # Set api contract file directory
     api_contract_dir = repo_path + r'\ebay_api\api_contracts'
     # Get list of api contract filenames within directory
-    api_contract_filename_list = api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
+    api_contract_filename_list = bll.dal.api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
 
     # contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
-    contract_data_array = api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
+    contract_data_array = bll.dal.api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
 
-    selected_contract_fileinfo = api_local_file_accessor.apiContractSelector(api_contract_filename_list,
+    selected_contract_fileinfo = bll.dal.api_local_file_accessor.apiContractSelector(api_contract_filename_list,
                                                                              contract_identifier)
 
     # print("selected_contract_fileinfo")
     # print(selected_contract_fileinfo)
     # print("selected_contract_fileinfo")
 
-    selected_api_contract_data = api_local_file_accessor.apiContractAccessor(selected_contract_fileinfo,
+    selected_api_contract_data = bll.dal.api_local_file_accessor.apiContractAccessor(selected_contract_fileinfo,
                                                                              contract_data_array)
 
     return selected_api_contract_data
@@ -99,7 +99,7 @@ def determineInventoryObject(object_type):
     selected_api_contract_data = getSelectedApiContractData()
 
     # retrieve 'add inventory_item' API call from contract
-    selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
+    selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
     api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
 
 
@@ -110,20 +110,20 @@ def determineInventoryObject(object_type):
 
 
         # retrieve list of currently selected API contract paths
-        path_list = api_contract_accessor.get_contract_path_list(selected_api_contract_json)
+        path_list = bll.dal.api_contract_accessor.get_contract_path_list(selected_api_contract_json)
         print("path_list")
         print(path_list)
 
         selected_path = path_list[0]
 
-        http_operation_list = api_contract_accessor.get_path_http_operation_list(selected_path,
+        http_operation_list = bll.dal.api_contract_accessor.get_path_http_operation_list(selected_path,
                                                                                  selected_api_contract_json)
         print("http_operation_list")
         print(http_operation_list)
 
         selected_http_operation = http_operation_list[1]
 
-        endpoint_operationId = api_contract_accessor.get_endpoint_operationId(selected_path, selected_http_operation,
+        endpoint_operationId = bll.dal.api_contract_accessor.get_endpoint_operationId(selected_path, selected_http_operation,
                                                                               selected_api_contract_json)
 
 

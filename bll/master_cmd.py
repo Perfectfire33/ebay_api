@@ -1,11 +1,11 @@
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
-import gsheets_api_connector
-import ebay_api_connector
-import ebay_object_defs
-import api_local_file_accessor
-import api_sequencer
+import bll.gsheets_api_connector
+import bll.ebay_api_connector
+import bll.ebay_object_defs
+import bll.dal.api_local_file_accessor
+import bll.dal.api_sequencer
 import os
 import sys
 import simplejson as json
@@ -49,7 +49,7 @@ print("\n")
 /////////////////////////// Environment Set Up /////////////////////////////////
 """
 # Get Config Data
-configData = gsheets_api_connector.readConfigFile()
+configData = bll.gsheets_api_connector.readConfigFile()
 # print(configData)
 
 # Set current Config Data Params
@@ -101,7 +101,7 @@ repo_path = r'C:\Users\dick\Documents\GitHub'
 # api_calls_dir = r'C:\Users\dick\Documents\GitHub\ebay_api\api_calls'
 api_calls_dir = repo_path + r'\ebay_api\api_calls'
 # api_call_filename_list is a list of JSON file names of the api calls in the api_calls folder
-api_call_filename_list = api_local_file_accessor.get_api_call_filename_list(api_calls_dir)
+api_call_filename_list = bll.dal.api_local_file_accessor.get_api_call_filename_list(api_calls_dir)
 
 # print("api_call_filename_list")
 # print(api_call_filename_list)
@@ -114,12 +114,12 @@ api_call_filename_list = api_local_file_accessor.get_api_call_filename_list(api_
 # Set api contract file directory
 api_contract_dir = repo_path + r'\ebay_api\api_contracts'
 # Get list of api contract filenames within directory
-api_contract_filename_list = api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
+api_contract_filename_list = bll.dal.api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
 # contract_data_array is an array of all the JSON contract bodies (or data of the files in the api_contracts folder)
-contract_data_array = api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
+contract_data_array = bll.dal.api_local_file_accessor.load_api_contracts(api_contract_dir, api_contract_filename_list)
 contract_identifier = 'sell_inventory_v1_oas3.json'
-selected_contract_fileinfo = api_local_file_accessor.apiContractSelector(api_contract_filename_list, contract_identifier)
-selected_api_contract_data = api_local_file_accessor.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
+selected_contract_fileinfo = bll.dal.api_local_file_accessor.apiContractSelector(api_contract_filename_list, contract_identifier)
+selected_api_contract_data = bll.dal.api_local_file_accessor.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
 
 
 
@@ -127,7 +127,7 @@ selected_api_contract_data = api_local_file_accessor.apiContractAccessor(selecte
 # Identifies what api call to make
 call_identifier = "createOrReplaceInventoryItem.json"
 # currently selected call fileinfo (filename and index in its array)
-selected_call_fileinfo = api_local_file_accessor.apiCallSelector(api_call_filename_list, call_identifier)
+selected_call_fileinfo = bll.dal.api_local_file_accessor.apiCallSelector(api_call_filename_list, call_identifier)
 # File that contains filenames of api calls to cycle through, one per line
 callSequenceFile = repo_path + r'\ebay_api\callSequenceFile.csf'
 
@@ -151,7 +151,7 @@ callSequenceFile = repo_path + r'\ebay_api\callSequenceFile.csf'
 #       index of filename,
 #       and data of file
 # )
-call_sequence_with_dir = api_sequencer.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
+call_sequence_with_dir = bll.dal.api_sequencer.callSequence(callSequenceFile, api_call_filename_list, api_calls_dir)
 # print(call_sequence_with_dir)
 
 # Set filepath token for ebay api access
@@ -161,7 +161,7 @@ filepath_body = repo_path + r'\ebay_api\request_payload.json'
 
 
 uri_env="sandbox"
-base_uri = ebay_api_connector.getBaseUri(uri_env)
+base_uri = bll.dal.ebay_api_connector.getBaseUri(uri_env)
 # print('base_uri')
 # print(base_uri)
 
@@ -173,7 +173,7 @@ request_payload = call_sequence_with_dir['call_sequence_set'][0][current_call_in
 current_api_call = call_sequence_with_dir['call_sequence_set'][1][current_call_index]
 # Set uri_parameters of generic call
 uri_parameters = ""
-current_api_call_built = ebay_api_connector.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)
+current_api_call_built = bll.dal.ebay_api_connector.build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters)
 
 print("current_api_call_built")
 print(current_api_call_built)

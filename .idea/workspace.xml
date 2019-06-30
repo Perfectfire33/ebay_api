@@ -2,48 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69c61e37-75ef-490b-a170-bec48eee065b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api_calls/createInventoryLocation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/createOffer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/createOrReplaceInventoryItem.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/createOrReplaceInventoryItemGroup.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/examples/createInventoryLocation.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/examples/createOffer.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/examples/createOrReplaceInventoryItem.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_calls/examples/createOrReplaceInventoryItemGroup.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contract_access_test_exec.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contract_access_tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contract_accessor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contracts/buy_offer_v1_beta_oas3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contracts/commerce_catalog_v1_beta_oas3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contracts/commerce_taxonomy_v1_beta_oas3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_contracts/sell_inventory_v1_oas3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_finder_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_local_file_accessor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_sequencer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/gSheets_cmd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/inventory_item_cmd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/oldToken.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/quickstart.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/request_payload_example.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/scrapData.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archives/tempdata1.999.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/callSequenceFile.csf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract_access_test_result.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataSetExampleFormat.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ebay_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ebay_api_connector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ebay_object_defs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ebay_object_receiver.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gSheet_update_body.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gsheets_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gsheets_api_connector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/master_cmd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/master_cmd.setdata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/request_payload.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_connector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/dal/api_contract_access_test_exec.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/api_contract_access_test_exec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/dal/api_contract_access_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/api_contract_access_tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/dal/api_finder_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/api_finder_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/dal/api_sequencer.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/api_sequencer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/ebay_api_connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_api_connector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/ebay_object_defs.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_object_defs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/ebay_object_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_object_receiver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/gsheets_api_connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/gsheets_api_connector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/master_cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/master_cmd.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +20,110 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/misc/archives/tempdata1.999.txt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/ebay_api_connector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="286">
+              <caret line="211" column="6" lean-forward="true" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/dal/api_local_file_accessor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-717">
+              <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/master_cmd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="177" column="27" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bll/gsheets_api_connector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/dal/api_finder_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/dal/api_contract_accessor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1040">
+              <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/dal/api_contract_access_tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="96" column="26" lean-forward="true" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/dal/api_contract_access_test_exec.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/dal/api_sequencer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bll/ebay_object_receiver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1346">
+              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -107,6 +173,15 @@
         <option value="$PROJECT_DIR$/api_contract_access_tests.py" />
         <option value="$PROJECT_DIR$/notes.txt" />
         <option value="$PROJECT_DIR$/ebay_object_defs.py" />
+        <option value="$PROJECT_DIR$/bll/ebay_object_receiver.py" />
+        <option value="$PROJECT_DIR$/bll/ebay_object_defs.py" />
+        <option value="$PROJECT_DIR$/bll/ebay_api_connector.py" />
+        <option value="$PROJECT_DIR$/bll/dal/api_sequencer.py" />
+        <option value="$PROJECT_DIR$/bll/dal/api_finder_test.py" />
+        <option value="$PROJECT_DIR$/bll/dal/api_contract_access_tests.py" />
+        <option value="$PROJECT_DIR$/bll/dal/api_contract_access_test_exec.py" />
+        <option value="$PROJECT_DIR$/bll/master_cmd.py" />
+        <option value="$PROJECT_DIR$/bll/gsheets_api_connector.py" />
       </list>
     </option>
   </component>
@@ -137,19 +212,8 @@
             <path>
               <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
-              <item name="misc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
-              <item name="misc" type="462c0819:PsiDirectoryNode" />
-              <item name="archives" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
-              <item name="misc" type="462c0819:PsiDirectoryNode" />
-              <item name="notes" type="462c0819:PsiDirectoryNode" />
+              <item name="bll" type="462c0819:PsiDirectoryNode" />
+              <item name="dal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -546,6 +610,127 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14">
           <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/callSequenceFile.csf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/ebay_object_defs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/ebay_object_receiver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1346">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/api_sequencer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/ebay_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-122">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/gsheets_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-751">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/ebay_api_connector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="211" column="6" lean-forward="true" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/api_finder_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/api_contract_access_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="96" column="26" lean-forward="true" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/api_contract_access_test_exec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/api_contract_accessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1040">
+          <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/dal/api_local_file_accessor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-717">
+          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/master_cmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="177" column="27" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bll/gsheets_api_connector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

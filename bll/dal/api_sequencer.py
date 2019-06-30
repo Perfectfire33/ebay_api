@@ -1,5 +1,5 @@
-import ebay_api_connector
-import api_local_file_accessor
+import bll.ebay_api_connector
+import bll.dal.api_local_file_accessor
 
 
 
@@ -11,7 +11,7 @@ def callSequence(callSequenceFile, api_call_filename_list, api_calls_dir):
     # get list of call names from file
     call_sequence = tuple(open(callSequenceFile, 'r'))
     # get all call data at once
-    call_data_array = api_local_file_accessor.load_api_calls(api_calls_dir, api_call_filename_list)
+    call_data_array = bll.dal.api_local_file_accessor.load_api_calls(api_calls_dir, api_call_filename_list)
     # create array for fileinfo
     call_sequence_set_fileinfo = []
     # create array for data of files in sequence set
@@ -22,7 +22,7 @@ def callSequence(callSequenceFile, api_call_filename_list, api_calls_dir):
         # select the index from the file name array and match it to the index of the data array
         s_call_identifer = call_identifier.split("\n")
         # select what call from pool of calls that match the current call in the sequence
-        selected_call_fileinfo = api_local_file_accessor.apiCallSelector(api_call_filename_list, s_call_identifer[0])
+        selected_call_fileinfo = bll.dal.api_local_file_accessor.apiCallSelector(api_call_filename_list, s_call_identifer[0])
         # add the filename and index of current selected call to filename array
         call_sequence_set_fileinfo.append(selected_call_fileinfo)
         call_sequence_set_filedata.append(call_data_array[selected_call_fileinfo['index']])

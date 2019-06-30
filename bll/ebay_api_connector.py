@@ -1,7 +1,7 @@
-import ebay_api
+import bll.dal.ebay_api
 import simplejson as json
-import api_contract_accessor
-import api_contract_access_tests
+import bll.dal.api_contract_accessor
+import bll.dal.api_contract_access_tests
 """
 EBAY_API_CONNECTOR.PY ~ CONNECT EBAY API 
 TO OUR APP
@@ -68,7 +68,7 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
             c| HEADERS - header keys
     """
     # loads selected_api_contract_data into JSON-accessible format
-    selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
+    selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
 
     api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
 
@@ -80,7 +80,7 @@ def build_api_call(base_uri, selected_api_contract_data, current_api_call, reque
     current_path = "/location/{merchantLocationKey}"
     # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
 
-    built_api_call = api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)
+    built_api_call = bll.dal.api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)
 
 
 
@@ -214,7 +214,7 @@ def inventory_createOrReplaceInventoryItem(body, token, sku):
                             'content-language': 'en-US'}
 
     # Specify request body json data and headers
-    api_response = ebay_api.createOrReplaceInventoryItem(api_url, api_payload, api_headers)
+    api_response = bll.dal.ebay_api.createOrReplaceInventoryItem(api_url, api_payload, api_headers)
 
     """ Store the addTestCase response """
     """Create the Test Case"""

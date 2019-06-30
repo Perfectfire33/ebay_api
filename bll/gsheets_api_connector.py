@@ -2,7 +2,7 @@ from __future__ import print_function
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
-import gsheets_api
+import bll.dal.gsheets_api
 import os
 import sys
 
@@ -210,7 +210,7 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
         sheet_range = listOfAcceptableFields[0]['sheet_name'] \
                       + "!" + currentCoordSetList[currentCoordSetList.index(area)][0] \
                       + ":" + currentCoordSetList[currentCoordSetList.index(area)][1]
-        dataSet.append(gsheets_api.getSheetValues(scopes, tokenPath, listOfAcceptableFields[0]['spreadsheet_id'], sheet_range))
+        dataSet.append(bll.dal.gsheets_api.getSheetValues(scopes, tokenPath, listOfAcceptableFields[0]['spreadsheet_id'], sheet_range))
 
     # Format of dataSet:
     """

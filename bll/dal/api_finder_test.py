@@ -1,7 +1,7 @@
-import ebay_api_connector
+import bll.ebay_api_connector
 
 operationId = "createOrReplaceInventoryItem"
 
-found_api = ebay_api_connector.api_finder(operationId)
+found_api = bll.ebay_api_connector.api_finder(operationId)
 
 print(found_api)

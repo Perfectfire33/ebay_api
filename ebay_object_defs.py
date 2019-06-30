@@ -123,6 +123,9 @@ def determineInventoryObject(object_type):
 
         selected_http_operation = http_operation_list[1]
 
+        endpoint_operationId = api_contract_accessor.get_endpoint_operationId(selected_path, selected_http_operation,
+                                                                              selected_api_contract_json)
+
 
         # return selected api call data
         return api_data_array

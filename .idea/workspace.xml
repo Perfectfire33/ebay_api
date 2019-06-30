@@ -2,7 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69c61e37-75ef-490b-a170-bec48eee065b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ebay_object_defs.py" beforeDir="false" afterPath="$PROJECT_DIR$/ebay_object_defs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/createInventoryLocation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/createOffer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/createOrReplaceInventoryItem.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/createOrReplaceInventoryItemGroup.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/examples/createInventoryLocation.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/examples/createOffer.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/examples/createOrReplaceInventoryItem.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_calls/examples/createOrReplaceInventoryItemGroup.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contract_access_test_exec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contract_access_tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contract_accessor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contracts/buy_offer_v1_beta_oas3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contracts/commerce_catalog_v1_beta_oas3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contracts/commerce_taxonomy_v1_beta_oas3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_contracts/sell_inventory_v1_oas3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_finder_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_local_file_accessor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_sequencer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/gSheets_cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/inventory_item_cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/oldToken.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/quickstart.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/request_payload_example.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/scrapData.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/tempdata1.999.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/callSequenceFile.csf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract_access_test_result.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataSetExampleFormat.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ebay_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ebay_api_connector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ebay_object_defs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ebay_object_receiver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gSheet_update_body.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gsheets_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gsheets_api_connector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/master_cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/master_cmd.setdata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/request_payload.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_connector.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,107 +53,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebay_object_receiver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1318">
-              <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ebay_object_defs.py">
+        <entry file="file://$PROJECT_DIR$/misc/archives/tempdata1.999.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="114" column="24" lean-forward="true" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsheets_api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsheets_api_connector.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="131" column="41" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api_contract_accessor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api_contract_access_tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="141" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api_contract_access_test_exec.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api_local_file_accessor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/master_cmd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-14">
+              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -187,7 +132,24 @@
             <path>
               <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
-              <item name="api_calls" type="462c0819:PsiDirectoryNode" />
+              <item name="bll" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+              <item name="archives" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ebay_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ebay_api" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+              <item name="notes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -572,11 +534,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ebay_object_defs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="114" column="24" lean-forward="true" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+        <state relative-caret-position="456">
+          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/archives/tempdata1.999.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
         </state>
       </provider>
     </entry>

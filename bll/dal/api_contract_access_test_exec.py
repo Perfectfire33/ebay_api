@@ -10,7 +10,7 @@ import bll.dal.api_local_file_accessor
 repo_path = r'C:\Users\dick\Documents\GitHub'
 
 # Set api contract file directory
-api_contract_dir = repo_path + r'\ebay_api\api_contracts'
+api_contract_dir = repo_path + r'\ebay_api\bll\dal\api_contracts'
 # Get list of api contract filenames within directory
 api_contract_filename_list = bll.dal.api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
 
@@ -34,6 +34,6 @@ selected_api_contract_data = bll.dal.api_local_file_accessor.apiContractAccessor
 
 
 # loads selected_api_contract_data into JSON-accessible format
-selected_api_contract_json = api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
+selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
 
-built_api_call = api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)
+built_api_call = bll.dal.api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)

@@ -88,7 +88,7 @@ def getSelectedApiContractData():
     #     location
     #     offer
     #     inventory_item_group
-def determineInventoryObject(object_type):
+def determineInventoryObject(object_type, crud_operation):
     print("determineInventoryObject")
     print("determine what inventory type this object will be")
 
@@ -96,37 +96,72 @@ def determineInventoryObject(object_type):
     api_data_array = []
 
     # retrieve selected api contract data
-    selected_api_contract_data = getSelectedApiContractData()
+    api_data = getSelectedApiContractData()
 
     # retrieve 'add inventory_item' API call from contract
-    selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
-    api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
+    api_data_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(api_data)
+    api_contract_base_path = api_data_json['servers'][0]['variables']['basePath']['default']
     # retrieve list of currently selected API contract paths
-    path_list = bll.dal.api_contract_accessor.get_contract_path_list(selected_api_contract_json)
+    path_list = bll.dal.api_contract_accessor.get_contract_path_list(api_data_json)
     print("path_list")
     print(path_list)
+    myEndpointList = {}
+    for path in path_list:
+        myEndpointList[path_list.index(path)] = path
 
+    print("myEndpointList")
+    print(myEndpointList)
 
-
-    # if object type is an inventory_item
+    """if PATH is /inventory_item/{SKU}"""
     if object_type == "inventory_item":
-
         print("object_type == inventory_item")
-
-
-
-
-        selected_path = path_list[0]
-
-        http_operation_list = bll.dal.api_contract_accessor.get_path_http_operation_list(selected_path,
-                                                                                 selected_api_contract_json)
+        myEndpoint = myEndpointList[5]
+        http_operation_list = bll.dal.api_contract_accessor.get_path_http_operation_list(myEndpoint,
+                                                                                         api_data_json)
         print("http_operation_list")
         print(http_operation_list)
 
-        selected_http_operation = http_operation_list[1]
+        """
+        This API ENDPOINT will PUT an inventory_item object with 
+        #   a given SKU in URI 
+        #   and given DESCRIPTION in REQUEST_BODY
+        """
+        if crud_operation is 'create':
+            print("crud_operation == create")
+            # index 1 is 'put'
+            myOperation = http_operation_list[1]
 
-        endpoint_operationId = bll.dal.api_contract_accessor.get_endpoint_operationId(selected_path, selected_http_operation,
-                                                                              selected_api_contract_json)
+            endpoint_parameter_list = bll.dal.api_contract_accessor.get_endpoint_parameter_list(myEndpoint,
+                                                                                                myOperation,
+                                                                                                api_data_json)
+            print("endpoint_parameter_list")
+            print(endpoint_parameter_list)
+            endpoint_request_body = bll.dal.api_contract_accessor.get_endpoint_request_body(myEndpoint,
+                                                                                            myOperation,
+                                                                                            api_data_json)
+            print("endpoint_request_body")
+            print(endpoint_request_body)
+
+
+        """
+        This API ENDPOINT will GET an inventory_item object and it's DESCRIPTION with 
+        #   a given SKU in URI
+        """
+        if crud_operation is 'read':
+            print("crud_operation == read")
+            # index 0 is 'get'
+            myOperation = http_operation_list[0]
+
+        """ This API ENDPOINT will DELETE an inventory_item object with a given SKU in URI """
+        if crud_operation is 'delete':
+            print("crud_operation == delete")
+            # index 2 is 'delete'
+            myOperation = http_operation_list[2]
+
+
+
+
+
 
 
         # return selected api call data
@@ -172,6 +207,7 @@ def createNewInventoryObject(filepath_token, filepath_body):
 
 
 object_type = "inventory_item"
-tempVar = determineInventoryObject(object_type)
+crud_operation = "create"
+tempVar = determineInventoryObject(object_type, crud_operation)
 print("tempVar")
 print(tempVar)

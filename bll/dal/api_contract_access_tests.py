@@ -38,13 +38,13 @@ def api_contract_access_tests(selected_api_contract_data):
     print("path_list")
     print(path_list)
 
-    selected_path = path_list[0]
+    selected_path = path_list[5]
 
     http_operation_list = bll.dal.api_contract_accessor.get_path_http_operation_list(selected_path, selected_api_contract_json)
     print("http_operation_list")
     print(http_operation_list)
 
-    selected_http_operation = http_operation_list[1]
+    selected_http_operation = http_operation_list[0]
 
     endpoint_tag_list = bll.dal.api_contract_accessor.get_endpoint_tag_list(selected_path, selected_http_operation, selected_api_contract_json)
     print("endpoint_tag_list")

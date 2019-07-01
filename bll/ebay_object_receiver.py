@@ -81,10 +81,25 @@ for set_of_headers in header_group_ct:
 
 
 
-
-
+# Print all groups, then each group separately
 print("all_header_groups")
 print(all_header_groups)
+i = 0
+while i < all_header_groups.__len__():
+    print("all_header_groups[" + str(i) + "]")
+    print(all_header_groups[i])
+    i = i + 1
+
+# reset i
+i = 0
+
+
+
+
+
+
+
+
 
 
 
@@ -92,16 +107,16 @@ print(all_header_groups)
 
 
 # set to first group of columns
-column_group_ct = 0
+# column_group_ct = 0
 
 # ebay incoming object row
-inventory_row = {}
+# inventory_row = {}
 
 # get number of rows to get this header
-rows = len(dataSet[column_group_ct])
+# rows = len(dataSet[column_group_ct])
 
 # select first column
-column = 0
+# column = 0
 
 # get number of columns in this group of columns
 # columns = len(dataSet[column_group])

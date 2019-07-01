@@ -15,7 +15,7 @@ path_list
 '/bulk_get_inventory_item', 
 
 '/inventory_item/{sku}/product_compatibility', 
-1360x768 RCA TV MONITOR
+
 '/offer', 
 '/offer/{offerId}', 
 '/offer/{offerId}/publish/', 

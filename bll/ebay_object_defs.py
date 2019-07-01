@@ -1,4 +1,4 @@
-import bll.dal.ebay_api_connector
+import bll.ebay_api_connector
 import simplejson as json
 import bll.dal.api_contract_accessor
 import bll.dal.api_local_file_accessor
@@ -32,7 +32,7 @@ def createInventoryObject(filepath_token, filepath_body):
     sku = "testItem1"
 
     # Call inventory_createOrReplaceInventoryItem function in ebay_api_connector.py with parameters
-    api_response = bll.dal.ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
+    api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
 
     code = api_response.status_code
     print("code")
@@ -60,7 +60,7 @@ def getSelectedApiContractData():
     contract_identifier = setContractIdentifer()
 
     # Set api contract file directory
-    api_contract_dir = repo_path + r'\ebay_api\api_contracts'
+    api_contract_dir = repo_path + r'\ebay_api\bll\dal\api_contracts'
     # Get list of api contract filenames within directory
     api_contract_filename_list = bll.dal.api_local_file_accessor.get_api_contract_filename_list(api_contract_dir)
 
@@ -101,6 +101,11 @@ def determineInventoryObject(object_type):
     # retrieve 'add inventory_item' API call from contract
     selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
     api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
+    # retrieve list of currently selected API contract paths
+    path_list = bll.dal.api_contract_accessor.get_contract_path_list(selected_api_contract_json)
+    print("path_list")
+    print(path_list)
+
 
 
     # if object type is an inventory_item
@@ -109,10 +114,7 @@ def determineInventoryObject(object_type):
         print("object_type == inventory_item")
 
 
-        # retrieve list of currently selected API contract paths
-        path_list = bll.dal.api_contract_accessor.get_contract_path_list(selected_api_contract_json)
-        print("path_list")
-        print(path_list)
+
 
         selected_path = path_list[0]
 
@@ -169,3 +171,7 @@ def createNewInventoryObject(filepath_token, filepath_body):
     newInventoryObject = determineInventoryObject()
 
 
+object_type = "inventory_item"
+tempVar = determineInventoryObject(object_type)
+print("tempVar")
+print(tempVar)

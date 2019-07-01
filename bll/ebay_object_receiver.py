@@ -2,7 +2,7 @@ import bll.gsheets_api_connector
 
 # Get Config Data
 configData = bll.gsheets_api_connector.readConfigFile()
-# print(configData)
+print(configData)
 
 # Set current Config Data Params
 p1=configData[0]
@@ -106,9 +106,9 @@ column = 0
 # get number of columns in this group of columns
 # columns = len(dataSet[column_group])
 
-for row in rows:
-        for header in headers:
-            inventory_row[header] = dataSet[column_group_ct][row][column]
+# for row in rows:
+#         for header in headers:
+#             inventory_row[header] = dataSet[column_group_ct][row][column]
 
 
 """

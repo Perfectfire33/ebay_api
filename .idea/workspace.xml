@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69c61e37-75ef-490b-a170-bec48eee065b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bll/dal/api_calls/offerGetListingFees.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/ebay_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/ebay_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bll/ebay_api_connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_api_connector.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bll/ebay_api_connector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="365" column="35" selection-start-line="365" selection-start-column="35" selection-end-line="365" selection-end-column="35" />
+            <state relative-caret-position="473">
+              <caret line="401" column="40" lean-forward="true" selection-start-line="401" selection-start-column="40" selection-end-line="401" selection-end-column="40" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -46,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/bll/dal/api_calls/createInventoryLocation.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -55,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/bll/ebay_api_sender.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="680">
-              <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -64,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/bll/master_cmd.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+              <caret line="161" selection-start-line="161" selection-end-line="161" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -539,7 +536,7 @@
     <entry file="file://$PROJECT_DIR$/bll/master_cmd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -549,14 +546,14 @@
     <entry file="file://$PROJECT_DIR$/bll/ebay_api_sender.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
-          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bll/dal/api_calls/createInventoryLocation.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -579,8 +576,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bll/ebay_api_connector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="365" column="35" selection-start-line="365" selection-start-column="35" selection-end-line="365" selection-end-column="35" />
+        <state relative-caret-position="473">
+          <caret line="401" column="40" lean-forward="true" selection-start-line="401" selection-start-column="40" selection-end-line="401" selection-end-column="40" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

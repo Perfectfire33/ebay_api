@@ -91,17 +91,17 @@ def updateInventoryLocation(url, body, headers):
 
 """ INVENTORY ITEM GROUP """
 
-def getInventoryGroup(url, headers):
+def getInventoryItemGroup(url, headers):
     # Send the request with parameters and store it in response
     response = requests.get(url, headers=headers)
     return response
 
-def createOrReplaceInventoryGroup(url, body, headers):
+def createOrReplaceInventoryItemGroup(url, body, headers):
     # Send the request with parameters and store it in response
     response = requests.put(url, data=body, headers=headers)
     return response
 
-def deleteInventoryGroup(url, headers):
+def deleteInventoryItemGroup(url, headers):
     # Send the request with parameters and store it in response
     response = requests.delete(url, headers=headers)
     return response

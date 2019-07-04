@@ -101,7 +101,10 @@ def inventory_deleteInventoryItem(token, uri_env, uri_param1):
     # Return the API Response
     return api_response
 
-def inventory_bulkUpdatePriceQuantity(token, uri_env):
+# NOT MVP: Unused currently
+#   what goes in this body?
+#   need to test
+def inventory_bulkUpdatePriceQuantity(token, uri_env, body):
     """Update Price and Quantity for bulk Inventory Items"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
@@ -109,11 +112,14 @@ def inventory_bulkUpdatePriceQuantity(token, uri_env):
     # Method Headers
     api_headers = get_api_headers(token)
     # Specify request body json data and headers
-    api_response = bll.dal.ebay_api.bulkUpdatePriceQuantity(api_url, api_headers)
+    api_response = bll.dal.ebay_api.bulkUpdatePriceQuantity(api_url, api_headers, body)
     # Return the API Response
     return api_response
 
-def inventory_bulkCreateOrReplaceInventoryItem(token, uri_env):
+# NOT MVP: Unused currently
+#   what goes in this body?
+#   need to test
+def inventory_bulkCreateOrReplaceInventoryItem(token, uri_env, body):
     """Bulk Create or Update Inventory Item"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
@@ -121,7 +127,7 @@ def inventory_bulkCreateOrReplaceInventoryItem(token, uri_env):
     # Method Headers
     api_headers = get_api_headers(token)
     # Specify request body json data and headers
-    api_response = bll.dal.ebay_api.bulkCreateOrReplaceInventoryItem(api_url, api_headers)
+    api_response = bll.dal.ebay_api.bulkCreateOrReplaceInventoryItem(api_url, body, api_headers)
     # Return the API Response
     return api_response
 
@@ -133,7 +139,7 @@ def inventory_bulkGetInventoryItem(token, uri_env):
     # Method Headers
     api_headers = get_api_headers(token)
     # Specify request body json data and headers
-    api_response = bll.dal.ebay_api.bulkCreateOrReplaceInventoryItem(api_url, api_headers)
+    api_response = bll.dal.ebay_api.bulkGetInventoryItem(api_url, api_headers)
     # Return the API Response
     return api_response
 
@@ -143,27 +149,80 @@ def inventory_bulkGetInventoryItem(token, uri_env):
 
 # uri_param1 ~~ {merchantLocationKey}
 def inventory_getInventoryLocation(token, uri_env, uri_param1):
-    """Get an Inventory Item"""
+    """Get an Inventory Location"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
     api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
-    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    api_response = bll.dal.ebay_api.getInventoryLocation(api_url, api_headers)
     # Return the API Response
     return api_response
 
 # uri_param1 ~~ offset
 # uri_param2 ~~ limit
 def inventory_getInventoryLocations(token, uri_env, uri_param1, uri_param2):
-    """Get an Inventory Item"""
+    """Get Inventory Locations"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
     api_url = base_uri + '/sell/inventory/v1/location/' + '?offset=' + uri_param1 + '&limit=' + uri_param2
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
-    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    api_response = bll.dal.ebay_api.getInventoryLocations(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_createInventoryLocation(token, uri_env, uri_param1, body):
+    """Create the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createInventoryLocation(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_disableInventoryLocation(token, uri_env, uri_param1):
+    """Disable the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/disable'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.disableInventoryLocation(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_enableInventoryLocation(token, uri_env, uri_param1):
+    """Enable the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/enable'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.enableInventoryLocation(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_deleteInventoryLocation(token, uri_env, uri_param1):
+    """Delete the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteInventoryLocation(api_url, api_headers)
     # Return the API Response
     return api_response

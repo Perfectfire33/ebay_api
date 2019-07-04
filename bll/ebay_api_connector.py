@@ -9,7 +9,7 @@ TO OUR APP
 
 """
 This file:
->retrieves eBay API OAuth credentials in format of token.txt (if need new token: https://developer.ebay.com/my/auth?env=sandbox&index=0&auth_type=oauth )
+>retrieves eBay API OwaAuth credentials in format of token.txt (if need new token: https://developer.ebay.com/my/auth?env=sandbox&index=0&auth_type=oauth )
 >authenticates with eBay API using token.txt
 >contains functions for specific eBay operations
     >each function:
@@ -20,6 +20,15 @@ This file:
 >To be referenced in inventory_item_cmd.py and master_cmd.py
 """
 
+# get_api_headers presets the api_headers variable and requires the token
+def get_api_headers(token):
+    api_headers = {'Authorization': '%s' % token,
+                   'content-type': 'application/json',
+                   'Accept': 'application/json',
+                   'content-language': 'en-US'}
+
+    return api_headers
+
 # getBaseUri retrieves and prepares the generic uri that is necessary in the http call
 # Variables requires:
 #   uri_env ~ sandbox or production environment
@@ -27,6 +36,7 @@ This file:
 #   base_uri = ebay_api_connector.getBaseUri(uri_env="sandbox")
 # Used in:
 #   ebay_object_defs.build_api_call()
+#   this file -- ebay_api_connector
 def getBaseUri(uri_env):
     if uri_env == 'sandbox':
         base_uri = 'https://api.sandbox.ebay.com'
@@ -34,190 +44,126 @@ def getBaseUri(uri_env):
     if uri_env == 'production':
         base_uri = 'https://api.ebay.com'
 
-    # selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
-    # selected_api_contract_json = json.loads(selected_api_contract_data)
-    # selected_api_contract_json = json.loads(selected_api_contract_data)
-    # print("selected_api_contract_data.info")
-    # print(selected_api_contract_json['info']['title'])
-
-    # print('base_uri')
-    # print(base_uri)
     return base_uri
 
 
-# build_api_call populates a given templated api call with
-#   specific call information (e.g. any uri parameters, request payload)
-#   and data from Google Sheets (the getDataSet() function)
-# Variables:
-#   base_uri - string - https:\\api.ebay.com or https:\\api.sandbox.ebay.com
-#   contract_identifier - string - name of api contract file used
-#   current_api_call - string - name of api call
-#   request_payload - json - request body template to be populated
-#   uri_parameters - array - this contains the required values of the uri parameters
-def build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters):
-    """
-    Need to select correct(based on call name):
-        1|request payload, from callSelector
-        2|api contract, from contractSelector
-        3|uri parameters, from <new function here>? <-- not sure how to handle uri params yet
-        *may need to parse current_api_call based on delimiter*
-    Result of this function:
-        1| put together components of api call:
-            a| URI - base_uri + api-specific uri parts + call-specific uri parts + uri params
-            b| BODY - template of request payload
-            c| HEADERS - header keys
-    """
-    # loads selected_api_contract_data into JSON-accessible format
-    selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
-
-    api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
-
-    http_operation = "get"
-    operation_id = "getInventoryLocation"
-    print("selected_api_contract_json['paths']")
-    # print number of objects in json object
-    # print(len(selected_api_contract_json['paths']))
-    current_path = "/location/{merchantLocationKey}"
-    # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
-
-    built_api_call = bll.dal.api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)
-
-
-
-
-    # api_pieces1 = "111"
-    # api_pieces2 = "222"
-    # built_api_call = api_pieces1 + api_pieces2
-    return built_api_call
-
-
-
-
-# once call is determined, find call among contracts,
-# then build call template from selected contract:
-#   request payload template
-#   uri template
-#   uri parameters template
-#       notes:
-#           build function to 'find' an api in a contract... example unique api name:
-#               'ebay_api.commerce_api.assignCategoryToOffer'
-#
-#           could also use this in other way to pass parameters with an api call:
-#               'ebay_api.commerce_api.assignCategoryToOffer(category, offer)'
-#               this string would be manually parsed by scripts to know what to do
-#
-#           this string would then be a line in a sequence file
-#           the api_templator (not api_sequencer) would create four files in
-#           four directory folders: call, uri, params, headers
-#           with proper template for the supplied api call
-
-
-
-# once call template from selected contract is built,
-# then populate template with call data from google sheets data object:
-#   request payload data
-#   uri data
-#   uri parameter data
-#
-# data may also be taken from other sources, as necessary, to make a complete api call
-# (e.g. uri params for searching may be in a txt file)
-
-# once call is built with data, send to proper API
-
-
-
-# api_finder locates an api call within a contract or set of contracts
-def api_finder(operationId):
-
-    abc = ""
-
-
-
-
-    return abc
-
-"""
-legend:
-    api_finder      ....    function that locates an api call within a contract or set of contracts
-    api_templator   ....    function that builds template files from a located api
-    api_populator   ....    function that grabs data from google sheets object and inserts it into api template files
-
-overview of process:
-    1|  command script sends what api call is necessary to api_finder 
-    2|  api_finder locates the call and sends location data to api_templator
-    3|  api_templator creates files for one api call at a time from contract data
-    4|  api_populator takes data from identified google sheet object and 
-            fills in the template, building a complete api call
-    4|  api_sequencer then takes in the populated files (needs to be improved to handle uris, params, and headers)
-            and creates data structure for app to access
-
-
-
-gsheets_data_identifier ....    function that takes data from google sheets object based on api_populator info
-                                and returns the data in a usable object (object schema determined by api_populator)
-                                to api_populator
-                                
-object_schema_selector  ....    selects the object schema 
-                                
-                                
-function workflow:
-    a. api_finder
-    b. api_templator
-    c. api_populator
-        i. gsheets_data_identifier
-    d. api_sequencer
-
-"""
-
-"""
-big overview (all workflow) summary:
-    
-    A. 
-    B. api_sequencer
-        a. api_finder
-        b. api_templator
-        c. api_populator
-            i. gsheets_data_identifier
-    C. 
-    D. 
-    E. 
-    F. 
-    G. 
-    H. 
-    I. 
-
-
-
-
-"""
-
-
-
-
-
-
-def inventory_createOrReplaceInventoryItem(body, token, sku):
-
+""" <><><><><><><><><> BEGIN InventoryItem Object <><><><><><><><><><><> """
+# uri_param1 ~~ {sku}
+def inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body):
     """Create the Inventory Item"""
-
-    # This is the ebay URL used to add or update an inventory item                      *****IMPORTANT*****
-    api_url = 'https://api.sandbox.ebay.com/sell/inventory/v1/inventory_item/' + str(sku) + '/' # <--- Use this test env url first then Prod
-                                                            # Prod env url: https://api.ebay.com
-
-    # Method body
-    api_payload = body
-
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
     # Method Headers
-    api_headers = {'Authorization': '%s' % token,
-                            'content-type': 'application/json',
-                            'Accept': 'application/json',
-                            'content-language': 'en-US'}
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryItem(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
 
+# uri_param1 ~~ {sku}
+def inventory_getInventoryItem(token, uri_param1, uri_env):
+    """Get an Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ limit
+# uri_param2 ~~ offset
+def inventory_getInventoryItems(token, uri_env, uri_param1, uri_param2):
+    """Get Inventory Items"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get a inventory items
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + '?limit=' + uri_param1 + '&offset=' + uri_param2
+    # Method Headers
+    api_headers = get_api_headers(token)
     # Specify request body json data and headers
-    api_response = bll.dal.ebay_api.createOrReplaceInventoryItem(api_url, api_payload, api_headers)
+    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
 
-    """ Store the addTestCase response """
-    """Create the Test Case"""
-    # Use the .json function() to get the data in json format and then we store it in api_response variable
-    # api_response = api_response.json()
+# uri_param1 ~~ {sku}
+def inventory_deleteInventoryItem(token, uri_env, uri_param1):
+    """Delete an Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.deleteInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+def inventory_bulkUpdatePriceQuantity(token, uri_env):
+    """Update Price and Quantity for bulk Inventory Items"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_update_price_quantity/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkUpdatePriceQuantity(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+def inventory_bulkCreateOrReplaceInventoryItem(token, uri_env):
+    """Bulk Create or Update Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_create_or_replace_inventory_item/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkCreateOrReplaceInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+def inventory_bulkGetInventoryItem(token, uri_env):
+    """Get a Inventory Items in Bulk"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_create_or_replace_inventory_item/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkCreateOrReplaceInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+""" <><><><><><><><><> END InventoryItem Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> BEGIN InventoryLocation Object <><><><><><><><><><><> """
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_getInventoryLocation(token, uri_env, uri_param1):
+    """Get an Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ offset
+# uri_param2 ~~ limit
+def inventory_getInventoryLocations(token, uri_env, uri_param1, uri_param2):
+    """Get an Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + '?offset=' + uri_param1 + '&limit=' + uri_param2
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    # Return the API Response
     return api_response

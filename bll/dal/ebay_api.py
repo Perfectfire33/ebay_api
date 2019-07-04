@@ -31,17 +31,11 @@ def deleteInventoryItem(url, headers):
     response = requests.delete(url, headers=headers)
     return response
 
-# NOT MVP: Unused currently
-#   what goes in this body?
-#   need to test
 def bulkUpdatePriceQuantity(url, body, headers):
     # Send the request with parameters and store it in response
     response = requests.post(url, data=body, headers=headers)
     return response
 
-# NOT MVP: Unused currently
-#   what goes in this body?
-#   need to test
 def bulkCreateOrReplaceInventoryItem(url, body, headers):
     # Send the request with parameters and store it in response
     response = requests.post(url, data=body, headers=headers)
@@ -149,16 +143,14 @@ def getOffers(url, headers):
     response = requests.get(url, headers=headers)
     return response
 
-# NOT MVP
-def publishOfferByInventoryItemGroup(url, headers):
+def publishOfferByInventoryItemGroup(url, body, headers):
     # Send the request with parameters and store it in response
-    response = requests.post(url, headers=headers)
+    response = requests.post(url, data=body, headers=headers)
     return response
 
-# NOT MVP
-def withdrawOfferByInventoryItemGroup(url, headers):
+def withdrawOfferByInventoryItemGroup(url, body, headers):
     # Send the request with parameters and store it in response
-    response = requests.post(url, headers=headers)
+    response = requests.post(url, data=body, headers=headers)
     return response
 
 # NOT MVP
@@ -167,7 +159,6 @@ def bulkCreateOffer(url, body, headers):
     response = requests.post(url, data=body, headers=headers)
     return response
 
-# NOT MVP
 def bulkPublishOffer(url, headers):
     # Send the request with parameters and store it in response
     response = requests.post(url, headers=headers)

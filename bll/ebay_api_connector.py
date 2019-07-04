@@ -103,9 +103,7 @@ def inventory_deleteInventoryItem(token, uri_env, uri_param1):
     # Return the API Response
     return api_response
 
-# NOT MVP: Unused currently
-#   what goes in this body?
-#   need to test
+# inventory_bulkUpdatePriceQuantity request body uses /api_calls/bulkUpdatePriceQuantity.json
 def inventory_bulkUpdatePriceQuantity(token, uri_env, body):
     """Update Price and Quantity for bulk Inventory Items"""
     base_uri = getBaseUri(uri_env)
@@ -118,9 +116,7 @@ def inventory_bulkUpdatePriceQuantity(token, uri_env, body):
     # Return the API Response
     return api_response
 
-# NOT MVP: Unused currently
-#   what goes in this body?
-#   need to test
+# inventory_bulkCreateOrReplaceInventoryItem request body uses /api_calls/bulkCreateOrReplaceInventoryItem.json
 def inventory_bulkCreateOrReplaceInventoryItem(token, uri_env, body):
     """Bulk Create or Update Inventory Item"""
     base_uri = getBaseUri(uri_env)
@@ -362,6 +358,58 @@ def inventory_getListingFees(token, uri_env, body):
     # Return the API Response
     return api_response
 
+
+# inventory_publishOfferByInventoryItemGroup request body uses /api_calls/offerPublishByInventoryItemGroup.json
+def inventory_publishOfferByInventoryItemGroup(token, uri_env, body):
+    """Publish the Offer by the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/publish_by_inventory_item_group'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.publishOfferByInventoryItemGroup(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_publishOfferByInventoryItemGroup request body uses /api_calls/offerPublishByInventoryItemGroup.json
+def inventory_withdrawOfferByInventoryItemGroup(token, uri_env, body):
+    """Withdraw the Offer by the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/withdraw_by_inventory_item_group'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.withdrawOfferByInventoryItemGroup(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_bulkCreateOffer request body uses /api_calls/bulkCreateOffer.json
+def inventory_bulkCreateOffer(token, uri_env, body):
+    """Bulk Create Inventory Item Offers"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_create_offer/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkCreateOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_bulkCreateOffer request body uses /api_calls/bulkPublishOffer.json
+def inventory_bulkPublishOffer(token, uri_env, body):
+    """Publish Inventory Item Offers in Bulk"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_publish_offer/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkPublishOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
 """ <><><><><><><><><> END Offer Object <><><><><><><><><><><> """
 
 """ <><><><><><><><><> BEGIN Inventory Item Group Object <><><><><><><><><><><> """
@@ -381,7 +429,7 @@ def inventory_getInventoryItemGroup(token, uri_env, uri_param1):
 
 # uri_param1 ~~ {inventoryItemGroupKey}
 def inventory_createOrReplaceInventoryItemGroup(token, uri_env, uri_param1, body):
-    """Get the Inventory Item Group"""
+    """Create or Update the Inventory Item Group"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
     api_url = base_uri + '/sell/inventory/v1/inventory_item_group/' + str(uri_param1) + '/'
@@ -394,7 +442,7 @@ def inventory_createOrReplaceInventoryItemGroup(token, uri_env, uri_param1, body
 
 # uri_param1 ~~ {inventoryItemGroupKey}
 def inventory_deleteInventoryItemGroup(token, uri_env, uri_param1):
-    """Get the Inventory Item Group"""
+    """Delete the Inventory Item Group"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
     api_url = base_uri + '/sell/inventory/v1/inventory_item_group/' + str(uri_param1) + '/'

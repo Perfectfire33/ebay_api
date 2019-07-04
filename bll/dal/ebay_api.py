@@ -153,15 +153,14 @@ def withdrawOfferByInventoryItemGroup(url, body, headers):
     response = requests.post(url, data=body, headers=headers)
     return response
 
-# NOT MVP
 def bulkCreateOffer(url, body, headers):
     # Send the request with parameters and store it in response
     response = requests.post(url, data=body, headers=headers)
     return response
 
-def bulkPublishOffer(url, headers):
+def bulkPublishOffer(url, body, headers):
     # Send the request with parameters and store it in response
-    response = requests.post(url, headers=headers)
+    response = requests.post(url, data=body, headers=headers)
     return response
 
 

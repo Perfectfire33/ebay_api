@@ -59,7 +59,7 @@ def inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body):
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
-    api_response = bll.dal.ebay_api.getInventoryItem(api_url, body, api_headers)
+    api_response = bll.dal.ebay_api.createOrReplaceInventoryItem(api_url, body, api_headers)
     # Return the API Response
     return api_response
 

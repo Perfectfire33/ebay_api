@@ -45,6 +45,40 @@ def createInventoryObject(filepath_token, filepath_body):
 
 
 
+def createInventoryObjectX(filepath_token, filepath_body, uri_env):
+    # Get token from local file
+    # (could write script to generate token and put in gsheet api,
+    # then pull it from gsheet api to use it here)
+    token = open(filepath_token).read()
+
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token
+
+    # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+    body = open(filepath_body).read()
+    # ^^ could make this a file with list of ebay API objects to create ,
+    # then get data from ebay_object_reciever.py
+    #
+
+    # Get SKU from Google Sheet eBay Inventory File?
+    sku = "testItem1"
+    uri_param1 = sku
+
+    # Call inventory_createOrReplaceInventoryItem function in ebay_api_connector.py with parameters
+    api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, uri_param1, body)
+
+    code = api_response.status_code
+    print("code")
+    print(code)
+
+    print("api_response")
+    print(api_response)
+
+    return api_response
+
+
+
+
 
 def setContractIdentifer():
     contract_identifier = 'sell_inventory_v1_oas3.json'

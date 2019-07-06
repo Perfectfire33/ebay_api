@@ -11,17 +11,13 @@ def getGoogleSheetDataSet(data_set_type, data_set_data):
     print("---------------------------- Start Script ---------------------------------")
     print("-------------- Get Sheet Area Info & Retrieve Sheet Data  -----------------")
     print("\n")
-
+    configData = []
     if data_set_type == "config":
         # Get Config Data
         configData = bll.gsheets_api_connector.readConfigFile()
-        print("configData I config")
-        print(configData)
 
     if data_set_type == "app":
         # Get Config Data and do stuff to break out the configData p1 through p7 of the correct profile
-        configData = []
-
         scopes = data_set_data[2][0][1]
         tokenPath = data_set_data[2][1][1]
         acceptableFields_profileName = data_set_data[2][2][1]
@@ -30,8 +26,6 @@ def getGoogleSheetDataSet(data_set_type, data_set_data):
         sheet_name = data_set_data[2][5][1]
         sheet_cell_xy_sets = []
         rows = data_set_data[3]
-        print("rows")
-        print(rows)
         for row in rows:
             temp1 = row[0] + "," + row[1]
             sheet_cell_xy_sets.append(temp1)
@@ -43,8 +37,6 @@ def getGoogleSheetDataSet(data_set_type, data_set_data):
         configData.append(speadsheet_id)
         configData.append(sheet_name)
         configData.append(sheet_cell_xy_sets)
-        print("configData II app")
-        print(configData)
 
 
     # Set current Config Data Params
@@ -69,6 +61,4 @@ def getGoogleSheetDataSet(data_set_type, data_set_data):
 
     # Acquire Set of Google Sheet Data
     dataSet = bll.gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
-    print("dataSet")
-    print(dataSet)
     return dataSet

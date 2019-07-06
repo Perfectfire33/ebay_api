@@ -129,7 +129,7 @@ call_identifier = "createOrReplaceInventoryItem.json"
 # currently selected call fileinfo (filename and index in its array)
 selected_call_fileinfo = bll.dal.api_local_file_accessor.apiCallSelector(api_call_filename_list, call_identifier)
 # File that contains filenames of api calls to cycle through, one per line
-callSequenceFile = repo_path + r'\ebay_api\callSequenceFile.csf'
+callSequenceFile = repo_path + r'\ebay_api\bll\callSequenceFile.csf'
 
 """ Data of call_sequence_with_dir:
 #   # create array of filepaths and filedata

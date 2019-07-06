@@ -47,6 +47,24 @@ def getBaseUri(uri_env):
     return base_uri
 
 
+def mapPayloadBodyToFilename():
+    payloadFilenameMap = {}
+
+    payloadFilenameMap['inventory_createOrReplaceInventoryItem']="createOrReplaceIventoryItem.json"
+    payloadFilenameMap['inventory_bulkUpdatePriceQuantity']="bulkUpdatePriceQuantity.json"
+    payloadFilenameMap['inventory_bulkCreateOrReplaceInventoryItem']="bulkCreateOrReplaceInventoryItem.json"
+    payloadFilenameMap['inventory_createInventoryLocation']="createInventoryLocation.json"
+    payloadFilenameMap['inventory_createOffer']="createOffer.json"
+    payloadFilenameMap['inventory_updateOffer']="createOffer.json"
+    payloadFilenameMap['inventory_getListingFees']="offerGetListingFees.json"
+    payloadFilenameMap['inventory_publishOfferByInventoryItemGroup']="offerPublishByInventoryItemGroup.json"
+    payloadFilenameMap['inventory_withdrawOfferByInventoryItemGroup']="offerWithdrawByInventoryItemGroup.json"
+    payloadFilenameMap['inventory_bulkCreateOffer']="bulkCreateOffer.json"
+    payloadFilenameMap['inventory_bulkPublishOffer']="bulkPublishOffer.json"
+
+    return payloadFilenameMap
+
+
 """ <><><><><><><><><> BEGIN InventoryItem Object <><><><><><><><><><><> """
 
 # inventory_createOrReplaceInventoryItem request body uses /api_calls/createOrReplaceIventoryItem.json
@@ -372,7 +390,7 @@ def inventory_publishOfferByInventoryItemGroup(token, uri_env, body):
     # Return the API Response
     return api_response
 
-# inventory_publishOfferByInventoryItemGroup request body uses /api_calls/offerPublishByInventoryItemGroup.json
+# inventory_withdrawOfferByInventoryItemGroup request body uses /api_calls/offerWithdrawByInventoryItemGroup.json
 def inventory_withdrawOfferByInventoryItemGroup(token, uri_env, body):
     """Withdraw the Offer by the Inventory Item Group"""
     base_uri = getBaseUri(uri_env)
@@ -398,7 +416,7 @@ def inventory_bulkCreateOffer(token, uri_env, body):
     # Return the API Response
     return api_response
 
-# inventory_bulkCreateOffer request body uses /api_calls/bulkPublishOffer.json
+# inventory_bulkPublishOffer request body uses /api_calls/bulkPublishOffer.json
 def inventory_bulkPublishOffer(token, uri_env, body):
     """Publish Inventory Item Offers in Bulk"""
     base_uri = getBaseUri(uri_env)

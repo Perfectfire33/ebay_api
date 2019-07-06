@@ -1,97 +1,74 @@
-import bll.gsheets_api_connector
 
-# Get Config Data
-configData = bll.gsheets_api_connector.readConfigFile()
-print(configData)
+def createObjectsFromDataSet(appDataSet):
+    # need to define object headers
+    headers = []
+    headers.append('item_id')
+    headers.append('item_title')
+    headers.append('item_category')
+    headers.append('item_condition')
+    headers.append('item_condition_description')
+    headers.append('item_price')
+    headers.append('item_qty')
+    headers.append('packed_item_weight_lb')
+    headers.append('packed_item_weight_oz')
+    headers.append('packed_item_height')
+    headers.append('packed_item_length')
+    headers.append('packed_item_depth')
 
-# Set current Config Data Params
-p1=configData[0]
-p2=configData[1]
-p3=configData[2]
-p4=configData[3]
-p5=configData[4]
-p6=configData[5]
-p7=configData[6]
+    # group of headers
+    header_group_ct = []
+    # groups of group of headers
+    all_header_groups = []
+    # switch var -- only run once for each group
+    append_new_group = 0
+    # for each group of columns in the incoming data set:
+    for selected_columns in appDataSet:
+        #print("selected_columns")
+        #print(selected_columns)
+        # only run once for each group -- turn on
+        append_new_group = 1
 
-# Acquire List of Acceptable Fields (Areas in Google Sheets to grab data from)
-listOfAcceptableFields = bll.gsheets_api_connector.getAcceptableFields(p3, p4, p5, p6, p7)
+        for column in selected_columns:
+            # print("column")
+            # print(column)
+            # print("len(column)")
+            # print(len(column))
+            if append_new_group == 1:
+                header_group_ct.append(len(column))
 
-# Acquire Set of Google Sheet Data
-dataSet = bll.gsheets_api_connector.getDataSet(p1, p2, listOfAcceptableFields)
+            # turn off after once run
+            append_new_group = 0
 
-# need to define headers
-headers = []
-headers.append('item_id')
-headers.append('item_title')
-headers.append('item_category')
-headers.append('item_condition')
-headers.append('item_condition_description')
-headers.append('item_price')
-headers.append('item_qty')
-headers.append('packed_item_weight_lb')
-headers.append('packed_item_weight_oz')
-headers.append('packed_item_height')
-headers.append('packed_item_length')
-headers.append('packed_item_depth')
+    # print("header_group_ct")
+    # print(header_group_ct)
+    i_v = 0
+    for set_of_headers in header_group_ct:
+        # reset i_a counter
+        i_a = 1
+        # reset temp header holder
+        header_group = []
+        while i_a <= set_of_headers:
+            # print("i_a: " + str(i_a) + "   " + "set_of_headers: " + str(set_of_headers))
+            header_group.append(headers[i_v])
+            i_v = i_v + 1
+            i_a = i_a + 1
+        # reset i_a
+        i_a = 1
+        all_header_groups.append(header_group)
 
-# group of headers
-header_group_ct = []
-# groups of group of headers
-all_header_groups = []
-# switch var -- only run once for each group
-append_new_group = 0
+    # Print all groups, then each group separately
+    #print("all_header_groups")
+    #print(all_header_groups)
+    i = 0
+    while i < all_header_groups.__len__():
+        print("all_header_groups[" + str(i) + "]")
+        print(all_header_groups[i])
+        i = i + 1
 
-# for each group of columns in the incoming data set:
-for selected_columns in dataSet:
-    print("selected_columns")
-    print(selected_columns)
-    # only run once for each group -- turn on
-    append_new_group = 1
+    # reset i
+    i = 0
 
-    for column in selected_columns:
-        # print("column")
-        # print(column)
-        # print("len(column)")
-        # print(len(column))
-        if append_new_group == 1:
-            header_group_ct.append(len(column))
-
-        # turn off after once run
-        append_new_group = 0
-
-
-# print("header_group_ct")
-# print(header_group_ct)
-
-i_v = 0
-for set_of_headers in header_group_ct:
-    # reset i_a counter
-    i_a = 1
-    # reset temp header holder
-    header_group = []
-    while i_a <= set_of_headers:
-        # print("i_a: " + str(i_a) + "   " + "set_of_headers: " + str(set_of_headers))
-        header_group.append(headers[i_v])
-        i_v = i_v + 1
-        i_a = i_a + 1
-    # reset i_a
-    i_a = 1
-    all_header_groups.append(header_group)
-
-
-
-
-# Print all groups, then each group separately
-print("all_header_groups")
-print(all_header_groups)
-i = 0
-while i < all_header_groups.__len__():
-    print("all_header_groups[" + str(i) + "]")
-    print(all_header_groups[i])
-    i = i + 1
-
-# reset i
-i = 0
+    return all_header_groups
 
 
 
@@ -135,11 +112,6 @@ i = 0
 }
 
 """
-
-print(dataSet)
-
-print("dataSet Details:")
-print(dataSet[1][0][0])
 
 """
 

@@ -8,7 +8,7 @@ This Script specifies the google sheet and data for all config data
 
 def getGoogleSheetDataSet(data_set_type, data_set_data):
     print("\n")
-    print("---------------------------- Start Script ---------------------------------")
+    print("-------------- Start getGoogleSheetDataSet " + data_set_type + " Script ------------------")
     print("-------------- Get Sheet Area Info & Retrieve Sheet Data  -----------------")
     print("\n")
     configData = []

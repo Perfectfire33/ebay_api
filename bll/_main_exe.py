@@ -7,8 +7,8 @@ This script is designed to be run directly
 """
 configDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="config", data_set_data="")
 
-#print("configDataSet")
-#print(configDataSet)
+print("configDataSet")
+print(configDataSet)
 # use appConfigDataSet whenever need a piece of the config data throughout the app
 # below, we define the appConfigDataSet
 """
@@ -24,8 +24,8 @@ XY Set Fields:
 #app data set is all the xy cells from the app's config data set
 appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
 
-#print("appDataSet")
-#print(appDataSet)
+print("appDataSet")
+print(appDataSet)
 
 
 # Put appDataSet values inside of ebay objects and print API calls (use configDataSet values for config settings)
@@ -47,9 +47,11 @@ def writeCallSequenceFile(current_api_call_body):
     configFileName = "callSequenceFile.csf"
     file = open(configFileName, 'w')
     for call_body in current_api_call_body:
-        file.write(current_api_call_body)
+        file.write(call_body)
 
     file.close()
+
+
 
 
 

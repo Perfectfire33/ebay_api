@@ -76,6 +76,42 @@ def createInventoryObjectX(filepath_token, filepath_body, uri_env):
 
     return api_response
 
+# This function matches the json keys with values which are variables from the incoming dataSet
+def matchFieldsWithVariables(object_type):
+    print("matchFieldsWithVariables")
+
+    if object_type == "inventoryItem":
+        print("inventoryItem is current Object Type")
+        filepath_body = "get current file path"
+        body = open(filepath_body).read()
+
+   # if object type is a location
+    if object_type == "location":
+        print("object_type == location")
+        # retrieve 'add location' API call from contract
+        # api_data_array.append()
+
+        # return api_data_array
+
+    # if object type is an offer
+    if object_type == "offer":
+        print("object_type == offer")
+        # retrieve 'add offer' API call from contract
+
+        # return selected api call data
+        # return api_data_array
+
+    # if object type is an inventory_item_group
+    if object_type == "inventory_item_group":
+        print("object_type == inventory_item_group")
+        # retrieve 'add inventory_item_group' API call from contract
+
+
+# This function gets the file path for the correct json request body
+def getCurrentFilePath():
+    print("getCurrentFilePath")
+
+
 
 
 

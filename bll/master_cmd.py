@@ -155,9 +155,9 @@ call_sequence_with_dir = bll.dal.api_sequencer.callSequence(callSequenceFile, ap
 # print(call_sequence_with_dir)
 
 # Set filepath token for ebay api access
-filepath_token = repo_path + r'\ebay_api\token.txt'
+filepath_token = repo_path + r'\ebay_api\bll\token.txt'
 # This is the file that includes the api call data
-filepath_body = repo_path + r'\ebay_api\request_payload.json'
+filepath_body = repo_path + r'\ebay_api\bll\dal\request_payload.json'
 
 
 uri_env="sandbox"

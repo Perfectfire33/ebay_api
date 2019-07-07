@@ -6,17 +6,76 @@ import bll.dal.api_local_file_accessor
 # call_ebay_api gets api data, finds the appropriate api call set based on "script runtime" config area
 # and will apply the "script runtime" to each row in the selected Google Sheet Area
 # and will return an api response
-def call_ebay_api(configDataSet, appDataSet):
-
+def getScriptExecutionList(configDataSet):
     # Get data from "Script Runtime" Area
-    print("configDataSet[1][0][1]")
-    print(configDataSet[1][0][1])
-    scriptRuntimeData = {}
-    scriptRuntimeData[configDataSet[1][0][0]]=configDataSet[1][0][1]
-    print("scriptRuntimeData")
-    print(scriptRuntimeData[1][0][1])
-    # return api_response_set
+    scriptRuntimeData = []
+    scriptRuntimeData.append(configDataSet[1][0][1])
+    scriptRuntimeData.append(configDataSet[1][1][1])
+    scriptRuntimeData.append(configDataSet[1][2][1])
+    scriptRuntimeData.append(configDataSet[1][3][1])
+    #print("scriptRuntimeData")
+    #print(scriptRuntimeData)
+    i = 0
+    scriptExecuteList = []
+    while i < scriptRuntimeData.__len__():
+        if scriptRuntimeData[i] == "1":
+            #print("Row = 1")
+            scriptExecuteList.append(configDataSet[1][i][0])
+        i = i + 1
+    return scriptExecuteList
 
+
+def call_ebay_api(configDataSet, appDataSet):
+    # Get list of objects to create
+    script_execute_list = bll.ebay_object_matcher.getScriptExecutionList(configDataSet)
+    # select statement on what scripts are flagged for execution
+    i = 0
+    while i < script_execute_list.__len__():
+        if script_execute_list[i] == "create_item_inventory":
+            print("create_item_inventory")
+            #for each row in inventory, make an api request payload with the data
+
+            # Put appDataSet values inside of ebay objects and print API calls (use configDataSet values for config settings)
+            all_header_groups = bll.ebay_object_receiver.createObjectsFromDataSet(appDataSet)
+            #print("all_header_groups")
+            #print(all_header_groups)
+            #then, call the api and send body data to it
+            j = 0
+            itemObject = {}
+            curItemData = []
+            itemData = []
+            # appDataSet len is
+            print("len(appDataSet)")
+            print(len(appDataSet))
+            # BEGIN count Area (length of appDataSet)
+            while j < len(appDataSet):
+                for area in appDataSet[j]:
+                    k = 0
+                    while k < len(area):
+                        itemObject[all_header_groups[j][k]] = area[k]
+                        k = k + 1
+                    curItemData.append(itemObject)
+                    print("curItemData")
+                    print(curItemData)
+                # END count Area (length of appDataSet)
+                j = j + 1
+
+                itemData.append(curItemData)
+                print("itemData")
+                print(itemData)
+            #returning the api call
+
+
+        if script_execute_list[i] == "create_item_inventory_location":
+            print("create_item_inventory_location")
+
+        if script_execute_list[i] == "create_item_offer":
+            print("create_item_offer")
+
+        if script_execute_list[i] == "publish_offer":
+            print("publish_offer")
+        i = i + 1
+    # return api_response_set
 
 
 

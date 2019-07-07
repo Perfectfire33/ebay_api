@@ -1,0 +1,21 @@
+[
+[
+['00001', 'Pair of The Economist Cork Bottle Stoppers'],
+ ['00002', 'Vintage Avon Spicy Head 4 FL OZ After Shave Decanter Collectible (Empty)'],
+ ['00003', 'Vintage Avon Tai Winds 6 FL OZ After Shave Red Car Decanter Collectible'],
+ ['00004', 'Original 1980s 1990s Ford Bronco Spare Wheel Tire Cover 28" Diameter'],
+ ['00005', 'Christopher Columbus 500 Years of America Quincentennial Collector Plate #W7825'],
+ ['00006', '3 Piece Bavaria Schirnding Gold-Trimmed Dessert Set #57 Qualitats-Porzellan'],
+ ['00007', 'Vintage Paris Theme Drink Mixer w/ Recipes Moulin Rouge Cocktail Shaker'], 
+ ['00008', 'Vintage Gold Trim Time for a Drink Glasses International City Timezone, Set of 5'],
+ ['00009', 'ERTL English Fordson Tractor 1:43 Die-Cast Vintage Vehicles 2526-1HEO']
+ ],
+ [
+ ['Used', 'Top of stoppers may need polishing. Overall, good condition.', '$14', '2'],
+ ['Used', 'Bottle is empty. No box included. Overall, in good condition.', '$2', '1'],
+ ['Used', 'Bottle is not empty. No box included. Overall, in good condition.', '$14', '1'],
+ ['Used', 'Received from my father--does not look like it was used (no sign of wear). Has been stored for quite some time, probably since he sold his Bronco (I believe this to be in late 1980s / early 1990s). Appears to be in overall great condition, no known defects.', '$125', '1'], ['Used', 'Plate has a small chip on side and two small marks on the gold trim--see pictures for details.', '$17', '1'], 
+ ['Used', 'Small plate has small chip on side--see pictures for details. Otherwise, all pieces are in great condition.', '$35', '1'], ['Used', 'No known defects. A lid is not present.', '$18', '1'], ['Used', 'One glass has a small chip on the lip. Remaining four are OK. No other known defects.', '$35', '1'], ['Used', 'Tractor appears in good condition, no notable defects. May or may not have been opened. Box is in overall OK condition--see pictures for more details.', '$8', '1']
+ ],
+ [
+ ['', '2', '10', '6', '7', '8'], ['', '0', '15', '9', '8', '6'], ['', '1', '15', '10', '9', '7'], ['', '2', '13', '39', '8', '6'], ['', '1', '6', '12', '3', '14'], ['', '2', '10', '14', '12', '7'], ['', '2', '0', '12', '8', '7'], ['', '2', '11', '12', '9', '9'], ['', '0', '8', '7', '5', '5']]]

@@ -111,3 +111,18 @@ def matchDataWithHeaders(appDataSet):
     # returning the api call
     itemDataJson = json.dumps(itemData)
     return itemDataJson
+
+
+def loadJsonData(appDataSet):
+    jsonDataWithHeaders = matchDataWithHeaders(appDataSet)
+    wjson = json.loads(jsonDataWithHeaders)
+    #print("wjson")
+    #print(wjson)
+    print("wjson[item_id]")
+    print(wjson[0][0]['item_id'])
+    return wjson
+
+
+# get number of items in inventory from loadJsonData() and operation list from "Script Runtime" (take data from each item and put into a request body)
+def getEndpointList():
+    print("aaa")

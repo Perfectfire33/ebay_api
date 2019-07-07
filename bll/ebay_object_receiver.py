@@ -1,10 +1,10 @@
+import json
 
 def createObjectsFromDataSet(appDataSet):
     # need to define object headers
     headers = []
     headers.append('item_id')
     headers.append('item_title')
-    headers.append('item_category')
     headers.append('item_condition')
     headers.append('item_condition_description')
     headers.append('item_price')
@@ -72,53 +72,42 @@ def createObjectsFromDataSet(appDataSet):
 
 
 
+def matchDataWithHeaders(appDataSet):
+    # Put appDataSet values inside of ebay objects and print API calls (use configDataSet values for config settings)
+    all_header_groups = createObjectsFromDataSet(appDataSet)
+    # print("all_header_groups")
+    # print(all_header_groups)
+    # then, call the api and send body data to it
+    j = 0
+    itemObject = {}
+    curItemData = []
+    itemData = []
+    # appDataSet len is
+    # print("len(appDataSet)")
+    # print(len(appDataSet))
+    # print(appDataSet)
+    # BEGIN count Area (length of appDataSet)
+    while j < len(appDataSet):
+        for area in appDataSet[j]:
+            k = 0
+            # print(area)
+            while k < len(area):
+                # if all_header_groups[j][k]'s value is missing, do not assign an area
+                if area[k] != '':
+                    itemObject[all_header_groups[j][k]] = area[k]
+                k = k + 1
+            curItemData.append(itemObject)
+            # reset itemObject
+            itemObject = {}
+        # END count Area (length of appDataSet)
+        j = j + 1
+        itemData.append(curItemData)
+        # reset curItemData
+        curItemData = []
 
-
-
-
-
-
-
-
-
-
-
-# set to first group of columns
-# column_group_ct = 0
-
-# ebay incoming object row
-# inventory_row = {}
-
-# get number of rows to get this header
-# rows = len(dataSet[column_group_ct])
-
-# select first column
-# column = 0
-
-# get number of columns in this group of columns
-# columns = len(dataSet[column_group])
-
-# for row in rows:
-#         for header in headers:
-#             inventory_row[header] = dataSet[column_group_ct][row][column]
-
-
-"""
-{
- column_group1 : {
-    
- 
- }
-}
-
-"""
-
-"""
-
-set header row in config file and read in headers
-maybe convert to lower case and add _ in place of spaces
-for generic google sheet scripts:
-    make header a yes/no optional
-    allow for multiple header rows (or areas within same row)
-
-"""
+    i = 0
+    j = 0
+    k = 0
+    # returning the api call
+    itemDataJson = json.dumps(itemData)
+    return itemDataJson

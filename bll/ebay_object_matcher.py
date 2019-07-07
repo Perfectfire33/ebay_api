@@ -25,6 +25,9 @@ def getScriptExecutionList(configDataSet):
     return scriptExecuteList
 
 
+
+
+
 def call_ebay_api(configDataSet, appDataSet):
     # Get list of objects to create
     script_execute_list = bll.ebay_object_matcher.getScriptExecutionList(configDataSet)
@@ -35,35 +38,7 @@ def call_ebay_api(configDataSet, appDataSet):
             print("create_item_inventory")
             #for each row in inventory, make an api request payload with the data
 
-            # Put appDataSet values inside of ebay objects and print API calls (use configDataSet values for config settings)
-            all_header_groups = bll.ebay_object_receiver.createObjectsFromDataSet(appDataSet)
-            #print("all_header_groups")
-            #print(all_header_groups)
-            #then, call the api and send body data to it
-            j = 0
-            itemObject = {}
-            curItemData = []
-            itemData = []
-            # appDataSet len is
-            print("len(appDataSet)")
-            print(len(appDataSet))
-            # BEGIN count Area (length of appDataSet)
-            while j < len(appDataSet):
-                for area in appDataSet[j]:
-                    k = 0
-                    while k < len(area):
-                        itemObject[all_header_groups[j][k]] = area[k]
-                        k = k + 1
-                    curItemData.append(itemObject)
-                    print("curItemData")
-                    print(curItemData)
-                # END count Area (length of appDataSet)
-                j = j + 1
 
-                itemData.append(curItemData)
-                print("itemData")
-                print(itemData)
-            #returning the api call
 
 
         if script_execute_list[i] == "create_item_inventory_location":

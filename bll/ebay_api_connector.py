@@ -54,7 +54,7 @@ def mapPayloadBodyToFilename():
 def getPayloadFilenameMap():
     payloadFilenameMap = {}
 
-    payloadFilenameMap['inventory_createOrReplaceInventoryItem']="createOrReplaceIventoryItem.json"
+    payloadFilenameMap['inventory_createOrReplaceInventoryItem']="createOrReplaceInventoryItem.json"
     payloadFilenameMap['inventory_bulkUpdatePriceQuantity']="bulkUpdatePriceQuantity.json"
     payloadFilenameMap['inventory_bulkCreateOrReplaceInventoryItem']="bulkCreateOrReplaceInventoryItem.json"
     payloadFilenameMap['inventory_createInventoryLocation']="createInventoryLocation.json"

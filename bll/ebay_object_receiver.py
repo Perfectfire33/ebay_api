@@ -1,4 +1,5 @@
 import json
+import bll.ebay_object_matcher
 
 def createObjectsFromDataSet(appDataSet):
     # need to define object headers
@@ -61,8 +62,8 @@ def createObjectsFromDataSet(appDataSet):
     #print(all_header_groups)
     i = 0
     while i < all_header_groups.__len__():
-        print("all_header_groups[" + str(i) + "]")
-        print(all_header_groups[i])
+        #print("all_header_groups[" + str(i) + "]")
+        #print(all_header_groups[i])
         i = i + 1
 
     # reset i
@@ -116,13 +117,10 @@ def matchDataWithHeaders(appDataSet):
 def loadJsonData(appDataSet):
     jsonDataWithHeaders = matchDataWithHeaders(appDataSet)
     wjson = json.loads(jsonDataWithHeaders)
-    #print("wjson")
-    #print(wjson)
-    print("wjson[item_id]")
-    print(wjson[0][0]['item_id'])
+    print("wjson")
+    print(wjson)
+    #print("wjson[item_id]")
+    #print(wjson[0][0]['item_id'])
     return wjson
 
 
-# get number of items in inventory from loadJsonData() and operation list from "Script Runtime" (take data from each item and put into a request body)
-def getEndpointList():
-    print("aaa")

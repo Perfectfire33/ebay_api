@@ -35,12 +35,11 @@ appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_s
 
 
 
-
 # def mergeJsonRows():
 
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
 ebay_api_response = bll.ebay_object_matcher.call_ebay_api(configDataSet, appDataSet)
-#print("ebay_api_response")
-#print(ebay_api_response)
+print("ebay_api_response")
+print(ebay_api_response)
 

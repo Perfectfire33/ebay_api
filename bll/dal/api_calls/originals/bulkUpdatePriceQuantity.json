@@ -1,0 +1,22 @@
+{ /* BulkPriceQuantity */
+"requests" : [
+{ /* PriceQuantity */
+"sku" : "string",
+"shipToLocationAvailability" :
+{ /* ShipToLocationAvailability */
+"quantity" : "integer"
+},
+"offers" : [
+{ /* OfferPriceQuantity */
+"offerId" : "string",
+"availableQuantity" : "integer",
+"price" :
+{ /* Amount */
+"value" : "string",
+"currency" : "string"
+}
+}
+]
+}
+]
+}

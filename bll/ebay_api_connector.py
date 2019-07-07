@@ -48,6 +48,10 @@ def getBaseUri(uri_env):
 
 
 def mapPayloadBodyToFilename():
+    print("aaa")
+
+
+def getPayloadFilenameMap():
     payloadFilenameMap = {}
 
     payloadFilenameMap['inventory_createOrReplaceInventoryItem']="createOrReplaceIventoryItem.json"

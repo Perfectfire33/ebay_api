@@ -134,7 +134,7 @@ def call_ebay_api(configDataSet, appDataSet):
             print("wjson[current_area][current_row][current_row_index]")
             print(wjson[current_area][current_row][current_row_index])
             #assign quantity to the createOrReplaceInventoryItem object
-            json_payload_body['availability']['shipToLocationAvailability']['quantity'] = wjson[current_area][current_row][current_row_index]
+            json_payload_body['availability']['shipToLocationAvailability']['quantity'] = wjson[current_area][current_row]['item_qty']
 
 
             destination_file = open(filepath_body, "w")
@@ -155,7 +155,7 @@ def call_ebay_api(configDataSet, appDataSet):
                     # now we get each row for area1, area2, and area3
                     # now need to call each area a name area1,2,3,etc....
                     # so we can reference the area and match area1[0],area2[0],area3[0] together
-                    
+
 
                 i = i + 1
 

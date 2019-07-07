@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69c61e37-75ef-490b-a170-bec48eee065b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bll/_main_exe.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/_main_exe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/appDataSetExample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bll/appDataSetExample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/api_calls/createOrReplaceInventoryItem.json" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/api_calls/createOrReplaceInventoryItem.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/request_payload.json" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/request_payload.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/ebay_api_connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_api_connector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bll/ebay_object_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_object_matcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/ebay_object_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_object_receiver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/master_cmd.setdata" beforeDir="false" afterPath="$PROJECT_DIR$/bll/master_cmd.setdata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/bll/token.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bll/ebay_object_matcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="157" column="20" lean-forward="true" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
+            <state relative-caret-position="388">
+              <caret line="135" column="70" selection-start-line="135" selection-start-column="70" selection-end-line="135" selection-end-column="70" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -701,8 +693,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bll/ebay_object_matcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="157" column="20" lean-forward="true" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
+        <state relative-caret-position="388">
+          <caret line="135" column="70" selection-start-line="135" selection-start-column="70" selection-end-line="135" selection-end-column="70" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

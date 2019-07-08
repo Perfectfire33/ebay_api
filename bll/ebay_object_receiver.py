@@ -109,6 +109,26 @@ def matchDataWithHeaders(appDataSet):
     i = 0
     j = 0
     k = 0
+    # now need to merge areas for each row together
+    """
+    [
+        [ //area1
+            { }, //row1
+            { } //row2
+        ],
+        [ //area2
+            { }, //row1
+            { } //row2
+        ]
+    ]
+    
+    """
+    print("itemData")
+    print(itemData)
+    print("itemData[0]")
+    print(itemData[0])
+
+
     # returning the api call
     itemDataJson = json.dumps(itemData)
     return itemDataJson

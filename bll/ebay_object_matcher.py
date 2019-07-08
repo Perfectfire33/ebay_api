@@ -36,20 +36,20 @@ def getScriptExecutionList(configDataSet):
 #   based on number of keys in the json variable in appDataSet , and
 #   based on the Script Name where Property Value equals 1 in ebay-config-data from configDataSet
 def getObjectCount(configDataSet, appDataSet):
-    print("begin getObjectCount")
+    #print("begin getObjectCount")
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet)
     # Get list of object types to count
     script_execute_list = bll.ebay_object_matcher.getScriptExecutionList(configDataSet)
-    print("script_execute_list")
-    print(script_execute_list.__len__())
+    #print("script_execute_list")
+    #print(script_execute_list.__len__())
     # select statement on what scripts are flagged for execution
     i = 0
     objectCountAccumulator = []
     objectScriptTypeAccumulator = []
     while i < script_execute_list.__len__():
         if script_execute_list[i] == "create_item_inventory":
-            print("create_item_inventory")
+            #print("create_item_inventory")
             counter = 0
             #print("len(wjson)")
             #print(len(wjson))
@@ -69,7 +69,7 @@ def getObjectCount(configDataSet, appDataSet):
             objectScriptTypeAccumulator.append(script_execute_list[i])
 
         if script_execute_list[i] == "create_item_inventory_location":
-            print("create_item_inventory_location")
+            #print("create_item_inventory_location")
             counter = 0
             #this for loop in range(len(wjson[0])) might have to be different for inventory location
             #   if data is grabbed from different area of sheet
@@ -79,7 +79,7 @@ def getObjectCount(configDataSet, appDataSet):
             objectScriptTypeAccumulator.append(script_execute_list[i])
 
         if script_execute_list[i] == "create_item_offer":
-            print("create_item_offer")
+            #print("create_item_offer")
             counter = 0
             for object in range(len(wjson[0])):
                 counter = counter + 1
@@ -87,7 +87,7 @@ def getObjectCount(configDataSet, appDataSet):
             objectScriptTypeAccumulator.append(script_execute_list[i])
 
         if script_execute_list[i] == "publish_offer":
-            print("publish_offer")
+            #print("publish_offer")
             counter = 0
             for object in range(len(wjson[0])):
                 counter = counter + 1
@@ -103,8 +103,8 @@ def getObjectCount(configDataSet, appDataSet):
 def call_ebay_api(configDataSet, appDataSet):
     # for each row in inventory, make an api request payload with the data
     object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet)
-    print("object_count")
-    print(object_count)
+    #print("object_count")
+    #print(object_count)
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet)
     # Set filepath token for ebay api access
@@ -126,15 +126,46 @@ def call_ebay_api(configDataSet, appDataSet):
             api_payload_file = open(api_payload_filename, "r")
             # replace values in json_payload_body with data from wjson variable
             json_payload_body = json.load(api_payload_file)
-            print("json_payload_body")
-            print(json_payload_body)
+            #print("json_payload_body")
+            #print(json_payload_body)
             current_row = 0
-            current_area = 1
+
             current_row_index = "item_qty"
-            print("wjson[current_area][current_row][current_row_index]")
-            print(wjson[current_area][current_row][current_row_index])
+            #print("wjson[current_area][current_row][current_row_index]")
+            #print(wjson[current_area][current_row][current_row_index])
             #assign quantity to the createOrReplaceInventoryItem object
-            json_payload_body['availability']['shipToLocationAvailability']['quantity'] = wjson[current_area][current_row]['item_qty']
+            main_json_payload_body = []
+            # area1
+            j = 0
+            current_area = 0
+            while j < len(wjson[current_area]):
+                json_payload_body['product']['title'] = wjson[current_area][j]['item_title']
+                main_json_payload_body.append(json_payload_body)
+                j = j + 1
+
+            #area2
+            current_area = 1
+            j = 0
+            while j < len(wjson[current_area]):
+                main_json_payload_body['condition'] = wjson[current_area][j]['item_condition']
+                main_json_payload_body['product']['description'] = wjson[current_area][j]['item_condition_description']
+                main_json_payload_body['availability']['shipToLocationAvailability']['quantity'] = wjson[current_area][j]['item_qty']
+                j = j + 1
+
+            #print("main_json_payload_body[j]")
+            #print(main_json_payload_body[0])
+            #print(main_json_payload_body[1])
+            #print(main_json_payload_body[2])
+
+
+            #area3
+            # packed_item_weight_lb
+            # packed_item_weight_oz
+            # packed_item_height
+            # packed_item_length
+            # packed_item_depth
+
+
 
 
             destination_file = open(filepath_body, "w")
@@ -149,21 +180,21 @@ def call_ebay_api(configDataSet, appDataSet):
             current_row_count = object_count[0][current_object_position]
             i = 0
             # for each row of data (select data in area1,area2,area3)
-            while i < current_row_count:
-                for area in wjson:
-                    print("area" + str(i))
+            # while i < current_row_count:
+            #     for area in wjson:
+                    # print("area" + str(i))
                     # now we get each row for area1, area2, and area3
                     # now need to call each area a name area1,2,3,etc....
                     # so we can reference the area and match area1[0],area2[0],area3[0] together
 
 
-                i = i + 1
+                #i = i + 1
 
 
 
 
                 # at the end of the object_row for loop, increment
-                current_area = current_area + 1
+                # current_area = current_area + 1
 
 
 

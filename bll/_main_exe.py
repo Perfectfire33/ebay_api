@@ -2,6 +2,7 @@ import bll._setup_config
 import bll.ebay_object_receiver
 import bll.ebay_object_matcher
 import json
+import bll.old.ebay_object_defs
 
 """
 This script is designed to be run directly
@@ -39,7 +40,16 @@ appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_s
 
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
-ebay_api_response = bll.ebay_object_matcher.call_ebay_api(configDataSet, appDataSet)
+ebay_api_response = bll.ebay_object_matcher.call_ebay_api(configDataSet, appDataSet, uri_env="sandbox")
 print("ebay_api_response")
 print(ebay_api_response)
 
+#repo_path = r'C:\Users\dick\Documents\GitHub'
+# Set filepath token for ebay api access
+#filepath_token = repo_path + r'\ebay_api\bll\token.txt'
+# This is the file that includes the api call data
+#filepath_body = repo_path + r'\ebay_api\bll\dal\request_payload.json'
+
+#api_x2_response = bll.old.ebay_object_defs.createInventoryObject(filepath_token, filepath_body)
+#print("api_x2_response")
+#print(api_x2_response)

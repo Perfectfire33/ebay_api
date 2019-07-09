@@ -29,6 +29,12 @@ def get_api_headers(token):
 
     return api_headers
 
+#def get_api_headers(token):
+#    api_headers = {'Authorization': '%s' % token,
+#                   'content-language': 'en-US'}
+#
+#    return api_headers
+
 # getBaseUri retrieves and prepares the generic uri that is necessary in the http call
 # Variables requires:
 #   uri_env ~ sandbox or production environment
@@ -77,7 +83,7 @@ def inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body):
     """Create the Inventory Item"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
+    api_url = base_uri + '//sell/inventory//v1//inventory_item//' + str(uri_param1) + '/'
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
@@ -104,7 +110,7 @@ def inventory_getInventoryItems(token, uri_env, uri_param1, uri_param2):
     """Get Inventory Items"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get a inventory items
-    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + '?limit=' + uri_param1 + '&offset=' + uri_param2
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + '?limit=' + uri_param1 + '&offset=' + uri_param2 +'/'
     # Method Headers
     api_headers = get_api_headers(token)
     # Specify request body json data and headers

@@ -13,6 +13,7 @@ ebay object list
     For request_payload file:
         Create a folder of files with each file being a specific request payload (set values to placeholders, and replace placeholders with variables)
 """
+# inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body)
 def createInventoryObject(filepath_token, filepath_body):
     # Get token from local file
     # (could write script to generate token and put in gsheet api,
@@ -27,16 +28,23 @@ def createInventoryObject(filepath_token, filepath_body):
     # ^^ could make this a file with list of ebay API objects to create ,
     # then get data from ebay_object_reciever.py
     #
-
+    uri_env = "sandbox"
     # Get SKU from Google Sheet eBay Inventory File?
     sku = "testItem1"
 
     # Call inventory_createOrReplaceInventoryItem function in ebay_api_connector.py with parameters
-    api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(body, tokenPrepared, sku)
+    api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, sku, body)
 
     code = api_response.status_code
     print("code")
     print(code)
+
+    test22 = api_response.raw
+    print("test22")
+    print(test22)
+    test33 = api_response.url
+    print("test33")
+    print(test33)
 
     print("api_response")
     print(api_response)

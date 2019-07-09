@@ -100,7 +100,7 @@ def getObjectCount(configDataSet, appDataSet):
     return objectCount
 
 
-def call_ebay_api(configDataSet, appDataSet):
+def call_ebay_api(configDataSet, appDataSet, uri_env):
     # for each row in inventory, make an api request payload with the data
     object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet)
     #print("object_count")
@@ -120,96 +120,69 @@ def call_ebay_api(configDataSet, appDataSet):
     """
     current_object_position = 0
     for script in object_count[1]:
+        #array of API call responses
+        api_array = []
         if script == "create_item_inventory":
             # open the right payload file with json data
             api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createOrReplaceInventoryItem']
             api_payload_file = open(api_payload_filename, "r")
             # replace values in json_payload_body with data from wjson variable
             json_payload_body = json.load(api_payload_file)
-            #print("json_payload_body")
-            #print(json_payload_body)
-            current_row = 0
+            api_payload_file.close()
+            k = 2
+            while k < object_count[0][0]:
+                body_var1 = wjson[0][k]['item_title']
+                body_var2 = wjson[1][k]['item_condition']
+                body_var3 = wjson[1][k]['item_condition_description']
+                body_var4 = wjson[1][k]['item_qty']
+                json_payload_body['product']['title'] = body_var1
+                json_payload_body['condition'] = body_var2
+                # json_payload_body['conditionDescription'] = body_var3
+                json_payload_body['availability']['shipToLocationAvailability']['quantity'] = body_var4
+                # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
+                #for now, set item_id to sku
+                # uri_param1 = wjson[0][k]['item_id']
+                uri_param1 = "11"
+                uri_param2 = "0"
 
-            current_row_index = "item_qty"
-            #print("wjson[current_area][current_row][current_row_index]")
-            #print(wjson[current_area][current_row][current_row_index])
-            #assign quantity to the createOrReplaceInventoryItem object
-            main_json_payload_body = []
-            # area1
-            j = 0
-            current_area = 0
-            while j < len(wjson[current_area]):
-                json_payload_body['product']['title'] = wjson[current_area][j]['item_title']
-                main_json_payload_body.append(json_payload_body)
-                j = j + 1
+                #open, write, and close destination file
+                destination_file = open(filepath_body, "w")
+                destination_file.write(str(json_payload_body))
+                destination_file.close()
+                #open token file
+                token = open(filepath_token).read()
+                # eBay API requires Bearer token
+                tokenPrepared = "Bearer " + token
+                #read destination file
+                # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+                body = open(filepath_body).read()
 
-            #area2
-            current_area = 1
-            j = 0
-            while j < len(wjson[current_area]):
-                main_json_payload_body['condition'] = wjson[current_area][j]['item_condition']
-                main_json_payload_body['product']['description'] = wjson[current_area][j]['item_condition_description']
-                main_json_payload_body['availability']['shipToLocationAvailability']['quantity'] = wjson[current_area][j]['item_qty']
-                j = j + 1
+                print("tokenPrepared")
+                print(tokenPrepared)
+                print("body")
+                print(body)
+                print("uri_param1")
+                print(uri_param1)
+                #inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body)
+                api_response = bll.ebay_api_connector.inventory_getInventoryItems(tokenPrepared, uri_env, uri_param1, uri_param2)
+                #api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, uri_param1, body)
+                api_array.append(api_response)
+                api_array.append(api_response.text)
+                api_array.append(api_response.status_code)
+                k = k + 1
 
-            #print("main_json_payload_body[j]")
-            #print(main_json_payload_body[0])
-            #print(main_json_payload_body[1])
-            #print(main_json_payload_body[2])
-
-
+            print("API_ARRAY")
+            print(api_array)
             #area3
             # packed_item_weight_lb
             # packed_item_weight_oz
             # packed_item_height
             # packed_item_length
             # packed_item_depth
-
-
-
-
-            destination_file = open(filepath_body, "w")
-            destination_file.write(str(json_payload_body))
-            api_payload_file.close()
-            destination_file.close()
-
-            """
-                For Each object_row:
-                    1| append number of bodies to eachother according to number of rows (in getObjectCount)
-            """
-            current_row_count = object_count[0][current_object_position]
-            i = 0
-            # for each row of data (select data in area1,area2,area3)
-            # while i < current_row_count:
-            #     for area in wjson:
-                    # print("area" + str(i))
-                    # now we get each row for area1, area2, and area3
-                    # now need to call each area a name area1,2,3,etc....
-                    # so we can reference the area and match area1[0],area2[0],area3[0] together
-
-
-                #i = i + 1
-
-
-
-
-                # at the end of the object_row for loop, increment
-                # current_area = current_area + 1
-
-
-
-
-
-            # open the request payload file
-            #file = open(filepath_body)
-
-
-            #payloadJson = json.loads(file)
-            #print payloadJson
-
         current_object_position = current_object_position + 1
-
     # return api_response_set
+
+
 
 
 

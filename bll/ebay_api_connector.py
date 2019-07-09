@@ -29,6 +29,14 @@ def get_api_headers(token):
 
     return api_headers
 
+def get_api_headers2(token):
+    api_headers = {"Authorization": "%s" % token,
+                   "Accept": "application/json",
+                   "Content-Type": "application/json"
+                   }
+
+    return api_headers
+
 #def get_api_headers(token):
 #    api_headers = {'Authorization': '%s' % token,
 #                   'content-language': 'en-US'}
@@ -83,7 +91,7 @@ def inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body):
     """Create the Inventory Item"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '//sell/inventory//v1//inventory_item//' + str(uri_param1) + '/'
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
@@ -92,7 +100,7 @@ def inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body):
     return api_response
 
 # uri_param1 ~~ {sku}
-def inventory_getInventoryItem(token, uri_param1, uri_env):
+def inventory_getInventoryItem(token, uri_env, uri_param1):
     """Get an Inventory Item"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item

@@ -4,45 +4,17 @@
          "addressLine1":"string",
          "addressLine2":"string",
          "city":"string",
-         "country":"CountryCodeEnum : [AD,AE,AF...]",
+         "country":"US",
          "county":"string",
-         "postalCode":"string",
-         "stateOrProvince":"string"
-      },
-      "geoCoordinates":{
-         "latitude":"number",
-         "longitude":"number"
+         "postalCode":"48045",
+         "stateOrProvince":"MI"
       }
    },
    "locationAdditionalInformation":"string",
    "locationInstructions":"string",
    "locationTypes":[
-      "StoreTypeEnum : [STORE,WAREHOUSE]"
+      "STORE"
    ],
-   "locationWebUrl":"string",
-   "merchantLocationStatus":"StatusEnum : [DISABLED,ENABLED]",
-   "name":"string",
-   "operatingHours":[
-      {
-         "dayOfWeekEnum":"DayOfWeekEnum : [MONDAY,TUESDAY,WEDNESDAY...]",
-         "intervals":[
-            {
-               "close":"string",
-               "open":"string"
-            }
-         ]
-      }
-   ],
-   "phone":"string",
-   "specialHours":[
-      {
-         "date":"string",
-         "intervals":[
-            {
-               "close":"string",
-               "open":"string"
-            }
-         ]
-      }
-   ]
+   "merchantLocationStatus":"ENABLED",
+   "name":"string"
 }

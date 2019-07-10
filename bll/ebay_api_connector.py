@@ -200,7 +200,7 @@ def inventory_getInventoryLocations(token, uri_env, uri_param1, uri_param2):
     """Get Inventory Locations"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '/sell/inventory/v1/location/' + '?offset=' + uri_param1 + '&limit=' + uri_param2
+    api_url = base_uri + '/sell/inventory/v1/location/' + '?offset=' + str(uri_param1) + '&limit=' + str(uri_param2)
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint

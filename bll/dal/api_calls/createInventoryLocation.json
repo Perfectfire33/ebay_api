@@ -13,7 +13,7 @@
    "locationAdditionalInformation":"string",
    "locationInstructions":"string",
    "locationTypes":[
-      "STORE"
+      "WAREHOUSE"
    ],
    "merchantLocationStatus":"ENABLED",
    "name":"string"

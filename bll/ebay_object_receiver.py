@@ -62,8 +62,8 @@ def createObjectsFromDataSet(appDataSet, headers):
 def matchDataWithHeaders(appDataSet, headers):
     # Put appDataSet values inside of ebay objects and print API calls (use configDataSet values for config settings)
     all_header_groups = createObjectsFromDataSet(appDataSet, headers)
-    # print("all_header_groups")
-    # print(all_header_groups)
+    #print("all_header_groups")
+    #print(all_header_groups)
     # then, call the api and send body data to it
     j = 0
     itemObject = {}
@@ -72,7 +72,8 @@ def matchDataWithHeaders(appDataSet, headers):
     # appDataSet len is
     # print("len(appDataSet)")
     # print(len(appDataSet))
-    # print(appDataSet)
+    #print("appDataSet")
+    #print(appDataSet)
     # BEGIN count Area (length of appDataSet)
     while j < len(appDataSet):
         for area in appDataSet[j]:

@@ -148,6 +148,22 @@ def get_headers_data_ii():
 
     return headers2
 
+def get_headers_data_iii():
+    headers3 = []
+    headers3.append('addressLine1')
+    headers3.append('addressLine2')
+    headers3.append('city')
+    headers3.append('country')
+    headers3.append('county')
+    headers3.append('postalCode')
+    headers3.append('stateOrProvince')
+    headers3.append('locationAdditionalInformation')
+    headers3.append('locationInstructions')
+    headers3.append('locationTypes')
+    headers3.append('merchantLocationStatus')
+    headers3.append('name')
+
+    return headers3
 
 def get_all_inventory_items(configDataSet, uri_env):
     api_array = []
@@ -166,6 +182,98 @@ def get_all_inventory_items(configDataSet, uri_env):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     return api_array
+
+
+def get_all_inventory_locations(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ offset
+    uri_param1 = 0
+    # uri_param2 ~ limit
+    uri_param2 = 25
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_getInventoryLocations(tokenPrepared, uri_env, uri_param1, uri_param2)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+def create_inventory_location(configDataSet, appDataSet3, uri_env):
+    headers3 = get_headers_data_iii()
+    # Import JSON header-data matched object
+    print("appDataSet3")
+    print(appDataSet3)
+    xjson = bll.ebay_object_receiver.loadJsonData(appDataSet3, headers3)
+    print("XJSON")
+    print(xjson)
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # This is the file that includes the api call data
+    filepath_body = configDataSet[0][6][2] + configDataSet[0][6][1]
+    # This is the folder of the json request payload files
+    api_payload_folder = configDataSet[0][7][2]
+    payloadFilenameMap = bll.ebay_api_connector.getPayloadFilenameMap()
+    # open the right payload file with json data
+    api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createInventoryLocation']
+    api_payload_file = open(api_payload_filename, "r")
+    # replace values in json_payload_body with data from wjson variable
+    json_payload_body = json.load(api_payload_file)
+    time.sleep(0.25)
+    api_payload_file.close()
+    api_array = []
+    body_var1 = xjson[0][0]['addressLine1']
+    body_var2 = xjson[0][0]['addressLine2']
+    body_var3 = xjson[0][0]['city']
+    body_var4 = xjson[0][0]['country']
+    body_var5 = xjson[0][0]['county']
+    body_var6 = xjson[0][0]['postalCode']
+    body_var7 = xjson[0][0]['stateOrProvince']
+    body_var8 = xjson[0][0]['locationAdditionalInformation']
+    body_var9 = xjson[0][0]['locationInstructions']
+    body_var10 = xjson[0][0]['locationTypes']
+    body_var11 = xjson[0][0]['merchantLocationStatus']
+    body_var12 = xjson[0][0]['name']
+    json_payload_body['location']['address']['addressLine1'] = body_var1
+    json_payload_body['location']['address']['addressLine2'] = body_var2
+    json_payload_body['location']['address']['city'] = body_var3
+    json_payload_body['location']['address']['country'] = body_var4
+    json_payload_body['location']['address']['county'] = body_var5
+    json_payload_body['location']['address']['postalCode'] = body_var6
+    json_payload_body['location']['address']['stateOrProvince'] = body_var7
+    json_payload_body['locationAdditionalInformation'] = body_var8
+    json_payload_body['locationInstructions'] = body_var9
+    json_payload_body['locationTypes'][0] = body_var10
+    json_payload_body['merchantLocationStatus'] = body_var11
+    json_payload_body['name'] = body_var12
+
+    print("json_payload_body")
+    print(json_payload_body)
+
+    # merchantLocationKey is the name field in "ebay_item_inventory"."inventory_locations".Cell(C15)
+    uri_param1 = body_var12
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    # read destination file
+    # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+    body_string = str(json_payload_body)
+    body = body_string.replace("\'", "\"")
+    time.sleep(0.25)
+    api_response = bll.ebay_api_connector.inventory_createInventoryLocation(tokenPrepared, uri_env, uri_param1, body)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
+    time.sleep(1)
+    #print("API_ARRAY")
+    #print(api_array)
+    return api_array
+
 
 
 def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
@@ -347,6 +455,10 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
     #print("API_ARRAY")
     #print(api_array)
     return api_array
+
+
+
+
 
 
 

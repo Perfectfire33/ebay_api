@@ -24,20 +24,24 @@ XY Set Fields:
 4 area5 ~ "Google Sheets Data 2 - Properties"
 5 area6 ~ "Google Sheets Data 2 - XY Coord Sets"
 """
-#app data set is all the xy cells from the app's config data set
-appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
-#print("appDataSet")
-#print(appDataSet)
-#app data set is all the xy cells from the app's config data set
-appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
-print("appDataSet2")
-print(appDataSet2)
+#app data set is all the xy cells from the app's config data set (Google Sheets Data I)
+#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+#app data set is all the xy cells from the app's config data set (Google Sheets Data II)
+#appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 
+
+api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="sandbox")
+print("api_array")
+print(api_array)
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
-ebay_api_response = bll.ebay_object_matcher.call_ebay_api(configDataSet, appDataSet, uri_env="sandbox")
-print("ebay_api_response")
-print(ebay_api_response)
+#api_array = bll.ebay_object_matcher.create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+
+
+
 
 #repo_path = r'C:\Users\dick\Documents\GitHub'
 # Set filepath token for ebay api access

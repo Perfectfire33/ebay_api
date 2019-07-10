@@ -100,8 +100,7 @@ def getObjectCount(configDataSet, appDataSet, headers):
     objectCount.append(objectScriptTypeAccumulator)
     return objectCount
 
-
-def create_item_inventory(configDataSet, appDataSet):
+def get_headers_data_i():
     # need to define object headers
     headers = []
     headers.append('item_id')
@@ -119,12 +118,69 @@ def create_item_inventory(configDataSet, appDataSet):
     headers.append('payment_policy')
     headers.append('return_policy')
 
+    return headers
+
+
+def get_headers_data_ii():
+    headers2 = []
+    headers2.append('item_id')
+    headers2.append('box_name')
+    headers2.append('box_category')
+    headers2.append('unit_price')
+    headers2.append('inv_qty')
+    headers2.append('total_value')
+    headers2.append('box_packing_weight_lb')
+    headers2.append('box_packing_weight_oz')
+    headers2.append('unit_weight_lb')
+    headers2.append('unit_weight_oz')
+    headers2.append('qty_weight_lb')
+    headers2.append('qty_weight_oz')
+    headers2.append('location')
+    headers2.append('section')
+    headers2.append('box_height')
+    headers2.append('box_length')
+    headers2.append('box_depth')
+    headers2.append('box_type')
+    headers2.append('box_style')
+    headers2.append('box_details')
+    headers2.append('pic_local_uri')
+    headers2.append('pic_internet_uri')
+
+    return headers2
+
+
+def get_all_inventory_items(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ limit
+    uri_param1 = 25
+    # uri_param2 ~ offset
+    uri_param2 = 0
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_getInventoryItems(tokenPrepared, uri_env, uri_param1, uri_param2)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+
+def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
+    headers = get_headers_data_i()
+    headers2 = get_headers_data_ii()
+
     # for each row in inventory, make an api request payload with the data
     object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet, headers)
     #print("object_count")
     #print(object_count)
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
+    vjson = bll.ebay_object_receiver.loadJsonData(appDataSet2, headers2)
+    print("VJSON")
+    print(vjson)
     # Set filepath token for ebay api access
     filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
     # This is the file that includes the api call data
@@ -141,6 +197,8 @@ def create_item_inventory(configDataSet, appDataSet):
     time.sleep(0.25)
     api_payload_file.close()
     k = 0
+    #array for the api calls in the batch
+    api_array = []
     while k < object_count[0][0]:
         body_var1 = wjson[0][k]['item_title']
         body_var2 = wjson[1][k]['item_condition']
@@ -181,11 +239,114 @@ def create_item_inventory(configDataSet, appDataSet):
         api_array.append(api_response)
         api_array.append(api_response.text)
         api_array.append(api_response.status_code)
+        #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
         time.sleep(3)
         k = k + 1
 
-    print("API_ARRAY")
-    print(api_array)
+    #print("API_ARRAY")
+    #print(api_array)
+    return api_array
+
+
+
+def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
+    headers = get_headers_data_i()
+    headers2 = get_headers_data_ii()
+    # for each row in inventory, make an api request payload with the data
+    object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet, headers)
+    #print("object_count")
+    #print(object_count)
+    # Import JSON header-data matched object
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
+    vjson = bll.ebay_object_receiver.loadJsonData(appDataSet2, headers2)
+    print("VJSON")
+    print(vjson)
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # This is the file that includes the api call data
+    filepath_body = configDataSet[0][6][2] + configDataSet[0][6][1]
+    # This is the folder of the json request payload files
+    api_payload_folder = configDataSet[0][7][2]
+    payloadFilenameMap = bll.ebay_api_connector.getPayloadFilenameMap()
+
+    # open the right payload file with json data
+    api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createOffer']
+    api_payload_file = open(api_payload_filename, "r")
+    # replace values in json_payload_body with data from wjson variable
+    json_payload_body = json.load(api_payload_file)
+    api_payload_file.close()
+    k = 0
+    #array for the api calls in the batch
+    api_array = []
+    while k < object_count[0][0]:
+        # paymentPolicyId from other API
+        body_var1a = wjson[1][k]['ship_policy']
+        #body_var1 = bll.ebay_object_matcher.getShipPolicyIdBasedOnInventory(body_var1a)
+        body_var1 = ""
+        # returnPolicyId from other API
+        body_var2a = wjson[1][k]['payment_policy']
+        #body_var2 = bll.ebay_object_matcher.getShipPolicyIdBasedOnInventory(body_var2a)
+        body_var2 = ""
+        # fulfillmentPolicyId from other API
+        body_var3a = wjson[1][k]['return_policy']
+        #body_var3 = bll.ebay_object_matcher.getShipPolicyIdBasedOnInventory(body_var3a)
+        body_var3 = ""
+        # availableQuantity
+        body_var4 = wjson[1][k]['item_qty']
+        # categoryId from category API
+        body_var5a = wjson[1][k]['item_category']
+        body_var5b = vjson[0][k]['box_category']
+        # body_var5 = bll.ebay_object_matcher.getCategoryIdBasedOnInventory(body_var5a, body_var5b)
+        body_var5 = ""
+        # merchantLocationKey
+        body_var6a = vjson[0][k]['location']
+        body_var6b = vjson[0][k]['section']
+        body_var6 = body_var6a + "_" + body_var6b
+        body_var7 = vjson[0][k]['item_price']
+        body_var8 = "EBAY_US"
+        body_var9 = "FIXED_PRICE"
+        body_var10 = vjson[0][k]['box_name']
+
+
+        json_payload_body['listingPolicies']['paymentPolicyId'] = body_var1
+        json_payload_body['listingPolicies']['returnPolicyId'] = body_var2
+        json_payload_body['listingPolicies']['fulfillmentPolicyId'] = body_var3
+        json_payload_body['listingPolicies']['ebayPlusIfEligible'] = "false"
+        json_payload_body['availableQuantity'] = body_var4
+        # derive this from "stage3"."Item Category"
+        json_payload_body['categoryId'] = body_var5
+        # derive this from "stage2"."location"."Section"
+        json_payload_body['merchantLocationKey'] = body_var6
+        json_payload_body['pricingSummary']['price']['value'] = body_var7
+        json_payload_body['pricingSummary']['price']['currency'] = "USD"
+        json_payload_body['marketplaceId'] = body_var8
+        json_payload_body['format'] = body_var9
+        json_payload_body['sku'] = body_var10
+
+        # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
+        # for now, set item_id to sku
+        uri_param1 = wjson[0][k]['item_id']
+        # open token file
+        token_file = open(filepath_token).read()
+        # eBay API requires Bearer token
+        tokenPrepared = "Bearer " + token_file
+        # read destination file
+        # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+        body_string = str(json_payload_body)
+        body = body_string.replace("\'", "\"")
+        time.sleep(0.25)
+        api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, uri_param1,
+                                                                                     body)
+        api_array.append(api_response)
+        api_array.append(api_response.text)
+        api_array.append(api_response.status_code)
+        # from here, can also send misc data to flask API to create webpage or store data in SQLite DB
+        time.sleep(3)
+        k = k + 1
+
+    #print("API_ARRAY")
+    #print(api_array)
+    return api_array
 
 
 

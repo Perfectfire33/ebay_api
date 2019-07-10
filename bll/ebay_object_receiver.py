@@ -2,8 +2,6 @@ import json
 import bll.ebay_object_matcher
 
 def createObjectsFromDataSet(appDataSet, headers):
-
-
     # group of headers
     header_group_ct = []
     # groups of group of headers
@@ -111,10 +109,10 @@ def matchDataWithHeaders(appDataSet, headers):
     ]
     
     """
-    print("itemData")
-    print(itemData)
-    print("itemData[0]")
-    print(itemData[0])
+    #print("itemData")
+    #print(itemData)
+    #print("itemData[0]")
+    #print(itemData[0])
 
 
     # returning the api call
@@ -125,8 +123,8 @@ def matchDataWithHeaders(appDataSet, headers):
 def loadJsonData(appDataSet, headers):
     jsonDataWithHeaders = matchDataWithHeaders(appDataSet, headers)
     wjson = json.loads(jsonDataWithHeaders)
-    print("wjson")
-    print(wjson)
+    #print("wjson")
+    #print(wjson)
     #print("wjson[item_id]")
     #print(wjson[0][0]['item_id'])
     return wjson

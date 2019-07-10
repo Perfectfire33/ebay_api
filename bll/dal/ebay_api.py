@@ -7,6 +7,21 @@ WITH REQUESTS LIBRARY
 AND RETRIEVE RESPONSE
 """
 
+""" ACCOUNT API ~ POLICY OBJECTS """
+def createFulfillmentPolicy(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, data=body, headers=headers)
+    return response
+
+def deleteFulfillmentPolicy(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getFulfillmentPolicies(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
 
 """ INVENTORY ITEM OBJECT """
 

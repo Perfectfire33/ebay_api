@@ -2,6 +2,7 @@ import bll.dal.api_local_file_accessor
 import bll.ebay_object_receiver
 import json
 import bll.ebay_api_connector
+import time
 
 # this file matches ebay data to ebay objects
 # sends objects out to api_call_sequencer file
@@ -35,10 +36,10 @@ def getScriptExecutionList(configDataSet):
 # getObjectCount retrieves what operations and the number of operation executions
 #   based on number of keys in the json variable in appDataSet , and
 #   based on the Script Name where Property Value equals 1 in ebay-config-data from configDataSet
-def getObjectCount(configDataSet, appDataSet):
+def getObjectCount(configDataSet, appDataSet, headers):
     #print("begin getObjectCount")
     # Import JSON header-data matched object
-    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet)
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     # Get list of object types to count
     script_execute_list = bll.ebay_object_matcher.getScriptExecutionList(configDataSet)
     #print("script_execute_list")
@@ -100,13 +101,118 @@ def getObjectCount(configDataSet, appDataSet):
     return objectCount
 
 
-def call_ebay_api(configDataSet, appDataSet, uri_env):
+def create_item_inventory(configDataSet, appDataSet):
+    # need to define object headers
+    headers = []
+    headers.append('item_id')
+    headers.append('item_title')
+    headers.append('item_condition')
+    headers.append('item_condition_description')
+    headers.append('item_price')
+    headers.append('item_qty')
+    headers.append('ship_policy')
+    headers.append('packed_item_weight_lb')
+    headers.append('packed_item_weight_oz')
+    headers.append('packed_item_height')
+    headers.append('packed_item_length')
+    headers.append('packed_item_depth')
+    headers.append('payment_policy')
+    headers.append('return_policy')
+
     # for each row in inventory, make an api request payload with the data
-    object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet)
+    object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet, headers)
     #print("object_count")
     #print(object_count)
     # Import JSON header-data matched object
-    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet)
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # This is the file that includes the api call data
+    filepath_body = configDataSet[0][6][2] + configDataSet[0][6][1]
+    # This is the folder of the json request payload files
+    api_payload_folder = configDataSet[0][7][2]
+    payloadFilenameMap = bll.ebay_api_connector.getPayloadFilenameMap()
+
+    # open the right payload file with json data
+    api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createOrReplaceInventoryItem']
+    api_payload_file = open(api_payload_filename, "r")
+    # replace values in json_payload_body with data from wjson variable
+    json_payload_body = json.load(api_payload_file)
+    time.sleep(0.25)
+    api_payload_file.close()
+    k = 0
+    while k < object_count[0][0]:
+        body_var1 = wjson[0][k]['item_title']
+        body_var2 = wjson[1][k]['item_condition']
+        body_var3 = wjson[1][k]['item_condition_description']
+        body_var4 = wjson[1][k]['item_qty']
+        body_var6a = wjson[2][k]['packed_item_weight_lb']
+        body_var6b = wjson[2][k]['packed_item_weight_oz']
+        body_var7 = wjson[2][k]['packed_item_height']
+        body_var8 = wjson[2][k]['packed_item_length']
+        body_var9 = wjson[2][k]['packed_item_depth']
+        json_payload_body['product']['title'] = body_var1
+        json_payload_body['condition'] = body_var2
+        json_payload_body['conditionDescription'] = body_var3
+        json_payload_body['availability']['shipToLocationAvailability']['quantity'] = body_var4
+        # convert weight to single unit
+        body_var6a = body_var6a * 16
+        body_var6b = body_var6a + body_var6b
+        # json_payload_body['packageWeightAndSize']['packageType'] = body_var5
+        json_payload_body['packageWeightAndSize']['weight']['value'] = body_var6b
+        json_payload_body['packageWeightAndSize']['dimensions']['height'] = body_var7
+        json_payload_body['packageWeightAndSize']['dimensions']['length'] = body_var8
+        json_payload_body['packageWeightAndSize']['dimensions']['width'] = body_var9
+
+        # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
+        # for now, set item_id to sku
+        uri_param1 = wjson[0][k]['item_id']
+        # open token file
+        token_file = open(filepath_token).read()
+        # eBay API requires Bearer token
+        tokenPrepared = "Bearer " + token_file
+        # read destination file
+        # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+        body_string = str(json_payload_body)
+        body = body_string.replace("\'", "\"")
+        time.sleep(0.25)
+        api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, uri_param1,
+                                                                                     body)
+        api_array.append(api_response)
+        api_array.append(api_response.text)
+        api_array.append(api_response.status_code)
+        time.sleep(3)
+        k = k + 1
+
+    print("API_ARRAY")
+    print(api_array)
+
+
+
+def call_ebay_api(configDataSet, appDataSet, uri_env):
+    # need to define object headers
+    headers = []
+    headers.append('item_id')
+    headers.append('item_title')
+    headers.append('item_condition')
+    headers.append('item_condition_description')
+    headers.append('item_price')
+    headers.append('item_qty')
+    headers.append('ship_policy')
+    headers.append('packed_item_weight_lb')
+    headers.append('packed_item_weight_oz')
+    headers.append('packed_item_height')
+    headers.append('packed_item_length')
+    headers.append('packed_item_depth')
+    headers.append('payment_policy')
+    headers.append('return_policy')
+
+    # for each row in inventory, make an api request payload with the data
+    object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet, headers)
+    #print("object_count")
+    #print(object_count)
+    # Import JSON header-data matched object
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     # Set filepath token for ebay api access
     filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
     # This is the file that includes the api call data
@@ -118,16 +224,26 @@ def call_ebay_api(configDataSet, appDataSet, uri_env):
     For each script:
         1| select each json payload and update it according to the endpoint
     """
+    api_all_script_array = []
     for script in object_count[1]:
+        #call new function
+        #returns api_array
+
+
         #array of API call responses
         api_array = []
+
+
+
+
+
         if script == "create_item_inventory":
             # open the right payload file with json data
             api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createOrReplaceInventoryItem']
-            #api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createInventoryLocation']
             api_payload_file = open(api_payload_filename, "r")
             # replace values in json_payload_body with data from wjson variable
             json_payload_body = json.load(api_payload_file)
+            time.sleep(0.25)
             api_payload_file.close()
             k = 0
             while k < object_count[0][0]:
@@ -135,8 +251,8 @@ def call_ebay_api(configDataSet, appDataSet, uri_env):
                 body_var2 = wjson[1][k]['item_condition']
                 body_var3 = wjson[1][k]['item_condition_description']
                 body_var4 = wjson[1][k]['item_qty']
-                body_var5 = wjson[2][k]['packed_item_weight_lb']
-                body_var6 = wjson[2][k]['packed_item_weight_oz']
+                body_var6a = wjson[2][k]['packed_item_weight_lb']
+                body_var6b = wjson[2][k]['packed_item_weight_oz']
                 body_var7 = wjson[2][k]['packed_item_height']
                 body_var8 = wjson[2][k]['packed_item_length']
                 body_var9 = wjson[2][k]['packed_item_depth']
@@ -144,13 +260,14 @@ def call_ebay_api(configDataSet, appDataSet, uri_env):
                 json_payload_body['condition'] = body_var2
                 json_payload_body['conditionDescription'] = body_var3
                 json_payload_body['availability']['shipToLocationAvailability']['quantity'] = body_var4
-                #json_payload_body['availability']['pickupAtLocationAvailability']['quantity'] = body_var5
-                # area3
-                # packed_item_weight_lb
-                # packed_item_weight_oz
-                # packed_item_height
-                # packed_item_length
-                # packed_item_depth
+                #convert weight to single unit
+                body_var6a = body_var6a * 16
+                body_var6b = body_var6a + body_var6b
+                #json_payload_body['packageWeightAndSize']['packageType'] = body_var5
+                json_payload_body['packageWeightAndSize']['weight']['value'] = body_var6b
+                json_payload_body['packageWeightAndSize']['dimensions']['height'] = body_var7
+                json_payload_body['packageWeightAndSize']['dimensions']['length'] = body_var8
+                json_payload_body['packageWeightAndSize']['dimensions']['width'] = body_var9
 
                 # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
                 #for now, set item_id to sku
@@ -163,14 +280,74 @@ def call_ebay_api(configDataSet, appDataSet, uri_env):
                 # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
                 body_string = str(json_payload_body)
                 body = body_string.replace("\'", "\"")
+                time.sleep(0.25)
                 api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, uri_param1, body)
                 api_array.append(api_response)
                 api_array.append(api_response.text)
                 api_array.append(api_response.status_code)
+                time.sleep(3)
                 k = k + 1
 
             print("API_ARRAY")
             print(api_array)
+
+        # reset api_array for next if statement
+        api_array = []
+        if script == "create_item_offer":
+            # open the right payload file with json data
+            api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createOffer']
+            api_payload_file = open(api_payload_filename, "r")
+            # replace values in json_payload_body with data from wjson variable
+            json_payload_body = json.load(api_payload_file)
+            api_payload_file.close()
+            k = 0
+            while k < object_count[0][0]:
+                body_var1 = wjson[2][k]['ship_policy']
+                body_var2 = wjson[2][k]['payment_policy']
+                body_var3 = wjson[2][k]['return_policy']
+                body_var4 = wjson[1][k]['item_qty']
+                # categoryId from category API
+                body_var5 = wjson[1][k]['item_category']
+                body_var6 = wjson[1][k]['item_condition_description']
+                body_var7 = wjson[3][k]['item_merchantLocationKey']
+                body_var8 = wjson[1][k]['item_price']
+                json_payload_body['listingPolicies']['paymentPolicyId'] = body_var1
+                json_payload_body['listingPolicies']['returnPolicyId'] = body_var2
+                json_payload_body['listingPolicies']['fulfillmentPolicyId'] = body_var3
+                json_payload_body['listingPolicies']['ebayPlusIfEligible'] = "false"
+                json_payload_body['availableQuantity'] = body_var4
+                #derive this from "stage3"."Item Category"
+                json_payload_body['categoryId'] = body_var5
+                json_payload_body['conditionDescription'] = body_var6
+                #derive this from "stage2"."location"."Section"
+                json_payload_body['merchantLocationKey'] = body_var7
+                json_payload_body['pricingSummary']['price']['value'] = body_var8
+                json_payload_body['pricingSummary']['price']['currency'] = "USD"
+
+                #open token file
+                token_file = open(filepath_token).read()
+                # eBay API requires Bearer token
+                tokenPrepared = "Bearer " + token_file
+                #read destination file
+                # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+                body_string = str(json_payload_body)
+                body = body_string.replace("\'", "\"")
+                api_response = bll.ebay_api_connector.inventory_createOffer(tokenPrepared, uri_env, body)
+                api_array.append(api_response)
+                api_array.append(api_response.text)
+                api_array.append(api_response.status_code)
+                time.sleep(1)
+                k = k + 1
+
+            print("API_ARRAY")
+            print(api_array)
+
+
+
+
+
+
+
     # return api_response_set
 
 

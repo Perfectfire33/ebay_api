@@ -38,6 +38,27 @@ def getGoogleSheetDataSet(data_set_type, data_set_data):
         configData.append(sheet_name)
         configData.append(sheet_cell_xy_sets)
 
+    if data_set_type == "app2":
+        # Get Config Data and do stuff to break out the configData p1 through p7 of the correct profile
+        scopes = data_set_data[4][0][1]
+        tokenPath = data_set_data[4][1][1]
+        acceptableFields_profileName = data_set_data[4][2][1]
+        spreadsheet_name = data_set_data[4][3][1]
+        speadsheet_id = data_set_data[4][4][1]
+        sheet_name = data_set_data[4][5][1]
+        sheet_cell_xy_sets = []
+        rows = data_set_data[5]
+        for row in rows:
+            temp1 = row[0] + "," + row[1]
+            sheet_cell_xy_sets.append(temp1)
+
+        configData.append(scopes)
+        configData.append(tokenPath)
+        configData.append(acceptableFields_profileName)
+        configData.append(spreadsheet_name)
+        configData.append(speadsheet_id)
+        configData.append(sheet_name)
+        configData.append(sheet_cell_xy_sets)
 
     # Set current Config Data Params
     p1=configData[0]

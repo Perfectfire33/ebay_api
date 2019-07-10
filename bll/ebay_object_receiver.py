@@ -1,20 +1,8 @@
 import json
 import bll.ebay_object_matcher
 
-def createObjectsFromDataSet(appDataSet):
-    # need to define object headers
-    headers = []
-    headers.append('item_id')
-    headers.append('item_title')
-    headers.append('item_condition')
-    headers.append('item_condition_description')
-    headers.append('item_price')
-    headers.append('item_qty')
-    headers.append('packed_item_weight_lb')
-    headers.append('packed_item_weight_oz')
-    headers.append('packed_item_height')
-    headers.append('packed_item_length')
-    headers.append('packed_item_depth')
+def createObjectsFromDataSet(appDataSet, headers):
+
 
     # group of headers
     header_group_ct = []
@@ -73,9 +61,9 @@ def createObjectsFromDataSet(appDataSet):
 
 
 
-def matchDataWithHeaders(appDataSet):
+def matchDataWithHeaders(appDataSet, headers):
     # Put appDataSet values inside of ebay objects and print API calls (use configDataSet values for config settings)
-    all_header_groups = createObjectsFromDataSet(appDataSet)
+    all_header_groups = createObjectsFromDataSet(appDataSet, headers)
     # print("all_header_groups")
     # print(all_header_groups)
     # then, call the api and send body data to it
@@ -134,8 +122,8 @@ def matchDataWithHeaders(appDataSet):
     return itemDataJson
 
 
-def loadJsonData(appDataSet):
-    jsonDataWithHeaders = matchDataWithHeaders(appDataSet)
+def loadJsonData(appDataSet, headers):
+    jsonDataWithHeaders = matchDataWithHeaders(appDataSet, headers)
     wjson = json.loads(jsonDataWithHeaders)
     print("wjson")
     print(wjson)

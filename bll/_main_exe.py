@@ -26,17 +26,12 @@ XY Set Fields:
 """
 #app data set is all the xy cells from the app's config data set
 appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
-
 #print("appDataSet")
 #print(appDataSet)
-
-
-
-
-
-
-
-# def mergeJsonRows():
+#app data set is all the xy cells from the app's config data set
+appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
+print("appDataSet2")
+print(appDataSet2)
 
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call

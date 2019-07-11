@@ -55,17 +55,25 @@ appDataSet3 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app3", data
 #print("api_array")
 #print(api_array)
 
-
+# refer to https://developer.ebay.com/api-docs/static/oauth-scopes.html for production commerence scope
 #api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
 api_array = bll.ebay_object_matcher.get_all_payment_policies(configDataSet, uri_env="sandbox")
 print("api_array")
 print(api_array)
+api_array2 = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
+api_array3 = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env="sandbox")
+print("api_array2")
+print(api_array2)
+print("api_array3")
+print(api_array3)
 
-#api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
-api_array = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env="sandbox")
-print("api_array")
-print(api_array)
+#api_array = bll.ebay_object_matcher.get_default_category_tree(configDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
 
+#api_array2 = bll.ebay_object_matcher.get_category_suggestions(configDataSet, uri_env="sandbox")
+#print("api_array2")
+#print(api_array2)
 
 #repo_path = r'C:\Users\dick\Documents\GitHub'
 # Set filepath token for ebay api access

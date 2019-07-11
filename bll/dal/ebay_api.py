@@ -7,6 +7,19 @@ WITH REQUESTS LIBRARY
 AND RETRIEVE RESPONSE
 """
 
+""" COMMERCE TAXONOMY API API ~ POLICY OBJECTS """
+
+def getCategorySuggestions(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getDefaultCategoryTreeId(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+
 """ ACCOUNT API ~ POLICY OBJECTS """
 def createFulfillmentPolicy(url, body, headers):
     # Send the request with parameters and store it in response

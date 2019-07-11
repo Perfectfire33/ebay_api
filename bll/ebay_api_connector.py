@@ -496,9 +496,7 @@ def inventory_deleteInventoryItemGroup(token, uri_env, uri_param1):
 
 
 
-""" <><><><><><><><><> BEGIN FULFILLMENT API Object <><><><><><><><><><><> """
-
-""" <><><><><><><><><> END FULFILLMENT API Object <><><><><><><><><><><> """
+""" <><><><><><><><><> BEGIN ACCOUNT API Object <><><><><><><><><><><> """
 
 def account_createFulfillmentPolicy(token, uri_env, body):
     """Create the Fulfillment Policy"""
@@ -736,3 +734,38 @@ def account_updateReturnPolicy(token, uri_env, uri_param1, body):
     api_response = bll.dal.ebay_api.updateReturnPolicy(api_url, body, api_headers)
     # Return the API Response
     return api_response
+
+""" <><><><><><><><><> END ACCOUNT API Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> BEGIN COMMERCE API Object <><><><><><><><><><><> """
+
+
+# uri_param1 ~~ {category_tree_id}
+# uri_param2 ~~ {q}
+def taxonomy_getCategorySuggestions(token, uri_env, uri_param1, uri_param2):
+    """Get Category Suggestions"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/commerce/taxonomy/v1_beta/category_tree/' + str(uri_param1) + '/get_category_suggestions?q=' + str(uri_param2)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getCategorySuggestions(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def taxonomy_getDefaultCategoryTreeId(token, uri_env, uri_param1):
+    """Get the Default Category Tree Id"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/commerce/taxonomy/v1_beta/get_default_category_tree_id?marketplace_id=' + str(uri_param1)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getDefaultCategoryTreeId(api_url, api_headers)
+    # Return the API Response
+    return api_response
+""" <><><><><><><><><> END COMMERCE API Object <><><><><><><><><><><> """
+
+

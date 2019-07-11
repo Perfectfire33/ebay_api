@@ -258,6 +258,48 @@ def get_all_fulfillment_policies(configDataSet, uri_env):
     api_array.append(api_response.status_code)
     return api_array
 
+
+def get_category_suggestions(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ category_tree_id
+    #get default category tree
+    uri_param1a = get_default_category_tree(configDataSet, uri_env)
+    uri_param1b = json.loads(uri_param1a[1])
+    print("uri_param1b")
+    print(uri_param1b)
+    uri_param1 = uri_param1b['categoryTreeId']
+    # uri_param1 ~ query string ~ from stage2+stage3
+    uri_param2 = "VINYL RECORD"
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.taxonomy_getCategorySuggestions(tokenPrepared, uri_env, uri_param1, uri_param2)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+def get_default_category_tree(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ marketplace_id
+    uri_param1 = "EBAY_US"
+    # uri_param1 ~ query string ~ from
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.taxonomy_getDefaultCategoryTreeId(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+
 def create_fulfillment_policy(configDataSet, appDataSet4, uri_env):
     headers4 = get_headers_fulfillment_policy()
     # Import JSON header-data matched object

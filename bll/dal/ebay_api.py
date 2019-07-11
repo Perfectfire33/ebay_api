@@ -10,18 +10,106 @@ AND RETRIEVE RESPONSE
 """ ACCOUNT API ~ POLICY OBJECTS """
 def createFulfillmentPolicy(url, body, headers):
     # Send the request with parameters and store it in response
-    response = requests.get(url, data=body, headers=headers)
+    response = requests.post(url, data=body, headers=headers)
     return response
 
 def deleteFulfillmentPolicy(url, headers):
     # Send the request with parameters and store it in response
-    response = requests.get(url, headers=headers)
+    response = requests.delete(url, headers=headers)
     return response
 
 def getFulfillmentPolicies(url, headers):
     # Send the request with parameters and store it in response
     response = requests.get(url, headers=headers)
     return response
+
+def getFulfillmentPolicy(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getFulfillmentPolicyByName(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def updateFulfillmentPolicy(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.put(url, data=body, headers=headers)
+    return response
+
+
+
+def createPaymentPolicy(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.post(url, data=body, headers=headers)
+    return response
+
+def deletePaymentPolicy(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.delete(url, headers=headers)
+    return response
+
+def getPaymentPolicies(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getPaymentPolicy(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getPaymentPolicyByName(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def updatePaymentPolicy(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.put(url, data=body, headers=headers)
+    return response
+
+
+
+
+def createReturnPolicy(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.post(url, data=body, headers=headers)
+    return response
+
+def deleteReturnPolicy(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.delete(url, headers=headers)
+    return response
+
+def getReturnPolicies(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getReturnPolicy(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getReturnPolicyByName(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def updateReturnPolicy(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.put(url, data=body, headers=headers)
+    return response
+
+
+
+
+
+
+
+
 
 """ INVENTORY ITEM OBJECT """
 

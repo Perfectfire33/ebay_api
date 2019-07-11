@@ -490,3 +490,249 @@ def inventory_deleteInventoryItemGroup(token, uri_env, uri_param1):
     return api_response
 
 """ <><><><><><><><><> END Inventory Item Group Object <><><><><><><><><><><> """
+
+
+
+
+
+
+""" <><><><><><><><><> BEGIN FULFILLMENT API Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> END FULFILLMENT API Object <><><><><><><><><><><> """
+
+def account_createFulfillmentPolicy(token, uri_env, body):
+    """Create the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createFulfillmentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {fulfillmentPolicyId}
+def account_deleteFulfillmentPolicy(token, uri_env, uri_param1):
+    """Delete the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/fulfillment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteFulfillmentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def account_getFulfillmentPolicies(token, uri_env, uri_param1):
+    """Get Fulfillment Policies"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/?marketplace_id=' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getFulfillmentPolicies(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {fulfillmentPolicyId}
+def account_getFulfillmentPolicy(token, uri_env, uri_param1):
+    """Get the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/fulfillment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getFulfillmentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+# uri_param2 ~~ {name}
+def account_getFulfillmentPolicyByName(token, uri_env, uri_param1, uri_param2):
+    """Get Fulfillment Policy By Name"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getFulfillmentPolicyByName(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {fulfillmentPolicyId}
+def account_updateFulfillmentPolicy(token, uri_env, uri_param1, body):
+    """Update the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/fulfillment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updateFulfillmentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+def account_createPaymentPolicy(token, uri_env, body):
+    """Create the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/payment_policy/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createPaymentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {paymentPolicyId}
+def account_deletePaymentPolicy(token, uri_env, uri_param1):
+    """Delete the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/payment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deletePaymentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def account_getPaymentPolicies(token, uri_env, uri_param1):
+    """Get Payment Policies"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/payment_policy/?marketplace_id=' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getPaymentPolicies(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {paymentPolicyId}
+def account_getPaymentPolicy(token, uri_env, uri_param1):
+    """Get the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/payment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getPaymentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+# uri_param2 ~~ {name}
+def account_getPaymentPolicyByName(token, uri_env, uri_param1, uri_param2):
+    """Get Payment Policy By Name"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/payment_policy/?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getPaymentPolicyByName(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {paymentPolicyId}
+def account_updatePaymentPolicy(token, uri_env, uri_param1, body):
+    """Update the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/payment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updatePaymentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+
+def account_createReturnPolicy(token, uri_env, body):
+    """Create the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/return_policy/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createReturnPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {returnPolicyId}
+def account_deleteReturnPolicy(token, uri_env, uri_param1):
+    """Delete the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/return_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteReturnPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def account_getReturnPolicies(token, uri_env, uri_param1):
+    """Get Return Policies"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/return_policy/?marketplace_id=' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getReturnPolicies(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {returnPolicyId}
+def account_getReturnPolicy(token, uri_env, uri_param1):
+    """Get the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/return_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getReturnPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+# uri_param2 ~~ {name}
+def account_getReturnPolicyByName(token, uri_env, uri_param1, uri_param2):
+    """Get Return Policy By Name"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/return_policy/?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getReturnPolicyByName(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {returnPolicyId}
+def account_updateReturnPolicy(token, uri_env, uri_param1, body):
+    """Update the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/return_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updateReturnPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response

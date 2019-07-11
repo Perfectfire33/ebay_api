@@ -1,0 +1,34 @@
+{ /* ReturnPolicyRequest */
+"categoryTypes" : [
+{ /* CategoryType */
+"default" : "boolean",
+"name" : "CategoryTypeEnum : [MOTORS_VEHICLES,ALL_EXCLUDING_MOTORS_VEHICLES]"
+}
+],
+"description" : "string",
+"extendedHolidayReturnsOffered" : "boolean",
+"internationalOverride" :
+{ /* InternationalReturnOverrideType */
+"returnMethod" : "ReturnMethodEnum : [EXCHANGE,REPLACEMENT]",
+"returnPeriod" :
+{ /* TimeDuration */
+"unit" : "TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
+"value" : "integer"
+},
+"returnsAccepted" : "boolean",
+"returnShippingCostPayer" : "ReturnShippingCostPayerEnum : [BUYER,SELLER]"
+},
+"marketplaceId" : "MarketplaceIdEnum : [EBAY_AT,EBAY_AU,EBAY_BE...]",
+"name" : "string",
+"refundMethod" : "RefundMethodEnum : [MERCHANDISE_CREDIT,MONEY_BACK]",
+"restockingFeePercentage" : "string",
+"returnInstructions" : "string",
+"returnMethod" : "ReturnMethodEnum : [EXCHANGE,REPLACEMENT]",
+"returnPeriod" :
+{ /* TimeDuration */
+"unit" : "TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
+"value" : "integer"
+},
+"returnsAccepted" : "boolean",
+"returnShippingCostPayer" : "ReturnShippingCostPayerEnum : [BUYER,SELLER]"
+}

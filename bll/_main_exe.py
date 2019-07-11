@@ -51,9 +51,21 @@ appDataSet3 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app3", data
 #time.sleep(8)
 
 
-api_array = bll.ebay_object_matcher.get_all_inventory_locations(configDataSet, uri_env="sandbox")
+#api_array = bll.ebay_object_matcher.get_all_inventory_locations(configDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+
+#api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
+api_array = bll.ebay_object_matcher.get_all_payment_policies(configDataSet, uri_env="sandbox")
 print("api_array")
 print(api_array)
+
+#api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
+api_array = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env="sandbox")
+print("api_array")
+print(api_array)
+
 
 #repo_path = r'C:\Users\dick\Documents\GitHub'
 # Set filepath token for ebay api access

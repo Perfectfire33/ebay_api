@@ -165,6 +165,14 @@ def get_headers_data_iii():
 
     return headers3
 
+
+def get_headers_fulfillment_policy():
+    headers4 = []
+    headers4.append('addressLine1')
+
+    return headers4
+
+
 def get_all_inventory_items(configDataSet, uri_env):
     api_array = []
     # Set filepath token for ebay api access
@@ -201,6 +209,109 @@ def get_all_inventory_locations(configDataSet, uri_env):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     return api_array
+
+def get_all_payment_policies(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ marketplace_id
+    uri_param1 = "EBAY_US"
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.account_getPaymentPolicies(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+def get_all_return_policies(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ marketplace_id
+    uri_param1 = "EBAY_US"
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.account_getReturnPolicies(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+def get_all_fulfillment_policies(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ marketplace_id
+    uri_param1 = "EBAY_US"
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.account_getFulfillmentPolicies(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+def create_fulfillment_policy(configDataSet, appDataSet4, uri_env):
+    headers4 = get_headers_fulfillment_policy()
+    # Import JSON header-data matched object
+    print("appDataSet3")
+    print(appDataSet3)
+    xjson = bll.ebay_object_receiver.loadJsonData(appDataSet4, headers4)
+    print("XJSON")
+    print(xjson)
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # This is the file that includes the api call data
+    filepath_body = configDataSet[0][6][2] + configDataSet[0][6][1]
+    # This is the folder of the json request payload files
+    api_payload_folder = configDataSet[0][7][2]
+    payloadFilenameMap = bll.ebay_api_connector.getPayloadFilenameMap()
+    # open the right payload file with json data
+    api_payload_filename = api_payload_folder + payloadFilenameMap['inventory_createInventoryLocation']
+    api_payload_file = open(api_payload_filename, "r")
+    # replace values in json_payload_body with data from wjson variable
+    json_payload_body = json.load(api_payload_file)
+    time.sleep(0.25)
+    api_payload_file.close()
+    api_array = []
+    body_var1 = xjson[0][0]['addressLine1']
+    body_var2 = xjson[0][0]['addressLine2']
+    body_var3 = xjson[0][0]['city']
+    body_var4 = xjson[0][0]['country']
+    body_var5 = xjson[0][0]['county']
+    body_var6 = xjson[0][0]['postalCode']
+    body_var7 = xjson[0][0]['stateOrProvince']
+    body_var8 = xjson[0][0]['locationAdditionalInformation']
+    body_var9 = xjson[0][0]['locationInstructions']
+    body_var10 = xjson[0][0]['locationTypes']
+    body_var11 = xjson[0][0]['merchantLocationStatus']
+    body_var12 = xjson[0][0]['name']
+    json_payload_body['location']['address']['addressLine1'] = body_var1
+    json_payload_body['location']['address']['addressLine2'] = body_var2
+    json_payload_body['location']['address']['city'] = body_var3
+    json_payload_body['location']['address']['country'] = body_var4
+    json_payload_body['location']['address']['county'] = body_var5
+    json_payload_body['location']['address']['postalCode'] = body_var6
+    json_payload_body['location']['address']['stateOrProvince'] = body_var7
+    json_payload_body['locationAdditionalInformation'] = body_var8
+    json_payload_body['locationInstructions'] = body_var9
+    json_payload_body['locationTypes'][0] = body_var10
+    json_payload_body['merchantLocationStatus'] = body_var11
+    json_payload_body['name'] = body_var12
+
+    print("json_payload_body")
+    print(json_payload_body)
+
+
+
+
 
 def create_inventory_location(configDataSet, appDataSet3, uri_env):
     headers3 = get_headers_data_iii()
@@ -387,32 +498,44 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
     #array for the api calls in the batch
     api_array = []
     while k < object_count[0][0]:
-        # paymentPolicyId from other API
+
+        # fulfillmentPolicyId from other API
         body_var1a = wjson[1][k]['ship_policy']
         #body_var1 = bll.ebay_object_matcher.getShipPolicyIdBasedOnInventory(body_var1a)
-        body_var1 = ""
-        # returnPolicyId from other API
+        # use getFulfillmentPolicyByName
+        body_var1 = "fulfillmentPolicyId"
+
+        # paymentPolicyId from other API
         body_var2a = wjson[1][k]['payment_policy']
-        #body_var2 = bll.ebay_object_matcher.getShipPolicyIdBasedOnInventory(body_var2a)
-        body_var2 = ""
-        # fulfillmentPolicyId from other API
+        #body_var2 = bll.ebay_object_matcher.getPaymentPolicyIdBasedOnInventory(body_var2a)
+        #use getPaymentPolicyByName
+        body_var2 = "paymentPolicyId"
+
+        # returnPolicyId from other API
         body_var3a = wjson[1][k]['return_policy']
-        #body_var3 = bll.ebay_object_matcher.getShipPolicyIdBasedOnInventory(body_var3a)
-        body_var3 = ""
+        #body_var3 = bll.ebay_object_matcher.getReturnPolicyIdBasedOnInventory(body_var3a)
+        body_var3 = "returnPolicyId"
+
         # availableQuantity
         body_var4 = wjson[1][k]['item_qty']
+
         # categoryId from category API
         body_var5a = wjson[1][k]['item_category']
         body_var5b = vjson[0][k]['box_category']
         # body_var5 = bll.ebay_object_matcher.getCategoryIdBasedOnInventory(body_var5a, body_var5b)
         body_var5 = ""
+
         # merchantLocationKey
         body_var6a = vjson[0][k]['location']
         body_var6b = vjson[0][k]['section']
         body_var6 = body_var6a + "_" + body_var6b
+
+        # item price
         body_var7 = vjson[0][k]['item_price']
         body_var8 = "EBAY_US"
         body_var9 = "FIXED_PRICE"
+
+        #sku
         body_var10 = vjson[0][k]['box_name']
 
 

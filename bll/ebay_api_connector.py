@@ -530,7 +530,7 @@ def account_getFulfillmentPolicies(token, uri_env, uri_param1):
     """Get Fulfillment Policies"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '/sell/account/v1/fulfillment_policy/?marketplace_id=' + str(uri_param1) + '/'
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/?marketplace_id=' + str(uri_param1)
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
@@ -609,7 +609,7 @@ def account_getPaymentPolicies(token, uri_env, uri_param1):
     """Get Payment Policies"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '/sell/account/v1/payment_policy/?marketplace_id=' + str(uri_param1) + '/'
+    api_url = base_uri + '/sell/account/v1/payment_policy/?marketplace_id=' + str(uri_param1)
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
@@ -689,7 +689,7 @@ def account_getReturnPolicies(token, uri_env, uri_param1):
     """Get Return Policies"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '/sell/account/v1/return_policy/?marketplace_id=' + str(uri_param1) + '/'
+    api_url = base_uri + '/sell/account/v1/return_policy/?marketplace_id=' + str(uri_param1)
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint

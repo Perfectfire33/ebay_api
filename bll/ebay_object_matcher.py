@@ -183,6 +183,53 @@ def get_headers_payment_policy():
     return headers4
 
 
+def get_headers_return_policy():
+    headers = []
+    headers.append('categoryTypes[i].default')
+    headers.append('categoryTypes[i].name')
+    headers.append('description')
+    headers.append('internationalOverride.returnPeriod.unit')
+    headers.append('internationalOverride.returnPeriod.value')
+    headers.append('internationalOverride.returnsAccepted')
+    headers.append('internationalOverride.returnShippingCostPayer')
+    headers.append('marketplaceId')
+    headers.append('name')
+    headers.append('refundMethod')
+    headers.append('returnInstructions')
+    headers.append('returnPeriod.unit')
+    headers.append('returnPeriod.value')
+    headers.append('returnsAccepted')
+    headers.append('returnShippingCostPayer')
+
+    return headers
+
+
+#get list of rows necessary to go through the number of offers,
+# then get list of offer ids based on item_id,
+# then publish the list of offer ids one at a time by calling publish_item_offer(configDataSet, uri_env)
+#
+#def publish_item_offer_set(configDataSet, appDataSet, uri_env):
+
+
+
+def publish_item_offer(configDataSet, uri_env):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ offerId
+    uri_param1 = "7222015010"
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_publishOffer(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+
+
 def get_all_inventory_items(configDataSet, uri_env):
     api_array = []
     # Set filepath token for ebay api access
@@ -303,6 +350,7 @@ def get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         api_array = []
         #get current payment policy list name
         uri_param2 = payment_policy_list[k]
+        time.sleep(1)
         api_response = bll.ebay_api_connector.account_getPaymentPolicyByName(tokenPrepared, uri_env, uri_param1,
                                                                              uri_param2)
         api_array.append(api_response)
@@ -317,6 +365,8 @@ def get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         api_responseList.append(api_arrayAll[api_arrayAll.index(item)][1])
 
     j = 0
+    print("api_responseList")
+    print(api_responseList)
     result_list = {}
     while j < object_count[0][0]:
         for api_response in api_responseList:
@@ -350,8 +400,8 @@ def get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         j = j + 1
 
     return_policy_list = list(dict.fromkeys(return_policy_init_list))
-    #print("return_policy_list")
-    #print(return_policy_list)
+    print("return_policy_list")
+    print(return_policy_list)
     # array for all api calls made
     api_arrayAll = []
     # open token file
@@ -364,12 +414,14 @@ def get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         api_array = []
         # get current payment policy list name
         uri_param2 = return_policy_list[k]
+        time.sleep(1)
         api_response = bll.ebay_api_connector.account_getReturnPolicyByName(tokenPrepared, uri_env, uri_param1,
                                                                              uri_param2)
         api_array.append(api_response)
         api_array.append(api_response.text)
         api_array.append(api_response.status_code)
         api_arrayAll.append(api_array)
+        time.sleep(1)
         k = k + 1
 
     # get policy id for each item based on policy_name
@@ -426,6 +478,7 @@ def get_fulfillment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         api_array = []
         # get current payment policy list name
         uri_param2 = fulfillment_policy_list[k]
+        time.sleep(1)
         api_response = bll.ebay_api_connector.account_getFulfillmentPolicyByName(tokenPrepared, uri_env, uri_param1,
                                                                              uri_param2)
         api_array.append(api_response)
@@ -465,8 +518,6 @@ def get_category_suggestions(configDataSet, uri_env):
     #get default category tree
     uri_param1a = get_default_category_tree(configDataSet, uri_env)
     uri_param1b = json.loads(uri_param1a[1])
-    print("uri_param1b")
-    print(uri_param1b)
     uri_param1 = uri_param1b['categoryTreeId']
     # uri_param1 ~ query string ~ from stage2+stage3
     uri_param2 = "VINYL RECORD"
@@ -518,7 +569,6 @@ def create_payment_policy(configDataSet, uri_env):
     api_payload_file = open(api_payload_filename, "r")
     # replace values in json_payload_body with data from wjson variable
     json_payload_body = json.load(api_payload_file)
-    time.sleep(0.25)
     api_payload_file.close()
     api_array = []
     body_var1 = "description_03"
@@ -550,13 +600,12 @@ def create_payment_policy(configDataSet, uri_env):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
-    time.sleep(1)
     #print("API_ARRAY")
     #print(api_array)
     return api_array
 
 def create_return_policy(configDataSet, uri_env):
-    #headers4 = get_headers_payment_policy()
+    #headers = get_headers_return_policy()
     # Import JSON header-data matched object
     #print("appDataSet4")
     #print(appDataSet4)
@@ -571,26 +620,31 @@ def create_return_policy(configDataSet, uri_env):
     api_payload_folder = configDataSet[0][7][2]
     payloadFilenameMap = bll.ebay_api_connector.getPayloadFilenameMap()
     # open the right payload file with json data
-    api_payload_filename = api_payload_folder + payloadFilenameMap['account_createPaymentPolicy']
+    api_payload_filename = api_payload_folder + payloadFilenameMap['account_createReturnPolicy']
     api_payload_file = open(api_payload_filename, "r")
     # replace values in json_payload_body with data from wjson variable
     json_payload_body = json.load(api_payload_file)
-    time.sleep(0.25)
     api_payload_file.close()
     api_array = []
     body_var1 = "description_03"
     body_var2 = "name_03"
-    body_var3 = "paymentInstructions_03"
+    body_var3 = "returnInstructions_03"
+
     json_payload_body['categoryTypes'][0]['default'] = "true"
     json_payload_body['categoryTypes'][0]['name'] = "ALL_EXCLUDING_MOTORS_VEHICLES"
     json_payload_body['description'] = body_var1
-    json_payload_body['immediatePay'] = "true"
+    json_payload_body['internationalOverride']['returnPeriod']['unit'] = "DAY"
+    json_payload_body['internationalOverride']['returnPeriod']['value'] = "30"
+    json_payload_body['internationalOverride']['returnsAccepted'] = "true"
+    json_payload_body['internationalOverride']['returnShippingCostPayer'] = "SELLER"
     json_payload_body['marketplaceId'] = "EBAY_US"
     json_payload_body['name'] = body_var2
-    json_payload_body['paymentInstructions'] = body_var3
-    json_payload_body['paymentMethods'][0]['paymentMethodType'] = "PAYPAL"
-    json_payload_body['paymentMethods'][0]['recipientAccountReference']['referenceId'] = "perfectfireiii@gmail.com"
-    json_payload_body['paymentMethods'][0]['recipientAccountReference']['referenceType'] = "PAYPAL_EMAIL"
+    json_payload_body['refundMethod'] = "MONEY_BACK"
+    json_payload_body['returnInstructions'] = body_var3
+    json_payload_body['returnPeriod']['unit'] = "DAY"
+    json_payload_body['returnPeriod']['value'] = "30"
+    json_payload_body['returnsAccepted'] = "true"
+    json_payload_body['returnShippingCostPayer'] = "SELLER"
     print("json_payload_body")
     print(json_payload_body)
     # open token file
@@ -602,15 +656,110 @@ def create_return_policy(configDataSet, uri_env):
     body_string = str(json_payload_body)
     body = body_string.replace("\'", "\"")
     time.sleep(0.25)
-    api_response = bll.ebay_api_connector.account_createPaymentPolicy(tokenPrepared, uri_env, body)
+    api_response = bll.ebay_api_connector.account_createReturnPolicy(tokenPrepared, uri_env, body)
     api_array.append(api_response)
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
-    time.sleep(1)
     #print("API_ARRAY")
     #print(api_array)
     return api_array
+
+def create_fulfillment_policy(configDataSet, uri_env):
+    #headers = get_headers_fulfillment_policy()
+    # Import JSON header-data matched object
+    #print("appDataSet4")
+    #print(appDataSet4)
+    #xjson = bll.ebay_object_receiver.loadJsonData(appDataSet4, headers4)
+    #print("XJSON")
+    #print(xjson)
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # This is the file that includes the api call data
+    filepath_body = configDataSet[0][6][2] + configDataSet[0][6][1]
+    # This is the folder of the json request payload files
+    api_payload_folder = configDataSet[0][7][2]
+    payloadFilenameMap = bll.ebay_api_connector.getPayloadFilenameMap()
+    # open the right payload file with json data
+    api_payload_filename = api_payload_folder + payloadFilenameMap['account_createFulfillmentPolicy']
+    api_payload_file = open(api_payload_filename, "r")
+    # replace values in json_payload_body with data from wjson variable
+    json_payload_body = json.load(api_payload_file)
+    api_payload_file.close()
+    api_array = []
+    body_var1 = "description_01"
+    body_var2 = "name_01"
+    #Handling Time
+    body_var3 = "2"
+    #CarrierType
+    body_var4 = "USPS"
+    #Shipping Cost
+    body_var5 = "8.55"
+    #ShippingServiceCode https://developer.ebay.com/api-docs/sell/static/seller-accounts/ht_shipping-free.html#shippingServices
+    body_var6 = "USPSPriorityFlatRateBox"
+
+    # API https://developer.ebay.com/api-docs/sell/account/resources/fulfillment_policy/methods/createFulfillmentPolicy
+    json_payload_body['categoryTypes'][0]['default'] = "true"
+    json_payload_body['categoryTypes'][0]['name'] = "ALL_EXCLUDING_MOTORS_VEHICLES"
+    json_payload_body['description'] = body_var1
+    json_payload_body['globalShipping']= "false"
+    json_payload_body['handlingTime']['unit'] = "DAY"
+    json_payload_body['handlingTime']['value'] = body_var3
+    json_payload_body['localPickup'] = "false"
+    json_payload_body['marketplaceId'] = "EBAY_US"
+    json_payload_body['name'] = body_var2
+    json_payload_body['pickupDropOff'] = "false"
+    json_payload_body['shippingOptions'][0]['costType'] = "CALCULATED"
+    #json_payload_body['shippingOptions'][0]['insuranceFee']['currency'] = "USD"
+    #json_payload_body['shippingOptions'][0]['insuranceFee']['value'] = "0"
+    json_payload_body['shippingOptions'][0]['insuranceOffered'] = "false"
+    json_payload_body['shippingOptions'][0]['optionType'] = "DOMESTIC"
+    json_payload_body['shippingOptions'][0]['packageHandlingCost']['currency'] = "USD"
+    json_payload_body['shippingOptions'][0]['packageHandlingCost']['value'] = "0"
+    #json_payload_body['shippingOptions'][0]['rateTableId'] = "36-char-uuid"
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['additionalShippingCost']['currency'] = "USD" #applies to multi quantity
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['additionalShippingCost']['value'] = "0" #applies to multi quantity
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['buyerResponsibleForPickup'] = "false" #applies to Motor vehicles only
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['buyerResponsibleForShipping'] = "false" #applies to Motor vehicles only
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['cashOnDeliveryFee']['currency'] = "USD"
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['cashOnDeliveryFee']['value'] = "0"
+    json_payload_body['shippingOptions'][0]['shippingServices'][0]['freeShipping'] = "false"
+    json_payload_body['shippingOptions'][0]['shippingServices'][0]['shippingCarrierCode'] = body_var4
+    json_payload_body['shippingOptions'][0]['shippingServices'][0]['shippingCost']['currency'] = "USD"
+    json_payload_body['shippingOptions'][0]['shippingServices'][0]['shippingCost']['value'] = body_var5
+    json_payload_body['shippingOptions'][0]['shippingServices'][0]['shippingServiceCode'] = body_var6
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['shipToLocations']['regionExcluded'][0]['regionName'] = ""
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['shipToLocations']['regionExcluded'][0]['regionType'] = ""
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['shipToLocations']['regionIncluded'][0]['regionName'] = ""
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['shipToLocations']['regionIncluded'][0]['regionType'] = ""
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['sortOrder'] = "0"
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['surcharge']['currency'] = "USD"
+    #json_payload_body['shippingOptions'][0]['shippingServices'][0]['surcharge']['value'] = "0"
+    #json_payload_body['shipToLocations']['RegionExcluded'][0]['regionName'] = "0"
+    #json_payload_body['shipToLocations']['RegionExcluded'][0]['regionType'] = "0"
+    #json_payload_body['shipToLocations']['RegionIncluded'][0]['regionName'] = "0"
+    #json_payload_body['shipToLocations']['RegionIncluded'][0]['regionType'] = "0"
+
+    print("json_payload_body")
+    print(json_payload_body)
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    # read destination file
+    # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
+    body_string = str(json_payload_body)
+    body = body_string.replace("\'", "\"")
+    time.sleep(0.25)
+    api_response = bll.ebay_api_connector.account_createFulfillmentPolicy(tokenPrepared, uri_env, body)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
+    #print("API_ARRAY")
+    #print(api_array)
+    return api_array
+
 
 def create_inventory_location(configDataSet, appDataSet3, uri_env):
     headers3 = get_headers_data_iii()
@@ -673,7 +822,6 @@ def create_inventory_location(configDataSet, appDataSet3, uri_env):
     # Get JSON body of inventory item from local file (put this on google sheet, get with gsheet api?)
     body_string = str(json_payload_body)
     body = body_string.replace("\'", "\"")
-    time.sleep(0.25)
     api_response = bll.ebay_api_connector.inventory_createInventoryLocation(tokenPrepared, uri_env, uri_param1, body)
     api_array.append(api_response)
     api_array.append(api_response.text)
@@ -758,7 +906,6 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
         api_array.append(api_response.text)
         api_array.append(api_response.status_code)
         #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
-        time.sleep(3)
         k = k + 1
 
     #print("API_ARRAY")
@@ -797,20 +944,40 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
     # get the list of paymentPolicyIds by Payment Policy Name (in inventory)
     # this is a list of item_ids and paymentPolicyIds
     result_list_paymentPolicyId = get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
-    json_loaded_list_paymentPolicyId = json.loads(result_list_paymentPolicyId)
+    #json_loaded_list_paymentPolicyId = json.loads(result_list_paymentPolicyId)
+
+    # get the list of returnPolicyIds by Return Policy Name (in inventory)
+    # this is a list of item_ids and returnPolicyIds
+    result_list_returnPolicyId = get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
+    #json_loaded_list_returnPolicyId = json.loads(result_list_returnPolicyId)
+
+    # get the list of fulfillmentPolicyIds by Fulfillment Policy Name (in inventory)
+    # this is a list of item_ids and fulfillmentPolicyIds
+    result_list_fulfillmentPolicyId = get_fulfillment_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
+    #json_loaded_list_fulfillmentPolicyId = json.loads(result_list_fulfillmentPolicyId)
+
+    print("result_list_paymentPolicyId")
+    print(result_list_paymentPolicyId)
+
+    print("result_list_returnPolicyId")
+    print(result_list_returnPolicyId)
+
+    print("result_list_fulfillmentPolicyId")
+    print(result_list_fulfillmentPolicyId)
+
     k = 0
     #array for the api calls in the batch
     api_array = []
     while k < object_count[0][0]:
 
-        # fulfillmentPolicyId from other API
-        body_var1 = "fulfillmentPolicyId"
-
         # paymentPolicyId from other API
-        body_var2 = json_loaded_list_paymentPolicyId[wjson[0][k]['item_id']]
+        body_var1 = result_list_paymentPolicyId[wjson[0][k]['item_id']]
 
         # returnPolicyId from other API
-        body_var3 = "returnPolicyId"
+        body_var2 = result_list_returnPolicyId[wjson[0][k]['item_id']]
+
+        # fulfillmentPolicyId from other API
+        body_var3 = result_list_fulfillmentPolicyId[wjson[0][k]['item_id']]
 
         # availableQuantity
         body_var4 = wjson[1][k]['item_qty']
@@ -832,10 +999,18 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
         # merchantLocationKey
         body_var6a = vjson[0][k]['location']
         body_var6b = vjson[0][k]['section']
-        body_var6 = body_var6a + "_" + body_var6b
+        #body_var6 = body_var6a + "_" + body_var6b
+        body_var6 = "HTP_26075"
 
         # item price
-        body_var7 = vjson[0][k]['item_price']
+        body_var7a = vjson[0][k]['unit_price'].split("$")
+        #body_var7a = wjson[1][k]['item_price'].split("$")
+        body_var7b = body_var7a[1]
+        print("body_var7a")
+        print(body_var7a)
+        print("body_var7b")
+        print(body_var7b)
+        body_var7 = body_var7b
         body_var8 = "EBAY_US"
         body_var9 = "FIXED_PRICE"
 
@@ -858,10 +1033,13 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
         json_payload_body['marketplaceId'] = body_var8
         json_payload_body['format'] = body_var9
         json_payload_body['sku'] = body_var10
+        #json_payload_body['lotSize'] = ""
+        #json_payload_body['storeCategoryNames'][0] = ""
+        #json_payload_body['quantityLimitPerBuyer'] = ""
+        #json_payload_body['tax']['applyTax'] = ""
+        #json_payload_body['tax']['thirdPartyTaxCategory'] = ""
+        #json_payload_body['tax']['vatPercentage'] = ""
 
-        # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
-        # for now, set item_id to sku
-        uri_param1 = wjson[0][k]['item_id']
         # open token file
         token_file = open(filepath_token).read()
         # eBay API requires Bearer token
@@ -871,13 +1049,12 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
         body_string = str(json_payload_body)
         body = body_string.replace("\'", "\"")
         time.sleep(0.25)
-        api_response = bll.ebay_api_connector.inventory_createOrReplaceInventoryItem(tokenPrepared, uri_env, uri_param1,
+        api_response = bll.ebay_api_connector.inventory_createOffer(tokenPrepared, uri_env,
                                                                                      body)
         api_array.append(api_response)
         api_array.append(api_response.text)
         api_array.append(api_response.status_code)
         # from here, can also send misc data to flask API to create webpage or store data in SQLite DB
-        time.sleep(3)
         k = k + 1
 
     #print("API_ARRAY")

@@ -26,7 +26,7 @@ XY Set Fields:
 5 area6 ~ "Google Sheets Data 2 - XY Coord Sets"
 """
 #app data set is all the xy cells from the app's config data set (Google Sheets Data I)
-appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
 #app data set is all the xy cells from the app's config data set (Google Sheets Data II)
 #appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 #print("appDataSet2")
@@ -55,6 +55,17 @@ appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_s
 #print("api_array")
 #print(api_array)
 
+#api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="sandbox")
+print("api_array")
+print(api_array)
+
+
+
+
 # refer to https://developer.ebay.com/api-docs/static/oauth-scopes.html for production commerence scope
 #api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
 #api_array = bll.ebay_object_matcher.get_all_payment_policies(configDataSet, uri_env="sandbox")
@@ -68,14 +79,46 @@ appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_s
 #print(api_array3)
 
 
+
+
+#api_array = bll.ebay_object_matcher.create_fulfillment_policy(configDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+
+#api_array = bll.ebay_object_matcher.get_fulfillment_policy_id_list_via_name(configDataSet, appDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+
+
+
+
+
+
+
+
+#api_array = bll.ebay_object_matcher.create_return_policy(configDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+
+#api_array = bll.ebay_object_matcher.get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
+
+
+
+
 #api_array = bll.ebay_object_matcher.create_payment_policy(configDataSet, uri_env="sandbox")
 #print("api_array")
 #print(api_array)
 
 
-api_array = bll.ebay_object_matcher.get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env="sandbox")
-print("api_array")
-print(api_array)
+
+#api_array = bll.ebay_object_matcher.get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
 
 
 #api_array = bll.ebay_object_matcher.get_default_category_tree(configDataSet, uri_env="sandbox")

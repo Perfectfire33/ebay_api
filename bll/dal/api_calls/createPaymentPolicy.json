@@ -14,8 +14,8 @@
       {  
          "paymentMethodType":"PAYPAL",
          "recipientAccountReference":{  
-            "referenceId":"string",
-            "referenceType":"perfectfireiii@gmail.com"
+            "referenceId":"perfectfireiii@gmail.com",
+            "referenceType":"PAYPAL_EMAIL"
          }
       }
    ]

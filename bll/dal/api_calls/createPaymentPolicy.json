@@ -1,57 +1,22 @@
-{ /* PaymentPolicyRequest */
-"categoryTypes" : [
-{ /* CategoryType */
-"default" : "boolean",
-"name" : "CategoryTypeEnum : [MOTORS_VEHICLES,ALL_EXCLUDING_MOTORS_VEHICLES]"
-}
-],
-"deposit" :
-{ /* Deposit */
-"amount" :
-{ /* Amount */
-"currency" : "CurrencyCodeEnum : [AED,AFN,ALL...]",
-"value" : "string"
-},
-"dueIn" :
-{ /* TimeDuration */
-"unit" : "TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
-"value" : "integer"
-},
-"paymentMethods" : [
-{ /* PaymentMethod */
-"brands" : [
-"PaymentInstrumentBrandEnum : [AMERICAN_EXPRESS,DISCOVER,MASTERCARD...]"
-],
-"paymentMethodType" : "PaymentMethodTypeEnum : [CASH_IN_PERSON,CASH_ON_DELIVERY,CASH_ON_PICKUP...]",
-"recipientAccountReference" :
-{ /* RecipientAccountReference */
-"referenceId" : "string",
-"referenceType" : "RecipientAccountReferenceTypeEnum : [PAYPAL_EMAIL]"
-}
-}
-]
-},
-"description" : "string",
-"fullPaymentDueIn" :
-{ /* TimeDuration */
-"unit" : "TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
-"value" : "integer"
-},
-"immediatePay" : "boolean",
-"marketplaceId" : "MarketplaceIdEnum : [EBAY_AT,EBAY_AU,EBAY_BE...]",
-"name" : "string",
-"paymentInstructions" : "string",
-"paymentMethods" : [
-{ /* PaymentMethod */
-"brands" : [
-"PaymentInstrumentBrandEnum : [AMERICAN_EXPRESS,DISCOVER,MASTERCARD...]"
-],
-"paymentMethodType" : "PaymentMethodTypeEnum : [CASH_IN_PERSON,CASH_ON_DELIVERY,CASH_ON_PICKUP...]",
-"recipientAccountReference" :
-{ /* RecipientAccountReference */
-"referenceId" : "string",
-"referenceType" : "RecipientAccountReferenceTypeEnum : [PAYPAL_EMAIL]"
-}
-}
-]
+{  
+   "categoryTypes":[  
+      {  
+         "default":"true",
+         "name":"ALL_EXCLUDING_MOTORS_VEHICLES"
+      }
+   ],
+   "description":"string",
+   "immediatePay":"true",
+   "marketplaceId":"EBAY_US",
+   "name":"string",
+   "paymentInstructions":"string",
+   "paymentMethods":[  
+      {  
+         "paymentMethodType":"PAYPAL",
+         "recipientAccountReference":{  
+            "referenceId":"string",
+            "referenceType":"perfectfireiii@gmail.com"
+         }
+      }
+   ]
 }

@@ -210,14 +210,53 @@ def get_headers_return_policy():
 #
 #def publish_item_offer_set(configDataSet, appDataSet, uri_env):
 
+# pass this data through publish_item_offer_set
+# for return data - can select an offer based on a key's value,
+#   we can create a checker function to see if there are two offers for one item sku
+def get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env):
+    headers = get_headers_data_i()
+    # Import JSON header-data matched object
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
+    marketplace_id = "EBAY_US"
+    format = "FIXED_PRICE"
+    k = 0
+    all_item_api_array = []
+    while k < len(wjson[0]):
+        # uri_param1 ~~ {sku}
+        uri_param1 = wjson[0][k]['item_id']
+        # uri_param2 ~~ {marketplace_id}
+        uri_param2 = marketplace_id
+        # uri_param3 ~~ {format}
+        uri_param3 = format
+        # uri_param4 ~~ {limit}
+        uri_param4 = 25
+        # uri_param5 ~~ {offset}
+        uri_param5 = 0
+        api_array = []
+        # Set filepath token for ebay api access
+        filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+        # open token file
+        token_file = open(filepath_token).read()
+        # eBay API requires Bearer token
+        tokenPrepared = "Bearer " + token_file
+        api_response = bll.ebay_api_connector.inventory_getOffers(tokenPrepared, uri_env, uri_param1, uri_param2, uri_param3, uri_param4, uri_param5)
+        api_array.append(api_response)
+        api_array.append(api_response.text)
+        api_array.append(api_response.status_code)
+        all_item_api_array.append(api_array)
+        k = k + 1
+
+    return all_item_api_array
+
+#def get_list_of_offers_for_an_item():
 
 
-def publish_item_offer(configDataSet, uri_env):
+def publish_item_offer(configDataSet, uri_env, offer_id):
     api_array = []
     # Set filepath token for ebay api access
     filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
     # uri_param1 ~ offerId
-    uri_param1 = "7222015010"
+    uri_param1 = offer_id
     # open token file
     token_file = open(filepath_token).read()
     # eBay API requires Bearer token
@@ -314,6 +353,29 @@ def get_all_fulfillment_policies(configDataSet, uri_env):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     return api_array
+
+
+def getListOfFulfillmentPolicyNames(configDataSet, uri_env):
+    api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env)
+    data = api_array[1]
+    json_data = json.loads(data)
+    print("json_data")
+    print(json_data)
+    name_array = []
+    i = 0
+    while i < len(json_data['fulfillmentPolicies']):
+        name_array.append(json_data['fulfillmentPolicies'][i]['name'])
+        i = i + 1
+
+    return name_array
+
+
+
+#def write_fulfillment_policy_name_list_to_file():
+
+
+
+
 
 #gets list of policies from appDataSet and creates an API call for each unique policy
 #returns response from each API call: must return list of policies, Ids for those policies, and currentItemId

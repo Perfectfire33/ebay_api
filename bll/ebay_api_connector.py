@@ -374,12 +374,12 @@ def inventory_getOffers(token, uri_env, uri_param1, uri_param2, uri_param3, uri_
     """Get Inventory Offers"""
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
-    api_url = base_uri + '/sell/inventory/v1/offer/' + \
-              '?sku=' + uri_param1 + \
-              '&marketplace_id=' + uri_param2 + \
-              '&format=' + uri_param3 + \
-              '&limit=' + uri_param4 + \
-              '&offer=' + uri_param5
+    api_url = base_uri + '/sell/inventory/v1/offer' + \
+              '?sku=' + str(uri_param1) + \
+              '&marketplace_id=' + str(uri_param2) + \
+              '&format=' + str(uri_param3) + \
+              '&limit=' + str(uri_param4) + \
+              '&offset=' + str(uri_param5)
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint

@@ -25,8 +25,26 @@ XY Set Fields:
 4 area5 ~ "Google Sheets Data 2 - Properties"
 5 area6 ~ "Google Sheets Data 2 - XY Coord Sets"
 """
+
+def getToken():
+    print("AAA")
+
+#app data set is all the xy cells from the app's config data set (Google Sheets Data IV)
+#appDataSet = bll._setup_config.writeGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+
+
+
+
+
+
+
+
+
+
+
+
 #app data set is all the xy cells from the app's config data set (Google Sheets Data I)
-#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
 #app data set is all the xy cells from the app's config data set (Google Sheets Data II)
 #appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 #print("appDataSet2")
@@ -55,13 +73,22 @@ XY Set Fields:
 #print("api_array")
 #print(api_array)
 
+
+
+
+api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env="sandbox")
+print("api_array")
+print(api_array)
+
+
+
 #api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="sandbox")
 #print("api_array")
 #print(api_array)
 
-api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="sandbox")
-print("api_array")
-print(api_array)
+#api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
 
 
 
@@ -71,6 +98,15 @@ print(api_array)
 #api_array = bll.ebay_object_matcher.get_all_payment_policies(configDataSet, uri_env="sandbox")
 #print("api_array")
 #print(api_array)
+
+
+
+
+#api_array = bll.ebay_object_matcher.getListOfFulfillmentPolicyNames(configDataSet, uri_env="production")
+#print("api_array")
+#print(api_array)
+
+
 #api_array2 = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
 #api_array3 = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env="sandbox")
 #print("api_array2")

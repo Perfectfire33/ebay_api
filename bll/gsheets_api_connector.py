@@ -230,3 +230,103 @@ def getDataSet(scopes, tokenPath, listOfAcceptableFields):
     """
     return dataSet
 
+
+
+
+
+
+
+
+
+# writeDataSet writes the data to the selected Google Sheet area(s)
+def writeDataSet(scopes, tokenPath, listOfAcceptableFields, bodyData):
+    # These variables must be set in a function that calls getSheet()
+    # If modifying these scopes, delete the file token.json.
+    # scopes = 'https://www.googleapis.com/auth/spreadsheets.readonly'
+    # tokenPath = 'token.json'
+
+    # Get Sheet
+    # sheet = gsheets_api.getSheet(scopes, tokenPath)
+
+    """
+    //////////// Collect Acceptable Field Areas and put into usable array /////////////
+    """
+    coordList = []
+    #   For each XY coordinate set in the (currently only) acceptable field profile (Profile1)
+    #   Save to an array (format is e.g. coordList = ["A1,B12","E1,G12","I1,K12"] )
+    listCount = listOfAcceptableFields[0]['sheet_cell_xy_sets'].__len__()
+
+    # print("begin.listCount")
+    # print(listCount)
+    # print("end.listCount")
+
+    counter = 0
+    counter2 = 1
+    while counter < listCount:
+        coordList.append(listOfAcceptableFields[0]["sheet_cell_xy_sets"][counter2 - 1])
+        counter = counter + 1
+        counter2 = counter2 + 1
+
+    # print("begin.coordList")
+    # print(coordList)
+    # print("end.coordList")
+
+    # for listCount in listOfAcceptableFields[0]['sheet_cell_xy_sets']:
+    # print("begin.listCount")
+    # print(listCount)
+    # print("end.listCount")
+    # coordinates = listOfAcceptableFields[0]['sheet_cell_xy_sets'][listCount]
+    # coordList.append(coordinates)
+
+    # A sheet's cell's selection
+    #   e.g. [start, end]
+    #   e.g. currentCoordSet = ["A1","B12"]
+    currentCoordSet = []
+
+    # List of all the selected areas (separated appropriated)
+    #   e.g. [Area1[start,end], Area2[start,end]]
+    #   e.g. currentCoordSetList = [["A1","B12"],["E1,G12"],["I1,K12"]]
+    currentCoordSetList = []
+    # Go through coordinates list and make into acceptable format for Google Sheets API
+    for item in coordList:
+        # print("begin.item")
+        # print(coordList.index(item))
+        # print("end.item")
+        currentCoord = coordList[coordList.index(item)]
+        currentCoordSet = currentCoord.split(",")
+        currentCoordSetList.append(currentCoordSet)
+
+    """
+    //////////// Get Values from all accessible Google Sheet areas /////////////
+    //////////// and store into object  ////////////////////////////////////////
+    """
+    # All data from all selected areas
+    dataSet = []
+    valInputOpt = "USER_ENTERED"
+    # Cycle Through each accessible area of Google Sheets and add into dataSet array
+    for area in currentCoordSetList:
+        sheet_range = listOfAcceptableFields[0]['sheet_name'] \
+                      + "!" + currentCoordSetList[currentCoordSetList.index(area)][0] \
+                      + ":" + currentCoordSetList[currentCoordSetList.index(area)][1]
+        #need to get object and set data here instead of get and save to object
+        # updateSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range, valInputOpt, bodyData)
+        dataSet.append(bll.dal.gsheets_api.updateSheetValues(scopes, tokenPath, listOfAcceptableFields[0]['spreadsheet_id'], sheet_range, valInputOpt, bodyData))
+
+    # Format of dataSet:
+    """
+    [
+      todo: add profile1 here in hierarchy once finish adding support for multi profile in this file
+        area1[
+            row1[ column1, column2 ], 
+            row2[ column1, column2 ]
+        ], 
+        area2[
+            row1[ column1, column2 ],
+            row2[ column1, column2 ]
+        ]
+    ]
+    print("dataSet")
+    print(dataSet)
+    """
+    return dataSet
+

@@ -3,6 +3,7 @@ import bll.ebay_object_receiver
 import json
 import bll.ebay_api_connector
 import time
+import os
 
 # this file matches ebay data to ebay objects
 # sends objects out to api_call_sequencer file
@@ -371,6 +372,35 @@ def getListOfFulfillmentPolicyNames(configDataSet, uri_env):
 
 
 
+def getListOfPaymentPolicyNames(configDataSet, uri_env):
+    api_array = bll.ebay_object_matcher.get_all_payment_policies(configDataSet, uri_env)
+    data = api_array[1]
+    json_data = json.loads(data)
+    print("json_data")
+    print(json_data)
+    name_array = []
+    i = 0
+    while i < len(json_data['paymentPolicies']):
+        name_array.append(json_data['paymentPolicies'][i]['name'])
+        i = i + 1
+
+    return name_array
+
+
+def getListOfReturnPolicyNames(configDataSet, uri_env):
+    api_array = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env)
+    data = api_array[1]
+    json_data = json.loads(data)
+    print("json_data")
+    print(json_data)
+    name_array = []
+    i = 0
+    while i < len(json_data['returnPolicies']):
+        name_array.append(json_data['returnPolicies'][i]['name'])
+        i = i + 1
+
+    return name_array
+
 #def write_fulfillment_policy_name_list_to_file():
 
 
@@ -579,10 +609,12 @@ def get_category_suggestions(configDataSet, uri_env):
     # uri_param1 ~ category_tree_id
     #get default category tree
     uri_param1a = get_default_category_tree(configDataSet, uri_env)
+    print("uri_param1a")
+    print(uri_param1a)
     uri_param1b = json.loads(uri_param1a[1])
     uri_param1 = uri_param1b['categoryTreeId']
     # uri_param1 ~ query string ~ from stage2+stage3
-    uri_param2 = "VINYL RECORD"
+    uri_param2 = "Rosenthal China & Dinnerware"
     # open token file
     token_file = open(filepath_token).read()
     # eBay API requires Bearer token
@@ -609,6 +641,38 @@ def get_default_category_tree(configDataSet, uri_env):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     return api_array
+
+
+
+
+# creates folders with the box_name from stage2 in ebay_item_inventory in the pictures directory in ebay-config-data
+def createPictureFolders(configDataSet, appDataSet2):
+    print("createPictureFolders")
+    headers2 = get_headers_data_ii()
+    # Import config Picture Folder
+    picture_folder = configDataSet[0][8][2]
+    print("picture_folder")
+    print(picture_folder)
+    # Import JSON header-data matched object
+    vjson = bll.ebay_object_receiver.loadJsonData(appDataSet2, headers2)
+    k = 0
+    while k < len(vjson[0]):
+        os.mkdir(picture_folder + vjson[0][k]['box_name'])
+        print(vjson[0][k]['box_name'])
+        k = k + 1
+
+
+#def getPictureFilepaths():
+
+#1|create picture folders
+#2|put pictures in folders
+#3|get picture filepaths for each folder where folderName = box_name
+#3.5| host pictures on webserver so we can get a public url with the image
+#3.7| generate list of http:\\ locations of each image for each box_name
+#4|in createOrReplaceInventoryItem, add list of picture urls for each item
+
+
+
 
 
 def create_payment_policy(configDataSet, uri_env):

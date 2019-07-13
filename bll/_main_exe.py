@@ -44,9 +44,9 @@ def getToken():
 
 
 #app data set is all the xy cells from the app's config data set (Google Sheets Data I)
-appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
 #app data set is all the xy cells from the app's config data set (Google Sheets Data II)
-#appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
+appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 #print("appDataSet2")
 #print(appDataSet2)
 #app data set is all the xy cells from the app's config data set (Google Sheets Data III)
@@ -69,16 +69,19 @@ appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_s
 #time.sleep(8)
 
 
-#api_array = bll.ebay_object_matcher.get_all_inventory_locations(configDataSet, uri_env="sandbox")
+#api_array = bll.ebay_object_matcher.get_all_inventory_locations(configDataSet, uri_env="production")
 #print("api_array")
 #print(api_array)
 
 
-
-
-api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env="sandbox")
+api_array = bll.ebay_object_matcher.createPictureFolders(configDataSet, appDataSet2)
 print("api_array")
 print(api_array)
+
+
+#api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env="sandbox")
+#print("api_array")
+#print(api_array)
 
 
 
@@ -105,6 +108,17 @@ print(api_array)
 #api_array = bll.ebay_object_matcher.getListOfFulfillmentPolicyNames(configDataSet, uri_env="production")
 #print("api_array")
 #print(api_array)
+
+#api_array2 = bll.ebay_object_matcher.getListOfPaymentPolicyNames(configDataSet, uri_env="production")
+#print("api_array2")
+#print(api_array2)
+
+#api_array3 = bll.ebay_object_matcher.getListOfReturnPolicyNames(configDataSet, uri_env="production")
+#print("api_array3")
+#print(api_array3)
+
+
+
 
 
 #api_array2 = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
@@ -161,7 +175,7 @@ print(api_array)
 #print("api_array")
 #print(api_array)
 
-#api_array2 = bll.ebay_object_matcher.get_category_suggestions(configDataSet, uri_env="sandbox")
+#api_array2 = bll.ebay_object_matcher.get_category_suggestions(configDataSet, uri_env="production")
 #print("api_array2")
 #print(api_array2)
 

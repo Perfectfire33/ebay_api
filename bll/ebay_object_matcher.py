@@ -1123,10 +1123,10 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
         body_var5 = wjson[1][k]['item_category']
 
         # merchantLocationKey
-        body_var6a = vjson[0][k]['location']
-        body_var6b = vjson[0][k]['section']
+        #body_var6a = vjson[0][k]['location']
+        #body_var6b = vjson[0][k]['section']
         #body_var6 = body_var6a + "_" + body_var6b
-        body_var6 = "HTP_26075"
+        body_var6 = vjson[0][k]['location']
 
         # item price
         body_var7a = vjson[0][k]['unit_price'].split("$")

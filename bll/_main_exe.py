@@ -44,7 +44,7 @@ def getToken():
 
 
 #app data set is all the xy cells from the app's config data set (Google Sheets Data I)
-#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
 #app data set is all the xy cells from the app's config data set (Google Sheets Data II)
 appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 #print("appDataSet2")
@@ -52,16 +52,16 @@ appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data
 #app data set is all the xy cells from the app's config data set (Google Sheets Data III)
 #appDataSet3 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app3", data_set_data=configDataSet)
 
-#api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="sandbox")
+#api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="production")
 #print("api_array")
 #print(api_array)
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
-#api_array = bll.ebay_object_matcher.create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env="sandbox")
+#api_array = bll.ebay_object_matcher.create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env="production")
 #print("api_array")
 #print(api_array)
 
-#api_array = bll.ebay_object_matcher.create_inventory_location(configDataSet, appDataSet3, uri_env="sandbox")
+#api_array = bll.ebay_object_matcher.create_inventory_location(configDataSet, appDataSet3, uri_env="production")
 #print("api_array")
 #print(api_array)
 
@@ -74,9 +74,9 @@ appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data
 #print(api_array)
 
 
-api_array = bll.ebay_object_matcher.createPictureFolders(configDataSet, appDataSet2)
-print("api_array")
-print(api_array)
+#api_array = bll.ebay_object_matcher.createPictureFolders(configDataSet, appDataSet2)
+#print("api_array")
+#print(api_array)
 
 
 #api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env="sandbox")
@@ -85,9 +85,9 @@ print(api_array)
 
 
 
-#api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="sandbox")
-#print("api_array")
-#print(api_array)
+api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="production")
+print("api_array")
+print(api_array)
 
 #api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="sandbox")
 #print("api_array")

@@ -252,6 +252,22 @@ def get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env
 #def get_list_of_offers_for_an_item():
 
 
+def withdraw_item_offer(configDataSet, uri_env, offer_id):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ offerId
+    uri_param1 = offer_id
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_withdrawOffer(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
 def publish_item_offer(configDataSet, uri_env, offer_id):
     api_array = []
     # Set filepath token for ebay api access
@@ -442,6 +458,8 @@ def get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         api_array = []
         #get current payment policy list name
         uri_param2 = payment_policy_list[k]
+        print("uri_param2")
+        print(uri_param2)
         time.sleep(1)
         api_response = bll.ebay_api_connector.account_getPaymentPolicyByName(tokenPrepared, uri_env, uri_param1,
                                                                              uri_param2)
@@ -451,6 +469,8 @@ def get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
         api_arrayAll.append(api_array)
         k = k + 1
 
+    print("api_arrayAll")
+    print(api_arrayAll)
     #get policy id for each item based on policy_name
     api_responseList = []
     for item in api_arrayAll:
@@ -1069,12 +1089,12 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
 
     # get the list of paymentPolicyIds by Payment Policy Name (in inventory)
     # this is a list of item_ids and paymentPolicyIds
-    result_list_paymentPolicyId = get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
+    #result_list_paymentPolicyId = get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
     #json_loaded_list_paymentPolicyId = json.loads(result_list_paymentPolicyId)
 
     # get the list of returnPolicyIds by Return Policy Name (in inventory)
     # this is a list of item_ids and returnPolicyIds
-    result_list_returnPolicyId = get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
+    #result_list_returnPolicyId = get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
     #json_loaded_list_returnPolicyId = json.loads(result_list_returnPolicyId)
 
     # get the list of fulfillmentPolicyIds by Fulfillment Policy Name (in inventory)
@@ -1082,11 +1102,11 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
     result_list_fulfillmentPolicyId = get_fulfillment_policy_id_list_via_name(configDataSet, appDataSet, uri_env)
     #json_loaded_list_fulfillmentPolicyId = json.loads(result_list_fulfillmentPolicyId)
 
-    print("result_list_paymentPolicyId")
-    print(result_list_paymentPolicyId)
+    #print("result_list_paymentPolicyId")
+    #print(result_list_paymentPolicyId)
 
-    print("result_list_returnPolicyId")
-    print(result_list_returnPolicyId)
+    #print("result_list_returnPolicyId")
+    #print(result_list_returnPolicyId)
 
     print("result_list_fulfillmentPolicyId")
     print(result_list_fulfillmentPolicyId)
@@ -1097,10 +1117,12 @@ def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
     while k < object_count[0][0]:
 
         # paymentPolicyId from other API
-        body_var1 = result_list_paymentPolicyId[wjson[0][k]['item_id']]
+        #body_var1 = result_list_paymentPolicyId[wjson[0][k]['item_id']]
+        body_var1 = "114522006022"
 
         # returnPolicyId from other API
-        body_var2 = result_list_returnPolicyId[wjson[0][k]['item_id']]
+        #body_var2 = result_list_returnPolicyId[wjson[0][k]['item_id']]
+        body_var2 = "141882657022"
 
         # fulfillmentPolicyId from other API
         body_var3 = result_list_fulfillmentPolicyId[wjson[0][k]['item_id']]

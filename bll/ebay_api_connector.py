@@ -641,10 +641,17 @@ def account_getPaymentPolicyByName(token, uri_env, uri_param1, uri_param2):
     base_uri = getBaseUri(uri_env)
     # This is the ebay URL used to get an inventory item
     api_url = base_uri + '/sell/account/v1/payment_policy/get_by_policy_name?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2)
+    #print("api_urla_account_getPaymentPolicyByName")
+    #print(api_urla)
+    #api_url = api_urla.replace(" ", "%20")
+    #print("api_url_account_getPaymentPolicyByName")
+    #print(api_url)
     # Method Headers
     api_headers = get_api_headers(token)
     # Call the API Endpoint
     api_response = bll.dal.ebay_api.getPaymentPolicyByName(api_url, api_headers)
+    print("api_response_account_getPaymentPolicyByName")
+    print(api_response)
     # Return the API Response
     return api_response
 

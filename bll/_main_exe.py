@@ -43,13 +43,13 @@ def getToken():
 
 
 
-#app data set is all the xy cells from the app's config data set (Google Sheets Data I)
-appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
-#app data set is all the xy cells from the app's config data set (Google Sheets Data II)
-appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
+# app data set is all the xy cells from the app's config data set (Google Sheets Data I)
+#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+# app data set is all the xy cells from the app's config data set (Google Sheets Data II)
+#appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 #print("appDataSet2")
 #print(appDataSet2)
-#app data set is all the xy cells from the app's config data set (Google Sheets Data III)
+# app data set is all the xy cells from the app's config data set (Google Sheets Data III)
 #appDataSet3 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app3", data_set_data=configDataSet)
 
 #api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="production")
@@ -85,15 +85,21 @@ appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data
 
 
 
-api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="production")
-print("api_array")
-print(api_array)
+#api_array2 = bll.ebay_object_matcher.getListOfPaymentPolicyNames(configDataSet, uri_env="production")
+#print("api_array2")
+#print(api_array2)
 
-#api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="sandbox")
+#api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="production")
 #print("api_array")
 #print(api_array)
 
+#api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="production", offer_id="29277132014")
+#print("api_array")
+#print(api_array)
 
+api_array = bll.ebay_object_matcher.withdraw_item_offer(configDataSet, uri_env="production", offer_id="29277132014")
+print("api_array")
+print(api_array)
 
 
 # refer to https://developer.ebay.com/api-docs/static/oauth-scopes.html for production commerence scope
@@ -109,9 +115,6 @@ print(api_array)
 #print("api_array")
 #print(api_array)
 
-#api_array2 = bll.ebay_object_matcher.getListOfPaymentPolicyNames(configDataSet, uri_env="production")
-#print("api_array2")
-#print(api_array2)
 
 #api_array3 = bll.ebay_object_matcher.getListOfReturnPolicyNames(configDataSet, uri_env="production")
 #print("api_array3")
@@ -122,7 +125,7 @@ print(api_array)
 
 
 #api_array2 = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")
-#api_array3 = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env="sandbox")
+#api_array3 = bll.ebay_object_matcher.get_all_return_policies(configDataSet, uri_env="production")
 #print("api_array2")
 #print(api_array2)
 #print("api_array3")

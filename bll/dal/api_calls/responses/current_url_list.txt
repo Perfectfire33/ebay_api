@@ -1,0 +1,37 @@
+[RECENT URLS]
+https://developer.ebay.com/api-docs/static/oauth-authorization-code-grant.html
+https://developer.ebay.com/api-docs/static/oauth-token-types.html
+https://developer.ebay.com/api-docs/sell/static/seller-accounts/ht_shipping-free.html#shippingServices
+https://developer.ebay.com/api-docs/static/oauth-tokens.html
+https://developer.ebay.com/api-docs/static/oauth-authorization-code-grant.html
+https://ebaydts.com/eBayKBDetails?KBid=5075
+https://developer.ebay.com/api-docs/static/oauth-scopes.html
+
+http://developer.ebay.com/devzone/xml/docs/Reference/eBay/UploadSiteHostedPictures.html#Response.SiteHostedPictureDetails.FullURL
+https://forums.developer.ebay.com/questions/16547/adding-photos-to-ebay-servers-and-retrieving-the-u.html
+https://forums.developer.ebay.com/questions/19085/how-to-upload-image-while-adding-an-item.html
+
+
+
+https://community.ebay.com/t5/Tools-Apps/Listing-failed-due-to-The-provided-condition-id-is-invalid-for/td-p/29192800
+https://developer.ebay.com/api-docs/sell/inventory/types/slr:ConditionEnum
+https://www.ebay.com/help/selling/listings/creating-managing-listings/item-conditions-category?id=4765
+
+
+
+https://community.ebay.com/t5/Selling/the-full-listing-of-eBay-categories-with-IDs/qaq-p/22903863
+http://www.feecalculator.eu/en/help/Fees%20by%20category%20and%20format.pdf
+https://www.ebay.com/b/Computer-Components-Parts/175673/bn_1643095
+
+
+https://forums.developer.ebay.com/questions/21137/seller-hub-does-not-show-inventory-items-created-t.html
+
+
+
+
+
+
+
+[amazon stuff]
+http://docs.developer.amazonservices.com/en_US/dev_guide/index.html
+http://docs.developer.amazonservices.com/en_US/fba_outbound/FBAOutbound_CreateFulfillmentOrder.html

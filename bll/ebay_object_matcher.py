@@ -252,6 +252,24 @@ def get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env
 #def get_list_of_offers_for_an_item():
 
 
+def delete_item_offer(configDataSet, uri_env, offer_id):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ offerId
+    uri_param1 = offer_id
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_deleteOffer(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+
+
 def withdraw_item_offer(configDataSet, uri_env, offer_id):
     api_array = []
     # Set filepath token for ebay api access

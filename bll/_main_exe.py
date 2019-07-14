@@ -97,9 +97,9 @@ def getToken():
 #print("api_array")
 #print(api_array)
 
-api_array = bll.ebay_object_matcher.withdraw_item_offer(configDataSet, uri_env="production", offer_id="29277132014")
-print("api_array")
-print(api_array)
+#api_array = bll.ebay_object_matcher.withdraw_item_offer(configDataSet, uri_env="production", offer_id="29277132014")
+#print("api_array")
+#print(api_array)
 
 
 # refer to https://developer.ebay.com/api-docs/static/oauth-scopes.html for production commerence scope

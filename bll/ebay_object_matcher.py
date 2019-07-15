@@ -5,6 +5,7 @@ import bll.ebay_api_connector
 import time
 import os
 import base64
+import bll.dal.gsheets_api
 
 # this file matches ebay data to ebay objects
 # sends objects out to api_call_sequencer file
@@ -424,6 +425,51 @@ def publish_item_offer(configDataSet, uri_env, offer_id):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     return api_array
+
+
+def write_to_sheet():
+    scopes = r'https://www.googleapis.com/auth/spreadsheets'
+    tokenPath = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\token.json'
+    spreadsheet_id = "1-u7HmBLRicHJG3o3vHdR9kuv5sJLreO38_Kxsjgq3F0"
+    valInputOpt = "USER_ENTERED"
+    sheet_range = "ebay_retrieve_data!J1:H1"
+
+    values = []
+    values.append("aaa")
+    values.append("bbb")
+    values.append("ccc")
+
+    bodyData = {}
+    bodyData['values']=[values]
+    bodyData['majorDimension']="ROWS"
+    bodyData['range']=sheet_range
+
+    api_response = bll.dal.gsheets_api.updateSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range, valInputOpt, bodyData)
+
+    return api_response
+
+
+def write_get_all_inventory_items_to_sheet():
+    scopes = r'https://www.googleapis.com/auth/spreadsheets'
+    tokenPath = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\token.json'
+    spreadsheet_id = "1-u7HmBLRicHJG3o3vHdR9kuv5sJLreO38_Kxsjgq3F0"
+    valInputOpt = "USER_ENTERED"
+    sheet_range = "ebay_retrieve_data!J1:H1"
+
+    values = []
+    values.append("aaa")
+    values.append("bbb")
+    values.append("ccc")
+
+    bodyData = {}
+    bodyData['values'] = [values]
+    bodyData['majorDimension'] = "ROWS"
+    bodyData['range'] = sheet_range
+
+    api_response = bll.dal.gsheets_api.updateSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range, valInputOpt,
+                                                         bodyData)
+
+    return api_response
 
 
 

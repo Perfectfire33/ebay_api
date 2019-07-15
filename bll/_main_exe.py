@@ -9,7 +9,7 @@ import time
 This script is designed to be run directly
 00 Execute This Python File Directly 00
 """
-configDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="config", data_set_data="")
+#configDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="config", data_set_data="")
 
 #print("configDataSet")
 #print(configDataSet)
@@ -26,6 +26,12 @@ XY Set Fields:
 5 area6 ~ "Google Sheets Data 2 - XY Coord Sets"
 """
 
+
+api_response = bll.ebay_object_matcher.write_to_sheet()
+print("api_response")
+print(api_response)
+
+
 def getToken():
     print("AAA")
 
@@ -39,11 +45,11 @@ def getToken():
 #print("api_array")
 #print(api_array)
 
-api_array = bll.ebay_object_matcher.get_user_access_token(configDataSet,
-                                                          uri_env="sandbox",
-                                                          auth_code="v%5E1.1%23i%5E1%23I%5E3%23r%5E1%23p%5E3%23f%5E0%23t%5EUl41XzQ6OEMwQkRDNzFDMjA2QzVDQjUxQ0M5NDBFODAxRDdDN0JfMF8xI0VeMTI4NA%3D%3D")
-print("api_array")
-print(api_array)
+#api_array = bll.ebay_object_matcher.get_user_access_token(configDataSet,
+#                                                          uri_env="sandbox",
+#                                                          auth_code="v%5E1.1%23i%5E1%23I%5E3%23r%5E1%23p%5E3%23f%5E0%23t%5EUl41XzQ6OEMwQkRDNzFDMjA2QzVDQjUxQ0M5NDBFODAxRDdDN0JfMF8xI0VeMTI4NA%3D%3D")
+#print("api_array")
+#print(api_array)
 
 
 

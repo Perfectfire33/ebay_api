@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/bll/_main_exe.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/_main_exe.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bll/ebay_object_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_object_matcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bll/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/bll/token.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll/token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bll/token.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bll/_main_exe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="357">
+              <caret line="72" column="16" lean-forward="true" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -65,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bll/ebay_object_matcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="472" lean-forward="true" selection-start-line="472" selection-end-line="472" />
+            <state relative-caret-position="238">
+              <caret line="460" column="20" lean-forward="true" selection-start-line="460" selection-start-column="20" selection-end-line="460" selection-end-column="20" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -157,6 +158,7 @@
       <find>account_getPaymentPolicyByName</find>
       <find>publish_item_offer</find>
       <find>create_item_inve</find>
+      <find>get_all_invent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -724,16 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bll/_main_exe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bll/dal/gsheets_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -744,10 +736,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bll/_main_exe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="72" column="16" lean-forward="true" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bll/ebay_object_matcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="472" lean-forward="true" selection-start-line="472" selection-end-line="472" />
+        <state relative-caret-position="238">
+          <caret line="460" column="20" lean-forward="true" selection-start-line="460" selection-start-column="20" selection-end-line="460" selection-end-column="20" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

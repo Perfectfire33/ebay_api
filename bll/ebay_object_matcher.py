@@ -449,17 +449,26 @@ def write_to_sheet():
     return api_response
 
 
-def write_get_all_inventory_items_to_sheet():
+def write_get_all_inventory_items_to_sheet(configDataSet, uri_env):
     scopes = r'https://www.googleapis.com/auth/spreadsheets'
     tokenPath = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\token.json'
     spreadsheet_id = "1-u7HmBLRicHJG3o3vHdR9kuv5sJLreO38_Kxsjgq3F0"
     valInputOpt = "USER_ENTERED"
-    sheet_range = "ebay_retrieve_data!J1:H1"
+    sheet_range = "ebay_retrieve_data!A9:C9"
 
+    api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env)
+    print("api_array")
+    print(api_array)
+    jsonAPIdata = json.loads(api_array[1])
+
+    #j=0
+    #while j < len(jsonAPIdata['inventoryItems']):
+    #
     values = []
-    values.append("aaa")
-    values.append("bbb")
-    values.append("ccc")
+    values.append(jsonAPIdata['inventoryItems'][0]['sku'])
+    values.append(jsonAPIdata['inventoryItems'][0]['product']['title'])
+    values.append(jsonAPIdata['inventoryItems'][0]['product']['subtitle'])
+    
 
     bodyData = {}
     bodyData['values'] = [values]

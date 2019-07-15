@@ -9,7 +9,7 @@ import time
 This script is designed to be run directly
 00 Execute This Python File Directly 00
 """
-#configDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="config", data_set_data="")
+configDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="config", data_set_data="")
 
 #print("configDataSet")
 #print(configDataSet)
@@ -27,13 +27,11 @@ XY Set Fields:
 """
 
 
-api_response = bll.ebay_object_matcher.write_to_sheet()
-print("api_response")
-print(api_response)
+#api_response = bll.ebay_object_matcher.write_to_sheet()
+#print("api_response")
+#print(api_response)
 
 
-def getToken():
-    print("AAA")
 
 #app data set is all the xy cells from the app's config data set (Google Sheets Data IV)
 #appDataSet = bll._setup_config.writeGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
@@ -62,11 +60,26 @@ def getToken():
 # app data set is all the xy cells from the app's config data set (Google Sheets Data III)
 #appDataSet3 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app3", data_set_data=configDataSet)
 
-#api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="production")
+#api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="sandbox")
 #print("api_array")
 #print(api_array)
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
+
+
+
+api_array = bll.ebay_object_matcher.write_get_all_inventory_items_to_sheet(configDataSet, uri_env="sandbox")
+print("api_array")
+print(api_array)
+
+
+
+
+
+
+
+
+
 
 
 

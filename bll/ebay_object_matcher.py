@@ -376,6 +376,51 @@ def get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env
 #def get_list_of_offers_for_an_item():
 
 
+
+def delete_list_of_inventory_items(configDataSet, appDataSet, uri_env):
+    # Import headers
+    headers = get_headers_data_i()
+    # Import JSON header-data matched object
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
+    print("len(wjson[0]")
+    print(len(wjson[0]))
+    api_all_array = []
+    i=0
+    while i < len(wjson[0]):
+        api_array = []
+        sku = wjson[0][i]['item_id']
+        print("sku for iteration: " + str(i) + " is: " + str(sku))
+        # call delete on this sku
+        api_array = bll.ebay_object_matcher.delete_item_inventory(configDataSet, uri_env, sku)
+        api_all_array.append(api_array)
+        i = i + 1
+
+    return api_all_array
+
+
+
+
+
+
+
+
+def delete_item_inventory(configDataSet, uri_env, sku):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ offerId
+    uri_param1 = sku
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_deleteInventoryItem(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+
 def delete_item_offer(configDataSet, uri_env, offer_id):
     api_array = []
     # Set filepath token for ebay api access
@@ -427,6 +472,43 @@ def publish_item_offer(configDataSet, uri_env, offer_id):
     return api_array
 
 
+def delete_list_of_inventory_offers(configDataSet, appDataSet, uri_env):
+    # Import headers
+    headers = get_headers_data_i()
+    # Import JSON header-data matched object
+    wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
+    print("len(wjson[0]")
+    print(len(wjson[0]))
+    api_all_array = []
+    i=0
+    while i < len(wjson[0]):
+        api_array = []
+        sku = wjson[0][i]['item_id']
+        print("sku for iteration: " + str(i) + " is: " + str(sku))
+        # call delete on this sku
+        api_array = bll.ebay_object_matcher.delete_item_offer(configDataSet, uri_env, sku)
+        api_all_array.append(api_array)
+        i = i + 1
+
+    return api_all_array
+
+def delete_item_offer(configDataSet, uri_env, offer_id):
+    api_array = []
+    # Set filepath token for ebay api access
+    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
+    # uri_param1 ~ offerId
+    uri_param1 = offer_id
+    # open token file
+    token_file = open(filepath_token).read()
+    # eBay API requires Bearer token
+    tokenPrepared = "Bearer " + token_file
+    api_response = bll.ebay_api_connector.inventory_deleteOffer(tokenPrepared, uri_env, uri_param1)
+    api_array.append(api_response)
+    api_array.append(api_response.text)
+    api_array.append(api_response.status_code)
+    return api_array
+
+
 def write_to_sheet():
     scopes = r'https://www.googleapis.com/auth/spreadsheets'
     tokenPath = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\token.json'
@@ -460,18 +542,92 @@ def write_get_all_inventory_items_to_sheet(configDataSet, uri_env):
     print("api_array")
     print(api_array)
     jsonAPIdata = json.loads(api_array[1])
+    matrixValues = []
+    j=0
+    endLength = len(jsonAPIdata['inventoryItems']) - 1 + 9
+    #print("len(jsonAPIdata['inventoryItems'])")
+    #print(len(jsonAPIdata['inventoryItems']))
+    sheet_range = "ebay_retrieve_data!A9" + ":T" + str(endLength)
+    #print("sheet_range")
+    #print(sheet_range)
+    while j < len(jsonAPIdata['inventoryItems']):
+        values = []
 
-    #j=0
-    #while j < len(jsonAPIdata['inventoryItems']):
-    #
-    values = []
-    values.append(jsonAPIdata['inventoryItems'][0]['sku'])
-    values.append(jsonAPIdata['inventoryItems'][0]['product']['title'])
-    values.append(jsonAPIdata['inventoryItems'][0]['product']['subtitle'])
-    
+        values.append(jsonAPIdata['inventoryItems'][j]['sku'])
+
+        if 'product' in jsonAPIdata['inventoryItems'][j]:
+            values.append(jsonAPIdata['inventoryItems'][j]['product']['title'])
+            values.append(jsonAPIdata['inventoryItems'][j]['product']['subtitle'])
+            values.append(jsonAPIdata['inventoryItems'][j]['product']['description'])
+            values.append(jsonAPIdata['inventoryItems'][j]['product']['brand'])
+            values.append(jsonAPIdata['inventoryItems'][j]['product']['mpn'])
+        else:
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+
+        if 'condition' in jsonAPIdata['inventoryItems'][j]:
+            values.append(jsonAPIdata['inventoryItems'][j]['condition'])
+        else:
+            values.append("null")
+
+        if 'conditionDescription' in jsonAPIdata['inventoryItems'][j]:
+            values.append(jsonAPIdata['inventoryItems'][j]['conditionDescription'])
+        else:
+            values.append("null")
+
+
+
+        if 'packageWeightAndSize' in jsonAPIdata['inventoryItems'][j]:
+            if 'dimensions' in jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']:
+                values.append(jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']['dimensions']['width'])
+                values.append(jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']['dimensions']['length'])
+                values.append(jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']['dimensions']['height'])
+                values.append(jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']['dimensions']['unit'])
+            else:
+                values.append("null")
+                values.append("null")
+                values.append("null")
+                values.append("null")
+
+            if 'weight' in jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']:
+                values.append(jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']['weight']['value'])
+                values.append(jsonAPIdata['inventoryItems'][j]['packageWeightAndSize']['weight']['unit'])
+            else:
+                values.append("null")
+                values.append("null")
+        else:
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+
+        if 'availability' in jsonAPIdata['inventoryItems'][j]:
+            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['quantity'])
+            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['merchantLocationKey'])
+            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['availabilityType'])
+            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['fulfillmentTime']['value'])
+            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['fulfillmentTime']['unit'])
+            values.append(jsonAPIdata['inventoryItems'][j]['availability']['shipToLocationAvailability']['quantity'])
+        else:
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+            values.append("null")
+
+
+        matrixValues.append(values)
+        j = j + 1
+
 
     bodyData = {}
-    bodyData['values'] = [values]
+    bodyData['values'] = matrixValues
     bodyData['majorDimension'] = "ROWS"
     bodyData['range'] = sheet_range
 

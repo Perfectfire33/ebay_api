@@ -7,6 +7,17 @@ WITH REQUESTS LIBRARY
 AND RETRIEVE RESPONSE
 """
 
+def getAuthorizationAuthCode(url, headers):
+    # Send the request with parameters and store it in response
+    response = requests.get(url, headers=headers)
+    return response
+
+def getUserAccessToken(url, body, headers):
+    # Send the request with parameters and store it in response
+    response = requests.post(url, data=body, headers=headers)
+    return response
+
+
 """ COMMERCE TAXONOMY API API ~ POLICY OBJECTS """
 
 def getCategorySuggestions(url, headers):

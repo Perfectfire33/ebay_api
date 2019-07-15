@@ -35,11 +35,15 @@ def getToken():
 
 
 
+#api_array = bll.ebay_object_matcher.get_authorize_code(uri_env="sandbox")
+#print("api_array")
+#print(api_array)
 
-
-
-
-
+api_array = bll.ebay_object_matcher.get_user_access_token(configDataSet,
+                                                          uri_env="sandbox",
+                                                          auth_code="v%5E1.1%23i%5E1%23I%5E3%23r%5E1%23p%5E3%23f%5E0%23t%5EUl41XzQ6OEMwQkRDNzFDMjA2QzVDQjUxQ0M5NDBFODAxRDdDN0JfMF8xI0VeMTI4NA%3D%3D")
+print("api_array")
+print(api_array)
 
 
 
@@ -57,6 +61,13 @@ def getToken():
 #print(api_array)
 
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
+
+
+
+# variable1 = "get_all_inventory_items"
+#if variable1 == "get_all_inventory_items":
+
+
 #api_array = bll.ebay_object_matcher.create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env="production")
 #print("api_array")
 #print(api_array)

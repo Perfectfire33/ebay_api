@@ -37,6 +37,15 @@ def get_api_headers2(token):
 
     return api_headers
 
+def get_api_headers_getAuthCode(token):
+    api_headers = {"Accept": "application/json",
+                   "Content-Type": "application/json"
+                   }
+    return api_headers
+
+
+
+
 #def get_api_headers(token):
 #    api_headers = {'Authorization': '%s' % token,
 #                   'content-language': 'en-US'}
@@ -60,6 +69,15 @@ def getBaseUri(uri_env):
 
     return base_uri
 
+
+def getBaseUriAuth(uri_env):
+    if uri_env == 'sandbox':
+        base_uri = 'https://auth.sandbox.ebay.com'
+
+    if uri_env == 'production':
+        base_uri = 'https://auth.ebay.com'
+
+    return base_uri
 
 def mapPayloadBodyToFilename():
     print("aaa")
@@ -87,6 +105,46 @@ def getPayloadFilenameMap():
     payloadFilenameMap['account_updateFulfillmentPolicy']="updateFulfillmentPolicy.json"
 
     return payloadFilenameMap
+
+
+
+
+
+# uri_param1 ~~ {client_id}
+# uri_param2 ~~ {redirect_uri}
+# uri_param3 ~~ {response_type}
+# uri_param4 ~~ {state}
+# uri_param5 ~~ {scope}
+def app_getAuthorizationAuthCode(uri_env, uri_param1, uri_param2, uri_param3, uri_param5):
+    """Get the Authorization Code"""
+    base_uri = getBaseUriAuth(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/oauth2/authorize?client_id=' + str(uri_param1) + '&redirect_uri=' + str(uri_param2) + '&response_type=' + str(uri_param3) + '&scope=' + str(uri_param5)
+    # Method Headers
+    api_headers = {"Accept": "application/json",
+                   "Content-Type": "application/json"
+                   }
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getAuthorizationAuthCode(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# auth_code - run ebay_object_matcher.get_authorize_code()
+# auth_string - "Basic <B64-encoded-oauth-credentials>" (run ebay_object_matcher.
+def app_getUserAccessToken(auth_string, uri_env, body):
+    """Get the Authorization Code"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/identity/v1/oauth2/token'
+    # Method Headers
+    api_headers = {"Accept": "application/json",
+                   "Content-Type": "application/x-www-form-urlencoded",
+                   "Authorization": auth_string
+                   }
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getUserAccessToken(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
 
 
 """ <><><><><><><><><> BEGIN InventoryItem Object <><><><><><><><><><><> """

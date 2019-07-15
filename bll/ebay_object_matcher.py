@@ -473,6 +473,39 @@ def publish_item_offer(configDataSet, uri_env, offer_id):
 
 
 def delete_list_of_inventory_offers(configDataSet, appDataSet, uri_env):
+    # get list of available offers to delete
+    api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env)
+    print("api_array")
+    print(api_array)
+    i=0
+    newAPIdata = []
+    while i < len(api_array):
+        jsonAPIdata = json.loads(api_array[i][1])
+
+        if 'errors' in jsonAPIdata:
+            print("error in loop: " + str(i))
+            print("jsonAPIdata")
+            print(jsonAPIdata)
+
+        if 'total' in jsonAPIdata:
+            newAPIdata.append(jsonAPIdata)
+
+        i = i + 1
+
+    print("newAPIdata")
+    print(newAPIdata)
+    offer_list = []
+    j = 0
+    while j < len(newAPIdata):
+        values = []
+        values.append(newAPIdata[j]['offers'][0]['offerId'])
+        values.append(newAPIdata[j]['offers'][0]['sku'])
+        offer_list.append(values)
+        j = j + 1
+
+    print("offer_list")
+    print(offer_list)
+    # match offers by sku to delete them
     # Import headers
     headers = get_headers_data_i()
     # Import JSON header-data matched object
@@ -485,11 +518,18 @@ def delete_list_of_inventory_offers(configDataSet, appDataSet, uri_env):
         api_array = []
         sku = wjson[0][i]['item_id']
         print("sku for iteration: " + str(i) + " is: " + str(sku))
-        # call delete on this sku
-        api_array = bll.ebay_object_matcher.delete_item_offer(configDataSet, uri_env, sku)
-        api_all_array.append(api_array)
+        # match offer id by sku (offer_list.sku with sku)
+        j =0
+        while j < len(offer_list):
+            if sku == offer_list[j][1]:
+                current_offer_id = offer_list[j][0]
+                print("current_offer_id")
+                print(current_offer_id)
+                # call delete on this offer_id
+                api_array = bll.ebay_object_matcher.delete_item_offer(configDataSet, uri_env, current_offer_id)
+                api_all_array.append(api_array)
+            j = j + 1
         i = i + 1
-
     return api_all_array
 
 def delete_item_offer(configDataSet, uri_env, offer_id):
@@ -636,7 +676,84 @@ def write_get_all_inventory_items_to_sheet(configDataSet, uri_env):
 
     return api_response
 
+def write_get_all_offers_to_sheet(configDataSet, appDataSet, uri_env):
+    scopes = r'https://www.googleapis.com/auth/spreadsheets'
+    tokenPath = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\token.json'
+    spreadsheet_id = "1-u7HmBLRicHJG3o3vHdR9kuv5sJLreO38_Kxsjgq3F0"
+    valInputOpt = "USER_ENTERED"
+    #sheet_range = "get_offers!A9:C9"
 
+    api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env)
+    print("api_array")
+    print(api_array)
+    i=0
+    newAPIdata = []
+    while i < len(api_array):
+        jsonAPIdata = json.loads(api_array[i][1])
+
+        if 'errors' in jsonAPIdata:
+            print("error in loop: " + str(i))
+            print("jsonAPIdata")
+            print(jsonAPIdata)
+
+        if 'total' in jsonAPIdata:
+            newAPIdata.append(jsonAPIdata)
+
+        i = i + 1
+
+    print("newAPIdata")
+    print(newAPIdata)
+    #jsonNewAPIdata = json.loads(newAPIdata)
+    matrixValues = []
+    j=0
+    endLength = len(newAPIdata) - 1 + 9
+    #print("len(jsonAPIdata['inventoryItems'])")
+    #print(len(jsonAPIdata['inventoryItems']))
+    sheet_range = "get_offers!A9" + ":T" + str(endLength)
+    #print("sheet_range")
+    #print(sheet_range)
+    while j < len(newAPIdata):
+        values = []
+        values.append(newAPIdata[j]['offers'][0]['offerId'])
+        values.append(newAPIdata[j]['offers'][0]['sku'])
+        values.append(newAPIdata[j]['offers'][0]['marketplaceId'])
+        values.append(newAPIdata[j]['offers'][0]['format'])
+        values.append(newAPIdata[j]['offers'][0]['listingDescription'])
+        values.append(newAPIdata[j]['offers'][0]['availableQuantity'])
+        values.append(newAPIdata[j]['offers'][0]['pricingSummary']['price']['value'])
+        values.append(newAPIdata[j]['offers'][0]['pricingSummary']['price']['currency'])
+        values.append(newAPIdata[j]['offers'][0]['listingPolicies']['paymentPolicyId'])
+        values.append(newAPIdata[j]['offers'][0]['listingPolicies']['returnPolicyId'])
+        values.append(newAPIdata[j]['offers'][0]['listingPolicies']['fulfillmentPolicyId'])
+        values.append(newAPIdata[j]['offers'][0]['listingPolicies']['eBayPlusIfEligible'])
+        values.append(newAPIdata[j]['offers'][0]['categoryId'])
+        values.append(newAPIdata[j]['offers'][0]['merchantLocationKey'])
+        values.append(newAPIdata[j]['offers'][0]['tax']['applyTax'])
+        if 'listing' in newAPIdata[j]['offers'][0]:
+            values.append(newAPIdata[j]['offers'][0]['listing']['listingId'])
+            values.append(newAPIdata[j]['offers'][0]['listing']['listingStatus'])
+            values.append(newAPIdata[j]['offers'][0]['listing']['soldQuantity'])
+        else:
+            values.append("null")
+            values.append("null")
+            values.append("null")
+
+        values.append(newAPIdata[j]['offers'][0]['status'])
+        values.append(newAPIdata[j]['offers'][0]['listingDuration'])
+
+        matrixValues.append(values)
+        j = j + 1
+
+
+    bodyData = {}
+    bodyData['values'] = matrixValues
+    bodyData['majorDimension'] = "ROWS"
+    bodyData['range'] = sheet_range
+
+    api_response = bll.dal.gsheets_api.updateSheetValues(scopes, tokenPath, spreadsheet_id, sheet_range, valInputOpt,
+                                                         bodyData)
+
+    return api_response
 
 def get_all_inventory_items(configDataSet, uri_env):
     api_array = []

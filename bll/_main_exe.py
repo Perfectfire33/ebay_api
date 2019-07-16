@@ -58,7 +58,7 @@ appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data
 
 """ INVENTORY ITEMS """
 #api_array = bll.ebay_object_matcher.create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env="production")
-api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="production")
+#api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.write_get_all_inventory_items_to_sheet(configDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.delete_list_of_inventory_items(configDataSet, appDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.delete_item_inventory(configDataSet, uri_env="sandbox", sku="00001")
@@ -75,8 +75,11 @@ api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_e
 #api_array = bll.ebay_object_matcher.get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.write_get_all_offers_to_sheet(configDataSet, appDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env="production")
-#api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="production", offer_id="29277132014")
-#api_array = bll.ebay_object_matcher.withdraw_item_offer(configDataSet, uri_env="production", offer_id="29277132014")
+#api_array = bll.ebay_object_matcher.publish_item_offer(configDataSet, uri_env="production", offer_id="29508536014")
+
+
+
+api_array = bll.ebay_object_matcher.withdraw_item_offer(configDataSet, uri_env="production", offer_id="29508535014")
 
 """ POLICIES """
 #api_array = bll.ebay_object_matcher.get_all_fulfillment_policies(configDataSet, uri_env="sandbox")

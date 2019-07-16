@@ -186,7 +186,7 @@ def inventory_getInventoryItems(token, uri_env, uri_param1, uri_param2):
     # Method Headers
     api_headers = get_api_headers(token)
     # Specify request body json data and headers
-    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    api_response = bll.dal.ebay_api.getInventoryItems(api_url, api_headers)
     # Return the API Response
     return api_response
 

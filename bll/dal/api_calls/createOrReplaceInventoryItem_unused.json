@@ -1,5 +1,16 @@
 {
   "availability": {
+    "pickupAtLocationAvailability": [
+      {
+      "availabilityType" : "IN_STOCK",
+      "fulfillmentTime" : {
+          "unit" : "DAY",
+          "value" : "1"
+        },
+        "merchantLocationKey": "string",
+        "quantity": "12"
+      }
+    ],
     "shipToLocationAvailability": {
       "quantity": "14"
     }
@@ -23,6 +34,7 @@
     "brand": "string",
     "description": "string",
     "mpn": "string",
+    "subtitle": "string",
     "title": "string",
     "imageUrls": [
       "http://i.ebayimg.com/images/i/182196556219-0-1/s-l1000.jpg"

@@ -576,7 +576,7 @@ def write_get_all_inventory_items_to_sheet(configDataSet, uri_env):
     tokenPath = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\token.json'
     spreadsheet_id = "1-u7HmBLRicHJG3o3vHdR9kuv5sJLreO38_Kxsjgq3F0"
     valInputOpt = "USER_ENTERED"
-    sheet_range = "ebay_retrieve_data!A9:C9"
+    #sheet_range = "ebay_retrieve_data!A9:C9"
 
     api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env)
     print("api_array")
@@ -1485,23 +1485,25 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
         body_var2 = wjson[1][k]['item_condition']
         body_var3 = wjson[1][k]['item_condition_description']
         body_var4 = wjson[1][k]['item_qty']
-        body_var6a = wjson[2][k]['packed_item_weight_lb']
-        body_var6b = wjson[2][k]['packed_item_weight_oz']
-        body_var7 = wjson[2][k]['packed_item_height']
-        body_var8 = wjson[2][k]['packed_item_length']
-        body_var9 = wjson[2][k]['packed_item_depth']
+        body_var6a = int(wjson[2][k]['packed_item_weight_lb'])
+        body_var6b = int(wjson[2][k]['packed_item_weight_oz'])
+        body_var7 = int(wjson[2][k]['packed_item_height'])
+        body_var8 = int(wjson[2][k]['packed_item_length'])
+        body_var9 = int(wjson[2][k]['packed_item_depth'])
         json_payload_body['product']['title'] = body_var1
         json_payload_body['condition'] = body_var2
         json_payload_body['conditionDescription'] = body_var3
         json_payload_body['availability']['shipToLocationAvailability']['quantity'] = body_var4
         # convert weight to single unit
-        body_var6a = body_var6a * 16
-        body_var6b = body_var6a + body_var6b
+        body_var6aa = body_var6a * 16
+        print("body_var6aa is: " + str(body_var6aa))
+        body_var6c = body_var6aa + body_var6b
+        print("body_var6c is: " + str(body_var6c))
         # json_payload_body['packageWeightAndSize']['packageType'] = body_var5
-        json_payload_body['packageWeightAndSize']['weight']['value'] = body_var6b
-        json_payload_body['packageWeightAndSize']['dimensions']['height'] = body_var7
-        json_payload_body['packageWeightAndSize']['dimensions']['length'] = body_var8
-        json_payload_body['packageWeightAndSize']['dimensions']['width'] = body_var9
+        json_payload_body['packageWeightAndSize']['weight']['value'] = str(body_var6c)
+        json_payload_body['packageWeightAndSize']['dimensions']['height'] = str(body_var7)
+        json_payload_body['packageWeightAndSize']['dimensions']['length'] = str(body_var8)
+        json_payload_body['packageWeightAndSize']['dimensions']['width'] = str(body_var9)
 
         # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
         # for now, set item_id to sku

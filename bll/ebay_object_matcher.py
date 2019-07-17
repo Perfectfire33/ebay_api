@@ -597,7 +597,9 @@ def write_get_all_inventory_items_to_sheet(configDataSet, uri_env):
 
         if 'product' in jsonAPIdata['inventoryItems'][j]:
             values.append(jsonAPIdata['inventoryItems'][j]['product']['title'])
-            values.append(jsonAPIdata['inventoryItems'][j]['product']['subtitle'])
+            #values.append(jsonAPIdata['inventoryItems'][j]['product']['subtitle'])
+            values.append("no subtitle for this listing")
+
             values.append(jsonAPIdata['inventoryItems'][j]['product']['description'])
             values.append(jsonAPIdata['inventoryItems'][j]['product']['brand'])
             values.append(jsonAPIdata['inventoryItems'][j]['product']['mpn'])
@@ -647,11 +649,16 @@ def write_get_all_inventory_items_to_sheet(configDataSet, uri_env):
             values.append("null")
 
         if 'availability' in jsonAPIdata['inventoryItems'][j]:
-            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['quantity'])
-            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['merchantLocationKey'])
-            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['availabilityType'])
-            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['fulfillmentTime']['value'])
-            values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['fulfillmentTime']['unit'])
+            #values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['quantity'])
+            #values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['merchantLocationKey'])
+            #values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['availabilityType'])
+            #values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['fulfillmentTime']['value'])
+            #values.append(jsonAPIdata['inventoryItems'][j]['availability']['pickupAtLocationAvailability'][0]['fulfillmentTime']['unit'])
+            values.append("no pickup")
+            values.append("no pickup")
+            values.append("no pickup")
+            values.append("no pickup")
+            values.append("no pickup")
             values.append(jsonAPIdata['inventoryItems'][j]['availability']['shipToLocationAvailability']['quantity'])
         else:
             values.append("null")
@@ -1158,20 +1165,18 @@ def createPictureFolders(configDataSet, appDataSet2):
 #3|get picture filepaths for each folder where folderName = box_name
 #3.5| host pictures on webserver so we can get a public url with the image
 #3.7| generate list of http:\\ locations of each image for each box_name
-def get_dirs():
+def get_picture_folder_dirs(configDataSet):
+    print("get_picture_folder_dirs")
     folders = []
-    for folder in os.listdir(r'C:\Users\Public\EBAY\EBAY_PICTURES\pictures'):
+    picture_folder = configDataSet[0][8][2]
+    #picture_folder = r'C:\Users\Public\EBAY\EBAY_PICTURES\pictures'
+    for folder in os.listdir(picture_folder):
         folders.append(folder)
 
     return folders
 
-#folders = get_dirs()
-#print("folders")
-#print(folders)
-
-
-def get_path():
-    folders = get_dirs()
+def get_picture_folder_and_filepath(configDataSet):
+    folders = get_picture_folder_dirs(configDataSet)
     folder_list = []
     picture_dir = r'C:\Users\Public\EBAY\EBAY_PICTURES\pictures'
     #img_dict = {}
@@ -1194,18 +1199,23 @@ def get_path():
 #print("folder_list")
 #print(folder_list)
 
-def create_url():
-    img_dict = get_path()
+def create_url(configDataSet):
+    img_dict = get_picture_folder_and_filepath(configDataSet)
     img_dict_dump = json.dumps(img_dict)
     img_dict_json = json.loads(img_dict_dump)
     i = 0
-    base_url = r'127.0.0.1:5000/pictures/'
+    base_url = r'http://127.0.0.1:5000/pictures/'
+    #base_url = configDataSet[0][10][2]
+
     #print("len(img_dict_json)")
     #print(len(img_dict_json))
     #print(img_dict_json)
-    picture_url_list = []
+
+    folders_and_urls = []
     while i < len(img_dict_json):
         j = 0
+        picture_url_list_all = {}
+        picture_url_list = []
         folder_url = img_dict_json[i]['folder_name']
         #print("folder_url")
         #print(folder_url)
@@ -1214,19 +1224,20 @@ def create_url():
             #print("folder_data")
             #print(folder_data)
             folder_data_url = "/" + folder_data
-            print("complete_url")
-            print(base_url + folder_url + folder_data_url)
+            #print("complete_url")
+            #print(base_url + folder_url + folder_data_url)
             complete_url = base_url + folder_url + folder_data_url
             picture_url_list.append(complete_url)
             j = j + 1
+        picture_url_list_all['url_list'] = picture_url_list
+        picture_url_list_all['item_folder'] = folder_url
+        folders_and_urls.append(picture_url_list_all)
         i = i + 1
 
-    return picture_url_list
+    return folders_and_urls
 
 
-create_url = create_url()
-print("create_url")
-print(create_url)
+
 
 
 
@@ -1564,6 +1575,10 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
     json_payload_body = json.load(api_payload_file)
     time.sleep(0.25)
     api_payload_file.close()
+
+    url_folders = bll.ebay_object_matcher.create_url(configDataSet)
+    #url_folders_json = json.loads(url_folders)
+
     k = 0
     #array for the api calls in the batch
     api_array = []
@@ -1577,15 +1592,52 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
         body_var7 = int(wjson[2][k]['packed_item_height'])
         body_var8 = int(wjson[2][k]['packed_item_length'])
         body_var9 = int(wjson[2][k]['packed_item_depth'])
+
+
+        #get index of the entry
+        i = 0
+        #print("len(url_folders)")
+        #print(len(url_folders))
+        while i < len(url_folders):
+            #print("url_folders[i]['item_folder'] + vjson[0][k]['box_name']")
+            #print(url_folders[i]['item_folder'] + " ~~  " + vjson[0][k]['box_name'])
+            # match item to folder name
+            if url_folders[i]['item_folder'] == vjson[0][k]['box_name']:
+                current_item_url_list = url_folders[i]['url_list']
+                #add to the json file #of images in folder
+                j = 0
+                #print("len(url_folders[i]['url_list']")
+                #print(len(url_folders[i]['url_list']))
+                while j < len(url_folders[i]['url_list']):
+                    imageUrl = {url_folders[i]['url_list'][j]}
+                    #del json_payload_body['product']['imageUrls'][0]
+                    json_payload_body['product']['imageUrls'].extend(imageUrl)
+                    j = j + 1
+
+                #print("XX_json_payload_body_XX")
+                #print(json_payload_body)
+
+            i = i + 1
+
+        # loop through image urls
+        # put 1 image url per iteration
+        #i = 0
+        #while i < len(url_folders[k]['url_list']):
+
+            #json_payload_body['product']['imageUrls'][i] = body_var10
+
+
+
         json_payload_body['product']['title'] = body_var1
+        #json_payload_body['product']['imageUrls'] = body_var10
         json_payload_body['condition'] = body_var2
         json_payload_body['conditionDescription'] = body_var3
         json_payload_body['availability']['shipToLocationAvailability']['quantity'] = body_var4
         # convert weight to single unit
         body_var6aa = body_var6a * 16
-        print("body_var6aa is: " + str(body_var6aa))
+        #print("body_var6aa is: " + str(body_var6aa))
         body_var6c = body_var6aa + body_var6b
-        print("body_var6c is: " + str(body_var6c))
+        #print("body_var6c is: " + str(body_var6c))
         # json_payload_body['packageWeightAndSize']['packageType'] = body_var5
         json_payload_body['packageWeightAndSize']['weight']['value'] = str(body_var6c)
         json_payload_body['packageWeightAndSize']['dimensions']['height'] = str(body_var7)
@@ -1610,6 +1662,18 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
         api_array.append(api_response.text)
         api_array.append(api_response.status_code)
         #from here, can also send misc data to flask API to create webpage or store data in SQLite DB
+
+        i = 0
+        #print("LEN json_payload_body['product']['imageUrls']")
+        #print(len(json_payload_body['product']['imageUrls']))
+        img_url_count = len(json_payload_body['product']['imageUrls'])
+        while i < img_url_count:
+            del json_payload_body['product']['imageUrls'][0]
+            #print("delete imgUrl row")
+            #print(json_payload_body['product']['imageUrls'])
+            i = i + 1
+
+
         k = k + 1
 
     #print("API_ARRAY")

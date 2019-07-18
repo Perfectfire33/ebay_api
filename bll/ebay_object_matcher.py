@@ -3,9 +3,9 @@ import bll.ebay_object_receiver
 import json
 import bll.ebay_api_connector
 import time
-import os
-import base64
 import bll.dal.gsheets_api
+import bll.ebay_object_headers
+import bll.ebay_picture_handler
 
 # this file matches ebay data to ebay objects
 # sends objects out to api_call_sequencer file
@@ -103,230 +103,15 @@ def getObjectCount(configDataSet, appDataSet, headers):
     objectCount.append(objectScriptTypeAccumulator)
     return objectCount
 
-def get_headers_data_i():
-    # need to define object headers
-    headers = []
-    headers.append('item_id')
-    headers.append('item_title')
-    headers.append('item_category')
-    headers.append('item_condition')
-    headers.append('item_condition_description')
-    headers.append('item_price')
-    headers.append('item_qty')
-    headers.append('ship_policy')
-    headers.append('packed_item_weight_lb')
-    headers.append('packed_item_weight_oz')
-    headers.append('packed_item_height')
-    headers.append('packed_item_length')
-    headers.append('packed_item_depth')
-    headers.append('payment_policy')
-    headers.append('return_policy')
-
-    return headers
 
 
-def get_headers_data_ii():
-    headers2 = []
-    headers2.append('item_id')
-    headers2.append('box_name')
-    headers2.append('box_category')
-    headers2.append('unit_price')
-    headers2.append('inv_qty')
-    headers2.append('total_value')
-    headers2.append('box_packing_weight_lb')
-    headers2.append('box_packing_weight_oz')
-    headers2.append('unit_weight_lb')
-    headers2.append('unit_weight_oz')
-    headers2.append('qty_weight_lb')
-    headers2.append('qty_weight_oz')
-    headers2.append('location')
-    headers2.append('section')
-    headers2.append('box_height')
-    headers2.append('box_length')
-    headers2.append('box_depth')
-    headers2.append('box_type')
-    headers2.append('box_style')
-    headers2.append('box_details')
-    headers2.append('pic_local_uri')
-    headers2.append('pic_internet_uri')
-
-    return headers2
-
-def get_headers_data_iii():
-    headers3 = []
-    headers3.append('addressLine1')
-    headers3.append('addressLine2')
-    headers3.append('city')
-    headers3.append('country')
-    headers3.append('county')
-    headers3.append('postalCode')
-    headers3.append('stateOrProvince')
-    headers3.append('locationAdditionalInformation')
-    headers3.append('locationInstructions')
-    headers3.append('locationTypes')
-    headers3.append('merchantLocationStatus')
-    headers3.append('name')
-
-    return headers3
 
 
-def get_headers_payment_policy():
-    headers4 = []
-    headers4.append('categoryTypes[i].default')
-    headers4.append('categoryTypes[i].name')
-    headers4.append('description')
-    headers4.append('immediatePay')
-    headers4.append('marketplaceId')
-    headers4.append('name')
-    headers4.append('paymentInstructions')
-    headers4.append('paymentMethods[i][paymentMethodType]')
-    headers4.append('paymentMethods[i][recipientAccountReference.referenceId]')
-    headers4.append('paymentMethods[i][recipientAccountReference.referenceType]')
-
-    return headers4
 
 
-def get_headers_return_policy():
-    headers = []
-    headers.append('categoryTypes[i].default')
-    headers.append('categoryTypes[i].name')
-    headers.append('description')
-    headers.append('internationalOverride.returnPeriod.unit')
-    headers.append('internationalOverride.returnPeriod.value')
-    headers.append('internationalOverride.returnsAccepted')
-    headers.append('internationalOverride.returnShippingCostPayer')
-    headers.append('marketplaceId')
-    headers.append('name')
-    headers.append('refundMethod')
-    headers.append('returnInstructions')
-    headers.append('returnPeriod.unit')
-    headers.append('returnPeriod.value')
-    headers.append('returnsAccepted')
-    headers.append('returnShippingCostPayer')
-
-    return headers
 
 
-def get_auth_data(uri_env):
-    if uri_env == "sandbox":
-        client_id = "JosephKo-apidashb-SBX-966850dff-4fa8fb98"
-        redirect_uri = "Joseph_Kodos-JosephKo-apidas-qffjklr"
-        client_secret = "SBX-66850dff5527-e280-46a9-967b-c7a0"
 
-    if uri_env == "production":
-        client_id = "JosephKo-apidashb-PRD-5d8c7c7a2-3c0aad96"
-        redirect_uri = "Joseph_Kodos-JosephKo-apidas-mvfqrc"
-        client_secret = "PRD-d8c7c7a24e43-c089-4662-ba58-4252"
-
-    response_type = "code"
-    # state = "custom-state-value"
-    scope = "https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope%2Fsell.inventory%20https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope%2Fsell.account%20https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope"
-    dataToEncode = client_id + ":" + client_secret
-    #https://stackoverflow.com/questions/8908287/why-do-i-need-b-to-encode-a-string-with-base64
-    base64_oauth_credentials = base64.b64encode(dataToEncode.encode())
-
-    auth_data = []
-    auth_data.append(client_id)
-    auth_data.append(response_type)
-    auth_data.append(scope)
-    auth_data.append(base64_oauth_credentials)
-    auth_data.append(redirect_uri)
-
-    return auth_data
-
-
-def get_authorize_code(uri_env):
-
-    # input test_credentials into webpage:
-    # testuser_quincy443
-    # P@ssw0rd
-
-    auth_data = get_auth_data(uri_env)
-    uri_param1 = auth_data[0]
-    uri_param2 = auth_data[4]
-    uri_param3 = auth_data[1]
-    # uri_param4 = auth_data[5]
-    uri_param5 = auth_data[2]
-
-    api_response = bll.ebay_api_connector.app_getAuthorizationAuthCode(uri_env, uri_param1, uri_param2,
-                                                                           uri_param3, uri_param5)
-    api_array = []
-    api_array.append(api_response)
-    api_array.append(api_response.text)
-    api_array.append(api_response.status_code)
-    print("API_ARRAY")
-    print(api_array)
-
-    # Set filepath auth_code_generator for ebay api access
-    #to add into ebay-config-data
-    auth_code_generator_path = r'C:\Users\dick\Documents\GitHub\ebay_api\bll\auth_code_webpage.html'
-    auth_code_file_data = api_array[1]
-    # write website file
-    auth_code_web_file = open(auth_code_generator_path, "w")
-    auth_code_web_file.write(auth_code_file_data)
-    auth_code_web_file.close()
-    #api_array.append(auth_code_generator_path)
-
-    return auth_code_generator_path
-
-
-#def get_user_refresh_token(configDataSet, uri_env):
-#https://ebaydts.com/eBayKBDetails?KBid=5075
-
-
-def get_user_access_token(configDataSet, uri_env, auth_code):
-    # auth_code - run ebay_object_matcher.get_authorize_code()
-    auth_data = get_auth_data(uri_env)
-    #auth_code_doc = api_response[1]
-
-    # auth_string - "Basic <B64-encoded-oauth-credentials>"
-    #auth_string = "Basic " + "Sm9zZXBoS28tYXBpZGFzaGItU0JYLTk2Njg1MGRmZi00ZmE4ZmI5ODpTQlgtNjY4NTBkZmY1NTI3LWUyODAtNDZhOS05NjdiLWM3YTA="
-    base64oauth_creds = str(auth_data[3])
-    base64oauth_creds = base64oauth_creds[:-1]
-    base64oauth_creds = base64oauth_creds[2:]
-    auth_string = "Basic " + base64oauth_creds
-    print("auth_string")
-    print(auth_string)
-    # body:
-    #     grant_type=authorization_code
-    #     code=<authorization-code-value>
-    #     redirect_uri=<RuName-value>
-    body1 = "grant_type=authorization_code"
-    body2 = "&code=" + auth_code
-    body3 =  "&redirect_uri=" + auth_data[4]
-
-    body = body1 + body2 + body3
-    print("body")
-    print(body)
-
-    api_response = bll.ebay_api_connector.app_getUserAccessToken(auth_string, uri_env, body)
-    api_array = []
-    api_array.append(api_response)
-    api_array.append(api_response.text)
-    api_array.append(api_response.status_code)
-    print("api_array")
-    print(api_array)
-    api_response_json = json.loads(api_array[1])
-
-    # Set filepath token for ebay api access
-    filepath_token = configDataSet[0][2][2] + configDataSet[0][2][1]
-    print("filepath_token")
-    print(filepath_token)
-    # write token file
-    token_file = open(filepath_token, "w")
-    token_file.write(api_response_json['access_token'])
-    token_file.close()
-
-    # Set filepath token for ebay api access
-    filepath_refresh_token = configDataSet[0][9][2] + configDataSet[0][9][1]
-    print("filepath_refresh_token")
-    print(filepath_refresh_token)
-    # write refresh token file
-    refresh_token_file = open(filepath_refresh_token, "w")
-    refresh_token_file.write(api_response_json['refresh_token'])
-    refresh_token_file.close()
-
-    return api_array
 
 
 #get list of rows necessary to go through the number of offers,
@@ -339,7 +124,7 @@ def get_user_access_token(configDataSet, uri_env, auth_code):
 # for return data - can select an offer based on a key's value,
 #   we can create a checker function to see if there are two offers for one item sku
 def get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env):
-    headers = get_headers_data_i()
+    headers = bll.ebay_object_headers.get_headers_data_i()
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     marketplace_id = "EBAY_US"
@@ -379,7 +164,7 @@ def get_list_of_item_offers_for_list_of_items(configDataSet, appDataSet, uri_env
 
 def delete_list_of_inventory_items(configDataSet, appDataSet, uri_env):
     # Import headers
-    headers = get_headers_data_i()
+    headers = bll.ebay_object_headers.get_headers_data_i()
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     print("len(wjson[0]")
@@ -396,12 +181,6 @@ def delete_list_of_inventory_items(configDataSet, appDataSet, uri_env):
         i = i + 1
 
     return api_all_array
-
-
-
-
-
-
 
 
 def delete_item_inventory(configDataSet, uri_env, sku):
@@ -507,7 +286,7 @@ def delete_list_of_inventory_offers(configDataSet, appDataSet, uri_env):
     print(offer_list)
     # match offers by sku to delete them
     # Import headers
-    headers = get_headers_data_i()
+    headers = bll.ebay_object_headers.get_headers_data_i()
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     print("len(wjson[0]")
@@ -902,7 +681,7 @@ def getListOfReturnPolicyNames(configDataSet, uri_env):
 #gets list of policies from appDataSet and creates an API call for each unique policy
 #returns response from each API call: must return list of policies, Ids for those policies, and currentItemId
 def get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
-    headers = get_headers_data_i()
+    headers = bll.ebay_object_headers.get_headers_data_i()
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     # Set filepath token for ebay api access
@@ -970,7 +749,7 @@ def get_payment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
 # gets list of policies from appDataSet and creates an API call for each unique policy
 # returns response from each API call: must return list of policies, Ids for those policies, and currentItemId
 def get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
-    headers = get_headers_data_i()
+    headers = bll.ebay_object_headers.get_headers_data_i()
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     # Set filepath token for ebay api access
@@ -1034,7 +813,7 @@ def get_return_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
 # gets list of policies from appDataSet and creates an API call for each unique policy
 # returns response from each API call: must return list of policies, Ids for those policies, and currentItemId
 def get_fulfillment_policy_id_list_via_name(configDataSet, appDataSet, uri_env):
-    headers = get_headers_data_i()
+    headers = bll.ebay_object_headers.get_headers_data_i()
     # Import JSON header-data matched object
     wjson = bll.ebay_object_receiver.loadJsonData(appDataSet, headers)
     # Set filepath token for ebay api access
@@ -1137,127 +916,6 @@ def get_default_category_tree(configDataSet, uri_env):
     api_array.append(api_response.text)
     api_array.append(api_response.status_code)
     return api_array
-
-
-
-
-# creates folders with the box_name from stage2 in ebay_item_inventory in the pictures directory in ebay-config-data
-def createPictureFolders(configDataSet, appDataSet2):
-    print("createPictureFolders")
-    headers2 = get_headers_data_ii()
-    # Import config Picture Folder
-    picture_folder = configDataSet[0][8][2]
-    print("picture_folder")
-    print(picture_folder)
-    # Import JSON header-data matched object
-    vjson = bll.ebay_object_receiver.loadJsonData(appDataSet2, headers2)
-    k = 0
-    while k < len(vjson[0]):
-        os.mkdir(picture_folder + vjson[0][k]['box_name'])
-        print(vjson[0][k]['box_name'])
-        k = k + 1
-
-
-#def getPictureFilepaths():
-
-#1|create picture folders
-#2|put pictures in folders
-#3|get picture filepaths for each folder where folderName = box_name
-#3.5| host pictures on webserver so we can get a public url with the image
-#3.7| generate list of http:\\ locations of each image for each box_name
-def get_picture_folder_dirs(configDataSet):
-    print("get_picture_folder_dirs")
-    folders = []
-    picture_folder = configDataSet[0][8][2]
-    #picture_folder = r'C:\Users\Public\EBAY\EBAY_PICTURES\pictures'
-    for folder in os.listdir(picture_folder):
-        folders.append(folder)
-
-    return folders
-
-def get_picture_folder_and_filepath(configDataSet):
-    folders = get_picture_folder_dirs(configDataSet)
-    folder_list = []
-    picture_dir = r'C:\Users\Public\EBAY\EBAY_PICTURES\pictures'
-    #img_dict = {}
-    for current_folder in folders:
-        #print("picture_dir current_folder")
-        #print(picture_dir + "\\" + current_folder)
-        #print(len(os.listdir(picture_dir + "\\" + current_folder)))
-        img_array = []
-        img_dict = {}
-        for img in os.listdir(picture_dir + "\\" + current_folder):
-            if img != 'Thumbs.db':
-                img_array.append(img)
-        img_dict['folder_name']=current_folder
-        img_dict['folder_data']=img_array
-        folder_list.append(img_dict)
-
-    return folder_list
-
-#folder_list = get_path()
-#print("folder_list")
-#print(folder_list)
-
-def create_url(configDataSet):
-    img_dict = get_picture_folder_and_filepath(configDataSet)
-    img_dict_dump = json.dumps(img_dict)
-    img_dict_json = json.loads(img_dict_dump)
-    i = 0
-    base_url = r'http://127.0.0.1:5000/pictures/'
-    #base_url = configDataSet[0][10][2]
-
-    #print("len(img_dict_json)")
-    #print(len(img_dict_json))
-    #print(img_dict_json)
-
-    folders_and_urls = []
-    while i < len(img_dict_json):
-        j = 0
-        picture_url_list_all = {}
-        picture_url_list = []
-        folder_url = img_dict_json[i]['folder_name']
-        #print("folder_url")
-        #print(folder_url)
-        while j < len(img_dict_json[i]['folder_data']):
-            folder_data = img_dict_json[i]['folder_data'][j]
-            #print("folder_data")
-            #print(folder_data)
-            folder_data_url = "/" + folder_data
-            #print("complete_url")
-            #print(base_url + folder_url + folder_data_url)
-            complete_url = base_url + folder_url + folder_data_url
-            picture_url_list.append(complete_url)
-            j = j + 1
-        picture_url_list_all['url_list'] = picture_url_list
-        picture_url_list_all['item_folder'] = folder_url
-        folders_and_urls.append(picture_url_list_all)
-        i = i + 1
-
-    return folders_and_urls
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#4|in createOrReplaceInventoryItem, add list of picture urls for each item
-
-
-
-
-
-
 
 
 
@@ -1475,7 +1133,7 @@ def create_fulfillment_policy(configDataSet, uri_env):
 
 
 def create_inventory_location(configDataSet, appDataSet3, uri_env):
-    headers3 = get_headers_data_iii()
+    headers3 = bll.ebay_object_headers.get_headers_data_iii()
     # Import JSON header-data matched object
     print("appDataSet3")
     print(appDataSet3)
@@ -1548,8 +1206,8 @@ def create_inventory_location(configDataSet, appDataSet3, uri_env):
 
 
 def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
-    headers = get_headers_data_i()
-    headers2 = get_headers_data_ii()
+    headers = bll.ebay_object_headers.get_headers_data_i()
+    headers2 = bll.ebay_object_headers.get_headers_data_ii()
 
     # for each row in inventory, make an api request payload with the data
     object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet, headers)
@@ -1576,7 +1234,7 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
     time.sleep(0.25)
     api_payload_file.close()
 
-    url_folders = bll.ebay_object_matcher.create_url(configDataSet)
+    url_folders = bll.ebay_picture_handler.create_url(configDataSet)
     #url_folders_json = json.loads(url_folders)
 
     k = 0
@@ -1683,8 +1341,8 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
 
 
 def create_item_offer(configDataSet, appDataSet, appDataSet2, uri_env):
-    headers = get_headers_data_i()
-    headers2 = get_headers_data_ii()
+    headers = bll.ebay_object_headers.get_headers_data_i()
+    headers2 = bll.ebay_object_headers.get_headers_data_ii()
     # for each row in inventory, make an api request payload with the data
     object_count = bll.ebay_object_matcher.getObjectCount(configDataSet, appDataSet, headers)
     #print("object_count")

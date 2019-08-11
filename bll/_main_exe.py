@@ -4,6 +4,7 @@ import bll.ebay_object_matcher
 import json
 import bll.old.ebay_object_defs
 import time
+import bll.ebay_picture_handler
 
 """
 This script is designed to be run directly
@@ -45,7 +46,7 @@ XY Set Fields:
 
 
 # app data set is all the xy cells from the app's config data set (Google Sheets Data I)
-appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
+#appDataSet = bll._setup_config.getGoogleSheetDataSet(data_set_type="app", data_set_data=configDataSet)
 # app data set is all the xy cells from the app's config data set (Google Sheets Data II)
 appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data_set_data=configDataSet)
 # app data set is all the xy cells from the app's config data set (Google Sheets Data III)
@@ -54,9 +55,9 @@ appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data
 # now use the appDataSet and configDataSet to bind eBay data to the eBay API call
 
 """ PHOTOS """
-#api_array = bll.ebay_object_matcher.createPictureFolders(configDataSet, appDataSet2)
+api_array = bll.ebay_picture_handler.createPictureFolders(configDataSet, appDataSet2)
 
-#api_array = bll.ebay_object_matcher.create_url(configDataSet)
+#api_array = bll.ebay_picture_handler.create_url(configDataSet)
 
 # get index of the entry
 
@@ -68,7 +69,7 @@ appDataSet2 = bll._setup_config.getGoogleSheetDataSet(data_set_type="app2", data
 """ INVENTORY ITEMS """
 #api_array = bll.ebay_object_matcher.create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env="production")
 #api_array = bll.ebay_object_matcher.get_all_inventory_items(configDataSet, uri_env="production")
-api_array = bll.ebay_object_matcher.write_get_all_inventory_items_to_sheet(configDataSet, uri_env="production")
+#api_array = bll.ebay_object_matcher.write_get_all_inventory_items_to_sheet(configDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.delete_list_of_inventory_items(configDataSet, appDataSet, uri_env="production")
 #api_array = bll.ebay_object_matcher.delete_item_inventory(configDataSet, uri_env="sandbox", sku="00001")
 

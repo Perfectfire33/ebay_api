@@ -31,9 +31,11 @@
       }
    },
    "product":{
-      "aspects":[
-         "string"
-      ],
+      "aspects": {
+			"AspectName" : [
+				"string"
+			],
+	  },
       "brand":"string",
       "description":"string",
       "imageUrls":[

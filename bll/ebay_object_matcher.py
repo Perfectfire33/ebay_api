@@ -1250,8 +1250,9 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
         body_var7 = int(wjson[2][k]['packed_item_height'])
         body_var8 = int(wjson[2][k]['packed_item_length'])
         body_var9 = int(wjson[2][k]['packed_item_depth'])
+        body_var10 = str(wjson[2][k]['item_title'] + wjson[1][k]['item_condition_description'])
 
-
+        """ Begin adding Image URLs """
         #get index of the entry
         i = 0
         #print("len(url_folders)")
@@ -1276,18 +1277,15 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
                 #print(json_payload_body)
 
             i = i + 1
+        """ End adding Image URLs """
 
-        # loop through image urls
-        # put 1 image url per iteration
-        #i = 0
-        #while i < len(url_folders[k]['url_list']):
-
-            #json_payload_body['product']['imageUrls'][i] = body_var10
+        """ Begin adding Aspects """
 
 
+        """ End adding Aspects """
 
         json_payload_body['product']['title'] = body_var1
-        #json_payload_body['product']['imageUrls'] = body_var10
+        json_payload_body['product']['description'] = body_var10
         json_payload_body['condition'] = body_var2
         json_payload_body['conditionDescription'] = body_var3
         json_payload_body['availability']['shipToLocationAvailability']['quantity'] = body_var4
@@ -1301,6 +1299,8 @@ def create_item_inventory(configDataSet, appDataSet, appDataSet2, uri_env):
         json_payload_body['packageWeightAndSize']['dimensions']['height'] = str(body_var7)
         json_payload_body['packageWeightAndSize']['dimensions']['length'] = str(body_var8)
         json_payload_body['packageWeightAndSize']['dimensions']['width'] = str(body_var9)
+
+
 
         # assign second google sheet profile (vjson) (sheet2) in the inventory and grab sku
         # for now, set item_id to sku

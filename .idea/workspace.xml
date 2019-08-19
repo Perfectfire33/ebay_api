@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="69c61e37-75ef-490b-a170-bec48eee065b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/_main_exe.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/_main_exe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/aaa.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/api_calls/originals/createOrReplaceInventoryItem.json" beforeDir="false" afterPath="$PROJECT_DIR$/bll/dal/api_calls/originals/createOrReplaceInventoryItem.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonIndianHead/20170530_161017.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonIndianHead/20170530_161046.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonIndianHead/20170530_161053.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonIndianHead/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonRedCar/20170530_161352.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonRedCar/20170530_161359.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/AvonRedCar/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/EconomistKnobs/20170530_030812.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/EconomistKnobs/20170530_030831.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/dal/pictures/EconomistKnobs/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/ebay_object_matcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll/ebay_object_matcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/bll/token.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/archives/new_data/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/misc/archives/new_data/Thumbs.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/bll/_main_exe.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="116">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -420,7 +406,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49828178" visible="true" weight="0.12328767" />
@@ -737,7 +722,7 @@
     <entry file="file://$PROJECT_DIR$/bll/_main_exe.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>

@@ -1,0 +1,10 @@
+|nRequires: |n>1x |cff00a000Wood|r |n>1x |cff6f6f6fStone|r |n>1x |cffde6f6fClay|r
+
+
+
+|cff00a000Wood|r
+|cff6f6f6fStone|r
+|cffde6f6fClay|r
+|cff6fb1deIce|r
+|cff6fb137Tinder|r
+|cff6f2c37Flint|r

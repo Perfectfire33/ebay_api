@@ -8,3 +8,11 @@
 |cff6fb1deIce|r
 |cff6fb137Tinder|r
 |cff6f2c37Flint|r
+|cffc87d37Plank|r
+|cffffde58Bronze Bar|r
+|cff00c800Bronze Longsword|r
+|cffc83737Cooked Meat|r
+
+Structure that can create weapons and armor. |nRequires: |n>1x |cffc87d37Plank|r |n>2x |cff6f6f6fStone|r |n>1x |cffde6f6fClay|r |n>2x |cff6f2c37Flint|r
+
+Structure that can create units. |nRequires: |n>2x |cffc87d37Plank|r |n>2x |cffffde58Bronze Bar|r |n>2x |cff6f6f6fStone|r

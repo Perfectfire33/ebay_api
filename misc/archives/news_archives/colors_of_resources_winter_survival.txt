@@ -12,6 +12,11 @@
 |cffffde58Bronze Bar|r
 |cff00c800Bronze Longsword|r
 |cffc83737Cooked Meat|r
+|cffb101b1Gunpowder|r
+|cff800000Charcoal|r
+|cff800080Saltpeter|r
+|cff808000Sulfur|r
+
 
 Structure that can create weapons and armor. |nRequires: |n>1x |cffc87d37Plank|r |n>2x |cff6f6f6fStone|r |n>1x |cffde6f6fClay|r |n>2x |cff6f2c37Flint|r
 

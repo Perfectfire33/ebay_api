@@ -1,0 +1,108 @@
+Today is 5/30/2015 5:36 PM
+
+-----------------|-------------[TAKEN]----------------------|------------[EVERY_X_HOURS]-----------|--------[DESCRIPTION]-----------------------------------|
+ANTIBIOTIC              @05:42PM         30-May-2015            6 hours                                  TAKE 1 TABLET 4 TIMES A DAY
+STEROID                 @06:10PM         30-May-2015            AUTO                                     TAKE 1 TABLET BY MOUTH EVERY 6-8 HOURS AS NEEDED
+PAINKILLER              @05:40PM         30-May-2015            6-8 hours  (7)                           TAKE 6 EVENLY ON FIRST DAY, -1 EVERY DAY
+:: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+
+
+ANTIBIOTIC              @11:42PM         30-May-2015            6 hours           
+STEROID                 @11:30PM         30-May-2015            AUTO   
+PAINKILLER              @12:42AM         31-May-2015            6-8 hours  (7)
+
+ANTIBIOTIC              @11:56AM         31-May-2015            6 hours           
+STEROID                 @11:56AM         31-May-2015            AUTO   
+
+
+
+ANTIBIOTIC              @04:30PM         31-May-2015            6 hours     
+STEROID                 @04:30PM         31-May-2015            AUTO
+
+
+
+ANTIBIOTIC              @08:30PM         31-May-2015            6 hours     
+STEROID                 @09:30PM         31-May-2015            AUTO
+
+
+ANTIBIOTIC              @11:00AM         01-Jun-2015            6 hours     
+STEROID                 @11:00AM         01-Jun-2015            AUTO
+
+
+ANTIBIOTIC              @05:00PM         01-Jun-2015            6 hours     
+STEROID                 @05:00PM         01-Jun-2015            AUTO
+
+
+ANTIBIOTIC              @10:40PM         01-Jun-2015            6 hours     
+STEROID                 @10:40PM         01-Jun-2015            AUTO
+
+
+
+ANTIBIOTIC              @08:40PM         02-Jun-2015            6 hours     
+
+ANTIBIOTIC              @02:50PM         02-Jun-2015            6 hours     
+
+ANTIBIOTIC              @07:30PM         02-Jun-2015            6 hours     
+
+
+
+
+STEROID                 @12:30AM         03-Jun-2015            AUTO
+ANTIBIOTIC              @12:30AM         03-Jun-2015            6 hours     
+
+
+
+
+
+
+:STEROID                 @07:30AM         03-Jun-2015            AUTO
+:ANTIBIOTIC              @07:30AM         03-Jun-2015            6 hours     
+
+
+
+
+
+
+
+:ANTIBIOTIC              @12:30PM         03-Jun-2015            5 hours 
+
+    
+ANTIBIOTIC              @05:30PM         03-Jun-2015            5 hours
+
+
+     
+ANTIBIOTIC              @11:30PM         03-Jun-2015            5 hours     
+STEROID                 @11:30PM         03-Jun-2015            AUTO
+
+
+
+
+
+
+
+
+
+
+Good luck man!  Hang in there!   Ice Cream and smoothies sounds alright by me.
+
+Something that came up in our management meeting this morning w
+as that DougW did have a question or two about Automate for PureCloud (or IPA for PureCloud or whatever its called nowadays).  
+If you get a chance shoot him an email (and tell him I sent you) about what the deliverable is for Automate
+for the end of June (the GA date for Communicate and Engage) and what Dan Maser and the team is planning to deliver with the MVP.
+
+Let me know if that doesn't make sense or if you have questions.  Thanks man!
+
+
+Hey Dan, were we planning on delivering a most viable product by the end of June?
+I was asked to relay information about any expected dates to management (at Monday's management meeting I suppose they were wondering what the status of Cloud Workflow was).
+
+
+
+
+I was informed something came up at management's Monday meeting 
+
+
+
+
+
+

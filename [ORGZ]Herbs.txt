@@ -1,0 +1,354 @@
+|       [ORGZ]Herbs.txt    |       #Editor=Notepad++       |       #Language=Batch         |       Resolution=1920x1080       |       #LastUpdated=09/31/2015      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+Sources : {
+        Longevity Warehouse     = http://www.longevitywarehouse.com             --General
+        IHerb                   = https://secure.iherb.com                      --General
+        Global Healing Center   = https://www.globalhealingcenter.com           --General
+        Perfect Supplements     = http://www.perfectsupplements.com/            --Rhodiola
+        The Raw Food World      = http://www.therawfoodworld.com/               --Reishi
+}
+
+InStock : {
+        Superfoods : {
+                Marine Phytoplankton Powder             = http://www.longevitywarehouse.com/david-wolfe-foods-marine-phytoplankton-100-g                          $145  MARINE_PHYTOPLANKTON
+                Spirulina Powder                        =                                                                                                         $???  SPIRULINA
+                Chlorella Powder                        =                                                                                                         $???  CHLORELLA
+                Maca Powder                             =                                                                                                         $???  MACA
+                Chaga Powder                            =                                                                                                         $???  CHAGA_POWDER
+                Mucuna Pruriens Powder                  = http://www.longevitywarehouse.com/david-wolfe-foods-wildcrafted-raw-mucuna-pruriens-extract-powder-4-oz $34   MUCUNA_PRURIENS
+                Shilajit Powder                         = http://www.iherb.com/Sunfood-Himalayan-Shilajit-Powder-3-5-oz-100-g/50427                               $30   SHILAJIT
+                Himalayan Salt                          = 
+                Amla Powder                             = http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-amla-extract-2-oz                       $16   AMLA
+                Bragg Apple Cider Vinegar               = http://www.globalhealingcenter.com/bragg-apple-cider-vinegar.html                                       $8    CIDER_VINEGAR
+                Goji Berries                            = http://www.iherb.com/Dragon-Herbs-Heaven-Mountain-Goji-Berries-8-oz-227-g/21555                         $12   GOJI
+        }
+        Supplements : {
+                Royal Jelly Powder                      = http://www.longevitywarehouse.com/immortality-alchemy-organic-royal-jelly-powder                        $75   ROYAL_JELLY_POWDER
+                Deer Antler Essence Tonic               = http://www.longevitywarehouse.com/jing-herbs-deer-antler-essence-2-oz                                   $85   DEER_ANTLER
+                Ant Tonic                               = http://www.longevitywarehouse.com/dragon-herbs-chinese-mountain-ant-extract                             $65   ANT
+                8 Immortals Tonic                       = http://www.longevitywarehouse.com/dragon-herbs-8-immortals-2-oz                                         $55   8IMMORTALS
+                Suntrex D3                              = http://www.globalhealingcenter.com/suntrex-d3.html                                                      $25   SUNTREX_D3
+                Royal Jelly & Pollen in Honey           = http://www.iherb.com/Y-S-Organic-Bee-Farms-Royal-Jelly-Pollen-in-Honey-24-oz-680-g/23663                $23   BEE_FARMS_IN_HONEY
+                Reishi Spore Triterpene Crystals        = http://www.therawfoodworld.com/reishisporetriterpenecrystals50g-pi1008784                               $150  REISHI_CRYSTALS
+                Reishi Spore Oil                        = http://www.therawfoodworld.com/reishisporeoil1oz-pi1008782                                              $160  REISHI_OIL
+                Reishi Spore Powder                     = *                                                                                                       $???  REISHI_POWDER
+                Pollen de Fleur                         = http://www.longevitywarehouse.com/quantum-nutrition-labs-pollen-de-fleur-45-capsules                    $25   POLLEN_DE_FLEUR
+                Passionflower Extract                   = http://www.longevitywarehouse.com/herb-pharm-passionflower-extract-1-oz                                 $13   PASSIONFLOWER
+                Indole-3-Carbinol                       = http://www.iherb.com/Now-Foods-Indole-3-Carbinol-200-mg-60-Veggie-Caps/636                              $16   INDOLE_3_CARBINOL
+                Rhodiola Rosea                          = http://www.perfectsupplements.com/ProductDetails.asp?ProductCode=Rhodiola&CartID=1                      $24   RHODIOLA
+                Nascent Iodine                          = http://www.globalhealingcenter.com/nascent-iodine-detoxadine.html                                       $30   NASCENT_IODINE
+                Crystal Energy                          = http://www.longevitywarehouse.com/phisciences-crystal-energy-4-oz                                       $45   CRYSTAL_ENERGY
+                Megahydrate                             = http://www.longevitywarehouse.com/phisciences-megahydrate-3-pack                                        $108  MEGAHYDRATE
+                Cellfuzion                              = http://www.globalhealingcenter.com/cell-fuzion.html                                                     $130  CELLFUZION
+                Neurofuzion                             = http://www.globalhealingcenter.com/neurofuzion.html                                                     $50   NEUROFUZION
+                Orgono Living Silica                    = http://www.longevitywarehouse.com/silicium-labs-orgono-living-silica                                    $60   SILICA
+                Floratrex                               = http://www.globalhealingcenter.com/floratrex.html                                                       $70   FLORATREX
+        }
+        NonFood : {
+                Shampoo B Complex                       = http://www.iherb.com/Avalon-Organics-Thickening-Shampoo-Biotin-B-Complex-Therapy-14-fl-oz-414-ml/3477   $ 8   SHAMPOO_B_COMPLEX
+                Healthy Gum Gel                         = http://www.longevitywarehouse.com/longevity-warehouse-ozonated-healthy-gum-gel-10-ml                    $40   HEALTHY_GUM_GEL
+                Baba Yogi Tooth Serum                   = http://www.longevitywarehouse.com/longevity-warehouse-neem-karoli-baba-yogi-tooth-serum-5-ml            $40   YOGI_TOOTH_SERUM
+                Frankincense Truth Toothpaste           = http://www.longevitywarehouse.com/longevity-warehouse-frankincense-truth-toothpaste-25-ml               $222  TRUTH_TOOTHPASTE
+                Clay Toothpaste                         = http://www.longevitywarehouse.com/longevity-warehouse-healthy-gums-clay-toothpaste-15-ml                $16   CLAY_TOOTHPASTE
+        }
+}
+
+
+
+
+Superfood_Details : {
+        MARINE_PHYTOPLANKTON : {
+                Metadata : {
+                        Daily_Consumed  =       1 tsp
+                        Total_Duration  =       50 days
+                        Cost_Per_Day    =       $2.90
+                }
+                ProductData : {
+                        Serving_Size    =       1 tsp / 2g
+                        Total_Servings  =       50
+                        Cost            =       $145  
+                        Size            =       100 grams
+                }
+                PurchaseData : {
+                        LastPurchased   =       09/24/2015
+                }
+                PurchaseDataHistory: {
+                        09/24/2015      =       $230,2unit,200g
+                        08/15/2015      =       $230,1unit,80g
+                        06/01/2015      =       $145,1unit,100g
+                }
+        },
+        CELLFUZION : {
+                Metadata : {
+                        Daily_Consumed  =       4 capsules
+                        Total_Duration  =       30 days
+                        Cost_Per_Day    =       $4.33
+                }
+                ProductData : {
+                        Serving_Size    =       2 capsules, 2/day
+                        Total_Servings  =       30
+                        Cost            =       $130
+                        Size            =       120 capsules
+                }
+                PurchaseData : {
+                        LastPurchased   =       09/24/2015
+                }
+                PurchaseDataHistory: {
+                        09/24/2015      =       $130,1unit
+                        08/15/2015      =       $130,1unit
+                }
+        },
+        NEUROFUZION : {
+                Metadata : {
+                        Daily_Consumed  =       4 capsules
+                        Total_Duration  =       30 days
+                        Cost_Per_Day    =       $1.67
+                }
+                ProductData : {
+                        Serving_Size    =       2 capsules, 2/day
+                        Total_Servings  =       30
+                        Cost            =       $50
+                        Size            =       120 capsules
+                }
+                PurchaseData : {
+                        LastPurchased   =       09/24/2015
+                }
+                PurchaseDataHistory: {
+                        09/24/2015      =       $130,1unit
+                        08/15/2015      =       $130,1unit
+                }
+        },
+        MEGAHYDRATE : {
+                Metadata : {
+                        Daily_Consumed  =       4 capsules
+                        Total_Duration  =       15 days
+                        Cost_Per_Day    =       $2.20
+                }
+                ProductData : {
+                        Serving_Size    =       2 capsules, 2/day
+                        Total_Servings  =       30
+                        Cost            =       $33
+                        Size            =       60 capsules
+                }
+                PurchaseData : {
+                        LastPurchased   =       08/15/2015
+                }
+                PurchaseDataHistory: {
+                        08/15/2015      =       $100,3unit
+                        06/01/2015      =       $100,3unit
+                }
+        }
+}
+
+
+
+
+
+#################
+:: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :::: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+Megahydrate Math:
+$91 for 60*3 = 180 capsules
+@ 1/day = 180 days      |(365/180)* 91 = 184.53$/year
+@ 2/day = 90 days       |(365/90) * 91 = 369.06$/year
+@ 3/day = 60 days       |(365/60) * 91 = 553.58$/year
+@ 4/day = 45 days       |(365/45) * 91 = 738.11$/year
+$91 for 180 @ 2/day = Lasts 90 days == $91/90 = $1.01/day
+:: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+Marine Phytoplankton Math:
+$615 for 80g*3 = 240g / (3.0g/day) = Lasts 80 days @ 100% capacity
+615/80 = $7.69 / day
+615/160 = $3.84 / day @ 50% capacity
+:: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+
+:###################################################################################################################################
+longevitywarehouse
+###################################################################################################################################
+Current_Products {
+}
+Upcoming_Products {
+}
+NearFuture_Products {
+        http://www.longevitywarehouse.com/jing-herbs-reishi-extract-250g                                        $144
+        http://www.longevitywarehouse.com/david-wolfe-foods-organic-holy-basil-extract-powder-2-oz-3-pack       $27
+        http://www.longevitywarehouse.com/dragon-herbs-deer-antler-drops-2oz                                    $75
+        http://www.longevitywarehouse.com/david-wolfe-foods-wildcrafted-raw-mucuna-pruriens-extract-powder-4-oz $34
+        http://www.longevitywarehouse.com/berrybreeze                                                           $49.98
+        http://www.longevitywarehouse.com/dragon-herbs-he-shou-wu-eetee-powder                                  $33
+        http://www.longevitywarehouse.com/jing-herbs-he-shou-wu-250-gram                                        $80
+        http://www.longevitywarehouse.com/david-wolfe-and-buas-immortal-machine-1lb                             $40
+}
+FarFuture_Products {
+}
+###################################################################################################################################
+:###################################################################################################################################
+###################################################################################################################################
+https://secure.iherb.com
+###################################################################################################################################
+Current_Products {
+}
+Upcoming_Products {
+}
+NearFuture_Products {
+}
+FarFuture_Products {
+        http://www.iherb.com/Natrol-Carb-Intercept-Phase-2-White-Kidney-Bean-120-Capsules/2277                  $20
+}
+###################################################################################################################################
+:###################################################################################################################################
+###################################################################################################################################
+https://www.globalhealingcenter.com
+###################################################################################################################################
+Current_Products {
+}
+Upcoming_Products {
+}
+NearFuture_Products {
+        http://www.globalhealingcenter.com/veganzyme.html                                                       $50
+        http://www.globalhealingcenter.com/poly-mva-supplement.html                                             $95
+        http://www.globalhealingcenter.com/intramax-liquid-vitamin.html                                         $80             All
+        http://www.globalhealingcenter.com/vegansafe-b-12.html                                                  $30
+}
+FarFuture_Products {
+        http://www.globalhealingcenter.com/renaltrex-kidney-cleanse.html                                        $30
+        http://www.globalhealingcenter.com/androtrex-male-hormone-support.html                                  $60
+}
+###################################################################################################################################
+:###################################################################################################################################
+###################################################################################################################################
+http://www.perfectsupplements.com/
+###################################################################################################################################
+Current_Products {
+}
+Upcoming_Products {
+}
+NearFuture_Products {
+}
+FarFuture_Products {
+        http://www.iherb.com/Natrol-Carb-Intercept-Phase-2-White-Kidney-Bean-120-Capsules/2277                  $20
+}
+###################################################################################################################################
+:###################################################################################################################################
+###################################################################################################################################
+http://www.therawfoodworld.com/
+###################################################################################################################################
+:CUPON CODE =  rawfood7
+Current_Products {
+}
+Upcoming_Products {
+}
+NearFuture_Products {
+}
+FarFuture_Products {
+}
+###################################################################################################################################
+:###################################################################################################################################
+
+
+http://www.therawfoodworld.com/organicwildcraftednonipowder1lb-pi1008144                                $30
+
+http://www.longevitywarehouse.com/dragon-herbs-ginseng-sublime-2oz                                      $38.97
+http://www.longevitywarehouse.com/jing-herbs-three-sisters-2-oz                                         $44.97
+http://www.longevitywarehouse.com/dragon-herbs-spring-dragon-longevity-tea-6-pack                       $48.43
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-sliced-rehmannia-root-4oz                   $6.97
+http://www.longevitywarehouse.com/heaven-mountain-goji-berries-8-oz                                     $12.47
+http://www.longevitywarehouse.com/food-for-the-immortals-organic-goldenberry-jam-300g                   $13.97
+http://www.longevitywarehouse.com/david-wolfes-noniland-gold-honey-845oz                                $44.00
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-blue-pigment-phycocyanin-1-75-oz-50g        $37.48
+http://www.longevitywarehouse.com/synergy-company-blue-green-algae-powder-3-2oz                         $39.95
+
+http://www.longevitywarehouse.com/david-wolfe-and-buas-immortal-machine-2-2lb                           $79.95
+http://www.longevitywarehouse.com/david-wolfe-and-buas-immortal-machine-6pk-1lb-each                    $215.73
+http://www.longevitywarehouse.com/david-wolfe-and-buas-immortal-machine-1lb-3pk                         $113.86
+
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-camu-camu-3-pack-4-oz-each                  $80.92
+http://www.longevitywarehouse.com/dragon-herbs-amolo-tea-20-tea-bags                                    $8.97
+http://www.longevitywarehouse.com/ancient-organics-ghee-32-oz                                           $37.97
+http://www.longevitywarehouse.com/david-wolfe-foods-wildcrafted-ashitaba-extract-powder-4-oz            $66.97
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-baobab-powder-3-pack-8-oz-each          $67.42
+http://www.longevitywarehouse.com/the-synergy-company-pure-synergy-12-5-oz-powder                       $54.95
+http://www.longevitywarehouse.com/sacred-foods-stone-ground-coconut-butter-16-fl-oz                     $21.95
+http://www.longevitywarehouse.com/immortality-alchemy-organic-royal-jelly-powder-pack-of-three          $205.79
+http://www.longevitywarehouse.com/quantum-nutrition-labs-pollen-de-fleur-45-capsules                    $24.95
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-noni-extract-powder-3-pack-4-oz-each        $35.02
+http://www.longevitywarehouse.com/dragon-herbs-goji-schizandra-drops-2-oz                               $24.97
+http://www.longevitywarehouse.com/dragon-herbs-tonic-alchemy-9-5-oz-new-improved-formula                $59.97
+http://www.longevitywarehouse.com/berrybreeze                                                           $49.98
+http://www.longevitywarehouse.com/grounded-documentary-dvd                                              $5.00
+http://www.longevitywarehouse.com/david-wolfe-foods-24-mushroom-blend-powder-750g                       $222.97
+http://www.longevitywarehouse.com/dragon-herbs-reishi-spore-oil-90                                      $347.97
+
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-reishi-powder-3pack-250g-each           $202.42         750g for $202   =       $0.2693333333333333/g      = 3.712871287128713g/ $
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-reishi-powder-3pack-750g-each           $494.02         2,250g for $494 --      =$0.2195555555555556/g     =
+
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-cordyceps-powder-750g                   $297.00
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-blue-pigment-phycocyanin-1-75-oz-50g        $37.48
+http://www.longevitywarehouse.com/dragon-herbs-chinese-mountain-ant-extract                             $64.97
+http://www.longevitywarehouse.com/david-wolfe-foods-wildcrafted-raw-gotu-kola-extract-powder-3-pack-4-oz-each   $53.92
+
+
+http://www.longevitywarehouse.com/earthing-starter-kit                                                  $199.00         [X]
+
+
+http://www.longevitywarehouse.com/jing-herbs-eucommia-extract-50-grams                                  $24.97
+http://www.longevitywarehouse.com/dragon-herbs-ginseng-sublime-2oz                                      $38.97
+http://www.longevitywarehouse.com/food-for-the-immortals-longevity-coffee-blossom-honey                 $12.73
+http://www.longevitywarehouse.com/food-for-the-immortals-colostrum-powder-6-5-oz                        $29.38
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-purple-corn-powder-8oz                  $5.00
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-purple-corn-extract-powder-100g             $43.97
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-red-maca-powder-8oz                     $24.97
+http://www.longevitywarehouse.com/david-wolfe-foods-organic-raw-black-maca-powder-8oz                   $16.97
+http://www.longevitywarehouse.com/david-wolfe-foods-wild-harvested-pine-pollen-50g                      $24.97
+
+
+CATEGORY::TOOTH_STUFF {
+http://www.longevitywarehouse.com/longevity-warehouse-ozonated-healthy-gum-gel-10-ml-3-pack             $107.98         [ ]
+http://www.longevitywarehouse.com/longevity-warehouse-neem-karoli-baba-yogi-tooth-serum-pack-of-three   $97.13          [ ]
+http://www.longevitywarehouse.com/longevity-warehouse-healthy-gums-clay-toothpaste-3-pack               $43.20          [ ]
+http://www.longevitywarehouse.com/ascended-health-oralive-5-oz                                          $39.97          [ ]
+http://www.longevitywarehouse.com/longevity-warehouse-frankincense-truth-toothpaste-25-ml-each-3-pack   $59.40          [ ]
+                                                                                                 TOTAL: $347.68
+}
+
+
+
+http://www.iherb.com/Now-Foods-Indole-3-Carbinol-200-mg-60-Veggie-Caps/636                              $15.58          [X]
+
+http://www.globalhealingcenter.com/cell-fuzion.html#ingredients                                         $129.95         [X]     for 120 capsules; 2/serving, 60servings; 4capsules/day (2servings) recommended  | 120/4 = 30days or  $130/month @ 100% capacity
+http://www.globalhealingcenter.com/review/product/list/id/43/?order=newest&p=3                          $49.95          [X]     for 120 capsules; 2/serving, 60servings; 4capsules/day (2services) recommended  | 120/4 = 30days or  $ 50/month @ 100% capacity
+                          
+http://www.globalhealingcenter.com/vegansafe-b-12.html#instructions                                     $29.95          [X]
+
+
+http://www.globalhealingcenter.com/review/product/list/id/208/?order=newest&p=2                         $46.95          [ ]     OxyPowder for 120 capsules; 1 capsule/day, 120 days (Manual)    | 120/1 = 120days or $ 11.74/month @ 25% capacity
+http://www.globalhealingcenter.com/cleansing/livatrex-liver-support.html#instructions                   $29.95          [ ]     for Liver
+http://www.globalhealingcenter.com/ginseng-fuzion.html                                                  $29.95          [ ]     Ginseng Fusion
+http://www.globalhealingcenter.com/review/product/list/id/11/?order=newest&p=2                          $24.95          [ ]     Probiotic
+http://www.globalhealingcenter.com/review/product/list/id/182/                                          $29.95          [ ]     Lung Cleanse
+http://www.globalhealingcenter.com/review/product/list/id/40/?order=newest&p=3                          $24.95          [ ]     Silver Fuzion
+http://www.globalhealingcenter.com/neurofuzion.html#instructions                                        $49.95          [X]     NeuroFuzion
+http://www.globalhealingcenter.com/renaltrex-kidney-cleanse.html                                        $29.95          [ ]     For Kidneys
+http://www.globalhealingcenter.com/androtrex-male-hormone-support.html#ingredients                      $59.45          [ ]     AndroTrex
+http://www.globalhealingcenter.com/suntrex-d3.html                                                      $24.95          [ ]     Suntrex D3
+http://www.globalhealingcenter.com/nascent-iodine-detoxadine.html                                       $29.95          [X]     Detixadine(Iodine)
+http://www.globalhealingcenter.com/poly-mva-supplement.html#ingredients                                 $185.00         [ ]     Poly-MVA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

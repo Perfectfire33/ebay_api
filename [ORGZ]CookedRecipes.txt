@@ -1,0 +1,507 @@
+[ORGZ]CookedRecipes.txt        |       #Editor=Notepad++       |       #Language=Batch         |       #LastUpdated=01/24/2015         |        #Resolution=2560x1440   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+
+|====[RecipeTitle]=========|=====[Ingredient]=====|==[Amount]==|==[Unit]=====================|=[Step]=|=[Instruction]===========================================================|=============ImprovementTips&Resources===========================================================================|
+MeatStarchVeggie                Potato                  2       idahoPotato                      >1|     Cook Potatoes (Oil pan, slice & add potatoes, add spices, add butter)          |>Spices(GeneralSet): Basil,Parsley,Oreagno,
+                                Steak                   1-2     steaks                           >2|     Cook Meat (Oil pan, add steak)                                                 |~~~~~~~~~~~~~~~~~~~>RubbedSage,Salt,Pepper,ChiliPowder
+                                Chicken                 2-3     chicken pieces                   >3|     Cook Veggies (Oil pan, chop veggies, add veggies)
+                                Corn                    1       bag of corn
+                                Onion                   1/2     
+                                Mushroom                1/3     mushroom box
+                                GreenPepper             1       
+                                Cilantro                1/3     bundle
+                                Spices(GeneralSet)      2       tbsp
+                                Butter                  1       tbsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+PadThai                         Noodles		        3"      round handful (7oz?)             >1|     Soak Noodles in Cold Water ~1 hr OR Boil Noodles & rinse with cold water       |>Find and buy Tofu
+                                Peanuts		        1       handful (un-smashed)             >2|     Crush peanuts w/ wrench                                                        |>Boil water-->TurnOffHeat-->Add Noodles (~8min) then rinse in cold water; soak in cold water
+                                GreenPepper		2/3                                      >3|     Wash/Store/Chop vegetables                                                     |>Optional: cook chicken then cut: or cut chicken, cook, then cut more
+                                YellowOnion	        2/5                                      >4|     Defrost/Prepare Shrimp; Chop Chicken                                           |
+                                Mushroom	        1/3     mushroom box                     >5|     Soak/Rinse/Store/Chop cilantro                                                 |
+                                Shrimp		        1/3     small bag                        >6|     Begin cooking Chicken --> pan.frying --> 8min                                  |
+                                PadThaiSauce	        8       tbsp                             >7|     Begin Sautee Vegetables --> pan.saute --> 6min                                |
+                                BeanSprouts	        1       standard can                     >8|     Begin cooking eggs (tiny pan, 1 at a time)                                     |
+                                Chicken		        3       medium chicken pieces            >9|     Add Chicken, Shrimp, Crushed Peanuts --> pan.saute                            |
+                                MincedGarlic	        2       tsp                             >10|     Add in PadThaiSauce, MincedGarlic, ChiliPowder --> cook5min?                   |
+                                Eggs                    2                                       >11|     Upon completion, add in cilantro                                               |
+                                ChiliPowder             1       tsp
+                                Cilantro                1/3     bundle
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+PadThaiSauce                    AppleCiderVinegar       1.25    tbsp                             >1|     Mix ingredients in bowl                                                         |>1.5 Tbsp Tamarind Paste (Instead of Apple Cider Vinegar)
+                                ChickenStock            1/4     cup                              >2|     Heat pan                                                                        |>1/8 tsp Ground White Pepper (Instead of Black Pepper)
+                                FishSauce               3       tbsp                             >3|     Add to pan, stirring regularly (low to medium heat, 5-7min)                     |>4 tbsp PalmSugar (Instead of Brown Sugar)
+                                SoySauce                1       tbsp                                                                                                                     |>1 tsp Chili Sauce (Instead of Cayenne Pepper)
+                                CayennePepper           1/2     tsp                                                                                                                      |>Idea: Use Coconut Milk for creamy texture
+                                Pepper                  1/8     tsp                                                                                                                      |>Idea: Throw curry in for traditional flavor
+                                BrownSugar              4       tbsp
+                                CornStarch              3       tbsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::              
+ULTRA_ChiliCheeseDip            ChiliWithBeans          1       can                             >1|     Mince garlic                                                                    |>Make Own Chili:
+v1.2b                           Cheese(Shredded)        1       cup                             >2|     Dice Onion                                                                      |~~~>Tomatoes
+                                CreamCheese             1       8oz package                     >3|     Mix all ingredients in crock pot                                                |~~~>Beef
+                                WorldFoodCornSalsa      1       cup                             >4|     Turn on 'Low' for 2 hours, stirring every 30min                                 |~~~>???
+                                Garlic                  1       clove                           >5|     Reduce to 'Warm' after 2 hours                                                  |~~~>???
+                                YellowOnion             1       smallOnion
+                                || CHANGELOG ||
+                                        V1.1  - For faster heat up, turn on 'High' for 30min, stir, then return to 'Low' for 30min
+                                        V1.2  - Use Trader Joe Corn Salsa instead of Walmart Corn Salsa
+                                        V1.2a - Use Taco Flavored Shredded Cheese
+                                        V1.2b - For onion type largeOnion, use 3/4 onion. 
+                                |||||||||||||||
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::    
+NON-BULLSHIT                    Flour		        2       cup                             >1|     Whisk dry ingredients (small bowl)                                              |>ButtermilkRecipe:
+    BUTTERMILK PANCAKES         WhiteSugar              2       tbsp                            >2|     Beat eggs separately (huge bowl)                                                |~~~>1 tbsp AppleCiderViengar
+                                BakingPowder	        2       tsp                             >3|     Stir buttermilk & oil into eggs                                                 |~~~>1 cup Milk
+                                BakingSoda	        1       tsp                             >4|     Add Dry to Wet ingredients                                                      |>1/4 cup extraVirgin Olive Oil (Instead of Peanut Oil)
+                                Salt		        1       tsp                             >5|     Make Pancakes
+                                Eggs		        2
+                                Buttermilk	        2       cup
+                                Vanilla		        0.5     tsp
+                                PeanutOil               1/4     cup
+                                Apples		        0.85    Big Apple
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::    
+DEFAULT ChickenVeggie           Broccoli                1       crown                           >1|     Cook rice
+STIR-FRY                        Pepper                  1       red                             >2|     Cook chicken in 1 tsp olive oil & >= 4 random spices
+                                YellowOnion             1       smallOnion                      >3|     Cut all veggies
+                                Garlic                  1       clove                           >4|     Begin sautee garlic, onion, and carrots in 3 tsp olive oil
+                                Carrot                  1/3     MediumBagPreCut                 >5|     After 6 min, add broccoli, pepper, mushroom to sautee
+                                Mushroom                3/5     Box                             >6|     After +4 min, add cilantro to sautee
+                                Cilantro                1/3     Bundle                          >7|     Cut cooked chicken into pieces, mix into sautee
+                                Rice                    1       cup                             >8|     Make Stir Fry: add layer of rice to plate, append sautee mix
+                                Olive Oil               4       tsp
+                                Chicken                 3       medium slices
+                                Spices                  4       spices                            |>ChosenSpices(Roast Cumin, Oregeno, Paprika, Chili Powder, Black Pepper, Basil, Marjoram) 
+
+
+
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::    
+DEFAULT Oriental Mix            Broccoli                2       crowns                          >1|     Dice or thin matchstick slice all veggies
+STIR-FRY                        Pepper                  1       red                             >2|     Put peanut oil in pan
+                                GreenOnion              1       bundle                          >3|     Heat pan
+                                Garlic                  2       cloves                          >4|     Add garlic, water chestnuts, broccoli stalks, carrots to pan
+                                WaterChestnuts          1       small can                       >5|     Add broccoli flower, mushrooms to pan
+                                Carrot                  1/3     MediumBagPreCut                 >6|     Add cilantro, green onion to pan
+                                Can of Peas             1       can
+                                Mushroom                1       Box                             
+                                Cilantro                1/3     Bundle                          
+                                Peanut Oil              4       tsp                             
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+Oriental Sauce                                                                                  >1|     Add all to saucepan                                
+                                Soy Sauce               4       tbsp                            >2|     Heat and Stir until brown sugar is dissolved and sauce is smooth
+                                lemon juice             2       tbsp                            >3|     Add cornstarch if need to thicken
+                                Peanut Butter           2       tbsp
+                                Brown Sugar             1       tbsp
+                                Garlic Powder           1       tsp
+                                crushedRedPepperFlakes  1/2     tsp
+                                CayennePepper           1/8     tsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+                                
+                                
+                                
+                                
+                                
+
+                                
+                                
+
+
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::    
+
+
+
+
+MEGA SALAD I    
+                Strawberries            1       quart                   {sweet}
+                Blueberries             2       pints                   {sweet}
+                Apple                   1       medium                  {sweet}
+                Red-Skinned Grapes      1       handful                 {sweet}
+                Starfruit               1                               {sweet}
+                
+                Walnut                  1       handful (diced)         {nut}
+                Almond                  1       handful (diced)         {nut}
+                Pecan                   1       handful (diced)         {nut}
+                
+                Cucumber                1       whole, medium           {neutral}
+                Mushroom                0.5     medium container        {neutral}     
+                Tomato                  1       handful                 {neutral}
+                Red Bell Pepper         2       medium                  {neutral}
+                Beet                    1       medium (root only)      {neutral}
+                Carrot                  3       large                   {neutral}
+                
+                Kale                    4       large leafs             {green}
+                Broccoli                2       crowns                  {green}
+                Spinach                 0.5     medium bundle           {green}
+                Red Leaf Lettuce        4       large leafs             {green}
+               
+                Cilantro                0.33    bundle (no stems)       {green_herb}
+                Parsely                 0.33    bundle (no stems)       {green_herb}
+                Mint                    0.33    tiny container          {green_herb}
+                Basil                   0.33    container               {green_herb}
+                
+                >1| Select 3 sweets
+                >2| Select 2 nuts
+                >3| Select 3 neutrals
+                >3| Select 3 greens
+                >4| Select 2 green_herbs
+                >5| Wash all ingredients
+                >6| Finely dice all ingredients, add to huge pot
+                >7| Place lid on pot and shake in circles for 30s
+                >8| Store in sealed container; may stay fresh 3-4 days
+                
+                
+                                
+
+
+
+|====[RecipeTitle]=========|=====[Ingredient]=====|==[Amount]==|==[Unit]=====================|=[Step]=|=[Instruction]===========================================================|=============ImprovementTips&Resources===========================================================================|
+FRENCH TOAST                    Bread                   3       slices                          >1|     Beat egg, vanilla, cinnamon in dish                                             |
+                                Egg                     1                                       >2|     Add milk to dish and stir                                                       |
+                                Milk                    1/4     cup                             >3|     Dip bread in dish, coat both sides                                              |
+                                Salt                    1/4     tsp                             >4|     Cook French Toast
+                                Vanilla                 1       tsp
+                                Cinnamon                1/2     tsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::   
+FRENCH TOAST II                 Bread                   4       slices                          >1|     Beat egg, vanilla, cinnamon in dish                                             |
+                                Egg                     2                                       >2|     Add milk to dish and stir                                                       |
+                                Milk                    1/4     cup                             >3|     Dip bread in dish, coat both sides                                              |
+                                Salt                    1/4     tsp                             >4|     Cook French Toast
+                                Vanilla                 1.25    tsp
+                                CinnamonSugar           1       tsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::                 
+STRAWBERRIES & CREAM            Strawberries            2       cup                             >1|     Prepare strawberries                                                            |>Half&HalfRecipe:
+                                Half&Half               2       cup                             >2|     Whisk cream ingredients                                                         |~~~>4.25 tsp melted butter
+                                Sugar                   1/2     cup                             >3|     Mix strawberries & cream                                                        |~~~>0.91 cup milk
+                                Vanilla                 1       tsp                                                                                                                     |>Add sugar for sweeter
+                                BalsamicVinegar         3       tbsp                                                                                                                    |>Try honey or agave nectar (Instead of Sugar)
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      
+STRAWBERRIES & CREAM II         Strawberries            1       quart                           >1|     Prepare strawberries
+                                SourCream               2       cup                             >2|     Combine strawberries & sugar in bowl
+                                Sugar                   1       cup                             >3|     Mash strawberries
+                                                                                                >4|     Add sour cream, stir until pink
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      
+STRAWBERRIES & CREAM III        Strawberries            1       quart                           >1|     Prepare strawberries
+                                HeavyWhippingCream      2       cup                             >2|     Pour whipping cream into bowl (Convert to whipped cream)
+                                PoweredSugar            2.5     tbsp                            >3|     Add in powdered sugar, vanilla & mix
+                                Vanilla                 1.5     tsp                             >4|     Pour over strawberries
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      
+HEAVY CREAM                     Milk                    3/4     cup                             >1|     Melt butter in saucepan, then remove                                            |>HeavyCream: Use 1/3 cup butter
+                                Butter                  1/2     cup                             >2|     Add melted butter to milk in bowl (huge bowl)                                   |>WhippedCream: Use 1/2 cup butter
+                                Sugar (Optional)        3       tbsp                            >3|     Mix for 3 minutes (for heavy cream), 4+ minutes (whipped cream)                 |>Duration: Lasts up to 2 days.
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      
+OMURICESUPREME                  Rice                    4       cups                            >1|     Make rice & saute chicken. Chop veggies.
+                                Egg                     8                                       >2|     Add rice and veggies to chicken, stir-fry together, add salt & pepper
+                                Chicken                 1/2     lb                              >3|     Pause stir-fry heat, add ketchup for 3 minutes, clear skillet
+                                Ketchup                 4       tbsp                            >4|     Beat 2 eggs in small bowl & pour on skillet; swiftly spread
+                                Onion                   1/2     chopped                         >5|     Add 25% stir-fry to omelet
+                                Mushroom                4       bellaSmall                      >6|     Cover frying pan w/ plate and flip. Form omelet around stir-fry
+                                GreenPepper             1       greenPepper                     >7|     Repeat 4 times steps #4-6
+                                Salt                    1/12     tsp
+                                Pepper                  1/12     tsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      :: 
+SCRAMBLED SAUTEED SUPREME       Radish                  3       baby            diced okay      white   moderate        >1|Begin Sautee Radish, Carrots
+                                Onion                   0.25    yellow          diced well      white   light           >2|Add Onion, Pepper, Garlic
+                                Garlic                  1       clove           minced well     white   dense           >3|Add Spinach, Tomatoes, Mushrooms
+                                Mushrooms               0.25    box             sliced okay     brown   light           >4|Add Cilantro
+                                Pepper                  1       red/oj/y/g      sliced okay     any     light
+                                Cilantro                15%     bundle          diced well      green   dense
+                                Tomatoes                2       small           sliced          red     moderate
+                                Carrots                 15      baby            diced well      orange  dense
+                                Spinach                 1/4     small container sliced          green   light
+                                Honey                   1       tbsp
+                                Vanilla                 1/4     tbsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      :: 
+ULTRA TRAIL MIX                 Seed/Nut Mix            0.75    cup                                                     >1|Place in blender in order specified
+   ENERGY DRINK                 Raw Cocoa               1       tbsp            Powder                                  >2|Blend for 15 seconds + 10 seconds + 10 seconds + 5 seconds
+                                Marine Phytoplankton    1       tsp             Powder
+                                Himalayan Salt          1/8     tsp
+                                Raw Vanilla Powder      1/8     tsp
+                                Chaga Powder            1       tsp
+                                Megahydrate             2       capsules
+                                Dried Prunes            3       prunes           5g sugar
+                                Chaga Syrup             2       tsp             12g sugar
+                                Raw Honey               1       tbsp            16g sugar
+                                Pomegrante Juice        1/3     cup             12g sugar
+                                Ice                     5       cubes
+                                Almond Milk             1.5     cup             12g sugar
+                                -----------------------|----------------------|-----------------|
+                                              %TOTAL%   4.3     cups            57g sugar       @ 13g sugar/cup         @ 570 Cal (Estimated)   570/57g sugar = 10 Cal / 1 g sugar  (higher is better)
+                            @-16g sugar       %TOTAL%   4.2     cups            41g sugar       @ 9.8g sugar/cup        @ 510 Cal (Estimated)   510/41g sugar = 12.43 Cal / 1 g sugar  (higher is better)
+
+(.75 US cup) + (1 tbsp) + (4.25 tsp) + (1 US cup) + (1 tbsp) + (0.333 US cup) + (1.5 US cup) + ((1/2) US cup) =
+4.29654167 US cups
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      :: 
+BRAIN EYE NERVOUS SYSTEM        Coconut Water           500     ml              20g sugar
+        ENERGY DRINK            Coconut Oil             2       tbsp
+                                Marine Phytoplankton    1       tsp             Powder
+                                Megahydrate             2       capsules
+                                Lion's Mane Mushroom    2       capsules        Powder
+                                Raw Honey               2       tbsp            32g sugar
+                                Blueberries             1       cup             7g sugar
+                                Raspberries             1       cup             7g sugar
+                                -----------------------|----------------------|-----------------|
+                                              %TOTAL%   3.5     cups            66g sugar       @  19g sugar/cup     @ 520 Cal (Estimated)   520/66g sugar = 7.88 Cal / 1 g sugar  (higher is better)
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+ORIGINAL MEAN GREEN JUICE       Kale                    1       bunch
+                                Celery                  4       stalks
+                                Cucumber                1       cucumber
+                                Apple                   2       apples
+                                Lemon                   0.5     lemon
+                                Ginger                  1       small piece
+
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      :: 
+ALT MEAN GREEN JUICE            Broccohli               1       cup     chopped         2.3g sugar
+                                Celery                  4       stalks                  5.6g sugar
+                                Tomato                  2       tomatoes                4.6g sugar
+        JUICE                   Apple                   2       apples                  20g sugar
+                                Ginger Root             1       piece                   1g
+                                Lemon                   1/2     lemon   peeled          1.5g sugar
+                                -----------------------|----------------------|-----------------|
+                                              %TOTAL%   ~4      cups                    35g sugar       @  8.8g sugar/cup     @ 260 Cal (Estimated)   260/35g sugar = 7.42 Cal / 1 g sugar  (higher is better)
+                                              
+
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      :: 
+SUPREME FRUIT & VEGGIE          Broccohli               1       entire stalk           10g sugar                >1|Juice All ingredients
+JUICE_MIX_V1                    Celery                  1       entire stalk            1g sugar                >2|Stir
+                                Apple                   3       apples                 30g sugar                >3|Store in Fridge
+                                Ginger Root             3       small pieces            1g sugar
+                                Kiwi                    2       kiwis                   6g sugar
+                                Lemon                   3       lemons                  3g sugar
+                                Tomato                  3       medium tomatoes         10g sugar
+                                Avacado                 2       medium avacados         1g sugar
+                                Carrot                  4       medium carrots          12g sugar
+                                -----------------------|----------------------|-----------------|
+                                              %TOTAL%   ~8      cups                    74g sugar       @  9.25g sugar/cup     @ 900 Cal (Estimated)   900/74g sugar = 12.16 Cal / 1 g sugar  (higher is better)
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+BERRY SURPRRISED                JUICE_MIX_V1            1.33    cups                   12g sugar  (150Cal)      >1|Add all ingredients to blender (liquids last)
+BLENDED WITH JUICE_MIX_V1       Strawberries            4       average strawberries    3g sugar  (16Cal)       >2|Blend 25s + 5s + 5s + 5s
+                                Blueberries             2       medium handfuls         9g sugar  (100Cal)      >3|Store in Fridge
+                                Ice                     4       cubes   
+                                Prunes                  5       dried prunes (no pits) 12g sugar  (100Cal)      >|Makes 18oz ( 2.25 cups)
+                                Chia Seeds              0.5     tbsp                               (25Cal)
+                                Quinoa                  0.5     tbsp                               (25Cal)
+                                Pulp                    1       tbsp
+                                Green Tea Mints         4       Trader Joe's Mints      4g sugar
+                                Cinnamon                1       tsp                 
+       |OPTIONAL_ADDITIONAL_SUPERFOOD_BLEND|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                                Himalayan Salt          1/8     tsp
+                                Marine Phytoplankton    1       tsp                     Powder
+                                Spirulina               0.5     tsp
+                                Raw Maca Root           1       tsp                     Powder
+                                Astragalus              0.5     tsp                     Powder
+                                Nascent Iodine          3       drops                   1050 mcg
+                                Mega Hydrate            1       capsule
+                                -----------------------|----------------------|-----------------|
+                                              %TOTAL%   ~2.25   cups                    40g sugar       @  17.77g sugar/cup     @ 416 Cal (Estimated)   416/40g sugar = 10.40 Cal / 1 g sugar  (higher is better)
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+JUICE PULP SOUP V1              JUICE_MIX_V1 Pulp       1.75    cups                               >1| 
+                                Himalayan Salt          1/4     tsp
+                                Garlic                  1       cloves
+                                Ginger Root             1       inche
+                                Tumeric                 1.5     tsp
+                                Iodine                  3       drops
+                                Avacado                 1       avacado
+                                Coconut Oil             1       tbsp
+                                Chia Seeds              1       tbsp
+                                Quinoa                  1       tbsp
+                                Water                   2.25    cups        
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+JUICE PULP BURGERS V1           JUICE_MIX_V1 Pulp       1       container                               >1| 
+                                Spices                  2       tbsp
+                                Olive Oil               1.5     tbsp
+                                Himalayan Salt          1/4     tsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+EPIC GUAC v1.0                  Avacado                 4       avacados                                >1|Empty avacados, salsa, & guac mix into medium bowl
+                                Old El Paso Guac Mix    1       package                                 >2|Mince Garlic & add to bowl
+                                Garlic                  2       cloves                                  >3|Stir
+                                Kroger Mild Salsa       6       tbsp
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+Invigorating Mint Tea           Peppermint Tea          1       bag             >1|Boil water, wait up to 12 minutes, then steep 12 minutes
+                                Honey                   1       tbsp            >2|Add 3/5 tsp phytoplankton
+                                Marine Phytoplankton    3/5     tsp             >3|Drop teaspoon with 1 tbsp of honey onto phytoplankton
+                                                                                >4|Stir
+
+
+.
+
+
+
+
+
+
+
+
+                         
+                                              
+                                              
+Green Juice:
+Celery
+Cucumber
+Kale
+Broccholi
+lemon
+
+Juice Plulp with hemp butter?
+
+2cups coconut meat
+2cups coconut water
+2cups almonds/hempseeds/other seeds
+1 tbsp puradime probiotic black biotic (breka down protein into amino acids) $140/for 3 months
+^^^almond coconut yogurt / dressing
+^^insert into blender
+
+
+
+
+
+
+                                              
+                                              
+|===|ToAdd|================================================================================================|
+Fried Spaghetti Pizza           http://busycooks.about.com/od/pizzarecipes/r/Fried-Spaghetti-Pizza.htm
+
+
+Chocolate Blueberry Spirulina Smoothie Recipe
+
+The Ingredients
+
+1 cup milk of choice (I used raw milk)
+1/3 avocado
+1/2 cup fresh or frozen blueberries
+1 tablespoon tahini
+1 tablespoon cacao powder
+1/2 tablespoon cacao nibs (blend some and sprinkle some on top)
+1/2 tablespoon spirulina
+1/4 teaspoon vanilla powder or extract
+1/2 tablespoon honey to sweeten (substitute maple syrup or stevia)
+The Add-ons
+
+1 serving of your preferred protein powder
+1/2 cup fresh or frozen strawberries
+1 cup spinach, kale, or other leafy green
+1 tablespoon flax or chia seeds
+
+
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+COCONUT ENERGY                  JUICE_MIX_V2 Pulp       0.50    cup                               >1| 
+        SUPER BLEND V1          Blueberries             0.50    cup
+                                Cacoa Powder            1       tbsp
+                                Chaga Syrup             1       tsp
+                                Honey                   2       tsp
+                                Vanilla Powder          0.25    tsp
+                                Spirulina               0.5     tbsp
+                                Chia Seeds              1       tbsp
+                                Coconut Milk            1       cup
+                                Ice                     1       cup
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+SWEET POTATO APPLE LIFTER       Apple                   3       apples
+JUICE V1                        Romain Lettuce          1       Bunch
+                                Large Sweet Potato      1.5     potatoes
+                                Ginger Root             0.75"   cubic
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::      ::
+MEGA REFRESHING APPLE TWIST     Granny Smith Apple      1       apple
+        SUPER BLEND V1          Honey                   1       tbsp
+                                Vanilla Powder          1/8     tsp
+                                Himalayan Salt          1/8     tsp
+        SWEET_POTATO_APPLE_LIFTER_JUICE_V1 Pulp         0.75    cup
+                                Ice Cubes               5       cubes
+                                Coconut Milk            1.5     cup
+                                Dried Prunes            5       prunes
+                                Dried Cherries          6       cherries
+                                Spirulina               0.75    tsp
+                                Flax Seed               1       tbsp
+                                Quinoa                  1       tbsp
+                                Astragalus              1/2     tsp
+                                Chaga Powder            1/2     tsp
+                                Ashgawdnda              1/2     tsp
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+
+
+
+
+
+
+
+
+		
+			
+

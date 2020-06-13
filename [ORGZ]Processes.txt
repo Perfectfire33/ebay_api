@@ -1,0 +1,220 @@
+|PROGRAM=Notepad++,LANGUAGE=BATCH-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------------------------------|								|-----------------------------------------------------------------------|
+|	 	0-149=.<30days		- Do5th	|		"<500 = encouraged to postpone"			|		% COMPLETE:						|
+|		150-299=.<16days	- Do4th	|								|			0% 	-	Can be Completed in 1 Session	|
+| PRIORITY =	300 - 599=.<10days	- Do3rd	|		"Can do right now, no prerequisites"		|  LEGEND  =  		1%	-	Ideas already started		|
+|		600-799=.<7days		- Do2nd	|								|									|
+|		800-1000=.<3days 	- Do1st	|		">500 = encouraged to do sooner"		|									|
+|-----------------------------------------------|								|-----------------------------------------------------------------------|
+        : CHECK / USE [ORGZ]Spring2014_PlanA.txt FOR Scheduling
+        : ADD DATE ADDED/UPDATED COLUMN
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Pending Tasks     |
+|--------------------|
+|  Process			Current Task			Priority /1000	Time	%Complete		TO-DO
+|-----------|		|--------------------------|		|-------------|	|---|	|--------|	|-----------------------------------------------------------------------------------------------------------------------|
+WEB/BLOG                Create First Blog Entry                 600             2h      0%              *
+
+CERT/CISCO              Study For 200-120 CCNA                  700             40h     0%              Isolate Topics, Identify Study Methods, Execute Study, Create/Execute Self_Test(s)
+CERT/?                  Determine Best Certs                    700             6h      15%             Cert Offers: CompTIA, Cisco, Microsoft, etc | Cert Topics: Cloud, Storage, Network, etc
+
+PHONE/UPDATE            Repair Phones                           400             4h      0%              Fix RAZR Phone Root, Copy Settings from Bionic-->MAXX, Reinstall Android OS on Droid Bionic, Update Apps       
+PHONE/TETHER            Attempt Dual ISP                        200             3h      0%              Attempt tether phone W/ PFSENSE - Dual ISP
+
+PERSONAL/SECURITY       Conduct Security Audit                  800             6h      0%              New Password Policy, New Password Storage, Enable Multi_Factor Auth
+PC/PROGRAMMMING		Build Primary Dashboard			430		40h	1%		Centralize all important information
+
+
+
+
+
+PERSONAL/HEALTH		Generate($BODY.SYS)			080		1h	1%		Research Cuticles:white-larger=better, & more;
+PERSONAL/WEBSITE	Build Website				100		1h	1%		Initialize
+PERSONAL/FB-Updat	Update Facebook				050		1h	1%		*
+
+PERSONAL/HEALTH         Research Water Filters                  700             2h      1%              ClearlyFiltered | Megahome Distiller    |    BigBerkey   
+
+CAREER/LinkedIN		Update Profile Descriptions		700		3h	1%		summary, itoxygen, aitp, mtu, techease, ebay, pc-fun($net-security, $net-engin., $administration)
+CAREER/LinkedIN		Update *				700		3h	1%		"multi-course assignments, self-created proj's." ($adv.Comp_P2P, TechESite)
+CAREER/LinkedIN		Build Proficiency Chart 		700		2h	1%		Loc = N:\Documents\~[Career]~\proficiency.txt)
+CAREER/Resume           Update Resume                           100             1h      0%              *
+CAREER/ORGZ             Create [CAREER]Communication            100             2h      0%              *
+CAREER/ORGZ             Create [CAREER]Opportunity Tracker      100             2h      0%              *
+
+BACKUP/CAR		Photocopy all Papers			800		30m	0%		Registration, Insurance
+BACKUP/WALLET		Photocopy all Papers			600		1h	0%		*
+BACKUP/MI               Photocopy Voter ID Card                 500             15m     0%              *rename Files
+
+EMAIL/UPDATE		PfireIII				400		1h	1%		important, starred
+EMAIL/UPDATE		REMC1					500		1h	1%		important, starred, folders
+
+BUDGET/CREDITCARD       Research Benefits                       600             4h      1%              Pros/Cons, Rewards, Options($paypal,$huntington,$5/3bank,$firstMerit(?))
+BUDGET/CREDIT           Research Building Credit                600             2h      1%              How To (without and with Credit Card)
+
+CAREER/CERTS            Research Certificates                   500             4h      1%              Sources: ININ/Confluence, www.cbtnuggets.com
+
+PROJECT/NATURE          Campground Virtual Tours                765             99h     1%              Ask Dad for more info
+PROJECT/WRITING
+PROJECT/HISTORY
+PROJECT/TECHNOLOGY
+
+ORGZ/TICKET		Build Ticket System			800		2h	1%		-php/mySQL	-research
+
+<<ON JIRA>>
+PC/PHP/CLNDR            Build Coolendar in PHP HTML             500             6h      1%              Design GUI, design functionalities, create webpage, create SQL database & table & columns, create PHP modify/display code
+PC/PHP			Use WebDev for Bookmarks		400		10h	1%		"Use HTML for Bookmarks"
+PC/VIS-STUDIO		Experiment With VisualStudio		200		4h	1%		*
+
+
+
+ORGZ/UPGRADE		HTML/Gsites/VisStudio			600		30h	1%		All Current Files: Support all current features
+ORGZ/UPDATE		All Files				800		3h	25%		Update files & remove those no longer of use
+ORGZ/BUDGET             Build Budget Tracker                    800             24h     1%              Using{SQL+PHP+HTML5 || AUTOIT || VISSTUDIO || OTHER}
+ORGZ/SCHEDULE           Build Schedule/Time Tracker             800             24h     1%              Using{SQL+PHP+HTML5 || AUTOIT || VISSTUDIO || OTHER}
+ORGZ/PASSWORD           Build Password Keeper                   800             24h     1%              Using{SQL+PHP+HTML5 || AUTOIT || VISSTUDIO || OTHER}
+ORGZ/PC/GDOCS		Centralize Documents			763		3h	40%		sync-PC/Google
+	
+ORGZ/COMM		Update Communications File		765		1h	1%		Update [ORGZ]2013/[ORGZ]Communications	-remc1	-al-learst	-mtu	-48045	-49931	-586BNB	-zip=*
+ORGZ/TOCONTACT		Integrate into Comm.File		765		1h	1%		[IDEAS] ORGz module, [TO_Contact] ORGz module    (NAME|DATE|REASON|EMAIL_ADDR|sent?)
+<</JIRA>>
+
+
+
+-       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -
+
+-       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -       -
+
+
+|-----------|		|--------------------------|		|-------------|	|---|  |-------|	|-----------------------------------------------------------------------------------------------------------------------|
+ total 72		*					avg=n/a		470h	avg=n/a		*
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+        
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Stalled Tasks     |  
+|--------------------|
+|  Process			Current Task			Priority /1000	Time	%Complete		TO-DO
+|-----------|		|--------------------------|		|-------------|	|---|	|--------|	|-----------------------------------------------------------------------------------------------------------------------|
+ININ                    Refer to [ORGZ]Processes-2013           100                                     Draw from N:\Google Drive [MTU]\Google Drive\~[2013 ORGZ]~\ORGZ\Processes.txt  :: Stalled Tasks / REMC1
+
+ORGZ/EMAIL		Future Proof Email Address		650		10h	1%		EMAIL: firstname.initials@gmail.com, firstname@initials.lastname, https:\\firstname.lastname\ *Article Bookmarked*
+
+HOUSE/BIKE		Remeberize HSLockerLock			400		3h	1%		Reutilize HSLockerLock for BikeLock
+
+WRITING			Create Proofread Form			100		2h	1%		Customizable Proofread Form
+
+EDU/LESSONS		Hacker Journal (FrmScott)		050		10h	1%		Apply Lessons Learned from Hacker Journal (from Scott)
+EDU/AITP		Read Articles				650		1h	50%		read($articles), action(do($events))
+
+IDEAS/SKILL		1:1 is Goal-If Replace, noLuminosity=0;	494		40h	1%		$translate(Luminosity) : $VariousGames($skills)
+
+BUDGET/MONSTER		Allocate Monster Tabs			500		1h	1%		Choose Items
+BUDGET/MONSTER		Submit Monster Tabs			500		1h	1%		Once nearest item reached: Before August 1st, 2014
+BUDGET/ALLOCATE		Finish Food List			700		3h	30%		Read Food Labels, Update Shopping List, Extract list of items to acquire upon next Shop
+
+TRAVEL/UP               Go To Peepsock                          500             156h    0%              Get Chair, Bikes, Wood Furniture Piece
+PC/MINECRAFT/ADV	Add to Pools				200		1h	1%		*
+
+
+<<ON_JIRA>>
+
+PC/CLEAN		N:\Google Drive [MTU]\Google Drive\*    500             1h      0%              *
+PC/CLEAN		N:\Downloads\*                          500             1h      0%              *
+PC/CLEAN		N:\Applications & Updates\*	        500             1h	0%		Do this Last: --CUT_FROM P:\~[Drivers & Updates]~
+PC/CLEAN		S:\!Entertainment\*		        500             1h	0%	        Replace all LOW definition movies with a text file describing it
+
+PC/RESEARCH		Locate Free Storage			300		2h	1%		-dropbox	-box.com	-google
+PC/CMS			Learn Drupal, Joomla			200		5h	1%		Introduction to both.
+PC/GOOGLE		Process Improvement			200		1h	1%		Analyze processes; determine better ways of doing things.
+PC/MAINT.		Reapply Thermal Paste			600		1h	0%		Processor, Video Cards (completed in January 2014), Chipsets
+PC/GOOGLE		Explore Apps				400		4h	1%		Explore all Google Apps
+PC/AUTOIT		Make ExplorerTabs			200		15h	1%		"Window Grouping", similar to "Firefox Tab Groups"
+PC/AUTOIT		Make QuikPlayList			200		10h	1%		*
+PC/AUTOIT		Build Custom StartMenu			200		5h	1%		Custom StartMenu/Backup Start Menu
+PC/BACKUP		Find AutoBackup Solution		500		2h	1%		*
+
+
+TECHEASE/WEB		Migrate Files				900		1h			From SAT3210 Google Drive to TechEase
+TECHEASE/WEB            Build Website Pages                     500             12h                     Prepare for PHP-SQL Code
+TECHEASE/WEB            Build Website Forms                     500             36h                     Prepare for PHP-SQL Code
+TECHEASE/WEB            Update/Merge Diagrams                   500             12h                     *
+TECHEASE/INV            Take new Inventory                      700             12h                     *
+TECHEASE/WEB            Update Databases                        600             36h                     Based on Inventory, Demands of Website; Remove dummy Data, update Real Data
+TECHEASE/WEB            Setup Replication                       500             6h                      On TechEase-SRV Host
+TECHEASE/WEB            Setup Web Load Balancer                 400             6h                      On PFSense-Router
+TECHEASE/WEB            Finalize Website for Advertisement      900             24h                     Polish website pages, Verify data, Verify databases, Verify security, Verify logins, Explore IExplore.exe Compatibility
+--> total_time=145h <--
+
+EBAY/RESYNC             Consolidate All ITEMS Again             999             5h      0%              Sync 2013ORGZ/EBAY; Update to 2014ORGZ/EBAY
+EBAY/INIT		Initialize Sales			300		6h	0%		*	-addItem($pioneerStereoReciever_SX-202)
+EBAY/ITEMDATA		Collect All Item Data			300		10h	0%		All items to currently sell.
+EBAY/UPDATE		Sales Records				300		2h	0%		eBaySales2012.xsl, eBaySales2013.xsl
+EBAY/LISTINGS		Add Pending Items			300		24h	0%		*
+EBAY/LISTINGS		Repair Current Item Listings		300		2h	0%		*
+EBAY/COLLECT		Go Garage Saling			625		6h	0%		locate($streets), locate($sales), check($remcBIDS, $craigsList, $barkBoard), prep($droidApps)
+EBAY/MAINT              Maintain Items & Orders                 900             30h     1%              For the duration of eBay --active
+--> total_time=80h <--
+<</ON_JIRA>>
+
+
+
+
+|-----------|		|--------------------------|		|-------------|	|---|  |-------|	|-----------------------------------------------------------------------------------------------------------------------|
+ total 32		*					avg=n/a		???h	avg=n/a		*
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.	.
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Resolved Tasks    |
+: Additional (Scheduled) Resolved Tasks may be Located in [ORGZ]%Season%Year_PlanA.txt
+|--------------------|
+|Process			Current Task		Priority /1000	Time	%Complete		TO-DO
+|-----------|		|--------------------------|	|-------------|	|---|	|--------|	|--------------------------------------------------------------------------------------------|
+PC/ROUTER/newWAP	Linksys-Upgrade Firmware	777		2h	1%		research($howTo), flash($firmware), take($ss), notify($josh)
+REMC1			Diag. APC UPS --> Harrison	800		1h	1%		unplug/clean, test($battery)
+EMAIL/DAD		SummerPlans($updates)		875		1h	10%		notify($auntNancyPics, $replyTopics, $houseStatus, $generalUpdates)
+House/Room		Finish Clean Part 2 of 3	600		10h	90%		sort($paperwork), fin($dusting), sort($boxes), updateList($shop)
+SAT3210/LAB		LAB02				900		1h	30%		lab, formatting, submit
+SAT3210/LAB		LAB03				900		3h	0%		lab, formatting, submit
+SAT3210/LAB		LAB04				900		3h	0%		lab, formatting, submit
+PC/PFSenseRouter	Construct			555		20h	20%		research($howTo), rebuild($VM)
+ORGZ/PLAN		Weekend				*		2h	33%		Build [ORGZ]Weekend
+CAREER/LinkedIN		Add REMC1			200		1h	0%		add($REMC1)
+PC/MAINT.		Air Compress Computer		898		1h	0%		*
+PC/STIKY		Update StickyNotes		999		1h	1%		NOW!
+SAT3210/CourProj.	Build & Implement Database	999		127h	15%		See %GOOGLE_DRIVE%/MTU/SAT3210/[Project TechEase - Main]
+SAT3210/LAB		LAB05				900		3h	0%		lab, formatting, submit
+SAT3210/LAB		LAB06				900		3h	0%		lab, formatting, submit
+SAT3210/LAB		LAB07				900		3h	0%		lab, formatting, submit
+SAT3210/LAB		LAB08				900		3h	0%		lab, formatting, submit
+SAT3210/LAB		LAB09				900		3h	0%		lab, formatting, submit
+SAT3210/LAB		LAB10				900		3h	0%		lab, formatting, submit
+PC/MUSIC		Update *			200		5h	1%		 -tuven -orchestraDM -metal -railroad
+BUDGET			Create				990		5h	1%		totals, costs, debts, profits, limits
+BUDGET/REMC1		Count Tax $$			765		1h	1%		*
+PC/CLEAN		C:\Users\Joseph\Downloads\*     500             1h      0%              *
+HOUSE/PEEPSOCK		Smoke Detectors			700		1h	1%      	Identify remaining; place new in good locations
+ORGZ/BROWSER            Create [ORGZ]TabTracker         700             1h      100%            *
+MTU/ITOXYGEN            Help Dan with OpenStack                         1h                      Send Email
+MTU/AITP                Transcribe R5 Docs                              1h                      Notify: Credit Card Canceled
+PC/OldPC		Upgrade Hardware in Pentium		300		3h	1%		In Pentium Pro, Pentium III, Pentium IV
+|-----------|		|--------------------------|	|-------------|	|---|  |-------|        |---------------------------------------------------------------------------------------------|
+ total 10		*				avg=n/a		44h	avg=n/a		*
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

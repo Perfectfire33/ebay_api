@@ -1,0 +1,81 @@
+[ORGZ]ProcImprove.txt
+#Editor=Notepad++
+#Language=Batch
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ProcessImprovement
+
+===========================================================================================================
+CHEMICALS_TO_REMOVE_OR_REPLACE
+===========================================================================================================
+01|     Bathroom: Soap Bar
+02|     Bathroom: Hand Soap
+03|     Bathroom: Shampoo
+04|     Bathroom: Mouthwash
+05|     Bathroom: Deodorant
+06|     Kitchen: Dish Soap
+07|     House: Laundry Detergent
+08|     Food: Unknown Ingriedients
+09|     Bathroom: Toothpaste                    [X]     Baking Soda, Coconut Oil, Corn Starch
+10|     Kitchen: Water Filtration System        [ ]     probably http://www.pure-earth.com/
+11|     LivingRoom: Rebounder                   [X]     Added to Shopping List
+12|     House: Air                              [X]     Find Air Cleaner/Purifier - Do research http://www.consumerreports.org/cro/air-purifiers.htm    --http://en.wikipedia.org/wiki/Indoor_air_quality       --http://en.wikipedia.org/wiki/Air_purifier
+13|     Reimplement Swishing CoconutOil         [ ]     *
+
+
+
+|-----[SectionToImprove]-------------------------------|-------------------------[IdeasOnHowToImprove]--------------------------------|------------------[MeasurableGainMetric]----------------------|-[Progress]-|
+|======================================================|==============================================================================|==============================================================|============|
+FOOD\Cooking			                                >Recipie:\\French Toast w/ Strawberries & Cream				        >Execution						[0%]
+FOOD\Cooking			                                >Recipie:\\Pancakes: Bananas, Apples                                            >Execution						[0%]
+FOOD\Cooking			                                >Recipie:\\Pasties                                                              >Execution						[0%]
+FOOD\Cooking			                                >Method:\\using oven instead for pancakes?                                      >Execution						[0%]
+FOOD\Nutrition                                                  >
+HOUSE\POSITIONING\Kitchen                                       >Cabinets:\\ORGZ(*)                                                             >Optimize Usage                                         [0%]
+HOUSE\POSITIONING\Kitchen                                       >Counter:\\ORGZ(Appliances, Ingredents)                                         >Optimize Positioning                                   [0%]
+HOUSE\POSITIONING\Bathroom                                      >?
+HOUSE\POSITIONING\LivingRoom                                    >Knex:\\<idea?>
+HOUSE\POSITIONING\Desk                                          >Identify Usage Barriers
+ORGZ\Files                                                      >Identify Unnecessary Information
+ORGZ\Files                                                      >Identify Info Not Yet Present To Add
+CAR\FEATURES                                                    >Look in Manual     
+CAR\PATHING                                                     >Optimize Paths to Regularly-visited Locations                                                           
+PC\USAGE                                                        >Update/Optimize/Explore Settings of Existing Apps
+PC\SOFTWARE                                                     >Identify Alternate Ways of Doing Existing / New Tasks
+        \\                                                      |\\>Organizing Ideas
+                                                                                ^|Gliffy|^
+                                                                                ^|XMind|^
+                                                                |\\>Bookmark Handling
+                                                                |\\>OneTab Handling
+                                                                |\\>Backup Policy
+                                                                |\\>File Access Optimization
+                                                                |\\>Use Cloud Storage
+                                                                |\\>Consolidate Cloud Storage Usage; Unified Interfacing
+                                                                                |\\>Make own Website or App?
+PC\FEATURES                                                     >Look in Manual, Features Guide
+PC\PLANNING                                                     >Optimize Loading Times / RAM Allocation
+SCHEDULING\WORK                                                 >
+ININ\WORK                                                       >Optimize Work Cycle
+SOCIAL_PRESENCE\Facebook                                        >
+SOCIAL_PRESENCE\LinkedIN                                        >
+INCOME\eBay                                                     >Optimize Handling of Data                                                      >New Internal Website Ease-of-Use                       [0%]
+
+
+
+
+
+
+>Organize by date\
+        >Stuff to immediately implement, -->next, next,-->Proc Improve Tech Tree?? (high level to medium. Low detail level = this document)
+        >Stuff to immediately research, ^>&>>^
+
+        >[ORGZ]ProcImprove.txt: Identify Sections                       2.00    ,       5      [10%]
+                ^|Identify Sections|^
+                        >Food\SustainableCottonKiller_Tea?_Cocoa?
+                ^|Generate Improvement Ideas|^
+                ^|Select Best Improvements|^
+                ^|Identify Measurable Gains per Improvement|^     
+                
+                
+>1| Identify Categories; organize
+>2| Identify Methods; organize (easy,hard,requirements,dependencies)
+>2| Execute Methods (research, then implement)

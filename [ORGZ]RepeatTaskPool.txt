@@ -1,0 +1,506 @@
+[ORGZ]RepeatTaskPool.txt        |      #Editor=Notepad++       |       #Language=Batch         |       #LastUpdated=01/24/2015                  |        #Resolution=1920x1080   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|==[COMMON TASKS]=================================================================================================================|
+        >Update [ORGZ]Winter2015_PlanA.txt                              0.50    ,       5,(3)   [ ]
+        >Go Shopping                                                    1.50    ,       5,(7)   [ ]
+        >DOTA2 Practice                                                 4.00    ,       4,(7)   [ ]
+        >DOTA2 Tournament                                               2.00    ,       5,(7)   [ ]
+        >Update [ORGZ]Budget.txt                                        0.50    ,       5,(R)   [ ]
+        
+|==[UPCOMING TASKS]=================================================================================================================|
+        >Update [ORGZ]ForecastBudget.txt                                0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]ForecastBudgetCalculator.xlsx                     0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Meals.txt                                         0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Lessons.txt                                       0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]ProcImprove.txt                                   0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Schedule.txt                                      0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Shopping.txt                                      0.50    ,       5,(R)   [ ]
+
+        >Update [ORGZ]Status.txt                                        0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]TaskDependencyTree.gddraw                         0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Timeline.txt                                      0.50    ,       5,(R)   [ ]
+        >Execute CreatePlanA                                            0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Processes.txt                                     0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]PlanA_Overflow.txt                                0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]128Extensions.txt                                 0.50    ,       5,(R)   [ ]
+        >Save [Notepad++Session]Main                                    0.50    ,       5,(R)   [ ]
+        >Save [Notepad++Session]Main_II                                 0.50    ,       5,(R)   [ ]
+        >Save [Notepad++Session]Main_III                                0.50    ,       5,(R)   [ ]
+
+        >Update ServiceExec.txt                                         0.50    ,       5,(R)   [ ]
+        >Update [CLNDR]Fall2014_X2.gddraw                               0.50    ,       5,(R)   [ ]
+        >Update [LIST]Shopping.txt                                      0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Car.txt                                           0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]CookedRecipes.txt                                 0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Holidays.txt                                      0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Music.txt                                         0.50    ,       5,(R)   [ ]
+        >Fill this PlanA with all required todo items: MAR1>>MAY31      3.00    ,       5,(R)   [ ]
+                |Reason=Enables uninterrupted execution of todo items
+                ^|Add ToDos for Events,trips,etc|^
+                ^|Add Big Goals|^
+        >Cleanup/Sort::Documents                                        1.00    ,       3       [ ]
+        >Cleanup/Sort::Backup Files                                     0.50    ,       3       [ ]
+        >Trim ALL Files, Resort ALL Files                               4.00    ,       5       [ ]
+        >Cleanup/Sort::ProjectFiles                                     0.50    ,       3       [ ]
+        >Backup_All_Files                                               2.00    ,       5       [ ]
+
+
+
+
+
+
+
+
+
+REM Okay, let's grab the string we want to re-word with as much extra processing as possible :)
+REM     Extra processing is equal to Extra understanding
+REM
+REM             ~~~~README~~~~
+REM
+REM     $abc123         --> This is a variable. It can store whatever it is set "=" to
+REM                     \EXAMPLE\   $abc123="lol;   --> $abc123 now equals "lol". 
+REM                                 So, if I type $AAA = "haha"+$abc123+"jk";
+REM                                 Saying $AAA is the same as saying "haha lol jk"
+REM     getDefinition() --> doThisThing(to-or-with-what-is-here)
+REM     ;               --> this ends a line or block of lines surrounded in []
+REM     ECHO            --> this will print whatever the specified variable is currently set to
+REM
+$input = Our+real+value+comes+from+the+caricatures+that+other+people+use+to+view+us.;
+REM     Grab 7th word
+$caricatures = $input[7];
+REM     Google the definition
+getDefinition($caricatures,"http://www.google.com"){
+        $definition=["a picture, description, or imitation of a person or thing
+                        in which certain striking characteristics are exaggerated
+                        in order to create a comic or grotesque effect."];
+}
+REM     Let's start wording this input in our own words, so we can better understand what it means!
+$createNewDefinition($caricatures, parse($definition)){
+        $examples="an artist, a student, a husband";
+        REM     let's add a synonym here for context
+        $fromTheAngle="in only the perspective";
+        $newDefinition = [
+                REM     okay, now we must make sure we provide enough info to ensure
+                REM     everyone is on the same page.
+                intrepret($caricatures.currentContext()){
+                        $interpretation=["other people see us $fromTheAngle in which they know us.
+                                so if you know Tom as the guy at Speedway, then you do not see Tom as
+                                $examples until you become aware of that fact.
+                                the "certain striking characteristics" are those cool things that
+                                Tom is really good or bad at--or--what you know Tom best for."];
+                }
+                REM     now let's just apply this to ourselves, in our own words...
+                $ownWords = applyToSelf(assumePerspective($interpretation));
+                ECHO $ownWords >>[
+                :"My true value is derived from those things that people know me best for."];
+        ]
+}
+
+$input = It+doesnt+mean+that+other+people+define+how+valuable+we+are,+that+job+is+ours,+to+give+them+a+caricature+they+look+fondly+on.;
+REM     Let's start wording this input in our own words, so we can better understand what it means!
+$input1 = {It+doesnt+mean+that+other+people+define+how+valuable+we+are};
+$input2 = {that+job+is+ours};
+$input3 = {to+give+them+a+caricature+they+look+fondly+on.};
+reword($input1,$input2,$input3){
+$reword_input =["Our job us to allow others to look fondly upon us. We define our value.
+                You may be dissatisfied if you do not properly provide the tools
+                for others to observe you as you wish to be observed."];
+}
+
+LEARNING =      1|observing the data
+                2|processing the data
+                3|recording the data
+                4|consolidating the data
+                5|summarizing the data
+
+PLANNING =      1|scoping the data topic range
+                2|scoping involved audience type range
+                3|physical logistics and design
+                4|idea order and placement
+                
+DOING   =       1|exporting the data
+                2|publishing the data
+                3|sharing the data
+                4|collaborating over the data
+                5|determining purpose of the data
+                6|determining application of the data
+                7|applying the data
+                
+How to remove sugar if caffine is also supplied?
+OptionA|separate sugar and caffine
+                1| replace caffine with items on shopping list
+                2| remove sugar
+                        a| trigger uninstall
+                        b| stop dependencies that use sugar
+                        c| delete existance of sugar in body
+                        d| recode dependencies to no longer use sugar
+OptionB|remove both sugar and caffine at the same time
+                1| trigger uninstall
+                        a| define purpose of sugar
+                        b| define purpose of caffine
+                        c| identify other objects that serve the purpose of sugar
+                        d| identify other objects that serve the purpose of caffine
+                        e| integrate identified objects that serve the purpose of sugar
+                        f| integrate identified objects that serve the purpose of caffine
+                2| stop dependencies that use sugar
+                3| stop dependencies that use caffine
+                4| delete existance of sugar in body
+                5| delete existance of caffine in body
+                6| recode dependencies to no longer use sugar
+                7| recode dependencies to no longer use caffine
+
+                
+                
+These protocols are a very cool concept (basically, a reminder to always use common sense and logic alongside appropriate emotion to achieve goals), thanks for sharing!
+                
+Ah, perfect! Thanks for the elaboration :) It is sometimes (actually, often) difficult to discuss this sort of topic with only English words :)
+
+
+Okay, time to start identifying how all these puzzle pieces of life fit together!
+
+But I figure I should share these right away, as these were my starting points:
+This is one of the two articles that I first read a while ago --
+http://www.social-consciousness.com/2012/02/law-of-attraction-fundamentals.html
+
+And here is the second --
+http://www.knowledgeoftoday.org/2012/02/illuminati-secret-hidden-from-masses.html
+
+Then, a year later (now) I stumbled upon Gregg Braden - https://www.youtube.com/watch?v=EiBsczafvaA
+who altered reality for me, forever :D And now I understand Alan Watts better, and Bruce Lipton (along with many others) who reinforces these ideas with scientific studies and life experiences.
+Although, the cool part is, is that it has become apparent to me that everyone is simply a different part (or angle) to the same story.
+And the story is all our story, and it is as true as we wish to believe it to be.
+
+
+
+Yes. In the situation where time elapses, the inputs do not change, and the conscious mind is not actively editing the subconscious, 
+the subconscious will by default pick up and begin accomodating for and becoming accustomed to the environment.
+
+Then one day, that person looks into the mirror and suddenly realizes they have become accustomed to an environment in which they did not deliberately, consciously choose!
+
+So they decide that raves are no longer cool (or whatever the topic is, maybe they decide that space and time do not exist... up to them :) ), 
+and thus, they begin consciously reprogramming their subconscious to do cooler stuff instead.
+
+
+I will also offer my in-progress, 5th level of consciousness (building off of the four levels of consciousness, as described in the first article, and my research since):
+
+5. Conscious Unconscious Consciousness
+At this level, you deliberately focus energy to tune the electromagneticity in the Universe in such a way that permits the manifestation of things considered positive. 
+You understand that all physical and virtual things tangible are ultimately reflections of the current state in all which is encompassed. 
+Acknowledgement of experiencing awareness in all reflective opportunities is understood as being a component of existence.
+
+
+Currently In-Use (Test Succeed) Practical Applications:
+01| Locate girlfriend (sudo apt-get install girlfriend)
+02| Relocate small bugs to outside the house from inside the house
+03| Pre-plan difficult left-hand turns while driving
+04| Permit graceful entering and exiting of intersections (timing of changing of lights)
+05| Permit small-scale relative digital time slow down
+06| Permit small-scale relative digital time speed up
+07| Take or Assume Perspective
+08| Identify a target's current thought
+09| Identify a target <imagination>.currentEnvironment("WHERE imagination LIKE $currentWorld.time|place|location|similarLogistic*")
+10| Send message to target
+11| Recieve message from target
+12| Declare communication protocol and its parameters if necessary
+13| Set World
+14| Set Dimension
+
+Todo:
+01| Identify a target imagination's current environment and parameters of all sorts
+02| Virtualize self in target <imagination> for specified time duration
+03| Enter World
+04| Enter Dimension
+05| SilenceStatic()
+
+
+Add www.moh.io --> ACCOUNT
+        >MTU GOOGLE DRIVE
+        >jdkodos@mtu.edu
+        >Name="Joseph"
+        >Pass=$PASS6
+
+        
+"forcing symbolism into scenarios and events which inherently have no symbolism"
+This is a great observation! I can say, after logically applying what he says to an increasing number of situations, this is very true. I did not think about this idea via the word "symbolism".
+
+This also reinforces the idea that I need to begin summarizing my findings... I keep watching a video, then thinking,
+"okay, I watched a clip of Gregg, now to balance it with someone else's perspective and combine the two to create a new perspective".
+until I have so much data that I need to watch them again... we need a ton of perspectives to even begin to grasp (as you said) "what's out there to be discovered," :)
+
+"but rather adjust my perception to incorporate those things."
+This is the best part about it all :D the limit is literally our imagination (so to allow robust adjustments to perception, you need to exercise your imagination and stay open-minded).
+
+I just randomly found and watched https://www.youtube.com/watch?v=IvO8ZsQYUK0 over dinner. Very cool stuff (although I haven't learned what NLP is yet haha). Seems like it is showing how Gregg's ideas can be applied IRL.
+I like how he uses computer-like analogies (at least I interpret a lot to be like that) (especially at 18 and 28 min) because those appear to be very effective words to describe this kind of stuff.
+My favorite quote I think (lots of new favorites in this video haha) is, " ..."human beings are just like computers", well, that is a lie. We came first. Computers are like us, just not as advanced ;) "
+
+
+
+
++====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====
+
+
+And another step is resolving the issues of your percieved past in such a way that
+removes the causes of the disorder at hand.
+
+Take anxiety disorder, for example. Ask yourself some question (and your first true thought is your answer):
+What things make you anxious?
+What places make you anxious?
+What people make you anxious?
+Why do you think it is sever disorder is somet
+
+I do not know how to help you more in that regard as I do not have any diseases or disorders that I 
+
+Hmm... one of the first problems I see encountering is that I am not even sure how you can just start doing "imagine feeling less anxiety disorder"
+
+Let me give you a example of a perspective (personal story of mine, and you are involved too :D ) that I gained very recently --
+See, I didn't know I had OCD until you told me so and explained why it was true.
+To me, 
+"obsessive compulsive disorder"
+was simply
+"a certain level of maintained organization 
+(being very thorough and paying attention to detail, selectively)."
+
+Will I ever truly believe I have OCD? Of course, if that is what people define it as. 
+Although I have learned if I keep thinking of it as something I need to avoid, 
+I will be doing it subconsiously (as it is a natural behavior of me) and I won't even know I am doing it and will quickly convince myself it is a real problem and I should seek help.
+
+So what I do is I acknowledge that it may have a potential negative impact upon life if and when I allow it (as I am usually aware of what I am doing, so I will sometimes purposely go a step further to see what other people or things say or do for fun)
+but for the most part, I like to see it as a good thing. And I do not feel as if I suffer from it (in the real world, it has served me well!).
+
+
+because they (the giants [or the last known good configuration]) were so happy, living simple lifes, surviving, for very long periods of time 
+they didn't do any thing required to incur negative consequences...
+so after a few generations of reaching this high level of wisdom, bordom took hold and new tools and ideas were needed to explore more possibilities
+Thus, evolved "bad" things and people surviving far less, but experiencing far more interesting stuff
+Twisting mysteries out of previously known facts, people progressed
+Until Today.
+Where we remember what actually happened and why we wanted to learn more.
+We have once again incured high amounts of wisdom.
+This time however, we also have high amounts of knowledge to complement and employ that wisdom.
+Now, that we have successfully mirrored our selves (almost there completely I think!)
+we can reflect on our entire past history, with more data than ever before (so more accurately!)
+SO We can compare the value of what we had to the value of how things are now
+And move onward, towards enjoying both very long lifes and remembering our past (we even have stuff like the Internet to forever remind us)
+where we can experience tons more at a higher variety than ever before possible,
+By moving towards the light end of the spectrum while being fully aware of the dark-end. 
+We can see how awesome "positive" stuff is, now that we know that "negative" stuff exists!
+
+
+Don't forget, primary task is Experience! SO more stuff arounmd == easier to experience higher variety
++====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====+====
+
+
+UQL
+Universal Query Language
+E.G. $xLocation = EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE94857865895768968548968FFFFADAA7540389AEECCCCCAB8B748B757B36DA5E78FF89478;
+E.G. $yLocation = EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE94857865895768968548968FFFFADAA7540389AEECCCCCAB8B748B757B36DA5E78FF89478;
+E.G. $zLocation = EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE94857865895768968548968FFFFADAA7540389AEECCCCCAB8B748B757B36DA5E78FF89478;
+E.G. $observers[0] = earthSpirit(BA-CCE000-49erer59FDGD^f#$%*#*%#$#g$*^()@);
+E.G. $observers[1] = windSpirit(BA-CCE000-49834559FDGyDFGyu4=86546__578SDFGFDGfgdjklgdfgDGFDG8548#$%*#*%#$#$*^()@);
+E.G. $observers[2] = waterSpirit(BA-CCE000-49834559FDGyDFGyu4=834865347534JDASFHJDSF*39439asdtr734t);
+E.G. $observers[3] = fireSpirit(BA-CCE000-49rtr85er9yFuDGDFG4=i8578k_+lGFgfdgdf854@!(#*%(#*$%($$*^()@);
+E.G. $observers[4] = ourSpirit(D1-999FFF-49859gfgFDGDFG4=8578SDFljklGF_DG8548#$%*##*$@#**^()@);
+UQL:\\universe1\world2\galaxy6\solarSystem33\planet3(earth)\dimension2\level999\@coords($xLocation-$yLocation-$zLocation)\@magnitude(0x05899FA13@Z-00F)\@duration(0x059D054A)\@observers($observers)?service=simpleRelayService?operation=relayMessage?message="Hello"?sendtime=0x05899FA13@Z-01F?recievetime=0x05899FA13@Z-01F
+
+UQL:\\universe1\world2\galaxy6\solarSystem33\planet3(earth)\dimension2\level999\        REM     This is the directory path
+        @coords($xLocation-$yLocation-$zLocation)\                                      REM     These are the perceived parameters, as truly observed by the requester
+        @magnitude(0x05899FA13@Z-00F)\                                                  REM     These determine the manifestation in reality
+        @duration(0x059D054A)\
+        @observers($observers)
+        ?service=simpleRelayService                                                     REM     These are the request parameters of what the manifestation is
+        ?operation=relayMessage
+        ?message="Hello"
+        ?sendtime=0x05899FA13@Z-01F
+        ?recievetime=0x05899FA13@Z-01F
+
+Everything is a code  (every combination or possibility of reality)
+//eer, a hash key(?)
+e.g.  g8965mg9-fj3489dn-fdijke8fgjk=sdfgjk9394()#Q&$%(*&#klojdfsorsid@lsco9-dff95eikgj could be the hash for the above UQL:\\ example
+that is generated by each present observer (earth spirit, our spirit, water spirit, fire spirit, etc...)
+You then simply add each observer's hash key
+earth current config - asdfi9234f9432054tr
+air current config - 98giyt8tu7857457
+our current config - 59584854954950495
+this exact possibility = asdfi9234f9432054tr+98giyt8tu7857457+59584854954950495
+
+You generate your desired code with feeling. So, as to unlock the heart's transmitted desire.
+Emotion in heart + thought in brain = feeling
+Heart pings brain with desire, brain fulfills request with details and returns to heart for transmission to the Universe
+Heart then get a reply from Universe that execution is Already Done
+Heart pings brain with confirmation, brain responds to heart with a relative time request to make it so (Execute Now) (near upon which configuration the desire should manifest)
+Heart relays relative time request to Universe
+Universe replys with execution is in state of Already Done, As of Now
+Heart pings brain with confirmation of execution state (key hashed by Universe)
+Brain waits for and uses sensory inputs (data provided by the Universe) to generate a hashed key
+Brain compares heart hashed key with sensory input hashed key, if match
+Brain Send message to Heart as Operation Successful (true desire has become a part of your reality)
+Heart send message to Universe as Thank You
+Universe replys with Your Welcome
+
+
+Very cool videos, thanks for sharing! I will have to watch this playlist again some time soon and take notes, as these people have some very great ideas that I can use (and share). 
+I cannot decide what one is my favorite... they were all my favorite (especially when watched all together) :D
+
+Last night, after trying to summarize part of what I have learned recently, I stumbled upon this guy ( http://en.wikipedia.org/wiki/Georg_Wilhelm_Friedrich_Hegel ) 
+who I found out came to some of the same conclusions as I have in these past few weeks of research. However, after just a bit of investigation (a lot more needed to say for certain),
+I think his original idea got misinterpreted and turned into a very negative idea. 
+I'm thinking this happened because he didn't watch this Ted Talk playlist on how to communicate well (doh! just needed to wait another 184 years).
+
+
+
+
+Yea I found that ISIS video to be very weird... I haven't looked too much into ISIS, or what he is talking about. 
+
+But later in the day, I was wondering what "Hegalian" meant. And it had led me to here http://en.wikipedia.org/wiki/Absolute_idealism 
+If you read the "Teachings" subsection, that might be similar to what I am starting to piece together, depending on how you interpret it. 
+I am not sure about the rest of the page or stuff about Hegal. 
+
+"The assertion that "All reality is spirit" means that all of reality rationally orders itself and while doing so creates the oppositions we find in it."
+This follows what I have begun to conclude; but to explain further would require a ton more text :) 
+
+Either way, we must not leave out these ("new") findings as the foundation of how all things about us work (Thanks Bruce!) -- https://www.youtube.com/watch?v=WnmaiWWZ3fc 
+(well, it was new to me not too long ago, at least!) And I am very glad to have learned life works this way!
+
+
+1|chop everything tiny 
+2|layer ingredients in repeating order
+3|use cooking chopsticks to mix :)
+
+
+
+OOO lookie here!!!
+https://www.youtube.com/watch?v=WnmaiWWZ3fc
+
+I found the science behind how we can heal stuff.
+Your environment and perception controls stuff,
+not your genes or hereditary!
+
+And also this is the science that explains why I stated this about my OCD, "And I do not intend to suffer from it."
+Because as soon as I started thinking more about it, and the dangers and problems and worries about OCD getting worse, it did in just a few days (thanks for providing the opportunity for this experiment)!
+Because I started percieving it to be an issue, and my body started literally making it into an issue.
+So I stopped and purposely started thinking like I used to... as if you never told me that... and the increased OCD behaviors decreased!
+
+
+
+
+
+
+And I think these ideas will become critical 
+
+when doubt/worry/fear take over, the Universe grants your request and will send aid to help you face your, for example,  fear, by presenting what you fear to you.
+
+
+Need to find difference betgween heart thought and brain thought
+
+Must describe the
+        who     (who is all involved in this feeling?)
+        purpose (What is the purpose of this feeling?)
+        what    (What locations, concepts, or ideas are involved with this feeling?)
+        when    (when is this feeling taking place?)
+        where   (where does this feeling take place at?)
+        why     (why is this feeling being experienced?)
+        how     (how may this feeling manifest itself in reality?)
+of each feeling.
+
+
+
+The fact that negativity will attract negativity by default
+
+        
+        REM     Then maybe we'll reflect on it
+        
+        
+                        REM     Let's maybe reflect upon this...
+                $reflectedIdeas = reflect($ownWords);
+                ECHO $reflectedIdeas >>[
+                :"So, my value (to the collective)"];
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+|==[PAST TASKS]=================================================================================================================|
+        >Update [ORGZ]Taxes                                             5.00    ,       5,(R)   [ ]
+        >Update [ORGZ]CreditLoans                                       2.00    ,       5       [ ]
+        >Update [ORGZ]Communication                                     3.00    ,       5       [ ]
+        >Update [ORGZ]Computer                                          2.00    ,       5       [ ]
+        >Update [ORGZ]Processes                                         2.00    ,       5       [ ]
+        >Update [ORGZ]PlanA_Overflow                                    2.00    ,       5       [ ]   
+        >Update [ORGZ]Timeline                                          1.75    ,       5       [ ]
+        >Update [ORGZ]-ORGZ-FileList.txt                                0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Bills.txt                                         0.50    ,       5,(R)   [ ]
+                \>Pay Bill (NWP, IPL, ESCI, Landmark, Comcast, FASFA, Car, CarInsurance, RentInsurance, Verizon, )
+        >Update [ORGZ]Communication.txt                                 0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Computer.txt                                      0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Credit&Loans.txt                                  0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Food.txt                                          0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Goals.txt                                         0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Health.txt                                        0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]MoneyPaths.txt                                    0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]MoneyPaths.xlsx                                   0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]Priorities.txt                                    0.50    ,       5,(R)   [ ]
+	>House - Deep Clean                                             5.00    ,       3       [ ]
+        >Update [ORGZ]Skills.txt                                        0.50    ,       5,(R)   [ ]
+        >Update [ORGZ]HDD_SPACE_ALLOCATION.gdsheet                      1.00    ,       5,(R)   [ ]
+        >Update [ORGZ]Passwords.txt                                     1.00    ,       5,(R)   [ ]
+
+
+|==[PAST TASKS::Cleanup]=================================================================================================================|
+        >Clean Kitchen          SinkArea                                0.10    ,       5       [ ]
+        >Clean Kitchen          SquareTable                             0.10    ,       5       [ ]
+        >Clean Kitchen          ALLCounters                             0.10    ,       5       [ ]
+        >Clean Kitchen          GarbageCan                              0.10    ,       5       [ ]
+        >Clean Kitchen          Refridgerator                           0.20    ,       5       [ ]
+        >Clean Kitchen          Freezer                                 0.10    ,       5       [ ]
+        >Clean Kitchen          FridgeTop                               0.10    ,       5       [ ]
+        >Clean Kitchen          Cabinets                                0.20    ,       5       [ ]
+        >Clean Kitchen          Drawers                                 0.20    ,       5       [ ]
+        >Clean Kitchen          DishWasher                              0.10    ,       5       [ ]
+        >Clean Kitchen          FloorCorners                            0.20    ,       5       [ ]
+        >Clean Kitchen          FloorVacuum                             0.10    ,       5       [ ]
+        >Clean Kitchen          FloorWash                               0.30    ,       5       [ ]
+        >Clean Kitchen          Stove                                   0.50    ,       5       [ ]
+        >Clean Kitchen          Microwave                               0.20    ,       5       [ ]
+        2h 54m
+        
+        >Clean Bathroom         Sink                                    0.10    ,       5       [ ]
+        >Clean Bathroom         Toilet                                  0.10    ,       5       [ ]
+        >Clean Bathroom         Comb                                    0.10    ,       5       [ ]
+        >Clean Bathroom         ShowerWalls                             0.20    ,       5       [ ]
+        >Clean Bathroom         ShowerBottom                            0.20    ,       5       [ ]
+        >Clean Bathroom         FloorCorners                            0.20    ,       5       [ ]
+        >Clean Bathroom         Floor                                   0.10    ,       5       [ ]
+        
+        1hr
+        
+        >Clean House            Dust                                    0.40    ,       5       [ ]     1
+        >Clean House            VacuumCarpetPathways                    0.30    ,       5       [ ]     2
+        >Clean House            VacuumCarpetCorners                     0.40    ,       5       [ ]     3
+        >Clean House            CleanCloset0                            0.50    ,       5       [ ]     6
+        >Clean House            CleanCloset1                            0.50    ,       5       [ ]     7
+        >Clean House            ClearSurfaces                           0.30    ,       5       [ ]     4
+        >Clean House            CleanSurfaces                           0.10    ,       5       [ ]     5
+        >Clean House            DefragClearedSurfaceItems               1.00    ,       5       [ ]     8
+        >Clean House            UpdateItemPositioning                   1.60    ,       5       [ ]     9
+        >Clean House            Clean Balcony                           0.50    ,       5       [ ]   
+        
+        5.9 hr         

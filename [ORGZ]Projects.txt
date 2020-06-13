@@ -1,0 +1,6 @@
+|       [ORGZ]Projects.txt    |       #Editor=Notepad++       |       #Language=Batch         |       Resolution=1920x1080       |       #LastUpdated=03/01/2015      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+        >Create [ORGZ]Projects.txt                                      1.00    ,       5       [ ]
+                ^|Project List & Status, Aggerate Overview Info|^
+                ^|Add to [ORGZ]Status?|^

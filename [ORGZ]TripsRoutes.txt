@@ -1,0 +1,112 @@
+|       [ORGZ]TripsRoutes.txt    |       #Editor=Notepad++       |       #Language=Batch         |       Resolution=1920x1080       |       #LastUpdated=03/01/2015      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+        >Create [ORGZ]TripsRoutes.txt                                   1.00    ,       5       [ ]
+                ^|Add/Link to [ORGZ]Travel|^
+                ^|Route miles, costs, time, stops, attractions|^
+
+8345 Georgetown Rd, Indianapolis, IN 46268
+
+                
+|-------[Title]-------------|-----[Category]------|-------[Description]----------------|--------------------------[Address]--------------------------------------------------|
+City Market                     Food Vendor Court       AKA "Farmer's Market"(?)        Indianapolis City Market, 222 East Market Street, Indianapolis, IN 46204
+One World Market                WorldFoods              Japanese Store and Restaurant   One World Market of Indiana, 8466 Castleton Corner Drive, Indianapolis, IN 46250
+Good Earth Natural Food Co.     Nutrition               Health Food Store               Good Earth Natural Food Co., 6350 Guilford Avenue, Indianapolis, IN 46220
+Indy Upcycle                    Crafts                  Misc Supply Craft Store         Indy Upcycle, 6358 Guilford Ave, Indianapolis, IN 46220, United States
+Goodwill                        Thrift Store            GoodWill SuperCenter            8345 Georgetown Rd, Indianapolis, IN 46268
+
+
+Hopcat                         Restaurant/Bar           Modern Bar w/ Specialty Menus   HopCat, North College Avenue #700, Indianapolis, IN
+CarGarageAboveHopcat            Parking                 *                               **todo:Locate**
+
+
+
+01 Trip Route GoogleMapURL={
+        https://www.google.com/maps/dir/Indianapolis+City+Market,+222+East+Market+Street,
+        +Indianapolis,+IN+46204/One+World+Market+of+Indiana,+Castleton+Corner+Drive,
+        +Indianapolis,+IN/Good+Earth+Natural+Food+Co.,+6350+Guilford+Avenue,
+        +Indianapolis,+IN+46220/8345+Georgetown+Rd,+Indianapolis,
+        +IN+46268/7618+Woodmore+Trce,+Indianapolis,+IN+46260/@39.8786796,
+        -86.1535986,14z/data=!4m32!4m31!1m5!1m1!1s0x886b50960396b9b7:0x23f1baf3
+        27c634e7!2m2!1d-86.153448!2d39.768802!1m5!1m1!1s0x886b4d35ee6f95c9:0x34c211
+        3b4a9e0aa1!2m2!1d-86.073525!2d39.91041!1m5!1m1!1s0x886b53a8cf297f05:0x5b6cd0bbfe72b035!2m2!1d-8
+        6.143119!2d39.871564!1m5!1m1!1s0x886
+        b5546c120af6d:0xa8f2d08ead513f6f!2m2!1d-86.2397271!2d39.906019!1m5!1m1!1s0x886b54ecb7be3e
+        91:0x85e49d29aea2633a!2m2!1d-86.196069!2d39.89218!3e0
+}
+                
+
+                
+                
+
+:: Trips :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+::                                                                                              LAST UPDATED: 01/24/2015   ::
+        |-TripDate-|-TripMiles--|--Reason---------|----Math----------|Optional?|
+        04/10/15        720     TripHome:Dentist        333*2+54        N
+        05/22/15        720     TripHome:MemDay         333*2+54        N
+        06/27/15       1016     TripHome:SummVacat      333*2+350       N
+        07/31/15       1866     TripHome:Camping        333*2+1200      N
+        09/05/15        720     TripHome:LaborDay       333*2+54        Y
+        10/31/15        720     Home/Youmacon           333*2+54        Y
+        11/25/15        720     Thanksgiving            333*2+54        N
+        12/19/15       1016     Christmas               333*2+350       N
+|-------%TOTAL%-------[7498]---|
+        n/a            2254    WorkCommute             9.8*1*230        N
+        n/a            1170    LocalCommute            7.5*3*52         N
+|-------%TOTAL%-------[3424]---|
+|-%FINAL_TOTAL%------[10922]---|
+
+:: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+
+
+:: Routes :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+::                                                                                               LAST UPDATED: 01/24/2015   ::
+
+
+
+	Current Pos.    EST.Time        CST.Time        MilesSinceLastDest      MilesTotal      SegTimeCost
+	------------    --------        --------        ------------------      -----------     ------------
+	Indianapolis    12PM            11AM            0                       0               0m
+	Chicago	        3PM             2PM             176                     176             2h 44m
+	Parth's	        4PM             3PM             176                     176             1h
+	Kaukauna        7PM             6PM             201                     377             3h 13m
+	Bergie's        8PM             7PM             201                     377             1h
+	CarneyLkStFst   11PM            10PM            143                     520             2h 39m
+%TOTAL%---------------------------------------------------------------------------------------[10h 36m]----- 
+
+======================================================== 
+186 miles total
+36 miles @ 40mph        = 0.9 hr   = 54min
+150 miles @ 80mph       = 1.875 hr = 112.5min
+
+%TOTAL% = 166.5min / 60 = 2.775 hr || 2hr 46min 30s
+
+@ INDY(ININ) --> Coldwater Rest Stop
+    LeaveTime        ArriveAt        
+|---------------|---------------|
+        8:14AM          11:00AM
+        8:34AM          11:20AM
+        8:54AM          11:40AM
+        9:14AM          12:00PM
+======================================================== 
+146 miles total
+20 miles @ 40mph        = 0.5 hr = 30min
+126 miles @ 70mph       = 1.8 hr = 108min
+
+%TOTAL% = 138min / 60 = 2.3 hr || 2hr 18min
+     
+@ 586(ANGIE) --> Coldwater Rest Stop
+    LeaveTime        ArriveAt        
+|---------------|---------------|
+        8:42AM          11:00AM
+        9:02AM          11:20AM
+        9:22AM          11:40AM
+        9:42AM          12:00PM
+======================================================== 
+
+:: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+WEEKEND OUTLINE
+===============================================================================================
+BIG_TOPICS:
+>ORGZ
+        >Update TODO
+        >Update Calendar
+        >Update Timeline
+        >Update ProjectTimeline
+        >Update PTO
+        
+>RevolutionFactory
+        >Serve webpages statically from NGINX
+        >Setup Dynamic DNS
+        >Widgets: Jquery --learn
+        >JIRA/confluence?eventually
+        
+>CrimesAgainstHumanityResolution
+        >Create PureCloud Org
+        >Begin discussions
+        >Reply to herbal discussion
+        >Build project outline/charter
+        
+>ININ
+        >TestCaseCreationSystem: Implement DB
+        >Testing Training
+        >Testing: MISC_DIAGRAMS , ideas, scripts
+        
+>HOME
+        >Shopping (Grocery)
+                >Lemon           %JUICE%
+                >Beets           %JUICE%
+                >Starfruit       %DESSERT_JUICE%
+                >Berries         %BREAKFAST%
+                >Apples          %SNACK_JUICE%
+                >Carrots         %SALAD_JUICE_SAUTEE%
+                >Cilantro        %JUICE_SAUTEE%
+                >Parsley         %JUICE_SAUTEE%
+                >Spinach         %SALAD%
+                >Mushrooms       %SALAD%
+                >Grapes          %SALAD_JUICE%
+                >Cherry Tomatoes %SALAD%
+                >Broccoli        %SALAD_SAUTEE_JUICE%
+                
+                
+                
+        >Juice
+        >Haircut
+        >Help JacobMonday AfterNoon
+        
+>PC
+        >Clear Email
+        >Setup Email Filters
+        >Backup All Files
+        
+        
+        
+        
+===============================================================================================
+BIG_GOALS
+>Get back on track: clear the slate
+>identify/isolate tasks and execute per priority
+>Determine Vacation Schedule
+>
+
+===============================================================================================
+
+
+
+
+
+
+
+
+
+
+UGA
+United Global Alliance
+
+
+ETA
+End Times Alliance
+
+
+DELETE
+
+Displace
+Elites
+Love
+Everyone
+Test
+Everything
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+[ORGZ]Health.txt |       #Editor=Notepad++       |       #Language=Batch         |       LAST UPDATED: 3/16/2014
+
+
+phytoplankton math
+>>>>>
+30 mcg of Vit A. per 75 mg of Phyto
+
+how much vit. A in 1 tsp?
+
+
+1 tsp = 2.5g
+1 serving = 1 tsp
+1 serving = 2.5g
+40 servings per 100g bag
+
+1 tsp = 2500 mg
+
+
+2500/75 = 33.33333333333333 * 30 mcg
+
+
+1000 mcg of Vit A. per 2.5g of Phyto
+
+
+1 mg of Vit A. per 2.5g of Phtyo
+
+900 mcg (3000 UI) of Vit A. per day recommended;
+
+1000/900 = 1.11111111111 * 100 = 111.11% daily Vit A.
+
+>>>

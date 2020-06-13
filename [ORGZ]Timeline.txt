@@ -1,0 +1,272 @@
+#EDITOR=Notepad++
+#Language=Batch
+#LastUpdated=02/19/2015
+
+PLAN    |YEAR  | MONTH |  DAY   |   DECISION_ROUTE   |  DECISION_ROUTE_GROUP     |     ACTION         |        DESCRIPTION                                                         |
+--------|------|-------|--------|--------------------|---------------------------|--------------------|----------------------------------------------------------------------------|
+A        2014    SEP     1              X0               SAFTEY_CHECKPOINT          CONTINUE                 Things going good. More time required. Plan A allocated 1.25 YR
+                                         1                                          HALT_ON_FLAG             Not productive / "Done Enough" Flag=Ford2015-FCG[startJAN1]; ININ = 0.8 YR
+                                                                                                             
+         2014    NOV     1               0               ASSESS_PLAN                CONTINUE                 All Sys=OK Initiate.Leave = Indiana FOR AlternateRoute ON 04/01/2015                               
+                                         1                                          HALT_ON_FLAG             All Sys=OK Initiate.Leave = Indiana FOR Flag=Ford2015-FCG[startJUN1(?)]
+                                        X2                                          CREATE_PLAN_B            Generate New ININ Plans: 2.25 YeaR -or- 4.25 YR
+
+B        2015    MAR     1              X0              SAFTEY_CHECKPOINT           CONTINUE                 Renew Landmark-Apts Lease. 2.25 YR PLAN ACTIVATED ( +2000 HRS FREE TIME)
+                                         1                                          HALT_ON_FLAG             Flag=EXIT.CODE 700 INDIANA APR 04/01/2015; ININ = 1.25 YR
+  
+         2015    SEP     1               0              SAFTEY_CHECKPOINT           CONTINUE                 All Sys=OK
+                                         1                                          HALT_ON_FLAG             Flag=EXIT.CODE 700 INDIANA NOV 11/01/2015; ININ = 1.75 YR; Flag=Ford2015-FCG[startJAN1(?)]
+                                         
+         2015    NOV     1               0              ASSESS_PLAN                 HALT_ON_FLAG             Flag=EXIT.CODE 700 INDIANA APR 04/01/2016; ININ = 2.25 YR
+                                         1                                          CONTINUE                 All Sys=OK
+
+         2016    MAR     1               0              SAFTEY_CHECKPOINT           HALT_ON_FLAG             Flag=EXIT.CODE 700 INDIANA APR 04/01/2017; ININ = 3.25 YR
+C                                        1                                          CONTINUE                 All Sys=OK
+ 
+         2018    MAR     1               0              ASSESS_PLAN                 HALT_ON_FLAG             Flag=EXIT.CODE 700 INDIANA APR 04/01/2018; ININ = 4.25 YR (Full Vestment)
+                                         1                                          CONTINUE                 Flag=REMOTE.WORK.ENABLED=ININ; Flag=EXIT.CODE 700 INDIANA APR 04/01/2018
+                                         
+
+: [PLAN_B && DECISION_ROUTE = 0,0]   HOURS ASSIGNED = 1760 @ 40/week * 4 week/mo = 160hr/mo or 44 weeks APR-2014 TO APR1-2014
+: 2015
+|-------JAN-------|-------FEB-------|-------MAR-------|-------APR-------|-------MAY-------|-------JUN-------|-------JUL-------|-------AUG-------|-------SEP-------|-------OCT-------|-------NOV-------|-------DEC-------|
+|  REALIGN        | PLAN_YEAR       | EXEC($plan)     | EXEC($plan)     | EXEC($plan)     | EXEC($plan)     | EXEC($plan)     | EXEC($plan)     | CHK_PT/EXEC     | EXEC($plan)     | CHK_PT/EXEC     | EXEC($plan)     |
+                                                                                                                                                                                                      |                 |
+________________________________________________________________________________________________________________________________________________________________________________________________________________________|
+: 2016
+|-------JAN-------|-------FEB-------|-------MAR-------|-------APR-------|
+| EXEC($plan)     | EXEC($plan)     | CHK_PT/EXEC     | EXEC($plan)     |
+                  | ||EXIT.CODE=700 |                 |                 |
+________________________________________________________________________|
+
+%NOTE%  --Garrett Lord --Handshake: Ask if Work Remotely as Software Tester ?
+
+
+: PLAN B SEPARATED TIMELINE
+
+PLAN B GOALS -- When All Complete, EXIT.CODE=700 INDIANA --
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ITEM                                        |      EST.HOURS    |   DEDICATED.HOURS     |       SPENT.HOURS     |
+----------------------------------------    |    -------------  |   ---------------     |       -----------     |
+>Finalize ORGZ Files                               200                  
+>Complete Home Network Infrastructure              200                   
+>Clear All ToDo Lists                              400
+>Create Personal Website                           200
+>Get 1 Certificate                                 150
+>Get 1 Certificate                                 150
+>Determine EXIT Strategies                         150
+>Finalize EXIT Strategy                            50
+----------------------------------%_TOTAL_%------[1500]----------------[?????]
+
+---FEB--2015----------------------------------------------
+>Refresh Research Sections
+        -Health
+                \ Reduce Chemicals (i.e. Toothpaste, Shampoo, Food )
+                \ Cooking / Nutrition
+                \ Mind Management
+        -MoneyManagement
+                \ Taxes, Credit & Loans
+                \ Investment Options (401k, eBay, Collective Projects)
+        -ContinueEducation
+                \ Relevant Projects
+                \ Certificates
+                \ Training
+        -SocialManagement
+                \ LinkedIn & Facebook Updates
+>Process Improvement
+        -Identify Sections
+>Confirm Master Plan
+        -Weigh Options, Pros & Cons
+        -Update Timeline Accordingly
+        
+---MAR--2015----------------------------------------------
+>PERSIST Full-Time Work / No Mercy
+        -Meshed Time
+        -Always ON / Full-Energy
+        -Reflect Interval =~ 7days
+>Continue Master Plan Execution
+        +INTERNAL
+                -Automate Repeating Tasks
+                        \Internal JIRA/Confluence
+                        \Internal WebServer ORGZ Project
+                
+        +Research Sections
+                -Update Health Practices
+                
+>ININ Training 2015
+        +Research Sections
+        
+---APR--2015----------------------------------------------
+>Continue Master Plan Execution
+        +EBAY
+                -Set eBay Goals and Expectations
+                -Prep eBay
+                        \Item Info Tracking
+                        \Develop Streamlined Listing Cycle
+                        \Estimate Time Required vs. Time Available
+                -Initialize eBay
+                        \Begin Selling
+                -Maintain eBay
+                        \Cycle New Items
+                                -Garage Sales
+                                -Friends
+                        \Remove Old Items
+                                -Garage Sales
+
+        +TechEase
+                -Restat Master Plan 1A
+                        \Recreate ToDo List
+                        \Reorganize Goals
+                        \Re-establish Products/Services
+                -Identify Stakeholders
+                -Initialize TechEase
+                        \Re-establish Business License
+                        \Re-establish Customer Base
+                -SecretMods
+                        \Create ORGZ Files                    
+                                
+        +INTERNAL
+                -Automate Repeating Tasks
+                        \Internal JIRA/Confluence
+                        \Internal WebServer ORGZ Project 
+                        
+---MAY--2015----------------------------------------------
+>May 31 Spring Retrospective
+        
+>INTERNAL
+        +System is in Hybrid Test Mode
+                -100% Web/DB Based
+                -100% Traditional .txt File
+>EBAY
+        +Sales Start After Camping Trip (Before if 2+ Weeks exist between completion of Prep and Initialize
+
+>TechEase
+        +Master Plan 1A Begin Restat
+        
+>Greg&Jin
+        +Continue As Necessary
+
+>Camping Trip
+        +Houghton - Get Bikes
+
+
+        
+        
+---JUNE--2015----------------------------------------------
+>INTERNAL
+        +System v1.0 Running and Test First Cycle of New Data
+        +Traditional .txt Files depreciated: no longer updated
+        
+>EBAY
+        +Cycling >= 40 items / Week
+        +Adjust As Necessary
+        
+        
+>TechEase
+        +Master Plan 1A Continue Restat
+
+>Greg&Jin
+        +Check-In If Necessary
+
+>Certificate
+        +Research Certificates, What to get?
+                -Begin learning
+                -Acquire Certificate
+        
+---JULY--2015----------------------------------------------
+>INTERNAL
+        +Assess effectiveness of non-.txt System
+        +Adjust as Necessary
+        
+>EBAY
+        +Cycling >= 60 items / Week
+       
+>TechEase
+        +Master Plan 1A Finalize Restat
+        
+>MASTER_PLAN_CHECKPOINT
+        +Summer Retrospective
+        +Update Fall Goals & Expectations
+        +Restat Budget, Update Exit Strategy
+        
+>Research Sections
+        +Review Mind Management
+        +Review Health: Cooking, Nutrition, etc.
+        +Update LinkedIn / Resume
+        
+>Certificate
+        +Research Certificates, What to get?
+                -Begin learning
+                -Acquire Certificate
+                
+
+---OCTOBER--2015----------------------------------------------
+
+>Reserach Sections
+        +Update Social Media (FB, LinkedIn)
+
+>INTERNAL
+        +Final Tweaks - System should be in use regularly
+                -Remove parts not used
+                -Implement components that make things easier
+
+>EBAY
+        +Cycling >= 80 items / Week
+
+
+>TechEase
+        +Begin Planning
+        +Identify What DO?
+        
+
+        
+        
+---NOVEMBER--2015----------------------------------------------
+>Youmacon
+
+
+---DECEMBER--2015----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

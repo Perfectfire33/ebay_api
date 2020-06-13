@@ -1,0 +1,82 @@
+#Editor=Notepad++       
+#Language=Batch
+
+ORGZ PRIORITIES - 2014
+
+##IMMEDIATE_PRIORITIES##
+
+0| Catch up on current events: Update remaining information from 48045-->Indiana (paypal, huntington[verify]), Insurance, Health-Checkup, Add "find doctors/vision care/etc" to todo list
+
+1| Offset almost everything onto computer
+        A| Identify components to offset (add to[ORGZ]FileList until everything that matters is listed)
+2| Calculate time available & begin [ORGZ]Spring2014_PlanA with %setup_tasks%.
+        %setup_tasks% A| Dedicate time to plan/scheme best ways of organizing information (Create files in [ORGZ]FileList)
+                      B| Create & optimize files listed in [ORGZ]FileList
+                      C| Update all [ORGZ]Files with appropriate data; Backup ORGZ files.
+
+2.a: Determine what else to do before EXIT.CODE=700 INDIANA | PURPOSE OF BEING HERE
+        A| New ways of Thinking / Perspective
+        B| Continue to Create more Recipies / Food Variety: Maximize Nutrition / Energy
+        C| Remove Chemicals: Shampoo, Deodorant, etc...
+        D| Financial Planning / Maintainence
+        E| Try Things: Drawing/Sketching, Writing, eBay
+        F| Establish Contacts / People Connects
+ 
+3| Begin Projects: Certifications, [ORGZ]Skills improvement (keep resume up to date), update LinkedIN, etc...
+
+3.a| Begin Summer Execution:
+        A| Scheme ideas for MultiPlayer Projects ($Greg&Chen, $TechEase, ??)
+        B| eBay Initialization
+        C| Begin Using Confluence / JIRA / Internal Website
+
+
+
+# NORMAL PRIORITIES # (above is to be removed around June 1st, 2014 *previously was May 1st,2014*)
+
+##IN NO PARTICULAR ORDER, YET##
+0|      Physical_Health (refrain sickness)                      Teeth, Shower, Laundry, Dishes, Vacuum                                  [ORGZ]Food [ORGZ]Health
+1|      Mind (keep learning, new ideas)                         Reddit (subreddits), Certifications, Experimenting New Tech/Ideas       [ORGZ]Skills
+2|      Money (break even)                                      Maintain budget                                                         [ORGZ]Budget [ORGZ]Bills [ORGZ]Taxes [ORGZ]Credit&Loans
+3|      Execution (complete todo items as necessary)            Make progress on todo list                                              [ORGZ]Processes [ORGZ]Spring2014_PlanA
+4|      Master_Plan (refrain deviation)                         Focus on ultimate goal                                                  [ORGZ]Goals
+5|      Car (maintain)                                          Oil, Tire pressure, other fluids                                        [ORGZ]Car
+6|      Relationships (create, maintain, enhance)               Family, Friends, Acquaintances                                          [ORGZ]Communication **to reintegrate**
+7|      Money (increase generation of)                          EBay, Online Services, Stocks, 401K, ???                                **to reintegrate once objectives established**
+8|      Social (be seen as active)                              Internet(Facebook,LinkedIN,PersonalWebsite) + IRL(attend events)        **to reintegrate once [ORGZ]Communication is updated**
+~toContinue~
+
+
+
+MASTER_SCHEME
+1|  Identify Friends and Family                                  [ORGZ]Communication
+2|  Determine each individual's skills                           Technical & Social Capabilities
+3|  Find out what each individual likes to do                    Goals, Hobbies/Interests
+4|  Integrate individual goals/hobbies into the plan
+5|  Cater plan to each individual, inform/sell to them
+6|  Create task list / individual responsibilities
+7|  Create diagram linking all responsibilities
+8|  Propose responsibilities to each individual
+9|  Execute tasks in proper order
+10| Begin Business
+
+
+
+4| Determine %SPECIFICS% on what else to do before EXIT.CODE=700 INDIANA | PURPOSE OF BEING HERE
+        #| <TASK>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||<TYPE>|||||||||||||||||||<TIME.REQ>|||||<CONCURRENT.SET>|||||||||||||||||||||||||||||||||
+        A| Get 2 certificates                                                                                           One-Shot                200h            B0
+        B| Publish personal website                                                                                     Project,Ongoing         200h            B0
+        C| Publish internal website                                                                                     Project,Ongoing         300h            B0
+        D| Maintain exploration/adventure of Indy: Things to do, people to see, places to go                            Constant                500h            0AA
+        E| Maintain super high quality effort at ININ                                                                   Constant                300h            0AA
+        F| Take advantage of opportunities (i.e. ININ Training, ININ discounts)                                         Constant                120h            B0
+        G| Cleanup All Files, Get New PC                                                                                One-Shot                80h             B0
+        H| Clear All TODO List Items                                                                                    One-Shot                400h            B0
+        I| Brainstorm\Document potential outcomes (Decision Paths) for future possible choices                          One-Shot                100h            B0
+        J| Conduct Research on topics of interest && implement changes/actions accordingly                              Constant                100h            0AA
+        K| Generate TODO list that initiates upon calling EXIT.CODE=700 INDIANA                                         One-Shot                10h             B0
+        L| Generate TODO list that initiates 180 days before calling EXIT.CODE=700 INDIANA                              One-Shot                10h             B0
+        M| Generate Checklist that must be fulfilled before 180 days away from calling EXIT.CODE=700 INDIANA            One-Shot                10h             B0
+                
+                |B0| %totalTime% = 1430h         |0AA| %totalTime% = 900h <--use these to calculated how long to stay before calling exit.code=700 INDIANA
+
+

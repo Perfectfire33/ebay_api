@@ -1,0 +1,143 @@
+[ORGZ]Skills.txt |       #Editor=Notepad++       |       #Language=Batch         |       LAST UPDATED: 3/26/2014                 |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+: TODO: FIX FORMATTING --> CONVERT TO TABLE
+
+                                
+                                        
+                HOME            \
+                                PC_REPAIR
+                                PC_PURCHASING_ADVICE
+                                PC_NETWORKING
+                                WEB_DEV_DESIGN                  CSS3.0
+                                                                HTML5
+                                                                HTML4.X
+                                                                
+                                                                
+                                
+                                WEB_DEV_BACKEND                 PHP
+                                                                PERL   
+                                                                
+                                SCRIPTING                       AUTOIT  
+                                                                BATCH
+
+                                        
+E-COMMERCE      \
+                SALES           \
+                CUSTOMER_SVC    \
+                                EBAY
+
+OUTDOORS        \
+                Biking
+                Hiking
+                Boating
+                Camping
+                Fishing
+                Gardening
+                
+                
+                                                
+PEOPLE          \
+                COMMUNICATION
+                        \
+                        FREQUENCY
+                INTERACTION
+                        \
+                        HUMOR
+                        RELATE_TOPICS
+                        
+                        
+ULA             \
+                FOCUS
+                HARMONY
+                LOGIC
+                INTUITION
+                
+COOKING         \
+                OVEN
+                        \BakedGoods
+                StoveTop
+                        \Mexican
+                        \Italian
+                        \Asian
+                        \American
+                NO-HEAT
+                        \SALADS
+                                \MEDTERRAIN
+                                \POTATO_SALAD
+                                \MACARONI_SALID
+                                \SANDWICHES
+
+                                
+BUSINESS        \
+                SALES
+                IDEA_PROPAGATION
+                MARKETING
+                
+                
+WRITING         \
+                SPELLING
+                PHRASING
+                
+                
+                BLOGGING
+                        \ARTICLES
+                        \TUTORIAL
+                        
+                        
+                PROFESSIONAL
+                        \RHETORIC
+                        \PERSUASIVE
+                        \ANALYTICAL
+                        \RESUME
+                        \COVER_LETTER
+
+                FICTION
+                        \STORIES
+                
+
+ART         \
+                SKETCHES
+                PHOTOSHOP
+                        \
+                        EDITING
+                PREMIERE_PRO
+                        \
+                        EDITING
+                DIAGRAMS
+                        \
+                        LOGICAL
+                                \
+                                SCHEMING
+                        FLOWCHART
+                                \PLANNING
+                                   \DATABASES
+
+                
+                
+GAMING  
+        \RTS
+                \WAR2
+                \WAR3
+                \WAR4
+        \FPS
+                \BFV
+                \COD4
+                
+        \TBS
+                \RISK
+                \MONOPOLY
+                \CIVILIZATION
+                \HOM&M3
+
+        \RPG
+                \WoW
+                \GuildWars
+                
+        \MOBA
+                \DOTA2
+        
+        \CREATIVE
+                \MINECRAFT
+                
+
+

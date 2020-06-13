@@ -1,0 +1,201 @@
+|       [ORGZ]PTO    |       #Editor=Notepad++       |       #Language=Batch         |       Resolution=1920x1080       |       #LastUpdated=04/24/2016      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+:: Time OFF :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+::
+PTO_BALANCE : {
+        Current_PTO             = 50.42h        @ 04/24/2016
+        Next_Update_Amt         = 61.09h        @ 05/01/2016
+}
+PTO_SUMMARY : {
+        Total_PTO_To_Acquire    = 85.36h -- 10.67 days  | (10.67hr * 8 months)
+}
+PTO_ACCUMULATION : {
+        PTO_Granted_Sources : {
+                2016-JAN        = 10.67
+                2016-FEB        = 10.67
+                2016-MAR        = 10.67
+                2016-APR        = 10.67
+                FloatHoliday    = 16.00
+                Buy-PTO         = 40.00
+                %TOTAL%         = 98.68
+        }
+        PTO_Consumed_Sources : {
+                2016-JAN        = 10.67
+                2016-FEB        = 10.67
+                2016-MAR        = 10.67
+                2016-APR        = 0.25
+                %TOTAL%         = 32.26 / 8 = ~ 4.0325 days
+                %PERCENT_CONSUMED% = 16.67%  (4.0325/(19.97+4.0325))
+                %@PERCENT_OF_YEAR% = 33.33%  (4 of 12 months; Updated April 24th, 2016)
+        }
+        PTO_Available_Sources : {
+                FloatHoliday    = 16
+                Buy-PTO         = 40
+                2016-APR        = 10.42
+                %TOTAL%         = 66.42 / 8 = 8.3025 days
+        }
+        PTO_Remaining_Sources : {
+                2016-MAY        = 10.67
+                2016-JUN        = 10.67
+                2016-JUL        = 10.67
+                Birthday        = 8
+                2016-AUG        = 10.67
+                2016-SEP        = 10.67
+                2016-OCT        = 10.67
+                2016-NOV        = 10.67
+                2016-DEC        = 10.67
+                %TOTAL%         = 93.36
+        }
+        PTO_AvailbleANDRemaining_Sources : {
+                %TOTAL%         = 159.78 / 8 = 19.97 days
+        }
+}
+PTO_ASSIGNMENT : {
+        2016-FEB-15     = 8h
+        2016-MAR-14     = 8h
+        2016-APR-04     = 8h
+        2016-APR-11     = 8h
+        2016-APR-21     = 3h
+        MappedToCLNDR   = False
+}
+
+PTO_TEMP_ASSIGNMENT(SummerDefaultProfile) : {
+        2016-MAY-06      = 8h ( Friday )                --BankOfAmerica (0.2 Weeks)
+        
+        2016-JUL-05      = 8h ( Tuesday )               --4ThOfJulyVacation (1.0 Weeks)
+        2016-JUL-06      = 8h ( Wednesday )
+        2016-JUL-07      = 8h ( Thursday )              --CouldWAH (+1d)
+        2016-JUL-08      = 8h ( Friday )
+        %TOTAL%          = 4Days
+        
+        2016-AUG-01      = 8h ( Monday )                --CampingVacation (1.4 Weeks)
+        2016-AUG-02      = 8h ( Tuesday )
+        2016-AUG-03      = 8h ( Wednesday )
+        2016-AUG-04      = 8h ( Thursday )
+        2016-AUG-05      = 8h ( Friday )
+        2016-AUG-08      = 8h ( Monday )
+        2016-AUG-09      = 8h ( Tuesday )
+        %TOTAL%          = 7Days
+        
+        // Between Apr 24th and Aug 1 ==> 14.635 Days Total Available
+        // 14.635 - 12 = 2.635 Days Avail.
+        2016-???-??     = 8h ( ??? )                    --DrewBachelorParty (0.2 Weeks)
+        2016-???-??     = 8h ( ??? )                    --ExtraCampingDay (0.2 Weeks)
+        2016-???-??     = 5h ( ??? )                    --HOME_ORGZ_MISC
+        
+}
+ININ_HOLIDAYS_2016 : {
+        NEW_YEAR_DAY            = 01 JAN ( Friday )
+        MEMORIAL_DAY            = 30 MAY ( Monday )
+        INDEPENDENCE_DAY        = 04 JUL ( Monday )
+        LABOR_DAY               = 05 SEP ( Monday )
+        THANKSGIVING_DAY        = 24 NOV ( Thursday )
+        THANKSGIVING_FRIDAY     = 25 NOV ( Friday )
+        CHRISTMAS               = 26 DEC ( Monday )
+}
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+: -2 hours      05/01/2015 PTO                                                                                            LAST UPDATED: 03/01/2015   ::
+: -3 hours      05/07/2015 PTO                                                                                            LAST UPDATED: 03/01/2015   ::
+: -7 hours      05/20/2015 PTO                                                                                            LAST UPDATED: 03/01/2015   ::
+: -8 hours      06/01/2015 PTO
+: -8 hours      06/02/2015 PTO
+
+
+
+@10.67/month
+@EndOfMonth
+|-Month-|----|WillAccure--|--TotalTime-|------Math--------------|------Assignment-------|------Consumed?---|-----CurrentCalendarAction---|---CurrentCalendarResults---|
++ROLLOVER       0.70              0.70      +0.70                       -->$NULL                N
++Floating       8.00              8.70      +8                          -->8,$NULL              N
++Floating       8.00             16.70      +8                          -->8,$NULL              N
++PurchasedPTO   8.00             16.70      24.7-8=16.7                 -->8,Jan2               Y
++PurchasedPTO   8.00             20.70      -4                          -->4,Feb13              Y
++PurchasedPTO   8.00             20.70      -8                          -->8,Feb16              Y
++PurchasedPTO   8.00             20.70      -8                          -->8,Feb17              Y
++PurchasedPTO   8.00             28.70      +8                          -->8,$Spring            Y
+2015-Jan        10.67            39.37      +10.67                      -->10.67,Spring         Y
+2015-Feb        10.67            50.04      +10.67-4.45(Spring)         -->6.22,$Jun30          N
+2015-Mar        10.67            60.71      +10.67                      -->10.67,$Jul2          Y
+2015-Apr        10.67            71.38      +10.67                      -->10.67,$Jul1          Y
+2015-May        10.67            82.05      +10.67                      -->10.67,$Jun29         Y
+2015-Jun        10.67            93.17      +10.67                      -->10.67,$NULL          N
+2015-Jul        10.67           103.84      +10.67                      -->10.67,$NULL          N               -32 hours (JUN29->JUL2)         48.72           103.84-32=71.84-23.12=48.72 hour
++Birthday       8.00            111.84      +8.00                       -->8,$NULL              N                                               79.84
+2015-Aug        10.67           122.51      +10.67                      -->10.67,$NULL          N               -56 hours (AUG3->AUG11)         34.51           90.51-56=34.51
+2015-Sep        10.67           133.18      +10.67                      -->10.67,$NULL          N                                               45.18
+2015-Oct        10.67           143.85      +10.67                      -->10.67,$NULL          N               -8 hours (OCT30)                79.85           55.85-8=47.85
+2015-Nov        10.67           154.52      +10.67                      -->10.67,$NULL          N                                               58.52
+2015-Dec        10.67           165.19      +10.67                      -->10.67,$NULL          N               -64 hours (DEC21-31)            37.19           69.19-64=5.19
+
+NOTE - The usage of remaining 5.19 Calendar hours (PTO1 and PTO4) not recorded here yet (undecided).
+
+48.72 - 32 = 
+
+: @ 07/06/2015 - - 
+: @ 07/06/2015 - - 
+Available Balance
+8 Hours - Birthday Holiday
+16 Hours - Floating Holiday
+27.39 Hours - PTO
+
+== 6.42375 days or 51.39hours
+: @ 07/06/2015 - - 
+: @ 07/06/2015 - - 
+
+
+27.39 - 16 + 10.67
+
+22.06 @ Aug30
+
+27.39-16 =11.39
+10.67*4=42.68+22.06=64.74h      -8*4(1weekXmas)=32.74h
+
+
+
+:: Total Time Allocation :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+::                                                                                                     LAST UPDATED: 01/24/2015   ::
+
+:: Total Time Available From July 1st, 2014 to May 1st, 2014
+@25h/week = WorkWeek
+@24h/week = Weekend
+Total Weekend Free Time = 10Months * 8days  = 80d  * 12h = 960h
+Total Weekday Free Time = 10Months * 20days = 200d *  5h = 1000h
+--      --      --      --      --      --      --      --      --      --
+Free Time Lost Due To Breaks = 6 Trips / 18 weekend-days = 18*12 = 216h
+Remaining Weekend Hours = 744h
+
+
+JUN 29 JUN 30
+JUL 1 JUL 2
+
+
+Available Balance
+8 Hours - Birthday Holiday
+16 Hours - Floating Holiday
+48.72 Hours - PTO
+06/14/2015

@@ -1,0 +1,69 @@
+[ORGZ]Car.txt |       #Editor=Notepad++       |       #Language=Batch         |       #Resolution=1920x1080      |       #LastUpdated=01/24/2015                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+:: Car :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::
+::                                                                                            LAST UPDATED: 01/24/2015   ::
+CONFIG_CAR_DASHBOARD {
+        WEBSITE                 =       FordOwner.com
+        URL                     =       http://owner.ford.com/
+        VIN                     =       3FA6P0H73FR103340
+        CURRENT_MILES           =       600                             Last Updated: 01/24/2015 3:34PM
+        AVG_YR_MILES_EST        =       10922
+        VEHICLE_NICKNAME        =       FordFusion2015
+        SECURITY_DOOR_CODE      =       68794
+        SECURITY_DOOR_INSTRUCT  =       {       Unlock Driver's Door    =       Enter the 5-ditit access code
+                                                Unlock All Doors        =       Press 3*4 button within 5 sec of entering 5-digit access code
+                                                Lock All Doors          =       Press 7*8 and 9*0 buttons at the same time (no need for 5-digit code)
+                                        }
+}
+CONFIG_CAR_PAYMENT {
+        WEBSITE                 =       FordCredit.com
+        URL                     =       https://credit.ford.com
+        ACCT_NUMBER             =       51261616
+        STATEMENT_BEGIN         =       01/07/2015
+        STATEMENT_END           =       01/02/2017
+        AMOUNT                  =       $211.71 + $12.70 (Tax) = $224.41
+        AUTO_PAY                =       [ ] Scheduled 1st of Each Month
+        MANUAL_PAY              =       [X] Scheduled 1/27/2015
+}
+CONFIG_CAR_MAINTENANCE {
+        TIRE_AIR_PRESSURE       =       10/08/2015      @ 08000 miles   Every 60  Days          Next:  12/08/2015
+        OIL_CHANGE              =       10/08/2015      @ 08000 miles   Every 180 Days          Next:  04/08/2015
+        TIRE_ROTATION           =       10/08/2015      @ 08000 miles   Every 180 Days          Next:  04/08/2015
+        AIR_FILTER              =       01/02/2015      @ 00024 miles   Every 860 Days          Next:  05/11/2017
+}
+
+CONFIG_CAR_MILEAGE {
+        MilesCurrentlyRemaining = [ 30000 - 600       ]  = 29400
+        MilesAvailable          = [ 29400 - (10922*2) ]  = 7556
+        MilesOptional           = [ 7556/2            ]  = 3778 / year
+}
+
+CONFIG_CAR_NOTES {
+"
+From Dad:
+After a period of (3 or 6 months) there is the option to buy it for the purpose of selling it. 
+You can always buy it at any time  but since it is a " "A" plan lease" your not allowed to sell it before a predetermined time.
+I think cars are less expensive here which makes the option changing vehicles without taking a financial hit. 
+"A" plan prices are 2 percent lower than dealer costs but after depreciation and other fees making a profit on selling it highly unlikely.
+But breaking even a possibility. It's only a two year lease and you will be changing cars before you know it, 
+but if you find that you want something different before then it is possible and no big deal.
+"
+"
+From Dealership:
+And to keep your vehicle in optimal running condition, we suggest completing your first maintenance by 5,000 miles or 6 months (whichever occurs first). 
+"
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

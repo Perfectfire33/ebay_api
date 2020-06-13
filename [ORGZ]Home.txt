@@ -1,0 +1,68 @@
+|       [ORGZ]Home.txt    |       #Editor=Notepad++       |       #Language=Batch         |       Resolution=1920x1080       |       #LastUpdated=03/01/2015      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+        >Create [ORGZ]Home.txt                                          1.00    ,       5       [ ]
+                ^|Addresses|^
+                ^|Payments|^
+                ^|MiscInfo|^
+
+                
+        >Landmark Apartment Address
+        {
+                7618 Woodmore Trce
+                APT 0703
+                Indianapolis, IN 46260-3050
+        }
+                
+                
+        >RESIDENCY_WHAT_NEEDED
+        {
+                http://www.city-data.com/forum/indiana/1223041-registering-car-indiana-confused.html
+
+                I just did this a few months ago moved from michigan. If you need to get indiana license. You need:
+                Proof of residence( lease)
+                Proof of citizensship(birth cert)
+                1 bill with your name and indiana address on it.
+                If married you need you marrage license to show name change.
+                And something showing your pic with name ( other state drivers license)
+                I didnt have my car reg. So they had me fill out a form and they ordered it from michigan for me.
+
+                The plate and tag charges here are way cheaper than in michigan.
+        }
+        
+        
+        
+                >05/31/2015 - Purchased Air Purifier --- Update ORGZ Home -- replace A every 3 months . Buy A filters
+                
+                
+                
+                
+                
+MEASUREMENTS_DESK
+>>> 
+MONITOR_LEFT_TO_FACE                    = 21"
+MONITOR_MIDDLE_TO_FACE                  = 21"
+MONITOR_RIGHT_TO_FACE                   = 21"
+MONITOR_TOTAL_PANE_LENGTH               = 66"
+MONITOR_END_TOTAL_WIDTH                 = 55"
+MONITOR_BOTTOM_HEIGHT_DESK              = 5.5"
+ 
+SEAT_HEIGHT                             = 19"
+DESK_HEIGHT                             = 28"
+ 
+KEYBOARD_DISTANCE_MID_MONITOR           = 8"
+KEYBOARD_DISTANCE_LEFT_DESK_EDGE        = 8"
+KEYBOARD_DISTANCE_RIGHT_DESK_EDGE       = 3"
+ 
+MOUSEPAD_DISTANCE_KEYBOARD_OVERLAY_BACK = 3.5"
+ 
+KNEE_BOTTOM_DESK_HEIGHT_SPACE           = 2.5"
+ 
+MONITOR_MIDDLE_TO_FACE_MINIMUM          = 16"
+ 
+MONITOR_LEFT_EDGE_TO_FACE               = 23"
+MONITOR_RIGHT_EDGE_TO_FACE              = 27"
+ 
+MONITOR__LEFT_EDGE_SQUARED_TO_PERSON    = 35"
+MONITOR__RIGHT_EDGE_SQUARED_TO_PERSON   = 39"
+>>> 

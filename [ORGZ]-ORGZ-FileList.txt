@@ -1,0 +1,52 @@
+[ORGZ]-ORGZ-FileList.txt                                                                                |
+#Editor=Notepad++       |       (C)2014                         |       LastUpdated=3/30/2014           |
+#Language=Batch         |       #Resolution=1920x1080           |       PartialUpdate=1/24/2015         |
++-+-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--++
+ORGZ FILE TRACKER - 2014/2015
++-+-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--++
+1| Generate list of [ORGZ] files necessary for optimization
+2| Redesign/optimize Each ORGZ file as necessary
+	a| maintain minimum overhead time requirement & dedication
+        b| consolidate ORGZ files if possible; separate for ease-of-use
+3| Implement all 2014 ORGZ files simultaneously
+4| Update ORGZ Files Every X Period
+5| Optimize ORGZ files every 180 days: upgrade to HTML5 or permaent solution ASAP
++-+-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+-+-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--++
+	FILE				DESCRIPTION							                CREATED?/OPTIMIZED?         UpdateEveryXperiod              Priority
+	----------------		--------------							                --------                    ------------------              ----------
+	[ORGZ]Timeline			Perspective: Medium/Large Goals over time (1year?)                              Y/N                         60 days                         ****
+	[ORGZ]Budget                    Tracks budget                                                                   Y/N                         14 days                         **********
+	[ORGZ]Bills                     Tracks bills                                                                    Y/N                         21 days                         **********
+	[ORGZ]Processes                 Full ToDo List. Includes everything.                                            Y/N                         15 days                         ******
+	[ORGZ]Spring2014_PlanA          Daily ToDo Tracker                                                              Y/N                          1 day                          *********
+        [ORGZ]Goals                     All goals broken into time frames: 6Mo.1Year,2Year,4Year,6Year,10Year           Y/N                        365 days                         ****
+	[ORGZ]Priorities                Tracks current high-level priorities                                            Y/N                         60 days                         **********
+        [ORGZ]Skills                    Tracks skills, last time practiced, current proficiency, hrs., etc.             Y/N                         60 days                         *****
+        [ORGZ]Taxes                     Tracks taxes & amount/items currently tax-deductible.                           Y/N                        180 days                         *********
+        [ORGZ]Food                      All previous Food-related tracking will go here                                 Y/N                         30 days                         *
+        [ORGZ]Car                       Tracks status of car. See [ORGZ]Priorities.txt                                  Y/N                         30 days                         *****
+        [ORGZ]Health                    Tracks well-being, habits, hygeine, doctors/vision/etc                          Y/N                         30 days                         *****
+        [ORGZ]Credit&Loans              Monitors credit, student loans, & related vital terms/dates                     Y/N                         60 days                         *******
+        [ORGZ]Communication             All family, friends, acquaintances: last talked to, contact info                Y/N                         15 days                         ******
+        [ORGZ]Computer                  Tracks maintainence schedule: backup dates/loc, updates, hardwareAge            Y/N                         30 days                         **
+        [ORGZ]Shopping                  Tracks item status: shopping list, amount remaining, what to buy.               Y/N                          7 days                         *****
+        [ORGZ]Meals                     Selection of meals to choose from.                                              Y/N                         60 days                         **
+        [ORGZ]Schedule                  Current and Previous daily schedules.                                           Y/N                          7 days                         ********
+        [ORGZ]Lessons                   Big-picture lessons learned.                                                    Y/N                        365 days                         *
+        [LIST]Shopping                  Current Shopping List and archived previous items                               Y/N                          7 days                         ***********
+        [CLNDR]Fall2014_X2              Current Calendar                                                                Y/N                          7 days                         ***********
+        
++-+-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+-+-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--++  
+#Depreciated Files#
+	FILE				DESCRIPTION							                        CURRENT NOTES                           FOLDER-ORIGIN
+	----------------		--------------						                                --------------------------              ------------------------------------------------------------
+        [ORGZ]Main.bmp                  Graphical array of sections; unified "Dashboard"                                                                                N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        [ORGZ]TimeCalc.txt              Weekend, Weekday, & Weekly total of available/used time                                                                         N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        [CLNDR]Fall2012.bmp             Graphical calendar                                                                                                              N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        [ORGZ]Food-idea.bmp             Calculate total intake of vitamins/calories/carb/etc over a week                                                                N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        [ORGZ]QuickMealPlan.txt         Calculate combinations of ingredients to make as many food combos as possible                                                   N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        [ORGZ]Communication.txt         Summary of contacts (people, phone, email) & their abilities                                                                    N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        Things2Do.txt                   Old ToDo list. Some good ideas remain.                                                                                          N:\Documents\~Michigan Tech~\~2012 Organization~\Backup
+        [FOOD]DetailFoodData.txt        Calculation of food, good columns.                                                                                              N:\Documents\~Michigan Tech~\~2011 Organization~\Archives
+        [$]MonthlyEst.Budget.txt        Good breakdown/comparison of est.budget vs. actual                                                                              N:\Documents\~Michigan Tech~\~2011 Organization~\Archives
+	S12_StudyFrame.txt              Great studysheet/ideas for learning                                                                                             N:\Documents\~Michigan Tech~\~[StudyFiles]~

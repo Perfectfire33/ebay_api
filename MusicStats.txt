@@ -1,0 +1,14 @@
+See Artists-Genres
+										#Songs
+Country			1%							3
+Rap			8%		RickRoss,WakaFlocka,			24
+HardRock_UpBeat		23%		NightCore,Hailstorm			69
+HardRock_DownBeat	18%		Disturbed,Soil,Hatebreed,F5DP		54
+AltRock			10%		Seether,				30
+Legendary		10%		Sonata Arctica,				30
+Oldies			12%		Temptations,				36
+Dubstep			7%		*					21
+GameTracks/NonLyric	7%		Havoc, KQ8, WC2/3, Hangdrum		21
+Misc/Other		4%		*					12
+			----							----
+			100%							300 = target#

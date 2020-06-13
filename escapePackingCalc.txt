@@ -1,0 +1,12 @@
+Avail.Space = 6*5*5 = 125ft (36.742ft^3)
+
+plasticContainer*3 = 2*1.1*1.4 = 3.08*3 	= 9.240
+plasticFlatContainer*1 = .6*1.6*2.9  		= 2.784
+computer1 = 2*2*.8				= 3.2
+computer2 = 1.8*1.8*.8 				= 2.592
+monitor = 2*2*.5				= 2
+monitor = 2*1.5*2				= 6
+bag	= 1*1*1*4				= 4
+tables	= 1.4*1.6*2.5				= 5.6
+					TOTAL	= 35.416 / 36.742
+					%_FULL	= 96.39%

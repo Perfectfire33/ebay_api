@@ -1,0 +1,20 @@
+#	General Project Umbrella		General Goals
+----	----------------------------		--------------------
+1|	Food&Nutrition				a| new recipie every couple cookings (0.75/week)
+						b| Uses for coconut oil
+
+2|	Online Presence				a| Social networking - finish "catching up"
+						b| Decide what to regularly "maintain"
+
+3|	IT Infrastructure			a| Personal website [Internal|External]
+							i.| associated services (music, file host, etc)
+						b| Certifications
+
+4|	IT Web					a| Help Kaytee w/ web design --> Greg & Chen
+
+5|	ORGZ					a| Update/Maintain ORGZ files: standardize/automate
+
+6|	Other					a| Sketching --> Photoshop
+						b| Gaming: Old & New Games
+
+7|	ToDo					a| Clear all todo lists

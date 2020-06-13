@@ -1,0 +1,41 @@
+: Compare Locations
+
+1| Identify Pros/Cons of each location
+        >Why being there is useful, and tradeoffs
+        >
+
+
+
+LOCATION    |                PROS                             |              CONS                                       |
+------------|-------------------------------------------------|---------------------------------------------------------|
+49931
+                        Best Enviornment                        
+                        Less People                             Less People/Opportunities
+                        Very-Small World                        Very-Small World
+
+
+
+
+48045                   \
+                        Known Friends                                   Known Behaviors
+                        Family                                          Obligations
+                        New Perspectives Easily Erased by Distractions  Distractions: TV, hanging out with Friends      
+                        Helping people with random things
+                        Wide Variety of Things to Do
+                        People willing to Try New Ventures              New Venture Ideas may die fast without constant fuel
+                                                                        Easy to End-up being Unproductive; same thing every day unless time/effort invested
+                                                                        Existing Beliefs Seldom Challenged
+
+
+
+
+
+46260                   \
+                        New Acquantiances                               Unknown Behaviors
+                        No Constant "Need to Do" Anything               Easy to End-up being Unproductive; same thing every day unless time/effort invested
+                        Room to Think: Learn, Plan
+                                                                        Executing Plans: not many people to ask
+                                                                        Lack of "Doing physical things": unless time/effort invested
+                        Easy to Discover & Implement New Perspectives
+                        Easier to Churn out Goals                       Less ability to Execute Goals immediately (need to meet new people)
+                        New People Challenge Existing Beliefs

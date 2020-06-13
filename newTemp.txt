@@ -1,0 +1,141 @@
+
+
+
+Would rather work for company that values people over money
+ININ has recently began moving towards valuing money over people, due to their nature of wanting to become a scalable organization
+So, time to go.
+
+
+
+
+
+
+001| Economy -- About to go into massive recession
+002| USA -- Soon to go into martial law
+003| Must Stay Focused on Survival / Self Sustainability
+004| Must Stay Focused on Relationship
+005| 
+
+
+Summer Choices
+-----
+1| Finish ININ          --> Full-time with Bill  --> *
+2| Finish ININ          --> Full-time with SE MI company
+3| Full-time with ININ  --> Move Back Next Year --> *?
+3| Finish ININ          --> Freelance (Ebay, Freelance Tester / remote work position)
+3| Finish ININ          --> Full-time with Robert --> *
+
+
+
+
+
+
+
+Wants
+-------
+003| Want to move back to MI ASAP
+004| Want to work remotely permanently
+
+
+
+
+
+
+0-> Wrap up ININ work
+0-> Jumpstart UpGarden
+1-> Find Job / Locate Income for living
+2-> Move back home into an apartment, get into a schedule
+3-> Let Angie get back with you
+4-> Start helping family and friends with stuff
+5-> Prepare base camp in UP / survival prep
+
+0| Get into mindset: be motivated
+1| Stay in mindset -- be the boyfriend / husband
+2| Be alert and ready; trust
+
+
+
+
+Upload FB Pictures --recentEvents
+
+
+
+
+
+Goals_Part_One:
+0| Wrap up ININ (June)
+1| Summarize health and nutrition research (Use this as a way to give back to family and friends in the 586)
+2| Help out Robert (July)
+3| Become Alert and Ready + Boyfriend Mindset (August)
+Goal_Part_Two:
+0| Get back Home (September)
+1| Get back with Angie (October)
+2| Help Bill Out (November)
+
+
+Simultaneous Things:
+--Do Goals_Part_One all at same time; focus on soonest things first as highest priority
+Goals_Part_One = {
+        month = June {
+                0 = 35% (push hard)
+                1 = 10% (get started)
+                2 = 10% (get started)
+                3 = 35% (push hard)
+        }
+        month = July {
+                0 = 20% (begin ease up)
+                1 = 05% (complete part 1)
+                2 = 35% (push hard)
+                3 = 15% (maintain)
+        }
+        month = August {
+                0 = 0%
+                1 = 0%
+                2 = 20% (maintain)
+                3 = 20% (maintain)
+        }
+        month = September {
+                0 = 10% (leave ININ)
+                1 = 0%
+                2 = 10% (temp reduce)
+                3 = 0% (becomes Goal_Part_Two:1)
+        }
+         
+}
+Goals_Part_Two = {
+        month = June {
+                0 = 10% (get started)
+                1 = 0%
+                2 = 0%
+        }
+        month = July {
+                0 = 25% (ramp up)
+                1 = 0%
+                2 = 0%
+        }
+        month = August {
+                0 = 60% (full focus)
+                1 = 0%
+                2 = 0%
+        }
+        month = September {
+                0 = 50% (full focus)
+                1 = 30% (begin ramp up)
+                2 = 0%
+        }
+}
+
+
+Be
+loving
+compassionate
+caring
+sexy
+cute
+hot
+patient
+tolerant
+to Angie
+
+
+

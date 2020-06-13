@@ -1,0 +1,12 @@
+
+
+
+[root@localhost /]# netstat -tunlp | grep USD
+tcp        0      0 127.0.0.1:33333             0.0.0.0:*                   LISTEN      33666/USD
+[root@localhost /]# ps -el | grep USD
+1 S   121 13333     1  0  80   0 - 146104 poll_s ?       00:10:11 USD
+[root@localhost /]#kill 14958
+
+
+
+

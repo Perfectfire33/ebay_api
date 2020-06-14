@@ -1,0 +1,13 @@
+[Campaign1]
+NightElf=-4035225266123964415
+Human=576460752303423488
+Undead=576460752303423488
+Orc=-4035225266123964415
+PlayerName=Perfectfire
+ShowScreen=0
+TutorialCleared=0
+Difficulty=1
+
+[NOTE TO HACKERS -- Changing this file may be hazardous to your progress]
+Magic1=-704524704
+

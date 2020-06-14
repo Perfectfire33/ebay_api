@@ -1,0 +1,21 @@
+little number on "In God We Trust" side, bottom right of the "ONE":
+
+
+
+F46494538A F 6 Series=2017		5
+I35067330A I 9 Sew=winries 2013		51
+K52367508C K 11 Series 29=end013	35
+
+
+also found new unique numbers on the "FEDERAL RESERVE NOTE" side (to left of the "Washington, D.C.):
+
+F46494538A F 6 Series=2017		F11
+I35067330A I 9 Sew=winries 2013		FW D 71
+K52367508C K 11 Series 29=end013	FW F 27
+
+
+also found new unique numbers left of the bank name (e.g. "Bank of Atlanta"):
+
+F46494538A F 6 Series=2017		F1
+I35067330A I 9 Sew=winries 2013		D3
+K52367508C K 11 Series 29=end013	F3

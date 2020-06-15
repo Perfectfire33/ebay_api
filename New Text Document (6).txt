@@ -1,1 +1,1 @@
-rtl8100C 96q95a2  3316 6004090906870 PCI
+Computer expansion card that so far has been tested many times and I still can't get it to work. This was mentioned earlier in https://github.com/Perfectfire33/ebay_api. RTL8100C 96q95a2  3316 6004090906870 PCI

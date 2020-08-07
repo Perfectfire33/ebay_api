@@ -1,0 +1,58 @@
+{
+   "availability":{
+      "pickupAtLocationAvailability":[
+         {
+            "availabilityType":"AvailabilityTypeEnum : [IN_STOCK,OUT_OF_STOCK,SHIP_TO_STORE]",
+            "fulfillmentTime":{
+               "unit":"TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
+               "value":"integer"
+            },
+            "merchantLocationKey":"string",
+            "quantity":"integer"
+         }
+      ],
+      "shipToLocationAvailability":{
+         "quantity":"integer"
+      }
+   },
+   "condition":"ConditionEnum : [NEW,LIKE_NEW,NEW_OTHER...]",
+   "conditionDescription":"string",
+   "packageWeightAndSize":{
+      "dimensions":{
+         "height":"number",
+         "length":"number",
+         "unit":"LengthUnitOfMeasureEnum : [INCH,FEET,CENTIMETER...]",
+         "width":"number"
+      },
+      "packageType":"PackageTypeEnum : [LETTER,BULKY_GOODS,CARAVAN...]",
+      "weight":{
+         "unit":"WeightUnitOfMeasureEnum : [POUND,KILOGRAM,OUNCE...]",
+         "value":"number"
+      }
+   },
+   "product":{
+      "aspects": {
+			"AspectName" : [
+				"string"
+			],
+	  },
+      "brand":"string",
+      "description":"string",
+      "imageUrls":[
+         "string"
+      ],
+      "mpn":"string",
+      "subtitle":"string",
+      "title":"string",
+      "isbn":[
+         "string"
+      ],
+      "upc":[
+         "string"
+      ],
+      "ean":[
+         "string"
+      ],
+      "epid":"string"
+   }
+}

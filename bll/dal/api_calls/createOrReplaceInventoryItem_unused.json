@@ -1,0 +1,43 @@
+{
+  "availability": {
+    "pickupAtLocationAvailability": [
+      {
+      "availabilityType" : "IN_STOCK",
+      "fulfillmentTime" : {
+          "unit" : "DAY",
+          "value" : "1"
+        },
+        "merchantLocationKey": "string",
+        "quantity": "12"
+      }
+    ],
+    "shipToLocationAvailability": {
+      "quantity": "14"
+    }
+  },
+  "condition": "USED_GOOD",
+  "conditionDescription": "string",
+  "packageWeightAndSize": {
+    "dimensions": {
+      "height": "12",
+      "length": "12",
+      "unit": "INCH",
+      "width": "12"
+    },
+    "packageType": "PARCEL_OR_PADDED_ENVELOPE",
+    "weight": {
+      "unit": "OUNCE",
+      "value": "12"
+    }
+  },
+  "product": {
+    "brand": "string",
+    "description": "string",
+    "mpn": "string",
+    "subtitle": "string",
+    "title": "string",
+    "imageUrls": [
+      "http://i.ebayimg.com/images/i/182196556219-0-1/s-l1000.jpg"
+    ]
+  }
+}

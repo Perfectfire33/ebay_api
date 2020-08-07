@@ -1,0 +1,23 @@
+{  
+   "name":"name_01",
+   "description":"description_01",
+   "marketplaceId":"EBAY_US",
+   "categoryTypes":[  
+      {  
+         "name":"ALL_EXCLUDING_MOTORS_VEHICLES",
+         "default":false
+      }
+   ],
+   "paymentMethods":[  
+      {  
+         "paymentMethodType":"PAYPAL",
+         "recipientAccountReference":{  
+            "referenceType":"PAYPAL_EMAIL",
+            "referenceId":"perfectfireiii@gmail.com"
+         }
+      }
+   ],
+   "paymentInstructions":"paymentInstructions_01",
+   "immediatePay":true,
+   "paymentPolicyId":"6063157000"
+}

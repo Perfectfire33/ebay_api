@@ -1,0 +1,4 @@
+{
+   "inventoryItemGroupKey" : "string",
+   "marketplaceId" : "MarketplaceEnum : [EBAY_US,EBAY_MOTORS,EBAY_CA...]"
+}

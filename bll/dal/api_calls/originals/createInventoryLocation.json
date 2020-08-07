@@ -1,0 +1,48 @@
+{
+   "location":{
+      "address":{
+         "addressLine1":"string",
+         "addressLine2":"string",
+         "city":"string",
+         "country":"CountryCodeEnum : [AD,AE,AF...]",
+         "county":"string",
+         "postalCode":"string",
+         "stateOrProvince":"string"
+      },
+      "geoCoordinates":{
+         "latitude":"number",
+         "longitude":"number"
+      }
+   },
+   "locationAdditionalInformation":"string",
+   "locationInstructions":"string",
+   "locationTypes":[
+      "StoreTypeEnum : [STORE,WAREHOUSE]"
+   ],
+   "locationWebUrl":"string",
+   "merchantLocationStatus":"StatusEnum : [DISABLED,ENABLED]",
+   "name":"string",
+   "operatingHours":[
+      {
+         "dayOfWeekEnum":"DayOfWeekEnum : [MONDAY,TUESDAY,WEDNESDAY...]",
+         "intervals":[
+            {
+               "close":"string",
+               "open":"string"
+            }
+         ]
+      }
+   ],
+   "phone":"string",
+   "specialHours":[
+      {
+         "date":"string",
+         "intervals":[
+            {
+               "close":"string",
+               "open":"string"
+            }
+         ]
+      }
+   ]
+}

@@ -1,0 +1,21 @@
+[  
+   'Calculated:USPS Priority,2 business days#1',
+   '09_Calc_Priority+Express',
+   'Calculated:USPS Priority/Calculated:USPS Prio#3',
+   '11_Calc_Priority_5Day_NoIntl',
+   'Calculated:USPS Priority, USPS Parcel Se/Calc#1',
+   '06_Calc_Priority_1Day_FreeShip',
+   '12_Calc_FedExGround_5Day_NoIntl_FreeShip',
+   '05_Calc_PriorityOnly_3ozMulti',
+   '10_Calc_PriorityOnly_2Day_FreeShip',
+   '13_Calc_FedExGround_10Day_NoIntl_FreeShip',
+   '01_Calc_FirstClassPreferred',
+   'Calculated:USPS First Cla, USPS Priority/Calc#5',
+   '02_Calc_PriorityOnly',
+   '03_Calc_ParcelPreferred',
+   'Calculated:USPS First Cla, USPS Priority,2 bu',
+   '07_Small_FR_Box_1Day_FreeShip',
+   'Calculated:USPS Priority/Calculated:USPS Prio#7',
+   '03_Calc_FirstClassPreferred_3ozMulti',
+   '08_Calc_ParcelPreferred_2Day_FreeShip'
+]

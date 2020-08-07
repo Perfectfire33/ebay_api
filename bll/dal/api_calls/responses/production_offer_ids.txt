@@ -1,0 +1,4 @@
+api_array
+[<Response [201]>, '{"offerId":"29277132014"}', 201, <Response [201]>, '{"offerId":"29277133014"}', 201]
+
+Process finished with

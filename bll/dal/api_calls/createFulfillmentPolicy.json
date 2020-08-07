@@ -1,0 +1,40 @@
+{  
+   "categoryTypes":[  
+      {  
+         "default":"boolean",
+         "name":"CategoryTypeEnum : [MOTORS_VEHICLES,ALL_EXCLUDING_MOTORS_VEHICLES]"
+      }
+   ],
+   "description":"string",
+   "globalShipping":"boolean",
+   "handlingTime":{  
+      "unit":"TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
+      "value":"integer"
+   },
+   "localPickup":"boolean",
+   "marketplaceId":"MarketplaceIdEnum : [EBAY_AT,EBAY_AU,EBAY_BE...]",
+   "name":"string",
+   "pickupDropOff":"boolean",
+   "shippingOptions":[  
+      {  
+         "costType":"ShippingCostTypeEnum : [CALCULATED,FLAT_RATE,NOT_SPECIFIED]",
+         "insuranceOffered":"boolean",
+         "optionType":"ShippingOptionTypeEnum : [DOMESTIC,INTERNATIONAL]",
+         "packageHandlingCost":{  
+            "currency":"CurrencyCodeEnum : [AED,AFN,ALL...]",
+            "value":"string"
+         },
+         "shippingServices":[  
+            {  
+               "freeShipping":"boolean",
+               "shippingCarrierCode":"string",
+               "shippingCost":{  
+                  "currency":"CurrencyCodeEnum : [AED,AFN,ALL...]",
+                  "value":"string"
+               },
+               "shippingServiceCode":"string"
+            }
+         ]
+      }
+   ]
+}

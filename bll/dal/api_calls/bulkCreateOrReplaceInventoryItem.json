@@ -1,0 +1,69 @@
+{ /* BulkInventoryItem */
+"requests" : [
+{ /* InventoryItemWithSkuLocale */
+"availability" :
+{ /* Availability */
+"pickupAtLocationAvailability" : [
+{ /* PickupAtLocationAvailability */
+"availabilityType" : "AvailabilityTypeEnum : [IN_STOCK,OUT_OF_STOCK,SHIP_TO_STORE]",
+"fulfillmentTime" :
+{ /* TimeDuration */
+"unit" : "TimeDurationUnitEnum : [YEAR,MONTH,DAY...]",
+"value" : "integer"
+},
+"merchantLocationKey" : "string",
+"quantity" : "integer"
+}
+],
+"shipToLocationAvailability" :
+{ /* ShipToLocationAvailability */
+"quantity" : "integer"
+}
+},
+"condition" : "ConditionEnum : [NEW,LIKE_NEW,NEW_OTHER...]",
+"conditionDescription" : "string",
+"packageWeightAndSize" :
+{ /* PackageWeightAndSize */
+"dimensions" :
+{ /* Dimension */
+"height" : "number",
+"length" : "number",
+"unit" : "LengthUnitOfMeasureEnum : [INCH,FEET,CENTIMETER...]",
+"width" : "number"
+},
+"packageType" : "PackageTypeEnum : [LETTER,BULKY_GOODS,CARAVAN...]",
+"weight" :
+{ /* Weight */
+"unit" : "WeightUnitOfMeasureEnum : [POUND,KILOGRAM,OUNCE...]",
+"value" : "number"
+}
+},
+"product" :
+{ /* Product */
+"aspects" : [
+"string"
+],
+"brand" : "string",
+"description" : "string",
+"imageUrls" : [
+"string"
+],
+"mpn" : "string",
+"subtitle" : "string",
+"title" : "string",
+"isbn" : [
+"string"
+],
+"upc" : [
+"string"
+],
+"ean" : [
+"string"
+],
+"epid" : "string"
+},
+"sku" : "string",
+"locale" : "LocaleEnum : [en_US,en_CA,fr_CA...]"
+}
+]
+}

@@ -9,7 +9,7 @@ TO OUR APP
 
 """
 This file:
->retrieves eBay API OAuth credentials in format of token.txt (if need new token: https://developer.ebay.com/my/auth?env=sandbox&index=0&auth_type=oauth )
+>retrieves eBay API OwaAuth credentials in format of token.txt (if need new token: https://developer.ebay.com/my/auth?env=sandbox&index=0&auth_type=oauth )
 >authenticates with eBay API using token.txt
 >contains functions for specific eBay operations
     >each function:
@@ -20,6 +20,38 @@ This file:
 >To be referenced in inventory_item_cmd.py and master_cmd.py
 """
 
+# get_api_headers presets the api_headers variable and requires the token
+def get_api_headers(token):
+    api_headers = {'Authorization': '%s' % token,
+                   'content-type': 'application/json',
+                   'Accept': 'application/json',
+                   'content-language': 'en-US'}
+
+    return api_headers
+
+def get_api_headers2(token):
+    api_headers = {"Authorization": "%s" % token,
+                   "Accept": "application/json",
+                   "Content-Type": "application/json"
+                   }
+
+    return api_headers
+
+def get_api_headers_getAuthCode(token):
+    api_headers = {"Accept": "application/json",
+                   "Content-Type": "application/json"
+                   }
+    return api_headers
+
+
+
+
+#def get_api_headers(token):
+#    api_headers = {'Authorization': '%s' % token,
+#                   'content-language': 'en-US'}
+#
+#    return api_headers
+
 # getBaseUri retrieves and prepares the generic uri that is necessary in the http call
 # Variables requires:
 #   uri_env ~ sandbox or production environment
@@ -27,6 +59,7 @@ This file:
 #   base_uri = ebay_api_connector.getBaseUri(uri_env="sandbox")
 # Used in:
 #   ebay_object_defs.build_api_call()
+#   this file -- ebay_api_connector
 def getBaseUri(uri_env):
     if uri_env == 'sandbox':
         base_uri = 'https://api.sandbox.ebay.com'
@@ -34,190 +67,776 @@ def getBaseUri(uri_env):
     if uri_env == 'production':
         base_uri = 'https://api.ebay.com'
 
-    # selected_api_contract_data = ebay_api_connector.apiContractAccessor(selected_contract_fileinfo, contract_data_array)
-    # selected_api_contract_json = json.loads(selected_api_contract_data)
-    # selected_api_contract_json = json.loads(selected_api_contract_data)
-    # print("selected_api_contract_data.info")
-    # print(selected_api_contract_json['info']['title'])
-
-    # print('base_uri')
-    # print(base_uri)
     return base_uri
 
 
-# build_api_call populates a given templated api call with
-#   specific call information (e.g. any uri parameters, request payload)
-#   and data from Google Sheets (the getDataSet() function)
-# Variables:
-#   base_uri - string - https:\\api.ebay.com or https:\\api.sandbox.ebay.com
-#   contract_identifier - string - name of api contract file used
-#   current_api_call - string - name of api call
-#   request_payload - json - request body template to be populated
-#   uri_parameters - array - this contains the required values of the uri parameters
-def build_api_call(base_uri, selected_api_contract_data, current_api_call, request_payload, uri_parameters):
-    """
-    Need to select correct(based on call name):
-        1|request payload, from callSelector
-        2|api contract, from contractSelector
-        3|uri parameters, from <new function here>? <-- not sure how to handle uri params yet
-        *may need to parse current_api_call based on delimiter*
-    Result of this function:
-        1| put together components of api call:
-            a| URI - base_uri + api-specific uri parts + call-specific uri parts + uri params
-            b| BODY - template of request payload
-            c| HEADERS - header keys
-    """
-    # loads selected_api_contract_data into JSON-accessible format
-    selected_api_contract_json = bll.dal.api_contract_accessor.load_selected_api_contract_data(selected_api_contract_data)
+def getBaseUriAuth(uri_env):
+    if uri_env == 'sandbox':
+        base_uri = 'https://auth.sandbox.ebay.com'
 
-    api_contract_base_path = selected_api_contract_json['servers'][0]['variables']['basePath']['default']
+    if uri_env == 'production':
+        base_uri = 'https://auth.ebay.com'
 
-    http_operation = "get"
-    operation_id = "getInventoryLocation"
-    print("selected_api_contract_json['paths']")
-    # print number of objects in json object
-    # print(len(selected_api_contract_json['paths']))
-    current_path = "/location/{merchantLocationKey}"
-    # print(selected_api_contract_json['paths'][current_path][http_operation]['operationId'])
+    return base_uri
 
-    built_api_call = bll.dal.api_contract_access_tests.api_contract_access_tests(selected_api_contract_data)
+def mapPayloadBodyToFilename():
+    print("aaa")
 
 
+def getPayloadFilenameMap():
+    payloadFilenameMap = {}
 
+    payloadFilenameMap['inventory_createOrReplaceInventoryItem']="createOrReplaceInventoryItem.json"
+    payloadFilenameMap['inventory_bulkUpdatePriceQuantity']="bulkUpdatePriceQuantity.json"
+    payloadFilenameMap['inventory_bulkCreateOrReplaceInventoryItem']="bulkCreateOrReplaceInventoryItem.json"
+    payloadFilenameMap['inventory_createInventoryLocation']="createInventoryLocation.json"
+    payloadFilenameMap['inventory_createOffer']="createOffer.json"
+    payloadFilenameMap['inventory_updateOffer']="createOffer.json"
+    payloadFilenameMap['inventory_getListingFees']="offerGetListingFees.json"
+    payloadFilenameMap['inventory_publishOfferByInventoryItemGroup']="offerPublishByInventoryItemGroup.json"
+    payloadFilenameMap['inventory_withdrawOfferByInventoryItemGroup']="offerWithdrawByInventoryItemGroup.json"
+    payloadFilenameMap['inventory_bulkCreateOffer']="bulkCreateOffer.json"
+    payloadFilenameMap['inventory_bulkPublishOffer']="bulkPublishOffer.json"
+    payloadFilenameMap['account_createPaymentPolicy']="createPaymentPolicy.json"
+    payloadFilenameMap['account_createReturnPolicy']="createReturnPolicy.json"
+    payloadFilenameMap['account_createFulfillmentPolicy']="createFulfillmentPolicy.json"
+    payloadFilenameMap['account_updatePaymentPolicy']="updatePaymentPolicy.json"
+    payloadFilenameMap['account_updateReturnPolicy']="updateReturnPolicy.json"
+    payloadFilenameMap['account_updateFulfillmentPolicy']="updateFulfillmentPolicy.json"
 
-    # api_pieces1 = "111"
-    # api_pieces2 = "222"
-    # built_api_call = api_pieces1 + api_pieces2
-    return built_api_call
-
-
-
-
-# once call is determined, find call among contracts,
-# then build call template from selected contract:
-#   request payload template
-#   uri template
-#   uri parameters template
-#       notes:
-#           build function to 'find' an api in a contract... example unique api name:
-#               'ebay_api.commerce_api.assignCategoryToOffer'
-#
-#           could also use this in other way to pass parameters with an api call:
-#               'ebay_api.commerce_api.assignCategoryToOffer(category, offer)'
-#               this string would be manually parsed by scripts to know what to do
-#
-#           this string would then be a line in a sequence file
-#           the api_templator (not api_sequencer) would create four files in
-#           four directory folders: call, uri, params, headers
-#           with proper template for the supplied api call
-
-
-
-# once call template from selected contract is built,
-# then populate template with call data from google sheets data object:
-#   request payload data
-#   uri data
-#   uri parameter data
-#
-# data may also be taken from other sources, as necessary, to make a complete api call
-# (e.g. uri params for searching may be in a txt file)
-
-# once call is built with data, send to proper API
-
-
-
-# api_finder locates an api call within a contract or set of contracts
-def api_finder(operationId):
-
-    abc = ""
-
-
-
-
-    return abc
-
-"""
-legend:
-    api_finder      ....    function that locates an api call within a contract or set of contracts
-    api_templator   ....    function that builds template files from a located api
-    api_populator   ....    function that grabs data from google sheets object and inserts it into api template files
-
-overview of process:
-    1|  command script sends what api call is necessary to api_finder 
-    2|  api_finder locates the call and sends location data to api_templator
-    3|  api_templator creates files for one api call at a time from contract data
-    4|  api_populator takes data from identified google sheet object and 
-            fills in the template, building a complete api call
-    4|  api_sequencer then takes in the populated files (needs to be improved to handle uris, params, and headers)
-            and creates data structure for app to access
-
-
-
-gsheets_data_identifier ....    function that takes data from google sheets object based on api_populator info
-                                and returns the data in a usable object (object schema determined by api_populator)
-                                to api_populator
-                                
-object_schema_selector  ....    selects the object schema 
-                                
-                                
-function workflow:
-    a. api_finder
-    b. api_templator
-    c. api_populator
-        i. gsheets_data_identifier
-    d. api_sequencer
-
-"""
-
-"""
-big overview (all workflow) summary:
-    
-    A. 
-    B. api_sequencer
-        a. api_finder
-        b. api_templator
-        c. api_populator
-            i. gsheets_data_identifier
-    C. 
-    D. 
-    E. 
-    F. 
-    G. 
-    H. 
-    I. 
-
-
-
-
-"""
+    return payloadFilenameMap
 
 
 
 
 
-
-def inventory_createOrReplaceInventoryItem(body, token, sku):
-
-    """Create the Inventory Item"""
-
-    # This is the ebay URL used to add or update an inventory item                      *****IMPORTANT*****
-    api_url = 'https://api.sandbox.ebay.com/sell/inventory/v1/inventory_item/' + str(sku) + '/' # <--- Use this test env url first then Prod
-                                                            # Prod env url: https://api.ebay.com
-
-    # Method body
-    api_payload = body
-
+# uri_param1 ~~ {client_id}
+# uri_param2 ~~ {redirect_uri}
+# uri_param3 ~~ {response_type}
+# uri_param4 ~~ {state}
+# uri_param5 ~~ {scope}
+def app_getAuthorizationAuthCode(uri_env, uri_param1, uri_param2, uri_param3, uri_param5):
+    """Get the Authorization Code"""
+    base_uri = getBaseUriAuth(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/oauth2/authorize?client_id=' + str(uri_param1) + '&redirect_uri=' + str(uri_param2) + '&response_type=' + str(uri_param3) + '&scope=' + str(uri_param5)
     # Method Headers
-    api_headers = {'Authorization': '%s' % token,
-                            'content-type': 'application/json',
-                            'Accept': 'application/json',
-                            'content-language': 'en-US'}
-
-    # Specify request body json data and headers
-    api_response = bll.dal.ebay_api.createOrReplaceInventoryItem(api_url, api_payload, api_headers)
-
-    """ Store the addTestCase response """
-    """Create the Test Case"""
-    # Use the .json function() to get the data in json format and then we store it in api_response variable
-    # api_response = api_response.json()
+    api_headers = {"Accept": "application/json",
+                   "Content-Type": "application/json"
+                   }
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getAuthorizationAuthCode(api_url, api_headers)
+    # Return the API Response
     return api_response
+
+# auth_code - run ebay_object_matcher.get_authorize_code()
+# auth_string - "Basic <B64-encoded-oauth-credentials>" (run ebay_object_matcher.
+def app_getUserAccessToken(auth_string, uri_env, body):
+    """Get the Authorization Code"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/identity/v1/oauth2/token'
+    # Method Headers
+    api_headers = {"Accept": "application/json",
+                   "Content-Type": "application/x-www-form-urlencoded",
+                   "Authorization": auth_string
+                   }
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getUserAccessToken(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+""" <><><><><><><><><> BEGIN InventoryItem Object <><><><><><><><><><><> """
+
+# inventory_createOrReplaceInventoryItem request body uses /api_calls/createOrReplaceIventoryItem.json
+# uri_param1 ~~ {sku}
+def inventory_createOrReplaceInventoryItem(token, uri_env, uri_param1, body):
+    """Create the Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createOrReplaceInventoryItem(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {sku}
+def inventory_getInventoryItem(token, uri_env, uri_param1):
+    """Get an Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ limit
+# uri_param2 ~~ offset
+def inventory_getInventoryItems(token, uri_env, uri_param1, uri_param2):
+    """Get Inventory Items"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get a inventory items
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + '?limit=' + str(uri_param1) + '&offset=' + str(uri_param2)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.getInventoryItems(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {sku}
+def inventory_deleteInventoryItem(token, uri_env, uri_param1):
+    """Delete an Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.deleteInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_bulkUpdatePriceQuantity request body uses /api_calls/bulkUpdatePriceQuantity.json
+def inventory_bulkUpdatePriceQuantity(token, uri_env, body):
+    """Update Price and Quantity for bulk Inventory Items"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_update_price_quantity/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkUpdatePriceQuantity(api_url, api_headers, body)
+    # Return the API Response
+    return api_response
+
+# inventory_bulkCreateOrReplaceInventoryItem request body uses /api_calls/bulkCreateOrReplaceInventoryItem.json
+def inventory_bulkCreateOrReplaceInventoryItem(token, uri_env, body):
+    """Bulk Create or Update Inventory Item"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_create_or_replace_inventory_item/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkCreateOrReplaceInventoryItem(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+def inventory_bulkGetInventoryItem(token, uri_env):
+    """Get a Inventory Items in Bulk"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_create_or_replace_inventory_item/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkGetInventoryItem(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+""" <><><><><><><><><> END InventoryItem Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> BEGIN InventoryLocation Object <><><><><><><><><><><> """
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_getInventoryLocation(token, uri_env, uri_param1):
+    """Get an Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryLocation(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ offset
+# uri_param2 ~~ limit
+def inventory_getInventoryLocations(token, uri_env, uri_param1, uri_param2):
+    """Get Inventory Locations"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + '?offset=' + str(uri_param1) + '&limit=' + str(uri_param2)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryLocations(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_createInventoryLocation request body uses /api_calls/createInventoryLocation.json
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_createInventoryLocation(token, uri_env, uri_param1, body):
+    """Create the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createInventoryLocation(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_disableInventoryLocation(token, uri_env, uri_param1):
+    """Disable the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/disable'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.disableInventoryLocation(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_enableInventoryLocation(token, uri_env, uri_param1):
+    """Enable the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/enable'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.enableInventoryLocation(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_deleteInventoryLocation(token, uri_env, uri_param1):
+    """Delete the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteInventoryLocation(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+
+# uri_param1 ~~ {merchantLocationKey}
+def inventory_updateInventoryLocation(token, uri_env, uri_param1, body):
+    """Update the Inventory Location"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/location/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updateInventoryLocation(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+""" <><><><><><><><><> END InventoryLocation Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> BEGIN Offer Object <><><><><><><><><><><> """
+# inventory_createOffer request body uses /api_calls/createOffer.json
+def inventory_createOffer(token, uri_env, body):
+    """Create the Inventory Offer"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_updateOffer request body uses /api_calls/createOffer.json
+# uri_param1 ~~ {offerId}
+def inventory_updateOffer(token, uri_env, uri_param1, body):
+    """Update the Inventory Offer"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updateOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {offerId}
+def inventory_deleteOffer(token, uri_env, uri_param1):
+    """Delete the Inventory Offer"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteOffer(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {offerId}
+def inventory_publishOffer(token, uri_env, uri_param1):
+    """Publish the Inventory Offer"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/' + str(uri_param1) + '/publish/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.publishOffer(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {offerId}
+def inventory_withdrawOffer(token, uri_env, uri_param1):
+    """Withdraw the Inventory Offer"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/' + str(uri_param1) + '/withdraw/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.withdrawOffer(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {offerId}
+def inventory_getOffer(token, uri_env, uri_param1):
+    """Get the Inventory Offer"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getOffer(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {sku}
+# uri_param2 ~~ {marketplace_id}
+# uri_param3 ~~ {format}
+# uri_param4 ~~ {limit}
+# uri_param5 ~~ {offset}
+def inventory_getOffers(token, uri_env, uri_param1, uri_param2, uri_param3, uri_param4, uri_param5):
+    """Get Inventory Offers"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer' + \
+              '?sku=' + str(uri_param1) + \
+              '&marketplace_id=' + str(uri_param2) + \
+              '&format=' + str(uri_param3) + \
+              '&limit=' + str(uri_param4) + \
+              '&offset=' + str(uri_param5)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getOffers(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_getListingFees request body uses /api_calls/offerGetListingFees.json
+def inventory_getListingFees(token, uri_env, body):
+    """Get the Inventory Offer Listing Fees"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/get_listing_fees/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+# inventory_publishOfferByInventoryItemGroup request body uses /api_calls/offerPublishByInventoryItemGroup.json
+def inventory_publishOfferByInventoryItemGroup(token, uri_env, body):
+    """Publish the Offer by the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/publish_by_inventory_item_group'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.publishOfferByInventoryItemGroup(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_withdrawOfferByInventoryItemGroup request body uses /api_calls/offerWithdrawByInventoryItemGroup.json
+def inventory_withdrawOfferByInventoryItemGroup(token, uri_env, body):
+    """Withdraw the Offer by the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/offer/withdraw_by_inventory_item_group'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.withdrawOfferByInventoryItemGroup(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_bulkCreateOffer request body uses /api_calls/bulkCreateOffer.json
+def inventory_bulkCreateOffer(token, uri_env, body):
+    """Bulk Create Inventory Item Offers"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_create_offer/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkCreateOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# inventory_bulkPublishOffer request body uses /api_calls/bulkPublishOffer.json
+def inventory_bulkPublishOffer(token, uri_env, body):
+    """Publish Inventory Item Offers in Bulk"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/bulk_publish_offer/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Specify request body json data and headers
+    api_response = bll.dal.ebay_api.bulkPublishOffer(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+""" <><><><><><><><><> END Offer Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> BEGIN Inventory Item Group Object <><><><><><><><><><><> """
+
+# uri_param1 ~~ {inventoryItemGroupKey}
+def inventory_getInventoryItemGroup(token, uri_env, uri_param1):
+    """Get the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item_group/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getInventoryItemGroup(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {inventoryItemGroupKey}
+def inventory_createOrReplaceInventoryItemGroup(token, uri_env, uri_param1, body):
+    """Create or Update the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item_group/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createOrReplaceInventoryItemGroup(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {inventoryItemGroupKey}
+def inventory_deleteInventoryItemGroup(token, uri_env, uri_param1):
+    """Delete the Inventory Item Group"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/inventory_item_group/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteInventoryItemGroup(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+""" <><><><><><><><><> END Inventory Item Group Object <><><><><><><><><><><> """
+
+
+
+
+
+
+""" <><><><><><><><><> BEGIN ACCOUNT API Object <><><><><><><><><><><> """
+
+def account_createFulfillmentPolicy(token, uri_env, body):
+    """Create the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createFulfillmentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {fulfillmentPolicyId}
+def account_deleteFulfillmentPolicy(token, uri_env, uri_param1):
+    """Delete the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/fulfillment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteFulfillmentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def account_getFulfillmentPolicies(token, uri_env, uri_param1):
+    """Get Fulfillment Policies"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/?marketplace_id=' + str(uri_param1)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getFulfillmentPolicies(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {fulfillmentPolicyId}
+def account_getFulfillmentPolicy(token, uri_env, uri_param1):
+    """Get the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/fulfillment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getFulfillmentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+# uri_param2 ~~ {name}
+def account_getFulfillmentPolicyByName(token, uri_env, uri_param1, uri_param2):
+    """Get Fulfillment Policy By Name"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/fulfillment_policy/get_by_policy_name?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getFulfillmentPolicyByName(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {fulfillmentPolicyId}
+def account_updateFulfillmentPolicy(token, uri_env, uri_param1, body):
+    """Update the Fulfillment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/fulfillment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updateFulfillmentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+def account_createPaymentPolicy(token, uri_env, body):
+    """Create the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/payment_policy/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createPaymentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {paymentPolicyId}
+def account_deletePaymentPolicy(token, uri_env, uri_param1):
+    """Delete the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/payment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deletePaymentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def account_getPaymentPolicies(token, uri_env, uri_param1):
+    """Get Payment Policies"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/payment_policy/?marketplace_id=' + str(uri_param1)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getPaymentPolicies(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {paymentPolicyId}
+def account_getPaymentPolicy(token, uri_env, uri_param1):
+    """Get the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/payment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getPaymentPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+# uri_param2 ~~ {name}
+def account_getPaymentPolicyByName(token, uri_env, uri_param1, uri_param2):
+    """Get Payment Policy By Name"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/payment_policy/get_by_policy_name?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2)
+    #print("api_urla_account_getPaymentPolicyByName")
+    #print(api_urla)
+    #api_url = api_urla.replace(" ", "%20")
+    #print("api_url_account_getPaymentPolicyByName")
+    #print(api_url)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getPaymentPolicyByName(api_url, api_headers)
+    print("api_response_account_getPaymentPolicyByName")
+    print(api_response)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {paymentPolicyId}
+def account_updatePaymentPolicy(token, uri_env, uri_param1, body):
+    """Update the Payment Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/payment_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updatePaymentPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+
+
+def account_createReturnPolicy(token, uri_env, body):
+    """Create the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/return_policy/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.createReturnPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {returnPolicyId}
+def account_deleteReturnPolicy(token, uri_env, uri_param1):
+    """Delete the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/return_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.deleteReturnPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def account_getReturnPolicies(token, uri_env, uri_param1):
+    """Get Return Policies"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/return_policy/?marketplace_id=' + str(uri_param1)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getReturnPolicies(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {returnPolicyId}
+def account_getReturnPolicy(token, uri_env, uri_param1):
+    """Get the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/return_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getReturnPolicy(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+# uri_param2 ~~ {name}
+def account_getReturnPolicyByName(token, uri_env, uri_param1, uri_param2):
+    """Get Return Policy By Name"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/account/v1/return_policy/get_by_policy_name?marketplace_id=' + str(uri_param1) + '&name=' + str(uri_param2)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getReturnPolicyByName(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {returnPolicyId}
+def account_updateReturnPolicy(token, uri_env, uri_param1, body):
+    """Update the Return Policy"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/sell/inventory/v1/return_policy/' + str(uri_param1) + '/'
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.updateReturnPolicy(api_url, body, api_headers)
+    # Return the API Response
+    return api_response
+
+""" <><><><><><><><><> END ACCOUNT API Object <><><><><><><><><><><> """
+
+""" <><><><><><><><><> BEGIN COMMERCE API Object <><><><><><><><><><><> """
+
+
+# uri_param1 ~~ {category_tree_id}
+# uri_param2 ~~ {q}
+def taxonomy_getCategorySuggestions(token, uri_env, uri_param1, uri_param2):
+    """Get Category Suggestions"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/commerce/taxonomy/v1_beta/category_tree/' + str(uri_param1) + '/get_category_suggestions?q=' + str(uri_param2)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getCategorySuggestions(api_url, api_headers)
+    # Return the API Response
+    return api_response
+
+# uri_param1 ~~ {marketplace_id}
+def taxonomy_getDefaultCategoryTreeId(token, uri_env, uri_param1):
+    """Get the Default Category Tree Id"""
+    base_uri = getBaseUri(uri_env)
+    # This is the ebay URL used to get an inventory item
+    api_url = base_uri + '/commerce/taxonomy/v1_beta/get_default_category_tree_id?marketplace_id=' + str(uri_param1)
+    # Method Headers
+    api_headers = get_api_headers(token)
+    # Call the API Endpoint
+    api_response = bll.dal.ebay_api.getDefaultCategoryTreeId(api_url, api_headers)
+    # Return the API Response
+    return api_response
+""" <><><><><><><><><> END COMMERCE API Object <><><><><><><><><><><> """
+
+

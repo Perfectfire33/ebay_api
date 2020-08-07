@@ -1,0 +1,28 @@
+{  
+   "aspects":[  
+      "string"
+   ],
+   "description":"string",
+   "inventoryItemGroupKey":"string",
+   "imageUrls":[  
+      "string"
+   ],
+   "subtitle":"string",
+   "title":"string",
+   "variantSKUs":[  
+      "string"
+   ],
+   "variesBy":{  
+      "aspectsImageVariesBy":[  
+         "string"
+      ],
+      "specifications":[  
+         {  
+            "name":"string",
+            "values":[  
+               "string"
+            ]
+         }
+      ]
+   }
+}

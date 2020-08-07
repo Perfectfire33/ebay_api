@@ -1,6 +1,0 @@
-Your Heirship Bank account number is your Social Security number (United States)
-?with a 22 at the end for checking, 32 at the end for savings.
-
-Example: 00000000022 or 00000000032
-
-Heirship Bank Routing Number (United States): 021050466

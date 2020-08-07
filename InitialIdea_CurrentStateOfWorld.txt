@@ -1,7 +1,0 @@
-The Current State Of The World
- <i>as it stands September 2nd, 2016</i>
-
-Make website
-Describe Current State
-Add Paypal donate button
-share on FB

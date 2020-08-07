@@ -1,7 +1,0 @@
-|       [ORGZ]People.txt    |       #Editor=Notepad++       |       #Language=Batch         |       Resolution=1920x1080       |       #LastUpdated=03/01/2015      |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-
-        >Create [ORGZ]People.txt                                        1.00    ,       5       [ ]
-                ^|Add/Link to [ORGZ]Communication|^    
-                ^|Link People together; relation (family, aunt, friend,etc)|^    
-                ^|Make [ORGZ]PeopleTree.txt?|^    

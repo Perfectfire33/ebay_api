@@ -1,8 +1,0 @@
-C:\Users\dick\Documents\GitHub\ebay_api\bll\dal\pictures\SortedBatch_III\Star Wars II Battlefront
-C:\Program Files (x86)\Warcraft III\x86_64
-C:\Users\dick\Downloads\YouTubeDL\Video_DL
-C:\Users\dick\Documents\GitHub\ebay_api\misc\archives\new_data
-C:\Users\Public\EBAY
-C:\Users\dick\Documents\Warcraft III\Maps\Test Maps
-C:\Users\dick\Documents\GitHub\ebay_api\misc\archives\new_data\edited_pics
-C:\Users\dick\Documents\GitHub\ebay_api\misc\archives\new_data

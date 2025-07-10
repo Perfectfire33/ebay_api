@@ -1,0 +1,84 @@
+Northern Ida
+
+$Greenhouse.GrowSeeds
+
+lsl;asdl;l;s
+
+asl;dasl;
+'
+winter clothing
+lumberg
+
+
+Food_Supply{
+	{
+		fish,
+		rice,
+		meat_bacon,
+		mre,
+		sdalt,
+		pepper,
+		sugar,
+	},
+	{
+		gravity-fed water purifiers,
+		chlorine tablets,
+		water containers,
+		jalopenos
+		
+	}
+}
+Housing_Infrastructure_00:{
+	{
+		"timber":"firewood",
+		"timber:"construction"	
+	},
+	{
+		Energy :
+			Batteries
+			Power Line
+			Gas (Butane, Propane, Gasoline, Oil, )
+	},
+	{
+		Warmth:
+			Blankets
+				Big Blankets
+				Small SBl;
+			Scarfs
+			Sheets
+			
+	},
+	{
+		Kitchen.Utensils.Eatery	
+		Kitenchs.
+		Cooking Utensils
+		Spatulas
+		Portable Butane Grill
+		eOkay.
+		Tongs,
+		Spoons,
+}		Forks,
+		Knifes
+}
+	{
+		Tents,
+		Canvas,
+		Rope,
+		Shoe,
+		3,
+	}
+	{
+		MISC:{
+			Pkcoetnkive,
+			Bellows,
+			Can Opener,
+			Beef Jerky,
+			
+		}
+
+	}	
+	
+	
+	}
+
+
